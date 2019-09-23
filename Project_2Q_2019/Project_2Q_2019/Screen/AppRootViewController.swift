@@ -36,7 +36,7 @@ class AppRootViewController: UIViewController {
 
         self.addChild(newViewController)
         self.view.addSubview(newViewController.view)
-        
+
         transition(from: current, to: newViewController, duration: 0.5, options: trasitionOption, animations: {
             newViewController.view.alpha = 1
             currentViewController.view.alpha = 0
