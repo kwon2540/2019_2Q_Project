@@ -11,49 +11,48 @@ import UIKit
 class AppRootViewController: UIViewController {
 
     private var current: UIViewController
-    
+
     init() {
-        self.current = HomeViewController()
+        self.current = LoginViewController.getStoryBoard()
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         addChild(current)
         current.view.frame = view.bounds
         view.addSubview(current.view)
         current.didMove(toParent: self)
     }
-    
-    private func changeChild(currentViewController: UIViewController, newViewController: UIViewController) {
+
+    private func changeChild(currentViewController: UIViewController, newViewController: UIViewController, trasitionOption: UIView.AnimationOptions = .transitionCrossDissolve) {
         currentViewController.willMove(toParent: nil)
         newViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
+
         self.addChild(newViewController)
         self.view.addSubview(newViewController.view)
-        
-        transition(from: current, to: newViewController, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+
+        transition(from: current, to: newViewController, duration: 0.5, options: trasitionOption, animations: {
             newViewController.view.alpha = 1
             currentViewController.view.alpha = 0
-        }) { _ in
+        }, completion: { _ in
             currentViewController.view.removeFromSuperview()
             currentViewController.removeFromParent()
             newViewController.didMove(toParent: self)
             self.current = newViewController
-        }
+        })
     }
 }
 
-
 // MARK: Transitions
 extension AppRootViewController {
-    
-    func showNextScreen() {
-//        changeChild(oldViewController: current, newViewController: NextViewController())
+
+    func showHomeScreen() {
+        changeChild(currentViewController: current, newViewController: HomeViewController.getStoryBoard())
     }
 }

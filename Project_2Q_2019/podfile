@@ -7,6 +7,8 @@ target 'Project_2Q_2019' do
 
   # Pods for Project_2Q_2019
   pod 'SwiftLint'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
 
   target 'Project_2Q_2019Tests' do
     inherit! :search_paths
