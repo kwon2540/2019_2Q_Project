@@ -163,6 +163,13 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		1032FE6F2338ED120039E9C0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		10A7E51A22EDC14000DF3D34 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				10A7E5932312B81D00DF3D34 /* Screen */,
+				1032FE6F2338ED120039E9C0 /* Extension */,
 				1032FE6C2338E5250039E9C0 /* Resource */,
 				1032FE692338E41C0039E9C0 /* ViewParts */,
 				1032FE552338C0920039E9C0 /* Shared */,
