@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1032FE572338C1050039E9C0 /* GetStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE562338C1050039E9C0 /* GetStoryboard.swift */; };
 		10A7E52722EDC14000DF3D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E52622EDC14000DF3D34 /* AppDelegate.swift */; };
 		10A7E52922EDC14000DF3D34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E52822EDC14000DF3D34 /* ViewController.swift */; };
 		10A7E52C22EDC14000DF3D34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A7E52A22EDC14000DF3D34 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1032FE562338C1050039E9C0 /* GetStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStoryboard.swift; sourceTree = "<group>"; };
 		10A7E52322EDC14000DF3D34 /* Project_2Q_2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_2Q_2019.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10A7E52622EDC14000DF3D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10A7E52822EDC14000DF3D34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1032FE552338C0920039E9C0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1032FE562338C1050039E9C0 /* GetStoryboard.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		10A7E51A22EDC14000DF3D34 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +116,7 @@
 		10A7E52522EDC14000DF3D34 /* Project_2Q_2019 */ = {
 			isa = PBXGroup;
 			children = (
+				1032FE552338C0920039E9C0 /* Shared */,
 				10A7E5932312B81D00DF3D34 /* Screen */,
 				10A7E52622EDC14000DF3D34 /* AppDelegate.swift */,
 				10A7E52822EDC14000DF3D34 /* ViewController.swift */,
@@ -310,6 +321,7 @@
 				10A7E5952312B83F00DF3D34 /* AppRootViewController.swift in Sources */,
 				10A7E52922EDC14000DF3D34 /* ViewController.swift in Sources */,
 				10A7E52722EDC14000DF3D34 /* AppDelegate.swift in Sources */,
+				1032FE572338C1050039E9C0 /* GetStoryboard.swift in Sources */,
 				10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
