@@ -9,12 +9,12 @@
 import UIKit
 
 class RoundButton: UIButton {
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 5
     }
-    
+
     override var isEnabled: Bool {
         didSet {
             if self.isEnabled {

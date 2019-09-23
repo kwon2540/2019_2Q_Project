@@ -21,27 +21,71 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="neY-e8-KEY">
                                 <rect key="frame" x="50" y="273" width="314" height="350"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MID-Cy-Wbw">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANO-cr-u0n">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MID-Cy-Wbw">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="RKK-me-3HA"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pel-fw-hHQ" customClass="RoundView" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                <rect key="frame" x="294" y="10" width="10" height="10"/>
+                                                <color key="backgroundColor" red="1" green="0.34875531230000001" blue="0.2630323309" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="geP-L5-8U6"/>
+                                                    <constraint firstAttribute="width" constant="10" id="iW3-nB-l6R"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="RKK-me-3HA"/>
+                                            <constraint firstAttribute="trailing" secondItem="Pel-fw-hHQ" secondAttribute="trailing" constant="10" id="8ng-Om-9O1"/>
+                                            <constraint firstAttribute="bottom" secondItem="MID-Cy-Wbw" secondAttribute="bottom" id="IJw-20-cap"/>
+                                            <constraint firstItem="MID-Cy-Wbw" firstAttribute="top" secondItem="ANO-cr-u0n" secondAttribute="top" id="R9i-W7-gTQ"/>
+                                            <constraint firstItem="MID-Cy-Wbw" firstAttribute="leading" secondItem="ANO-cr-u0n" secondAttribute="leading" id="Ydl-2t-yWA"/>
+                                            <constraint firstAttribute="trailing" secondItem="MID-Cy-Wbw" secondAttribute="trailing" id="nE0-NJ-TzJ"/>
+                                            <constraint firstItem="Pel-fw-hHQ" firstAttribute="top" secondItem="ANO-cr-u0n" secondAttribute="top" constant="10" id="tFX-na-jhE"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARh-2v-IN4">
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHc-uV-J5O">
                                         <rect key="frame" x="0.0" y="100" width="314" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARh-2v-IN4">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="XWH-m2-B5k"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ulM-Qg-BLB" customClass="RoundView" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                <rect key="frame" x="294" y="10" width="10" height="10"/>
+                                                <color key="backgroundColor" red="1" green="0.34875531230000001" blue="0.2630323309" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="BbL-rZ-Qd9"/>
+                                                    <constraint firstAttribute="width" constant="10" id="cMM-6h-gLl"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="XWH-m2-B5k"/>
+                                            <constraint firstAttribute="trailing" secondItem="ulM-Qg-BLB" secondAttribute="trailing" constant="10" id="D6N-zD-auo"/>
+                                            <constraint firstItem="ulM-Qg-BLB" firstAttribute="top" secondItem="KHc-uV-J5O" secondAttribute="top" constant="10" id="Va3-fw-xoP"/>
+                                            <constraint firstAttribute="bottom" secondItem="ARh-2v-IN4" secondAttribute="bottom" id="WZh-cZ-ynS"/>
+                                            <constraint firstItem="ARh-2v-IN4" firstAttribute="top" secondItem="KHc-uV-J5O" secondAttribute="top" id="XAu-Z0-dpZ"/>
+                                            <constraint firstItem="ARh-2v-IN4" firstAttribute="leading" secondItem="KHc-uV-J5O" secondAttribute="leading" id="ffh-J7-fmL"/>
+                                            <constraint firstAttribute="trailing" secondItem="ARh-2v-IN4" secondAttribute="trailing" id="vKe-hQ-VM7"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHs-6h-LgT">
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHs-6h-LgT" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="200" width="314" height="50"/>
-                                        <color key="backgroundColor" red="0.030815554147262673" green="0.1016870556730233" blue="0.29418434843498187" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="yEk-k0-tdZ"/>
                                         </constraints>
@@ -53,9 +97,9 @@
                                             <action selector="didTapLogin:" destination="wvI-1A-WEd" eventType="touchUpInside" id="GRo-Ti-xvL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1h-HW-aYw">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1h-HW-aYw" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="300" width="314" height="50"/>
-                                        <color key="backgroundColor" red="0.029931088909506798" green="0.098651878535747528" blue="0.29413521289825439" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.031372549019607843" green="0.098039215686274508" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gyP-Nf-6Bs"/>
                                         </constraints>
@@ -80,8 +124,11 @@
                         <viewLayoutGuide key="safeArea" id="BF9-3K-pZq"/>
                     </view>
                     <connections>
-                        <outlet property="EmailTextField" destination="MID-Cy-Wbw" id="L3k-1X-PiH"/>
+                        <outlet property="emailTextField" destination="MID-Cy-Wbw" id="t2P-ab-Y3f"/>
+                        <outlet property="emailValidView" destination="Pel-fw-hHQ" id="2fE-sd-8wX"/>
+                        <outlet property="loginButton" destination="JHs-6h-LgT" id="Fhx-cz-Wpn"/>
                         <outlet property="passwordTextField" destination="ARh-2v-IN4" id="uCK-Vv-Hvb"/>
+                        <outlet property="passwordValidView" destination="ulM-Qg-BLB" id="ETC-te-4rT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTx-i1-T2G" userLabel="First Responder" sceneMemberID="firstResponder"/>
