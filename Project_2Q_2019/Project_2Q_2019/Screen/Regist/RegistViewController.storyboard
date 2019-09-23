@@ -84,10 +84,10 @@
                         <viewLayoutGuide key="safeArea" id="os7-eF-vbC"/>
                     </view>
                     <connections>
-                        <outlet property="checkPasswordLabel" destination="sjG-50-VBn" id="a6j-je-gUv"/>
-                        <outlet property="emailLabel" destination="4KN-jf-M8q" id="VhT-su-SvO"/>
-                        <outlet property="nameLabel" destination="0YN-vp-LEr" id="OSn-tK-nPS"/>
-                        <outlet property="passwordLabel" destination="yxM-O5-aNU" id="ESO-Dz-pL5"/>
+                        <outlet property="checkPasswordTextField" destination="sjG-50-VBn" id="KOt-N3-XTW"/>
+                        <outlet property="emailTextField" destination="4KN-jf-M8q" id="xYC-sh-fsc"/>
+                        <outlet property="nameTextField" destination="0YN-vp-LEr" id="4Kt-Fc-x5g"/>
+                        <outlet property="passwordTextField" destination="yxM-O5-aNU" id="lBE-BW-6fV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2p-jW-KSC" userLabel="First Responder" sceneMemberID="firstResponder"/>

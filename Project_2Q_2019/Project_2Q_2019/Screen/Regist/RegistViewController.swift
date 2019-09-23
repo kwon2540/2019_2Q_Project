@@ -10,10 +10,10 @@ import UIKit
 
 class RegistViewController: UIViewController, GetStoryboard {
 
-    @IBOutlet private weak var nameLabel: UITextField!
-    @IBOutlet private weak var emailLabel: UITextField!
-    @IBOutlet private weak var passwordLabel: UITextField!
-    @IBOutlet private weak var checkPasswordLabel: UITextField!
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var checkPasswordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 

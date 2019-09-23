@@ -80,8 +80,8 @@
                         <viewLayoutGuide key="safeArea" id="BF9-3K-pZq"/>
                     </view>
                     <connections>
-                        <outlet property="EmailLabel" destination="MID-Cy-Wbw" id="pP8-Dr-ATd"/>
-                        <outlet property="passwordLabel" destination="ARh-2v-IN4" id="1Er-Sp-nLy"/>
+                        <outlet property="EmailTextField" destination="MID-Cy-Wbw" id="L3k-1X-PiH"/>
+                        <outlet property="passwordTextField" destination="ARh-2v-IN4" id="uCK-Vv-Hvb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTx-i1-T2G" userLabel="First Responder" sceneMemberID="firstResponder"/>

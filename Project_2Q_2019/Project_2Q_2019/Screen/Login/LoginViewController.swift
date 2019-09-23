@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class LoginViewController: UIViewController, GetStoryboard {
 
-    @IBOutlet private weak var EmailLabel: UITextField!
-    @IBOutlet private weak var passwordLabel: UITextField!
+    @IBOutlet private weak var EmailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    
+    let viewModel = LoginViewModel()
+    var disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    
     @IBAction private func didTapLogin(_ sender: Any) {
     }
+    
     @IBAction private func didTapRegister(_ sender: Any) {
     }
 }
