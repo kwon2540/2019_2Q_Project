@@ -29,6 +29,7 @@ class LoginViewController: UIViewController, GetStoryboard {
 
     private func bindViewModel() {
 
+        // Input
         emailTextField.rx.text.orEmpty
             .bind(to: viewModel.emailText)
             .disposed(by: disposeBag)
@@ -37,6 +38,7 @@ class LoginViewController: UIViewController, GetStoryboard {
             .bind(to: viewModel.passwordText)
             .disposed(by: disposeBag)
 
+        // Output
         viewModel.isEmailValid
             .bind(to: emailValidView.rx.isHidden)
             .disposed(by: disposeBag)
