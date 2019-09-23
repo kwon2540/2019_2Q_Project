@@ -147,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				1032FE6A2338E4440039E9C0 /* RoundView.swift */,
+				1032FE712338ED910039E9C0 /* RoundButton.swift */,
 			);
 			path = ViewParts;
 			sourceTree = "<group>";
@@ -506,6 +507,7 @@
 				1032FE6B2338E4440039E9C0 /* RoundView.swift in Sources */,
 				10A7E5952312B83F00DF3D34 /* AppRootViewController.swift in Sources */,
 				1032FE682338E24A0039E9C0 /* HomeViewModel.swift in Sources */,
+				1032FE722338ED910039E9C0 /* RoundButton.swift in Sources */,
 				10A7E52722EDC14000DF3D34 /* AppDelegate.swift in Sources */,
 				1032FE642338E2340039E9C0 /* LoginViewModel.swift in Sources */,
 				1032FE572338C1050039E9C0 /* GetStoryboard.swift in Sources */,

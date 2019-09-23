@@ -9,7 +9,7 @@
 import UIKit
 
 class RoundView: UIView {
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = self.frame.height / 2
