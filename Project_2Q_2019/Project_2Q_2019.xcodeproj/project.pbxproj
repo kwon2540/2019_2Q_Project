@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,9 @@
 		1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */; };
 		1032FE602338DE530039E9C0 /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE5F2338DE530039E9C0 /* RegistViewController.swift */; };
 		1032FE622338DE5F0039E9C0 /* RegistViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE612338DE5F0039E9C0 /* RegistViewController.storyboard */; };
+		1032FE642338E2340039E9C0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE632338E2340039E9C0 /* LoginViewModel.swift */; };
+		1032FE662338E2410039E9C0 /* RegistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE652338E2410039E9C0 /* RegistViewModel.swift */; };
+		1032FE682338E24A0039E9C0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE672338E24A0039E9C0 /* HomeViewModel.swift */; };
 		10A7E52722EDC14000DF3D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E52622EDC14000DF3D34 /* AppDelegate.swift */; };
 		10A7E52922EDC14000DF3D34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E52822EDC14000DF3D34 /* ViewController.swift */; };
 		10A7E52C22EDC14000DF3D34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A7E52A22EDC14000DF3D34 /* Main.storyboard */; };
@@ -51,6 +54,9 @@
 		1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		1032FE5F2338DE530039E9C0 /* RegistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewController.swift; sourceTree = "<group>"; };
 		1032FE612338DE5F0039E9C0 /* RegistViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegistViewController.storyboard; sourceTree = "<group>"; };
+		1032FE632338E2340039E9C0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		1032FE652338E2410039E9C0 /* RegistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewModel.swift; sourceTree = "<group>"; };
+		1032FE672338E24A0039E9C0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		10A7E52322EDC14000DF3D34 /* Project_2Q_2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_2Q_2019.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10A7E52622EDC14000DF3D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10A7E52822EDC14000DF3D34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +126,7 @@
 			children = (
 				1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */,
 				1032FE592338C2A70039E9C0 /* LoginViewController.swift */,
+				1032FE632338E2340039E9C0 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 			children = (
 				1032FE612338DE5F0039E9C0 /* RegistViewController.storyboard */,
 				1032FE5F2338DE530039E9C0 /* RegistViewController.swift */,
+				1032FE652338E2410039E9C0 /* RegistViewModel.swift */,
 			);
 			path = Regist;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 			children = (
 				10A7E5972312B86800DF3D34 /* HomeViewController.storyboard */,
 				10A7E5992312B87400DF3D34 /* HomeViewController.swift */,
+				1032FE672338E24A0039E9C0 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -219,7 +228,6 @@
 				1CD2A4C0F6B6D48B5FC49979 /* Pods-Project_2Q_2019UITests.debug.xcconfig */,
 				E1BF6ABDCD5D650FDE1DC48F /* Pods-Project_2Q_2019UITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -479,10 +487,13 @@
 				1032FE5A2338C2A70039E9C0 /* LoginViewController.swift in Sources */,
 				10A7E5952312B83F00DF3D34 /* AppRootViewController.swift in Sources */,
 				10A7E52922EDC14000DF3D34 /* ViewController.swift in Sources */,
+				1032FE682338E24A0039E9C0 /* HomeViewModel.swift in Sources */,
 				10A7E52722EDC14000DF3D34 /* AppDelegate.swift in Sources */,
+				1032FE642338E2340039E9C0 /* LoginViewModel.swift in Sources */,
 				1032FE572338C1050039E9C0 /* GetStoryboard.swift in Sources */,
 				1032FE602338DE530039E9C0 /* RegistViewController.swift in Sources */,
 				10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */,
+				1032FE662338E2410039E9C0 /* RegistViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
