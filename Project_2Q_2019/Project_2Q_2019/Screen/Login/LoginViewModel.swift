@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class LoginViewModel {
-    
+
     let emailText = BehaviorSubject(value: "")
     let passwordText = BehaviorSubject(value: "")
 
@@ -19,6 +19,19 @@ class LoginViewModel {
     let isPasswordValid = BehaviorSubject(value: false)
 
     let disposeBag = DisposeBag()
+
+    init() {
+        emailText.distinctUntilChanged()
+            .map(checkEmailValid)
+            .bind(to: isEmailValid)
+            .disposed(by: disposeBag)
+
+        passwordText.distinctUntilChanged()
+            .map(checkPasswordValid)
+            .bind(to: isPasswordValid)
+            .disposed(by: disposeBag)
+    }
+
     private func checkEmailValid(_ email: String) -> Bool {
         return email.contains("@") && email.contains(".")
     }
