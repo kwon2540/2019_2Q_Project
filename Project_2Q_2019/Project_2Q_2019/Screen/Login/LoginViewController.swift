@@ -12,9 +12,11 @@ import RxCocoa
 
 class LoginViewController: UIViewController, GetStoryboard {
 
-    @IBOutlet private weak var EmailTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
-    
+    @IBOutlet private weak var emailValidView: UIView!
+    @IBOutlet private weak var passwordValidView: UIView!
+    @IBOutlet private weak var loginButton: UIButton!
     let viewModel = LoginViewModel()
     var disposeBag = DisposeBag()
     
