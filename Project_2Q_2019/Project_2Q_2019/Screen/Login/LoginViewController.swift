@@ -10,8 +10,14 @@ import UIKit
 
 class LoginViewController: UIViewController, GetStoryboard {
 
+    @IBOutlet private weak var EmailLabel: UITextField!
+    @IBOutlet private weak var passwordLabel: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    @IBAction private func didTapLogin(_ sender: Any) {
+    }
+    @IBAction private func didTapRegister(_ sender: Any) {
     }
 }
