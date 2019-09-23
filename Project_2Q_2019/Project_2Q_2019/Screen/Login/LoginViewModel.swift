@@ -12,4 +12,11 @@ import RxCocoa
 
 class LoginViewModel {
     
+    private func checkEmailValid(_ email: String) -> Bool {
+        return email.contains("@") && email.contains(".")
+    }
+
+    private func checkPasswordValid(_ password: String) -> Bool {
+        return password.count > 5
+    }
 }
