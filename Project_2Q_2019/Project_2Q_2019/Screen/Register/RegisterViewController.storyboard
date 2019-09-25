@@ -21,42 +21,130 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="AwT-MX-CKV">
                                 <rect key="frame" x="50" y="223" width="314" height="450"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0YN-vp-LEr">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ymX-QM-TxF">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0YN-vp-LEr">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="ilk-hv-brQ"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5He-uO-LMp" customClass="RoundView" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                <rect key="frame" x="294" y="10" width="10" height="10"/>
+                                                <color key="backgroundColor" red="1" green="0.34875531230000001" blue="0.2630323309" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="N30-ep-bmO"/>
+                                                    <constraint firstAttribute="height" constant="10" id="cuK-xg-dr2"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="ilk-hv-brQ"/>
+                                            <constraint firstItem="0YN-vp-LEr" firstAttribute="top" secondItem="ymX-QM-TxF" secondAttribute="top" id="3ne-hP-nAy"/>
+                                            <constraint firstItem="5He-uO-LMp" firstAttribute="top" secondItem="ymX-QM-TxF" secondAttribute="top" constant="10" id="5Ap-Qy-msI"/>
+                                            <constraint firstItem="0YN-vp-LEr" firstAttribute="leading" secondItem="ymX-QM-TxF" secondAttribute="leading" id="GOI-q1-Vmo"/>
+                                            <constraint firstAttribute="trailing" secondItem="0YN-vp-LEr" secondAttribute="trailing" id="VKM-EV-0ln"/>
+                                            <constraint firstAttribute="bottom" secondItem="0YN-vp-LEr" secondAttribute="bottom" id="XsF-gv-VF4"/>
+                                            <constraint firstAttribute="trailing" secondItem="5He-uO-LMp" secondAttribute="trailing" constant="10" id="rfc-jd-Xge"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4KN-jf-M8q">
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDJ-xz-M1K">
                                         <rect key="frame" x="0.0" y="80" width="314" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4KN-jf-M8q">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Izd-3l-5Lj"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wpf-dm-MUf" customClass="RoundView" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                <rect key="frame" x="294" y="10" width="10" height="10"/>
+                                                <color key="backgroundColor" red="1" green="0.34875531230000001" blue="0.2630323309" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="S3p-Jf-ETL"/>
+                                                    <constraint firstAttribute="width" constant="10" id="jK0-E5-8i0"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Izd-3l-5Lj"/>
+                                            <constraint firstAttribute="trailing" secondItem="4KN-jf-M8q" secondAttribute="trailing" id="G18-CB-38Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wpf-dm-MUf" secondAttribute="trailing" constant="10" id="UlH-Rp-BKw"/>
+                                            <constraint firstAttribute="bottom" secondItem="4KN-jf-M8q" secondAttribute="bottom" id="ZG1-BD-4RM"/>
+                                            <constraint firstItem="4KN-jf-M8q" firstAttribute="leading" secondItem="zDJ-xz-M1K" secondAttribute="leading" id="Zfb-gk-6J1"/>
+                                            <constraint firstItem="4KN-jf-M8q" firstAttribute="top" secondItem="zDJ-xz-M1K" secondAttribute="top" id="quY-T9-GCn"/>
+                                            <constraint firstItem="Wpf-dm-MUf" firstAttribute="top" secondItem="zDJ-xz-M1K" secondAttribute="top" constant="10" id="vba-pg-6yv"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxM-O5-aNU">
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQX-96-jtt">
                                         <rect key="frame" x="0.0" y="160" width="314" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxM-O5-aNU">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="vl3-X2-5do"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNl-Fj-tZb" customClass="RoundView" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                <rect key="frame" x="294" y="10" width="10" height="10"/>
+                                                <color key="backgroundColor" red="1" green="0.34875531230000001" blue="0.2630323309" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="1Dp-M4-BbV"/>
+                                                    <constraint firstAttribute="height" constant="10" id="OHm-Bb-uSw"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="vl3-X2-5do"/>
+                                            <constraint firstItem="yxM-O5-aNU" firstAttribute="leading" secondItem="QQX-96-jtt" secondAttribute="leading" id="7cX-HN-Z7P"/>
+                                            <constraint firstAttribute="trailing" secondItem="xNl-Fj-tZb" secondAttribute="trailing" constant="10" id="9m3-ei-t5K"/>
+                                            <constraint firstAttribute="bottom" secondItem="yxM-O5-aNU" secondAttribute="bottom" id="DBs-BQ-pVr"/>
+                                            <constraint firstAttribute="trailing" secondItem="yxM-O5-aNU" secondAttribute="trailing" id="WCQ-RT-Lj7"/>
+                                            <constraint firstItem="yxM-O5-aNU" firstAttribute="top" secondItem="QQX-96-jtt" secondAttribute="top" id="nda-kj-WnU"/>
+                                            <constraint firstItem="xNl-Fj-tZb" firstAttribute="top" secondItem="QQX-96-jtt" secondAttribute="top" constant="10" id="wtz-8l-fEM"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verify Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjG-50-VBn">
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6X4-Um-kfZ">
                                         <rect key="frame" x="0.0" y="240" width="314" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verify Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjG-50-VBn">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="amB-ej-TCr"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJb-kZ-TQ3" customClass="RoundView" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                <rect key="frame" x="294" y="10" width="10" height="10"/>
+                                                <color key="backgroundColor" red="1" green="0.34875531230000001" blue="0.2630323309" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="Zq7-vU-dnV"/>
+                                                    <constraint firstAttribute="height" constant="10" id="gAa-8Z-Oq1"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="amB-ej-TCr"/>
+                                            <constraint firstItem="uJb-kZ-TQ3" firstAttribute="top" secondItem="6X4-Um-kfZ" secondAttribute="top" constant="10" id="3Cf-lT-fLq"/>
+                                            <constraint firstAttribute="bottom" secondItem="sjG-50-VBn" secondAttribute="bottom" id="9h2-Sy-b4F"/>
+                                            <constraint firstAttribute="trailing" secondItem="uJb-kZ-TQ3" secondAttribute="trailing" constant="10" id="Jdd-9J-0lZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="sjG-50-VBn" secondAttribute="trailing" id="SGi-Mc-dm5"/>
+                                            <constraint firstItem="sjG-50-VBn" firstAttribute="top" secondItem="6X4-Um-kfZ" secondAttribute="top" id="YkK-2Y-gAj"/>
+                                            <constraint firstItem="sjG-50-VBn" firstAttribute="leading" secondItem="6X4-Um-kfZ" secondAttribute="leading" id="nqk-1z-rZr"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3h-bb-EMD" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="320" width="314" height="50"/>
                                         <color key="backgroundColor" red="0.02993108891" green="0.098651878540000001" blue="0.2941352129" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -100,9 +188,14 @@
                     <navigationItem key="navigationItem" id="FWd-0y-2po"/>
                     <connections>
                         <outlet property="emailTextField" destination="4KN-jf-M8q" id="xYC-sh-fsc"/>
+                        <outlet property="emailValidView" destination="Wpf-dm-MUf" id="rsq-Wa-7P2"/>
                         <outlet property="nameTextField" destination="0YN-vp-LEr" id="4Kt-Fc-x5g"/>
+                        <outlet property="nameValidView" destination="5He-uO-LMp" id="boH-h8-JPc"/>
                         <outlet property="passwordTextField" destination="yxM-O5-aNU" id="lBE-BW-6fV"/>
+                        <outlet property="passwordValidView" destination="xNl-Fj-tZb" id="FbF-18-EuO"/>
+                        <outlet property="registerButton" destination="Z3h-bb-EMD" id="ENr-LP-0BI"/>
                         <outlet property="verifyPasswordTextField" destination="sjG-50-VBn" id="5gR-80-aKn"/>
+                        <outlet property="verifyPasswordValidView" destination="uJb-kZ-TQ3" id="8gm-cC-BZi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2p-jW-KSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
