@@ -53,8 +53,10 @@ class LoginViewController: UIViewController, GetStoryboard {
     }
 
     @IBAction private func didTapLogin(_ sender: Any) {
+
     }
 
     @IBAction private func didTapRegister(_ sender: Any) {
+        self.present(RegisterViewController.getStoryBoard(), animated: true)
     }
 }

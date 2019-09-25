@@ -8,17 +8,22 @@
 
 import UIKit
 
-class RegistViewController: UIViewController, GetStoryboard {
+class RegisterViewController: UIViewController, GetStoryboard {
 
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
-    @IBOutlet private weak var checkPasswordTextField: UITextField!
+    @IBOutlet private weak var verifyPasswordTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-    @IBAction private func didTapRegist(_ sender: Any) {
+    @IBAction private func didTapRegister(_ sender: Any) {
+    }
+
+    @IBAction private func didTapCancel(_ sender: Any) {
+        self.dismiss(animated: true)
     }
 }

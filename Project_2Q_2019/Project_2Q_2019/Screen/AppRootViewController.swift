@@ -32,7 +32,6 @@ class AppRootViewController: UIViewController {
 
     private func changeChild(currentViewController: UIViewController, newViewController: UIViewController, trasitionOption: UIView.AnimationOptions = .transitionCrossDissolve) {
         currentViewController.willMove(toParent: nil)
-        newViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
         self.addChild(newViewController)
         self.view.addSubview(newViewController.view)
