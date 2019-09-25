@@ -18,6 +18,7 @@
 		1032FE6B2338E4440039E9C0 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE6A2338E4440039E9C0 /* RoundView.swift */; };
 		1032FE6E2338ECC90039E9C0 /* Assets.colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */; };
 		1032FE722338ED910039E9C0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE712338ED910039E9C0 /* RoundButton.swift */; };
+		1032FE74233B9A590039E9C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE73233B9A580039E9C0 /* GoogleService-Info.plist */; };
 		10A7E52722EDC14000DF3D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E52622EDC14000DF3D34 /* AppDelegate.swift */; };
 		10A7E52E22EDC14100DF3D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10A7E52D22EDC14100DF3D34 /* Assets.xcassets */; };
 		10A7E53122EDC14100DF3D34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A7E52F22EDC14100DF3D34 /* LaunchScreen.storyboard */; };
@@ -61,6 +62,7 @@
 		1032FE6A2338E4440039E9C0 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.colors.xcassets; sourceTree = "<group>"; };
 		1032FE712338ED910039E9C0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		1032FE73233B9A580039E9C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10A7E52322EDC14000DF3D34 /* Project_2Q_2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_2Q_2019.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10A7E52622EDC14000DF3D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10A7E52D22EDC14100DF3D34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,12 +117,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1032FE552338C0920039E9C0 /* Shared */ = {
+		1032FE552338C0920039E9C0 /* SharedObject */ = {
 			isa = PBXGroup;
 			children = (
+				10A7E52F22EDC14100DF3D34 /* LaunchScreen.storyboard */,
+				10A7E52622EDC14000DF3D34 /* AppDelegate.swift */,
 				1032FE562338C1050039E9C0 /* GetStoryboard.swift */,
 			);
-			path = Shared;
+			path = SharedObject;
 			sourceTree = "<group>";
 		};
 		1032FE582338C2940039E9C0 /* Login */ = {
@@ -155,9 +159,7 @@
 		1032FE6C2338E5250039E9C0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				10A7E52622EDC14000DF3D34 /* AppDelegate.swift */,
 				10A7E52D22EDC14100DF3D34 /* Assets.xcassets */,
-				10A7E52F22EDC14100DF3D34 /* LaunchScreen.storyboard */,
 				1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */,
 			);
 			path = Resource;
@@ -200,8 +202,9 @@
 				1032FE6F2338ED120039E9C0 /* Extension */,
 				1032FE6C2338E5250039E9C0 /* Resource */,
 				1032FE692338E41C0039E9C0 /* ViewParts */,
-				1032FE552338C0920039E9C0 /* Shared */,
+				1032FE552338C0920039E9C0 /* SharedObject */,
 				10A7E53222EDC14100DF3D34 /* Info.plist */,
+				1032FE73233B9A580039E9C0 /* GoogleService-Info.plist */,
 			);
 			path = Project_2Q_2019;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1032FE6E2338ECC90039E9C0 /* Assets.colors.xcassets in Resources */,
+				1032FE74233B9A590039E9C0 /* GoogleService-Info.plist in Resources */,
 				10A7E5982312B86800DF3D34 /* HomeViewController.storyboard in Resources */,
 				10A7E55622EDC1F500DF3D34 /* .swiftlint.yml in Resources */,
 				10A7E53122EDC14100DF3D34 /* LaunchScreen.storyboard in Resources */,
