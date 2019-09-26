@@ -18,8 +18,8 @@ class LoginViewController: UIViewController, GetStoryboard {
     @IBOutlet private weak var passwordValidView: UIView!
     @IBOutlet private weak var loginButton: UIButton!
 
-    let viewModel = LoginViewModel()
-    var disposeBag = DisposeBag()
+    private let viewModel = LoginViewModel()
+    private var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +53,10 @@ class LoginViewController: UIViewController, GetStoryboard {
     }
 
     @IBAction private func didTapLogin(_ sender: Any) {
+
     }
 
     @IBAction private func didTapRegister(_ sender: Any) {
+        self.present(RegisterViewController.getStoryBoard(), animated: true)
     }
 }
