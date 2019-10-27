@@ -28,6 +28,8 @@
 		10A7E5952312B83F00DF3D34 /* AppRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E5942312B83F00DF3D34 /* AppRootViewController.swift */; };
 		10A7E5982312B86800DF3D34 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A7E5972312B86800DF3D34 /* HomeViewController.storyboard */; };
 		10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E5992312B87400DF3D34 /* HomeViewController.swift */; };
+		10B6CF4E2365B05B00314C98 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */; };
+		10B6CF502365B13D00314C98 /* AccountFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4F2365B13D00314C98 /* AccountFormState.swift */; };
 		1273A3F231517C61780C5E9F /* Pods_Project_2Q_2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E7A66781B6AE5A7AF269C /* Pods_Project_2Q_2019.framework */; };
 		E1799685027F0730AF491B88 /* Pods_Project_2Q_2019UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F464980BEC4F3155A426D2A /* Pods_Project_2Q_2019UITests.framework */; };
 		EAE39FA429389A4E5C7D7140 /* Pods_Project_2Q_2019Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9561781C47D200A1C5A49BA /* Pods_Project_2Q_2019Tests.framework */; };
@@ -206,6 +208,7 @@
 			children = (
 				10A7E53B22EDC14100DF3D34 /* Project_2Q_2019Tests.swift */,
 				10A7E53D22EDC14100DF3D34 /* Info.plist */,
+				10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */,
 			);
 			path = Project_2Q_2019Tests;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10B6CF4E2365B05B00314C98 /* LoginViewModelTests.swift in Sources */,
 				10A7E53C22EDC14100DF3D34 /* Project_2Q_2019Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
