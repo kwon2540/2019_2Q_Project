@@ -47,7 +47,7 @@ class LoginViewController: UIViewController, GetStoryboard {
             .bind(to: passwordValidView.rx.isHidden)
             .disposed(by: disposeBag)
 
-        Observable.combineLatest(viewModel.isEmailValid, viewModel.isPasswordValid) { $0 && $1 }
+        viewModel.isLoginEnabled
             .bind(to: loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }

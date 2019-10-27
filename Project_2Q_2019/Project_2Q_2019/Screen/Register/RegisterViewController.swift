@@ -66,7 +66,7 @@ class RegisterViewController: UIViewController, GetStoryboard {
             .bind(to: verifyPasswordValidView.rx.isHidden)
             .disposed(by: disposeBag)
 
-        Observable.combineLatest(viewModel.isNameValid, viewModel.isEmailValid, viewModel.isPasswordValid, viewModel.isVerifyPasswordValid) { $0 && $1 && $2 && $3}
+        viewModel.isRegisterEnabled
             .bind(to: registerButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
