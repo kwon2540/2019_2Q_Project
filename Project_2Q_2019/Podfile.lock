@@ -51,18 +51,24 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - RxBlocking (5.0.1):
+    - RxSwift (~> 5)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
+  - RxTest (5.0.1):
+    - RxSwift (~> 5)
   - SwiftLint (0.33.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
+  - RxBlocking
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
+  - RxTest
   - SwiftLint
 
 SPEC REPOS:
@@ -74,9 +80,11 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - nanopb
+    - RxBlocking
     - RxCocoa
     - RxRelay
     - RxSwift
+    - RxTest
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -87,11 +95,13 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: a35a645835bae31b6bdc0576396bc23908f12a22
   GoogleUtilities: c7a0b08bda3bf808be823ed151f0e28ac6866e71
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  RxBlocking: c5e090f42d046df8b0e7752742510f349963710f
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxTest: 0132f952a61da82d5233abedaa559df91e5330e5
   SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
 
-PODFILE CHECKSUM: d3beeb4fa11705d9ba0703713bf895dc2a16ef0c
+PODFILE CHECKSUM: 0cca719183d93d469bbcb41ed8701a0c539f2dbb
 
 COCOAPODS: 1.7.3

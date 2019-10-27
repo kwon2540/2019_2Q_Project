@@ -14,6 +14,8 @@ target 'Project_2Q_2019' do
   target 'Project_2Q_2019Tests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RxTest'
+    pod 'RxBlocking'
   end
 
   target 'Project_2Q_2019UITests' do

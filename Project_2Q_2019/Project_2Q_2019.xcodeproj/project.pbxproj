@@ -165,13 +165,6 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		1032FE6F2338ED120039E9C0 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		10A7E51A22EDC14000DF3D34 = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				10A7E5932312B81D00DF3D34 /* Screen */,
-				1032FE6F2338ED120039E9C0 /* Extension */,
 				1032FE6C2338E5250039E9C0 /* Resource */,
 				1032FE692338E41C0039E9C0 /* ViewParts */,
 				1032FE552338C0920039E9C0 /* SharedObject */,
@@ -302,6 +294,7 @@
 				10A7E53322EDC14100DF3D34 /* Sources */,
 				10A7E53422EDC14100DF3D34 /* Frameworks */,
 				10A7E53522EDC14100DF3D34 /* Resources */,
+				2C3CD0748B90DDC71957264D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -424,6 +417,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect --format\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		2C3CD0748B90DDC71957264D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		84DA91221C460CABE4F954CE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
