@@ -29,6 +29,7 @@
 		10A7E5952312B83F00DF3D34 /* AppRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E5942312B83F00DF3D34 /* AppRootViewController.swift */; };
 		10A7E5982312B86800DF3D34 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A7E5972312B86800DF3D34 /* HomeViewController.storyboard */; };
 		10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E5992312B87400DF3D34 /* HomeViewController.swift */; };
+		10B00E052376846E00864551 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B00E042376846E00864551 /* UserModel.swift */; };
 		10B6CF4E2365B05B00314C98 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */; };
 		10B6CF502365B13D00314C98 /* AccountFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4F2365B13D00314C98 /* AccountFormState.swift */; };
 		1273A3F231517C61780C5E9F /* Pods_Project_2Q_2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E7A66781B6AE5A7AF269C /* Pods_Project_2Q_2019.framework */; };
@@ -82,6 +83,7 @@
 		10A7E5942312B83F00DF3D34 /* AppRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootViewController.swift; sourceTree = "<group>"; };
 		10A7E5972312B86800DF3D34 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		10A7E5992312B87400DF3D34 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		10B00E042376846E00864551 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		10B6CF4F2365B13D00314C98 /* AccountFormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFormState.swift; sourceTree = "<group>"; };
 		1CD2A4C0F6B6D48B5FC49979 /* Pods-Project_2Q_2019UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019UITests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019UITests/Pods-Project_2Q_2019UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		10A7E52522EDC14000DF3D34 /* Project_2Q_2019 */ = {
 			isa = PBXGroup;
 			children = (
+				10B00E012376818B00864551 /* API */,
 				10A7E5932312B81D00DF3D34 /* Screen */,
 				1032FE6C2338E5250039E9C0 /* Resource */,
 				1032FE692338E41C0039E9C0 /* ViewParts */,
@@ -251,6 +254,7 @@
 		10B00E012376818B00864551 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				10B00E042376846E00864551 /* UserModel.swift */,
 				10A7C2F8237047F20050F6B8 /* FirebaseAuthManager.swift */,
 			);
 			path = API;
@@ -553,6 +557,7 @@
 				10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */,
 				10A7C2F9237047F20050F6B8 /* FirebaseAuthManager.swift in Sources */,
 				1032FE662338E2410039E9C0 /* RegisterViewModel.swift in Sources */,
+				10B00E052376846E00864551 /* UserModel.swift in Sources */,
 				10B6CF502365B13D00314C98 /* AccountFormState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
