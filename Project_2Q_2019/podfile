@@ -11,6 +11,8 @@ target 'Project_2Q_2019' do
   pod 'RxCocoa', '~> 5'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'CodableFirebase', :inhibit_warnings => true
 
   target 'Project_2Q_2019Tests' do
     inherit! :search_paths
