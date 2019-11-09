@@ -72,6 +72,18 @@ class RegisterViewController: UIViewController, GetStoryboard {
     }
 
     @IBAction private func didTapRegister(_ sender: Any) {
+        guard let email = emailTextField.text,
+            let password = passwordTextField.text,
+            let name = nameTextField.text else { return }
+        FirebaseAuthManager.shared.createUserAccount(email: email, password: password, name: name) { (state) in
+            switch state {
+            case .success:
+                self.dismiss(animated: true)
+                AppDelegate.shared.rootViewController.showHomeScreen()
+            case .failed(let error):
+                apiErrorLog(logMessage: error)
+            }
+        }
     }
 
     @IBAction private func didTapCancel(_ sender: Any) {
