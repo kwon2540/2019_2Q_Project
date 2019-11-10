@@ -12,31 +12,24 @@ import RxCocoa
 
 class LoginViewModel {
 
+    struct State: AccountLoginStateProtocol {
+
+        let emailText: String
+        let passwordText: String
+    }
+
     let emailText = BehaviorSubject(value: "")
     let passwordText = BehaviorSubject(value: "")
 
-    let isEmailValid = BehaviorSubject(value: false)
-    let isPasswordValid = BehaviorSubject(value: false)
-
-    let disposeBag = DisposeBag()
+    let isEmailValid: Observable<Bool>
+    let isPasswordValid: Observable<Bool>
+    let isLoginEnabled: Observable<Bool>
 
     init() {
-        emailText.distinctUntilChanged()
-            .map(checkEmailValid)
-            .bind(to: isEmailValid)
-            .disposed(by: disposeBag)
-
-        passwordText.distinctUntilChanged()
-            .map(checkPasswordValid)
-            .bind(to: isPasswordValid)
-            .disposed(by: disposeBag)
-    }
-
-    private func checkEmailValid(_ email: String) -> Bool {
-        return email.contains("@") && email.contains(".")
-    }
-
-    private func checkPasswordValid(_ password: String) -> Bool {
-        return password.count > 5
+        let state = Observable
+            .combineLatest(emailText, passwordText) { State(emailText: $0, passwordText: $1) }
+        isEmailValid = state.map { $0.isEmailValid }
+        isPasswordValid = state.map { $0.isPasswordValid }
+        isLoginEnabled = state.map { $0.isLoginEnabled }
     }
 }
