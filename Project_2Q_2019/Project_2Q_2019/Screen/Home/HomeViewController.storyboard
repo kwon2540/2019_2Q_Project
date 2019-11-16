@@ -17,7 +17,23 @@
                     <view key="view" contentMode="scaleToFill" id="Bu1-yd-RcO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-y4-xMj">
+                                <rect key="frame" x="348" y="54" width="56" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.34875531230000001" blue="0.2630323309" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="SignOut">
+                                    <color key="titleColor" red="0.02993108891" green="0.098651878540000001" blue="0.2941352129" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="button:" destination="a9z-tl-Blt" eventType="touchUpInside" id="F24-rk-NrQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="jgc-y4-xMj" secondAttribute="trailing" constant="10" id="TOF-gn-zPR"/>
+                            <constraint firstItem="jgc-y4-xMj" firstAttribute="top" secondItem="M59-Jb-JGH" secondAttribute="top" constant="10" id="iY3-xU-FVq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="M59-Jb-JGH"/>
                     </view>
                 </viewController>

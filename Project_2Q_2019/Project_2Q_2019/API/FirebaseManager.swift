@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import CodableFirebase
 
-protocol AuthManager: class {
+protocol AuthManager {
     func createUserAccount(email: String, password: String, name: String, completion: @escaping (ApiState) -> Void)
     func signIn(email: String, password: String, completion: @escaping (ApiState) -> Void)
 }
@@ -20,11 +20,15 @@ enum ApiState {
     case failed(error: String)
 }
 
-class FirebaseManager: AuthManager {
+struct FirebaseManager: AuthManager {
 
     static var shared = FirebaseManager()
 
     private init() {}
+
+    func checkLogin() -> Bool {
+        return Auth.auth().currentUser?.uid != nil
+    }
 
     func createUserAccount(email: String, password: String, name: String, completion: @escaping (ApiState) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (_, error) in
@@ -36,7 +40,7 @@ class FirebaseManager: AuthManager {
 
             let userModel = UserModel(email: email, name: name, uid: uid, startDate: Date())
             guard let data = try? FirestoreEncoder().encode(userModel) else { return }
-            
+
             Firestore.firestore().collection("users").document(uid).setData(data, completion: { (error) in
                 if error != nil {
                     return completion(.failed(error: error.debugDescription))
@@ -53,5 +57,9 @@ class FirebaseManager: AuthManager {
             }
             completion(.success)
         }
+    }
+
+    func signOut() {
+        try? Auth.auth().signOut()
     }
 }

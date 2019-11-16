@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class LoginViewModel {
+struct LoginViewModel {
 
     struct State: AccountLoginStateProtocol {
 

@@ -13,7 +13,7 @@ class AppRootViewController: UIViewController {
     private var current: UIViewController
 
     init() {
-        self.current = LoginViewController.getStoryBoard()
+        self.current = SplashViewController.getStoryBoard()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -50,6 +50,10 @@ class AppRootViewController: UIViewController {
 
 // MARK: Transitions
 extension AppRootViewController {
+
+    func showLoginScreen() {
+        changeChild(currentViewController: current, newViewController: LoginViewController.getStoryBoard())
+    }
 
     func showHomeScreen() {
         changeChild(currentViewController: current, newViewController: HomeViewController.getStoryBoard())
