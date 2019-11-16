@@ -75,7 +75,7 @@ class RegisterViewController: UIViewController, GetStoryboard {
         guard let email = emailTextField.text,
             let password = passwordTextField.text,
             let name = nameTextField.text else { return }
-        FirebaseAuthManager.shared.createUserAccount(email: email, password: password, name: name) { (state) in
+        FirebaseManager.shared.createUserAccount(email: email, password: password, name: name) { (state) in
             switch state {
             case .success:
                 self.dismiss(animated: true)
