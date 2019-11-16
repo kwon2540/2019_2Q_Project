@@ -18,7 +18,7 @@ class RoundButton: UIButton {
     override var isEnabled: Bool {
         didSet {
             if self.isEnabled {
-                self.backgroundColor = UIColor(named: "08194B")
+                self.backgroundColor = UIColor.c08194B
             } else {
                 self.backgroundColor = .lightGray
             }
