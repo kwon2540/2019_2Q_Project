@@ -19,6 +19,8 @@
 		1032FE6E2338ECC90039E9C0 /* Assets.colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */; };
 		1032FE722338ED910039E9C0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE712338ED910039E9C0 /* RoundButton.swift */; };
 		1032FE74233B9A590039E9C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE73233B9A580039E9C0 /* GoogleService-Info.plist */; };
+		10A00AA0237FBB1A00BA90EB /* SplashViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A00A9F237FBB1A00BA90EB /* SplashViewController.storyboard */; };
+		10A00AA2237FBBCD00BA90EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A00AA1237FBBCD00BA90EB /* SplashViewController.swift */; };
 		10A7C2F9237047F20050F6B8 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7C2F8237047F20050F6B8 /* FirebaseManager.swift */; };
 		10A7E52722EDC14000DF3D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E52622EDC14000DF3D34 /* AppDelegate.swift */; };
 		10A7E52E22EDC14100DF3D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10A7E52D22EDC14100DF3D34 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.colors.xcassets; sourceTree = "<group>"; };
 		1032FE712338ED910039E9C0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		1032FE73233B9A580039E9C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		10A00A9F237FBB1A00BA90EB /* SplashViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashViewController.storyboard; sourceTree = "<group>"; };
+		10A00AA1237FBBCD00BA90EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		10A7C2F8237047F20050F6B8 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		10A7E52322EDC14000DF3D34 /* Project_2Q_2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_2Q_2019.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10A7E52622EDC14000DF3D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +181,15 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		10A00A9E237FB9A300BA90EB /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				10A00A9F237FBB1A00BA90EB /* SplashViewController.storyboard */,
+				10A00AA1237FBBCD00BA90EB /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		10A7E51A22EDC14000DF3D34 = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +249,7 @@
 		10A7E5932312B81D00DF3D34 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				10A00A9E237FB9A300BA90EB /* Splash */,
 				10A7E5942312B83F00DF3D34 /* AppRootViewController.swift */,
 				1032FE582338C2940039E9C0 /* Login */,
 				1032FE5E2338DDCD0039E9C0 /* Register */,
@@ -403,6 +417,7 @@
 				10A7E53122EDC14100DF3D34 /* LaunchScreen.storyboard in Resources */,
 				1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */,
 				10A7E52E22EDC14100DF3D34 /* Assets.xcassets in Resources */,
+				10A00AA0237FBB1A00BA90EB /* SplashViewController.storyboard in Resources */,
 				1032FE622338DE5F0039E9C0 /* RegisterViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,6 +578,7 @@
 				1032FE662338E2410039E9C0 /* RegisterViewModel.swift in Sources */,
 				10B00E052376846E00864551 /* UserModel.swift in Sources */,
 				10B6CF502365B13D00314C98 /* AccountFormState.swift in Sources */,
+				10A00AA2237FBBCD00BA90EB /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
