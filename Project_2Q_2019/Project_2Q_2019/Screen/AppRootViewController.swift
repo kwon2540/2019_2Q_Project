@@ -13,7 +13,7 @@ class AppRootViewController: UIViewController {
     private var current: UIViewController
 
     init() {
-        self.current = LoginViewController.getStoryBoard()
+        self.current = SplashViewController.getStoryBoard()
         super.init(nibName: nil, bundle: nil)
     }
 
