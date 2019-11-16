@@ -61,6 +61,11 @@ class LoginViewController: UIViewController, GetStoryboard {
                 ActivityIndicator.shared.stop(view: self.view)
                 AppDelegate.shared.rootViewController.showHomeScreen()
             case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: self.view,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
                 apiErrorLog(logMessage: error)
                 ActivityIndicator.shared.stop(view: self.view)
             }

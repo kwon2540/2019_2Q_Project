@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActivityIndicator {
+struct ActivityIndicator {
 
     static let shared = ActivityIndicator()
 
