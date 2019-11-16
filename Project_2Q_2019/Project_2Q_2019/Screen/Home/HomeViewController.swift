@@ -17,5 +17,6 @@ class HomeViewController: UIViewController, GetStoryboard {
 
     @IBAction func signOut(_ sender: Any) {
         FirebaseManager.shared.signOut()
+        AppDelegate.shared.rootViewController.showLoginScreen()
     }
 }

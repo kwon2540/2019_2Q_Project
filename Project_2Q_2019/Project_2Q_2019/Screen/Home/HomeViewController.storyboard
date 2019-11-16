@@ -25,7 +25,7 @@
                                     <color key="titleColor" red="0.02993108891" green="0.098651878540000001" blue="0.2941352129" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="button:" destination="a9z-tl-Blt" eventType="touchUpInside" id="F24-rk-NrQ"/>
+                                    <action selector="signOut:" destination="a9z-tl-Blt" eventType="touchUpInside" id="PGT-bG-ERu"/>
                                 </connections>
                             </button>
                         </subviews>
