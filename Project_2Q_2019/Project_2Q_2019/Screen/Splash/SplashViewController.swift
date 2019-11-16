@@ -8,10 +8,15 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+class SplashViewController: UIViewController, GetStoryboard {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if FirebaseManager.shared.checkLogin() {
+            AppDelegate.shared.rootViewController.showHomeScreen()
+        } else {
+            AppDelegate.shared.rootViewController.showLoginScreen()
+        }
     }
 }

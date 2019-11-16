@@ -51,6 +51,10 @@ class AppRootViewController: UIViewController {
 // MARK: Transitions
 extension AppRootViewController {
 
+    func showLoginScreen() {
+        changeChild(currentViewController: current, newViewController: LoginViewController.getStoryBoard())
+    }
+
     func showHomeScreen() {
         changeChild(currentViewController: current, newViewController: HomeViewController.getStoryBoard())
     }
