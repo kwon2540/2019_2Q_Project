@@ -36,7 +36,7 @@ class FirebaseManager: AuthManager {
 
             let userModel = UserModel(email: email, name: name, uid: uid, startDate: Date())
             guard let data = try? FirestoreEncoder().encode(userModel) else { return }
-            
+
             Firestore.firestore().collection("users").document(uid).setData(data, completion: { (error) in
                 if error != nil {
                     return completion(.failed(error: error.debugDescription))

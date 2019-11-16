@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class RegisterViewModel {
+struct RegisterViewModel {
 
     struct State: AccountRegisterStateProtocol {
 
