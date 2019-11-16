@@ -20,9 +20,9 @@ enum ApiState {
     case failed(error: String)
 }
 
-class FirebaseAuthManager: AuthManager {
+class FirebaseManager: AuthManager {
 
-    static var shared = FirebaseAuthManager()
+    static var shared = FirebaseManager()
 
     private init() {}
 
@@ -36,6 +36,7 @@ class FirebaseAuthManager: AuthManager {
 
             let userModel = UserModel(email: email, name: name, uid: uid, startDate: Date())
             guard let data = try? FirestoreEncoder().encode(userModel) else { return }
+            
             Firestore.firestore().collection("users").document(uid).setData(data, completion: { (error) in
                 if error != nil {
                     return completion(.failed(error: error.debugDescription))

@@ -54,7 +54,7 @@ class LoginViewController: UIViewController, GetStoryboard {
 
     @IBAction private func didTapLogin(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
-        FirebaseAuthManager.shared.signIn(email: email, password: password) { (state) in
+        FirebaseManager.shared.signIn(email: email, password: password) { (state) in
             switch state {
             case .success:
                 AppDelegate.shared.rootViewController.showHomeScreen()
