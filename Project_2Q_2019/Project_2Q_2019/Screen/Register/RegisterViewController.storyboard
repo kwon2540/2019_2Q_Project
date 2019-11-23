@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -128,7 +129,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJb-kZ-TQ3" customClass="RoundView" customModule="Project_2Q_2019" customModuleProvider="target">
                                                 <rect key="frame" x="294" y="10" width="10" height="10"/>
-                                                <color key="backgroundColor" red="1" green="0.34875531230000001" blue="0.2630323309" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="1" green="0.34901960784313724" blue="0.2627450980392157" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="10" id="Zq7-vU-dnV"/>
                                                     <constraint firstAttribute="height" constant="10" id="gAa-8Z-Oq1"/>
@@ -147,12 +148,12 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3h-bb-EMD" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="320" width="314" height="50"/>
-                                        <color key="backgroundColor" red="0.02993108891" green="0.098651878540000001" blue="0.2941352129" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Qhh-46-MUT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="Register">
+                                        <state key="normal" title="登録">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -161,12 +162,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fu-w4-RLQ" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="400" width="314" height="50"/>
-                                        <color key="backgroundColor" red="0.02993108891" green="0.098651878540000001" blue="0.2941352129" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" name="cB199F9"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="17r-y5-97g"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="Cancel">
+                                        <state key="normal" title="キャンセル">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -203,4 +204,9 @@
             <point key="canvasLocation" x="2136.231884057971" y="62.946428571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="cB199F9">
+            <color red="0.69411764705882351" green="0.59999999999999998" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

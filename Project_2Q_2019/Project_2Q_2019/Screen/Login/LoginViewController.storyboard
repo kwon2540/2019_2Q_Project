@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wvI-1A-WEd">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,17 +16,30 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="wvI-1A-WEd" customClass="LoginViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ybi-IX-1cg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="neY-e8-KEY">
-                                <rect key="frame" x="50" y="303" width="314" height="290"/>
+                                <rect key="frame" x="50" y="18" width="220" height="444"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="MKT-bi-dIs">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="74"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="74" id="z0C-FY-uDn"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQ3-2e-CNC" userLabel="Spacing View">
+                                        <rect key="frame" x="0.0" y="104" width="220" height="20"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="lVm-YS-tfx"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANO-cr-u0n">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                        <rect key="frame" x="0.0" y="154" width="220" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MID-Cy-Wbw">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="220" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="RKK-me-3HA"/>
                                                 </constraints>
@@ -34,7 +48,7 @@
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pel-fw-hHQ" customClass="RoundView" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                <rect key="frame" x="294" y="10" width="10" height="10"/>
+                                                <rect key="frame" x="200" y="10" width="10" height="10"/>
                                                 <color key="backgroundColor" red="1" green="0.34875531230000001" blue="0.2630323309" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10" id="geP-L5-8U6"/>
@@ -53,10 +67,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHc-uV-J5O">
-                                        <rect key="frame" x="0.0" y="80" width="314" height="50"/>
+                                        <rect key="frame" x="0.0" y="234" width="220" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARh-2v-IN4">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="220" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="XWH-m2-B5k"/>
                                                 </constraints>
@@ -65,7 +79,7 @@
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ulM-Qg-BLB" customClass="RoundView" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                <rect key="frame" x="294" y="10" width="10" height="10"/>
+                                                <rect key="frame" x="200" y="10" width="10" height="10"/>
                                                 <color key="backgroundColor" red="1" green="0.34875531230000001" blue="0.2630323309" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10" id="BbL-rZ-Qd9"/>
@@ -84,13 +98,13 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHs-6h-LgT" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="160" width="314" height="50"/>
+                                        <rect key="frame" x="0.0" y="314" width="220" height="50"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="yEk-k0-tdZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="Login">
+                                        <state key="normal" title="ログイン">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -98,13 +112,13 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1h-HW-aYw" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="240" width="314" height="50"/>
-                                        <color key="backgroundColor" red="0.031372549019607843" green="0.098039215686274508" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="0.0" y="394" width="220" height="50"/>
+                                        <color key="backgroundColor" name="cB199F9"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gyP-Nf-6Bs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="Register">
+                                        <state key="normal" title="新規登録">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -138,4 +152,10 @@
             <point key="canvasLocation" x="1173.913043478261" y="-230.35714285714283"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="194" height="74"/>
+        <namedColor name="cB199F9">
+            <color red="0.69411764705882351" green="0.59999999999999998" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
