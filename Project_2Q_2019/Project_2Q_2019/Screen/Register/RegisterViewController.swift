@@ -75,13 +75,21 @@ class RegisterViewController: UIViewController, GetStoryboard {
         guard let email = emailTextField.text,
             let password = passwordTextField.text,
             let name = nameTextField.text else { return }
+        ActivityIndicator.shared.start(view: self.view)
         FirebaseManager.shared.createUserAccount(email: email, password: password, name: name) { (state) in
             switch state {
             case .success:
+                ActivityIndicator.shared.stop(view: self.view)
                 self.dismiss(animated: true)
                 AppDelegate.shared.rootViewController.showHomeScreen()
             case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: self.view,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
                 apiErrorLog(logMessage: error)
+                ActivityIndicator.shared.stop(view: self.view)
             }
         }
     }

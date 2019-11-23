@@ -54,12 +54,20 @@ class LoginViewController: UIViewController, GetStoryboard {
 
     @IBAction private func didTapLogin(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        ActivityIndicator.shared.start(view: self.view)
         FirebaseManager.shared.signIn(email: email, password: password) { (state) in
             switch state {
             case .success:
+                ActivityIndicator.shared.stop(view: self.view)
                 AppDelegate.shared.rootViewController.showHomeScreen()
             case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: self.view,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
                 apiErrorLog(logMessage: error)
+                ActivityIndicator.shared.stop(view: self.view)
             }
         }
     }
