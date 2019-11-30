@@ -10,13 +10,28 @@ import UIKit
 
 class HomeViewController: UIViewController, GetStoryboard {
 
+    @IBOutlet private weak var collectionView: UICollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-    @IBAction func signOut(_ sender: Any) {
+    @IBAction private func signOut(_ sender: Any) {
         FirebaseManager.shared.signOut()
         AppDelegate.shared.rootViewController.showLoginScreen()
     }
+
+    @IBAction private func option(_ sender: Any) {
+    }
+
+    @IBAction private func read(_ sender: Any) {
+    }
+
+    @IBAction private func list(_ sender: Any) {
+    }
+
+    @IBAction private func add(_ sender: Any) {
+    }
+
 }
