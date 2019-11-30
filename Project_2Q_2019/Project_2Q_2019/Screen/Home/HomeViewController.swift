@@ -59,9 +59,6 @@ class HomeViewController: UIViewController, GetStoryboard {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionat section: Int) -> CGFloat {
-        return 0
-    }
 }
 
 extension HomeViewController: UICollectionViewDataSource {
