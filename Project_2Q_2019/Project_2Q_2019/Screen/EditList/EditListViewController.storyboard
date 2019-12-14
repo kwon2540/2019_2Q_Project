@@ -11,11 +11,40 @@
         <!--Edit List View Controller-->
         <scene sceneID="imZ-oK-RO7">
             <objects>
-                <viewController id="aOh-ul-kUe" customClass="EditListViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditListViewController" id="aOh-ul-kUe" customClass="EditListViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fbh-GR-Opn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6g1-Wn-gwH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PU3-KO-ccI">
+                                        <rect key="frame" x="376" y="12" width="26" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="26" id="hAc-ut-t9y"/>
+                                            <constraint firstAttribute="width" constant="26" id="lEk-y4-HAU"/>
+                                        </constraints>
+                                        <state key="normal" image="dismiss"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="aOh-ul-kUe" eventType="touchUpInside" id="7KT-EY-Wfv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="PU3-KO-ccI" secondAttribute="trailing" constant="12" id="5ss-6I-Tuy"/>
+                                    <constraint firstItem="PU3-KO-ccI" firstAttribute="top" secondItem="6g1-Wn-gwH" secondAttribute="top" constant="12" id="E2p-gJ-gcm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6g1-Wn-gwH" firstAttribute="top" secondItem="OFt-vY-pvQ" secondAttribute="top" id="1zW-zd-jaX"/>
+                            <constraint firstItem="6g1-Wn-gwH" firstAttribute="leading" secondItem="OFt-vY-pvQ" secondAttribute="leading" id="QhG-bE-Owg"/>
+                            <constraint firstItem="OFt-vY-pvQ" firstAttribute="bottom" secondItem="6g1-Wn-gwH" secondAttribute="bottom" id="Wz5-El-6i9"/>
+                            <constraint firstItem="OFt-vY-pvQ" firstAttribute="trailing" secondItem="6g1-Wn-gwH" secondAttribute="trailing" id="x17-dX-9vd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OFt-vY-pvQ"/>
                     </view>
                 </viewController>
@@ -24,4 +53,7 @@
             <point key="canvasLocation" x="288" y="-228"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dismiss" width="18" height="18"/>
+    </resources>
 </document>

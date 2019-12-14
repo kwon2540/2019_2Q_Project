@@ -8,10 +8,13 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, GetStoryboard {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    @IBAction private func dismiss(_ sender: Any) {
+        dismiss(animated: true)
     }
 }

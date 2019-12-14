@@ -23,7 +23,8 @@ class HomeViewController: UIViewController, GetStoryboard {
         AppDelegate.shared.rootViewController.showLoginScreen()
     }
 
-    @IBAction private func option(_ sender: Any) {
+    @IBAction private func menu(_ sender: Any) {
+        self.present(MenuViewController.getStoryBoard(), animated: true)
     }
 
     @IBAction private func read(_ sender: Any) {
@@ -33,6 +34,7 @@ class HomeViewController: UIViewController, GetStoryboard {
     }
 
     @IBAction private func add(_ sender: Any) {
+        self.present(AddListViewController.getStoryBoard(), animated: true)
     }
 
     private func setCollectionView() {
@@ -59,6 +61,9 @@ class HomeViewController: UIViewController, GetStoryboard {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.present(EditListViewController.getStoryBoard(), animated: true)
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource {

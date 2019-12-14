@@ -8,10 +8,13 @@
 
 import UIKit
 
-class AddListViewController: UIViewController {
+class AddListViewController: UIViewController, GetStoryboard {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    @IBAction private func dismiss(_ sender: Any) {
+        dismiss(animated: true)
     }
 }

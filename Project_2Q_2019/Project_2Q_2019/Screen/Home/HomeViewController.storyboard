@@ -31,7 +31,7 @@
                                 </constraints>
                                 <state key="normal" image="menu"/>
                                 <connections>
-                                    <action selector="option:" destination="a9z-tl-Blt" eventType="touchUpInside" id="h2U-Om-LWd"/>
+                                    <action selector="menu:" destination="a9z-tl-Blt" eventType="touchUpInside" id="eGB-Hd-kmQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-y4-xMj">
