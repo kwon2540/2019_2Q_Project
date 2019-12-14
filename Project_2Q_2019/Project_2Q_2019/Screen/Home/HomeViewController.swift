@@ -75,7 +75,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
+
         // item의 사이즈와 item 간의 간격 사이즈를 구해서 하나의 item 크기로 설정.
         guard let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing

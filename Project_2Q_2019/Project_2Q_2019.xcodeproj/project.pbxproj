@@ -34,6 +34,8 @@
 		10A7E5952312B83F00DF3D34 /* AppRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E5942312B83F00DF3D34 /* AppRootViewController.swift */; };
 		10A7E5982312B86800DF3D34 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A7E5972312B86800DF3D34 /* HomeViewController.storyboard */; };
 		10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E5992312B87400DF3D34 /* HomeViewController.swift */; };
+		10A8FE0923A4B10C00F64F96 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8FE0823A4B10C00F64F96 /* Extension+Date.swift */; };
+		10A8FE0B23A4B12A00F64F96 /* Extension+DateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8FE0A23A4B12A00F64F96 /* Extension+DateTest.swift */; };
 		10B00E052376846E00864551 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B00E042376846E00864551 /* UserModel.swift */; };
 		10B00E0723769DBD00864551 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B00E0623769DBD00864551 /* LogManager.swift */; };
 		10B6CF4E2365B05B00314C98 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */; };
@@ -96,6 +98,8 @@
 		10A7E5942312B83F00DF3D34 /* AppRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootViewController.swift; sourceTree = "<group>"; };
 		10A7E5972312B86800DF3D34 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		10A7E5992312B87400DF3D34 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		10A8FE0823A4B10C00F64F96 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
+		10A8FE0A23A4B12A00F64F96 /* Extension+DateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+DateTest.swift"; sourceTree = "<group>"; };
 		10B00E042376846E00864551 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		10B00E0623769DBD00864551 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				108FFD85237FFFDA005B21CC /* Extension+UIColor.swift */,
+				10A8FE0823A4B10C00F64F96 /* Extension+Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -260,9 +265,10 @@
 		10A7E53A22EDC14100DF3D34 /* Project_2Q_2019Tests */ = {
 			isa = PBXGroup;
 			children = (
-				10A7E53B22EDC14100DF3D34 /* Project_2Q_2019Tests.swift */,
 				10A7E53D22EDC14100DF3D34 /* Info.plist */,
+				10A7E53B22EDC14100DF3D34 /* Project_2Q_2019Tests.swift */,
 				10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */,
+				10A8FE0A23A4B12A00F64F96 /* Extension+DateTest.swift */,
 			);
 			path = Project_2Q_2019Tests;
 			sourceTree = "<group>";
@@ -270,8 +276,8 @@
 		10A7E54522EDC14100DF3D34 /* Project_2Q_2019UITests */ = {
 			isa = PBXGroup;
 			children = (
-				10A7E54622EDC14100DF3D34 /* Project_2Q_2019UITests.swift */,
 				10A7E54822EDC14100DF3D34 /* Info.plist */,
+				10A7E54622EDC14100DF3D34 /* Project_2Q_2019UITests.swift */,
 			);
 			path = Project_2Q_2019UITests;
 			sourceTree = "<group>";
@@ -604,6 +610,7 @@
 				10B00E0723769DBD00864551 /* LogManager.swift in Sources */,
 				1032FE642338E2340039E9C0 /* LoginViewModel.swift in Sources */,
 				1032FE572338C1050039E9C0 /* GetStoryboard.swift in Sources */,
+				10A8FE0923A4B10C00F64F96 /* Extension+Date.swift in Sources */,
 				1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */,
 				10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */,
 				107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */,
@@ -624,6 +631,7 @@
 			files = (
 				10B6CF4E2365B05B00314C98 /* LoginViewModelTests.swift in Sources */,
 				10A7E53C22EDC14100DF3D34 /* Project_2Q_2019Tests.swift in Sources */,
+				10A8FE0B23A4B12A00F64F96 /* Extension+DateTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
