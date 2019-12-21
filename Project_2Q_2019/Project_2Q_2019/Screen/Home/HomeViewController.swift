@@ -27,10 +27,12 @@ class HomeViewController: UIViewController, GetStoryboard {
         self.present(MenuViewController.getStoryBoard(), animated: true)
     }
 
-    @IBAction private func read(_ sender: Any) {
+    @IBAction private func expense(_ sender: Any) {
+        self.present(ExpenseViewController.getStoryBoard(), animated: true)
     }
 
-    @IBAction private func list(_ sender: Any) {
+    @IBAction private func history(_ sender: Any) {
+        self.present(HistoryViewController.getStoryBoard(), animated: true)
     }
 
     @IBAction private func add(_ sender: Any) {
