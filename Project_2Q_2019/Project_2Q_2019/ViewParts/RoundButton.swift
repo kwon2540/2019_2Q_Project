@@ -12,15 +12,15 @@ class RoundButton: UIButton {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 5
+        self.layer.cornerRadius = self.frame.height / 2
     }
 
     override var isEnabled: Bool {
         didSet {
             if self.isEnabled {
-                self.backgroundColor = .cB199F9
+                self.backgroundColor = .c859EFF
             } else {
-                self.backgroundColor = .cD2D2D2
+                self.backgroundColor = .cD8D8D8
             }
         }
     }

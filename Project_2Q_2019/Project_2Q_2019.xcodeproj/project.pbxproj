@@ -25,6 +25,7 @@
 		1032FE6B2338E4440039E9C0 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE6A2338E4440039E9C0 /* RoundView.swift */; };
 		1032FE6E2338ECC90039E9C0 /* Assets.colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */; };
 		1032FE722338ED910039E9C0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE712338ED910039E9C0 /* RoundButton.swift */; };
+		1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */; };
 		107A3864237FDC5600D276E9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A3863237FDC5600D276E9 /* ActivityIndicator.swift */; };
 		107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A3865237FE5B400D276E9 /* DropDownManager.swift */; };
 		108FFD86237FFFDA005B21CC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FFD85237FFFDA005B21CC /* Extension+UIColor.swift */; };
@@ -98,6 +99,7 @@
 		1032FE6A2338E4440039E9C0 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.colors.xcassets; sourceTree = "<group>"; };
 		1032FE712338ED910039E9C0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBorderButton.swift; sourceTree = "<group>"; };
 		107A3863237FDC5600D276E9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		107A3865237FE5B400D276E9 /* DropDownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownManager.swift; sourceTree = "<group>"; };
 		108FFD85237FFFDA005B21CC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				1032FE6A2338E4440039E9C0 /* RoundView.swift */,
 				1032FE712338ED910039E9C0 /* RoundButton.swift */,
+				1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */,
 			);
 			path = ViewParts;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */,
 				10A7C2F9237047F20050F6B8 /* FirebaseManager.swift in Sources */,
 				108FFD86237FFFDA005B21CC /* Extension+UIColor.swift in Sources */,
+				1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */,
 				10A8FE1223A4B43800F64F96 /* MenuViewController.swift in Sources */,
 				10A8FE2023A4B4A500F64F96 /* EditListViewModel.swift in Sources */,
 				1032FE662338E2410039E9C0 /* RegisterViewModel.swift in Sources */,
