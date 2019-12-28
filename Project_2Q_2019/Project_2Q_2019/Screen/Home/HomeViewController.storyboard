@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a9z-tl-Blt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a9z-tl-Blt">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,11 +34,14 @@
                                     <action selector="menu:" destination="a9z-tl-Blt" eventType="touchUpInside" id="eGB-Hd-kmQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-y4-xMj">
-                                <rect key="frame" x="305" y="54" width="60" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-y4-xMj">
+                                <rect key="frame" x="331" y="58" width="26" height="26"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="SignOut">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="1zI-Kf-v29"/>
+                                    <constraint firstAttribute="width" constant="26" id="6CY-hN-LaJ"/>
+                                </constraints>
+                                <state key="normal" image="logout">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -129,14 +132,14 @@
                             <constraint firstItem="yEw-HF-wWm" firstAttribute="leading" secondItem="Bu1-yd-RcO" secondAttribute="leading" id="KbP-Ki-Kyr"/>
                             <constraint firstItem="vbF-12-fvH" firstAttribute="top" secondItem="M59-Jb-JGH" secondAttribute="top" constant="80" id="OPA-MO-F3V"/>
                             <constraint firstItem="yEw-HF-wWm" firstAttribute="top" secondItem="vbF-12-fvH" secondAttribute="bottom" constant="80" id="QRZ-FL-8RA"/>
-                            <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="jgc-y4-xMj" secondAttribute="trailing" constant="10" id="TOF-gn-zPR"/>
+                            <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="jgc-y4-xMj" secondAttribute="trailing" constant="18" id="TOF-gn-zPR"/>
                             <constraint firstItem="bnj-S0-ixZ" firstAttribute="top" secondItem="Bu1-yd-RcO" secondAttribute="top" id="Ts9-OY-ekN"/>
                             <constraint firstItem="wTl-QZ-W8B" firstAttribute="leading" secondItem="M59-Jb-JGH" secondAttribute="leading" id="Vf9-jG-72u"/>
                             <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="vbF-12-fvH" secondAttribute="trailing" id="Y5J-co-D4e"/>
                             <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="bnj-S0-ixZ" secondAttribute="trailing" id="dN0-fg-ClA"/>
                             <constraint firstItem="yEw-HF-wWm" firstAttribute="top" secondItem="mgz-qh-JVh" secondAttribute="bottom" id="dRM-EB-pqG"/>
                             <constraint firstItem="rwZ-wb-cH4" firstAttribute="bottom" secondItem="M59-Jb-JGH" secondAttribute="bottom" id="dbq-KB-aMw"/>
-                            <constraint firstItem="jgc-y4-xMj" firstAttribute="top" secondItem="M59-Jb-JGH" secondAttribute="top" constant="10" id="iY3-xU-FVq"/>
+                            <constraint firstItem="jgc-y4-xMj" firstAttribute="top" secondItem="M59-Jb-JGH" secondAttribute="top" constant="14" id="iY3-xU-FVq"/>
                             <constraint firstAttribute="bottom" secondItem="yEw-HF-wWm" secondAttribute="bottom" id="kFr-8Y-Vih"/>
                             <constraint firstItem="rwZ-wb-cH4" firstAttribute="leading" secondItem="M59-Jb-JGH" secondAttribute="leading" id="nGR-9r-PhO"/>
                             <constraint firstItem="yEw-HF-wWm" firstAttribute="top" secondItem="rwZ-wb-cH4" secondAttribute="bottom" id="oBk-co-6zx"/>
@@ -159,6 +162,7 @@
     <resources>
         <image name="Addlist" width="74" height="74"/>
         <image name="ShortBg" width="375" height="200"/>
+        <image name="logout" width="26" height="26"/>
         <image name="menu" width="30" height="30"/>
         <namedColor name="cFAFAFA">
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
