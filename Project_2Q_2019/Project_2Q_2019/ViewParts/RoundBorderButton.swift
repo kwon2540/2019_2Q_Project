@@ -6,4 +6,14 @@
 //  Copyright © 2019 JUNHYEOK KWON. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class RoundBorderButton: UIButton {
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.cornerRadius = self.frame.height / 2
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.c859EFF.cgColor
+    }
+}
