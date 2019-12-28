@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="AwT-MX-CKV">
-                                <rect key="frame" x="50" y="223" width="314" height="450"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AwT-MX-CKV">
+                                <rect key="frame" x="50" y="218" width="314" height="460"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ymX-QM-TxF">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
@@ -48,6 +48,13 @@
                                             <constraint firstAttribute="trailing" secondItem="0YN-vp-LEr" secondAttribute="trailing" id="VKM-EV-0ln"/>
                                             <constraint firstAttribute="bottom" secondItem="0YN-vp-LEr" secondAttribute="bottom" id="XsF-gv-VF4"/>
                                             <constraint firstAttribute="trailing" secondItem="5He-uO-LMp" secondAttribute="trailing" constant="10" id="rfc-jd-Xge"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbW-7Q-qYt" userLabel="Spacing View">
+                                        <rect key="frame" x="0.0" y="50" width="314" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Dc9-ec-axD"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDJ-xz-M1K">
@@ -80,6 +87,13 @@
                                             <constraint firstItem="Wpf-dm-MUf" firstAttribute="top" secondItem="zDJ-xz-M1K" secondAttribute="top" constant="10" id="vba-pg-6yv"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAi-cW-PIU" userLabel="Spacing View">
+                                        <rect key="frame" x="0.0" y="130" width="314" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="mqE-up-csg"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQX-96-jtt">
                                         <rect key="frame" x="0.0" y="160" width="314" height="50"/>
                                         <subviews>
@@ -108,6 +122,13 @@
                                             <constraint firstAttribute="trailing" secondItem="yxM-O5-aNU" secondAttribute="trailing" id="WCQ-RT-Lj7"/>
                                             <constraint firstItem="yxM-O5-aNU" firstAttribute="top" secondItem="QQX-96-jtt" secondAttribute="top" id="nda-kj-WnU"/>
                                             <constraint firstItem="xNl-Fj-tZb" firstAttribute="top" secondItem="QQX-96-jtt" secondAttribute="top" constant="10" id="wtz-8l-fEM"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpM-CX-SFV" userLabel="Spacing View">
+                                        <rect key="frame" x="0.0" y="210" width="314" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="sx6-UM-ECu"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6X4-Um-kfZ">
@@ -140,8 +161,15 @@
                                             <constraint firstItem="sjG-50-VBn" firstAttribute="leading" secondItem="6X4-Um-kfZ" secondAttribute="leading" id="nqk-1z-rZr"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Edh-kZ-FqZ" userLabel="Spacing View">
+                                        <rect key="frame" x="0.0" y="290" width="314" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="b5S-p4-eHp"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3h-bb-EMD" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="320" width="314" height="50"/>
+                                        <rect key="frame" x="0.0" y="340" width="314" height="50"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Qhh-46-MUT"/>
@@ -154,15 +182,22 @@
                                             <action selector="didTapRegister:" destination="7hG-io-vrU" eventType="touchUpInside" id="Tyj-EX-zwG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fu-w4-RLQ" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="400" width="314" height="50"/>
-                                        <color key="backgroundColor" name="cB199F9"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQ4-wY-MC1" userLabel="Spacing View">
+                                        <rect key="frame" x="0.0" y="390" width="314" height="20"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="BCH-1v-7cz"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fu-w4-RLQ" customClass="RoundBorderButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="410" width="314" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="17r-y5-97g"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="キャンセル">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" name="c859EFF"/>
                                         </state>
                                         <connections>
                                             <action selector="didTapCancel:" destination="7hG-io-vrU" eventType="touchUpInside" id="6Md-fx-dpN"/>
@@ -199,8 +234,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="cB199F9">
-            <color red="0.69411764705882351" green="0.59999999999999998" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="c859EFF">
+            <color red="0.52156862745098043" green="0.61960784313725492" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
