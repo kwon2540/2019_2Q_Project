@@ -29,7 +29,7 @@ class DropDownNotification: UIView {
         var backroundColor: UIColor {
             switch self {
             case .notification:
-                return .cD2D2D2
+                return .cD8D8D8
             case .error:
                 return .cFF5943_85
             }
