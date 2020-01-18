@@ -272,6 +272,13 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		1073EC3123D2EA51003BB2C5 /* View Parts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Parts";
+			sourceTree = "<group>";
+		};
 		108FFD83237FFCFF005B21CC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +397,7 @@
 		10A8FE0D23A4B3D600F64F96 /* AddList */ = {
 			isa = PBXGroup;
 			children = (
+				1073EC3123D2EA51003BB2C5 /* View Parts */,
 				10A8FE1523A4B45A00F64F96 /* AddListViewController.storyboard */,
 				10A8FE1723A4B46B00F64F96 /* AddListViewController.swift */,
 				10A8FE1923A4B47600F64F96 /* AddListViewModel.swift */,
