@@ -24,7 +24,7 @@ class LoginViewController: UIViewController, GetStoryboard {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.bindViewModel()
+        bindViewModel()
     }
 
     private func bindViewModel() {
@@ -73,6 +73,6 @@ class LoginViewController: UIViewController, GetStoryboard {
     }
 
     @IBAction private func didTapRegister(_ sender: Any) {
-        self.present(RegisterViewController.getStoryBoard(), animated: true)
+        present(RegisterViewController.getStoryBoard(), animated: true)
     }
 }

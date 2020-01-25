@@ -17,8 +17,8 @@ class AddListViewController: UIViewController, GetStoryboard {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     @IBAction private func dismiss(_ sender: Any) {

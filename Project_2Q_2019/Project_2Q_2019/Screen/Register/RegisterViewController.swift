@@ -28,7 +28,7 @@ class RegisterViewController: UIViewController, GetStoryboard {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.bindViewModel()
+        bindViewModel()
     }
 
     private func bindViewModel() {
@@ -95,6 +95,6 @@ class RegisterViewController: UIViewController, GetStoryboard {
     }
 
     @IBAction private func didTapCancel(_ sender: Any) {
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
 }
