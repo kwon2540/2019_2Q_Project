@@ -11,17 +11,32 @@
         <!--Add Goods View Controller-->
         <scene sceneID="VAe-j9-eJA">
             <objects>
-                <viewController id="N7i-Y4-vE3" customClass="AddGoodsViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Tr5-ca-gvN">
+                <viewController storyboardIdentifier="AddGoodsViewController" modalPresentationStyle="overFullScreen" id="N7i-Y4-vE3" customClass="AddGoodsViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="Tr5-ca-gvN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BML-4V-XWU">
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tkq-SH-U4C" firstAttribute="trailing" secondItem="BML-4V-XWU" secondAttribute="trailing" id="0E6-Hc-bdQ"/>
+                            <constraint firstItem="BML-4V-XWU" firstAttribute="leading" secondItem="tkq-SH-U4C" secondAttribute="leading" id="DPg-do-9Hn"/>
+                            <constraint firstItem="BML-4V-XWU" firstAttribute="top" secondItem="tkq-SH-U4C" secondAttribute="top" constant="100" id="af0-0j-ldd"/>
+                            <constraint firstAttribute="bottom" secondItem="BML-4V-XWU" secondAttribute="bottom" id="xqz-vM-0W9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tkq-SH-U4C"/>
                     </view>
+                    <connections>
+                        <outlet property="mainView" destination="BML-4V-XWU" id="25Y-5R-xHK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jZ-nq-UJB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25" y="123"/>
+            <point key="canvasLocation" x="24.637681159420293" y="122.54464285714285"/>
         </scene>
     </scenes>
 </document>

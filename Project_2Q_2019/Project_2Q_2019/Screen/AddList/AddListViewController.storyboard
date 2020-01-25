@@ -11,7 +11,7 @@
         <!--Add List View Controller-->
         <scene sceneID="VK9-pp-E5k">
             <objects>
-                <viewController storyboardIdentifier="AddListViewController" id="cRk-B5-Kfs" customClass="AddListViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddListViewController" modalPresentationStyle="overFullScreen" id="cRk-B5-Kfs" customClass="AddListViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SKG-mM-RmV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="YhZ-Wn-5Dj">
-                                        <rect key="frame" x="0.0" y="0.0" width="173" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="60"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHh-Wv-xrn" userLabel="Spacing View 20">
                                                 <rect key="frame" x="0.0" y="10" width="20" height="50"/>
@@ -59,8 +59,12 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fst-s0-WT4">
-                                                <rect key="frame" x="152" y="38" width="21" height="22"/>
-                                                <state key="normal" image="calendar" catalog="system"/>
+                                                <rect key="frame" x="152" y="40" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Jyf-rf-mgf"/>
+                                                    <constraint firstAttribute="width" constant="20" id="Snw-hb-Lwa"/>
+                                                </constraints>
+                                                <state key="normal" image="Calendar"/>
                                                 <connections>
                                                     <action selector="changeDate:" destination="cRk-B5-Kfs" eventType="touchUpInside" id="NBa-J9-vCf"/>
                                                 </connections>
@@ -82,7 +86,7 @@
                                             <constraint firstAttribute="width" constant="26" id="P8u-h6-yLg"/>
                                             <constraint firstAttribute="height" constant="26" id="pls-n0-y9p"/>
                                         </constraints>
-                                        <state key="normal" image="dismiss"/>
+                                        <state key="normal" image="Dismiss"/>
                                         <connections>
                                             <action selector="dismiss:" destination="cRk-B5-Kfs" eventType="touchUpInside" id="YRD-vH-Pgn"/>
                                         </connections>
@@ -93,7 +97,7 @@
                                             <constraint firstAttribute="width" constant="64" id="a3o-ev-PgC"/>
                                             <constraint firstAttribute="height" constant="64" id="owQ-qh-S7U"/>
                                         </constraints>
-                                        <state key="normal" image="pencle"/>
+                                        <state key="normal" image="Pencil"/>
                                         <connections>
                                             <action selector="add:" destination="cRk-B5-Kfs" eventType="touchUpInside" id="rBf-m3-ujH"/>
                                         </connections>
@@ -136,8 +140,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" catalog="system" width="64" height="52"/>
-        <image name="dismiss" width="18" height="18"/>
-        <image name="pencle" width="82" height="82"/>
+        <image name="Calendar" width="45" height="45"/>
+        <image name="Dismiss" width="18" height="18"/>
+        <image name="Pencil" width="82" height="82"/>
     </resources>
 </document>

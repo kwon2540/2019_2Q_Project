@@ -10,8 +10,9 @@ import UIKit
 
 class AddGoodsViewController: UIViewController, GetStoryboard {
 
+    @IBOutlet weak var mainView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mainView.layer.cornerRadius = 20
     }
 }

@@ -30,7 +30,7 @@ class AddListViewController: UIViewController, GetStoryboard {
     }
 
     @IBAction private func add(_ sender: Any) {
-
+        present(AddGoodsViewController.getStoryBoard(), animated: true)
     }
 }
 
