@@ -91,24 +91,11 @@
                                             <action selector="dismiss:" destination="cRk-B5-Kfs" eventType="touchUpInside" id="YRD-vH-Pgn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzn-6b-LCt">
-                                        <rect key="frame" x="318" y="710" width="64" height="64"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="64" id="a3o-ev-PgC"/>
-                                            <constraint firstAttribute="height" constant="64" id="owQ-qh-S7U"/>
-                                        </constraints>
-                                        <state key="normal" image="Pencil"/>
-                                        <connections>
-                                            <action selector="add:" destination="cRk-B5-Kfs" eventType="touchUpInside" id="rBf-m3-ujH"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="jzn-6b-LCt" secondAttribute="bottom" constant="48" id="Hob-0h-AAb"/>
                                     <constraint firstItem="KI0-Ek-EkT" firstAttribute="top" secondItem="UU5-hu-St4" secondAttribute="top" constant="12" id="PDg-Ts-kN0"/>
                                     <constraint firstItem="cPl-QF-bE6" firstAttribute="leading" secondItem="UU5-hu-St4" secondAttribute="leading" id="PXA-nz-cKD"/>
-                                    <constraint firstAttribute="trailing" secondItem="jzn-6b-LCt" secondAttribute="trailing" constant="32" id="Txy-C3-X9o"/>
                                     <constraint firstItem="YhZ-Wn-5Dj" firstAttribute="top" secondItem="UU5-hu-St4" secondAttribute="top" id="UNf-Fy-AiP"/>
                                     <constraint firstAttribute="trailing" secondItem="cPl-QF-bE6" secondAttribute="trailing" id="VYa-yO-Rqk"/>
                                     <constraint firstItem="KI0-Ek-EkT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YhZ-Wn-5Dj" secondAttribute="trailing" id="Z4Q-BE-3Ic"/>
@@ -118,12 +105,27 @@
                                     <constraint firstAttribute="bottom" secondItem="cPl-QF-bE6" secondAttribute="bottom" id="xs1-lZ-cQG"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzn-6b-LCt">
+                                <rect key="frame" x="318" y="766" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="UWs-4K-mVi"/>
+                                    <constraint firstAttribute="width" constant="64" id="a3o-ev-PgC"/>
+                                    <constraint firstAttribute="height" constant="64" id="owQ-qh-S7U"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="rB2-oL-8Qb"/>
+                                </constraints>
+                                <state key="normal" image="Pencil"/>
+                                <connections>
+                                    <action selector="add:" destination="cRk-B5-Kfs" eventType="touchUpInside" id="rBf-m3-ujH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4XO-Ru-NVn" firstAttribute="trailing" secondItem="UU5-hu-St4" secondAttribute="trailing" id="GC9-33-TRG"/>
                             <constraint firstItem="UU5-hu-St4" firstAttribute="top" secondItem="4XO-Ru-NVn" secondAttribute="top" constant="30" id="NUa-pu-Ng5"/>
+                            <constraint firstItem="4XO-Ru-NVn" firstAttribute="trailing" secondItem="jzn-6b-LCt" secondAttribute="trailing" constant="32" id="Ynd-rn-jR7"/>
                             <constraint firstAttribute="bottom" secondItem="UU5-hu-St4" secondAttribute="bottom" id="bel-g3-aPz"/>
+                            <constraint firstItem="4XO-Ru-NVn" firstAttribute="bottom" secondItem="jzn-6b-LCt" secondAttribute="bottom" constant="32" id="l1l-gW-SK3"/>
                             <constraint firstItem="UU5-hu-St4" firstAttribute="leading" secondItem="4XO-Ru-NVn" secondAttribute="leading" id="zas-8R-PGd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4XO-Ru-NVn"/>

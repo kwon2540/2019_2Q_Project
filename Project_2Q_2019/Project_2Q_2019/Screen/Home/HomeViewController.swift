@@ -15,6 +15,9 @@ class HomeViewController: UIViewController, GetStoryboard {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+
+    override func viewDidLayoutSubviews() {
         setCollectionView()
     }
 

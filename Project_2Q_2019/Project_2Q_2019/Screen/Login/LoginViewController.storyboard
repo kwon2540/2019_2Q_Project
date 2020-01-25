@@ -33,7 +33,7 @@
                                             <constraint firstAttribute="height" constant="70" id="lVm-YS-tfx"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welecome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb9-hX-iGB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb9-hX-iGB">
                                         <rect key="frame" x="0.0" y="144.00000000000003" width="275" height="22"/>
                                         <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="16"/>
                                         <color key="textColor" name="c859EFF"/>

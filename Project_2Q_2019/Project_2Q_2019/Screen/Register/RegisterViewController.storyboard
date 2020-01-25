@@ -12,7 +12,7 @@
         <!--Register View Controller-->
         <scene sceneID="nt2-uk-CFP">
             <objects>
-                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7hG-io-vrU" customClass="RegisterViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7hG-io-vrU" customClass="RegisterViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ydb-cj-Yqw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

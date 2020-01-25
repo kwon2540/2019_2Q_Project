@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,10 +31,100 @@
                                             <action selector="dismiss:" destination="N7i-Y4-vE3" eventType="touchUpInside" id="8c7-hG-ymG"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mDx-Ou-fGW">
+                                        <rect key="frame" x="20" y="50" width="374" height="702"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品目" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfl-rR-9vg">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" name="cF98A6C"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsH-nN-b6w">
+                                                <rect key="frame" x="0.0" y="17" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="o2W-Yh-Xo4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lga-KZ-8Zn" userLabel="Saparator Line">
+                                                <rect key="frame" x="0.0" y="67" width="374" height="2"/>
+                                                <color key="backgroundColor" name="cF98A6C"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="ldo-Ft-idf"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRH-RO-Rcw" userLabel="Spacing View">
+                                                <rect key="frame" x="0.0" y="69" width="374" height="20"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="muV-Ow-V6z"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="値段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69n-uQ-aq0">
+                                                <rect key="frame" x="0.0" y="89" width="374" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" name="cF98A6C"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gvd-0o-FqQ">
+                                                <rect key="frame" x="0.0" y="106" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="3hG-dT-92Q"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlN-Gp-cxm" userLabel="Saparator Line">
+                                                <rect key="frame" x="0.0" y="156" width="374" height="2"/>
+                                                <color key="backgroundColor" name="cF98A6C"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="bFp-8A-BOC"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cES-QZ-Sdq" userLabel="Spacing View">
+                                                <rect key="frame" x="0.0" y="158" width="374" height="20"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="ODm-5F-i1b"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oH-m5-zqC">
+                                                <rect key="frame" x="0.0" y="178" width="374" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" name="cF98A6C"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nkb-HX-uRW">
+                                                <rect key="frame" x="0.0" y="195" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="s2n-0C-vxF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-Kh-osl" userLabel="Saparator Line">
+                                                <rect key="frame" x="0.0" y="245" width="374" height="2"/>
+                                                <color key="backgroundColor" name="cF98A6C"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="vbB-SW-Voa"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWU-2n-qOd" userLabel="Spacing View">
+                                                <rect key="frame" x="0.0" y="247" width="374" height="455"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="XUF-aj-z6G" secondAttribute="trailing" constant="12" id="FRx-bL-7c9"/>
+                                    <constraint firstItem="mDx-Ou-fGW" firstAttribute="top" secondItem="XUF-aj-z6G" secondAttribute="bottom" constant="12" id="Gxr-oj-QEq"/>
+                                    <constraint firstAttribute="bottom" secondItem="mDx-Ou-fGW" secondAttribute="bottom" id="PPV-tj-Xrn"/>
+                                    <constraint firstItem="mDx-Ou-fGW" firstAttribute="leading" secondItem="BML-4V-XWU" secondAttribute="leading" constant="20" id="aZa-lW-lHn"/>
+                                    <constraint firstAttribute="trailing" secondItem="mDx-Ou-fGW" secondAttribute="trailing" constant="20" id="hKe-6N-qni"/>
                                     <constraint firstItem="XUF-aj-z6G" firstAttribute="top" secondItem="BML-4V-XWU" secondAttribute="top" constant="12" id="vyb-B8-9lk"/>
                                 </constraints>
                             </view>
@@ -55,5 +146,8 @@
     </scenes>
     <resources>
         <image name="Dismiss" width="18" height="18"/>
+        <namedColor name="cF98A6C">
+            <color red="0.97647058823529409" green="0.54117647058823526" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
