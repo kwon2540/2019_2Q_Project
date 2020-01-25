@@ -12,13 +12,30 @@
         <scene sceneID="VAe-j9-eJA">
             <objects>
                 <viewController storyboardIdentifier="AddGoodsViewController" modalPresentationStyle="overFullScreen" id="N7i-Y4-vE3" customClass="AddGoodsViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="Tr5-ca-gvN">
+                    <view key="view" contentMode="scaleToFill" id="Tr5-ca-gvN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BML-4V-XWU">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BML-4V-XWU" userLabel="ShadowView" customClass="ShadowView" customModule="Project_2Q_2019" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUF-aj-z6G">
+                                        <rect key="frame" x="376" y="12" width="26" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="26" id="HnI-RH-A7G"/>
+                                            <constraint firstAttribute="height" constant="26" id="rpF-8Y-qFJ"/>
+                                        </constraints>
+                                        <state key="normal" image="Dismiss"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="N7i-Y4-vE3" eventType="touchUpInside" id="8c7-hG-ymG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XUF-aj-z6G" secondAttribute="trailing" constant="12" id="FRx-bL-7c9"/>
+                                    <constraint firstItem="XUF-aj-z6G" firstAttribute="top" secondItem="BML-4V-XWU" secondAttribute="top" constant="12" id="vyb-B8-9lk"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -30,13 +47,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tkq-SH-U4C"/>
                     </view>
-                    <connections>
-                        <outlet property="mainView" destination="BML-4V-XWU" id="25Y-5R-xHK"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jZ-nq-UJB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24.637681159420293" y="122.54464285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Dismiss" width="18" height="18"/>
+    </resources>
 </document>

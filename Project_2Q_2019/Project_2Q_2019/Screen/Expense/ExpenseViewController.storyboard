@@ -16,37 +16,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sT4-u7-Rdg">
-                                <rect key="frame" x="376" y="56" width="26" height="26"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fod-Uk-Zuy" customClass="ShadowView" customModule="Project_2Q_2019" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="74" width="414" height="822"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sT4-u7-Rdg">
+                                        <rect key="frame" x="376" y="12" width="26" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="26" id="PpZ-Lh-2fU"/>
+                                            <constraint firstAttribute="height" constant="26" id="tez-bP-mEW"/>
+                                        </constraints>
+                                        <state key="normal" image="Dismiss"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="bWU-Xg-A9D" eventType="touchUpInside" id="RLq-QL-Jb5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="26" id="PpZ-Lh-2fU"/>
-                                    <constraint firstAttribute="height" constant="26" id="tez-bP-mEW"/>
+                                    <constraint firstAttribute="trailing" secondItem="sT4-u7-Rdg" secondAttribute="trailing" constant="12" id="AZj-7M-XTg"/>
+                                    <constraint firstItem="sT4-u7-Rdg" firstAttribute="top" secondItem="Fod-Uk-Zuy" secondAttribute="top" constant="12" id="hPh-YN-JNn"/>
                                 </constraints>
-                                <state key="normal" image="Dismiss"/>
-                                <connections>
-                                    <action selector="dismiss:" destination="bWU-Xg-A9D" eventType="touchUpInside" id="RLq-QL-Jb5"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그래프와 월별 일별 지출 표시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYR-18-v8W">
-                                <rect key="frame" x="38.5" y="430" width="337.5" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="JFP-4L-Ia3" firstAttribute="trailing" secondItem="sT4-u7-Rdg" secondAttribute="trailing" constant="12" id="2GL-UF-2ky"/>
-                            <constraint firstItem="jYR-18-v8W" firstAttribute="centerY" secondItem="BsM-Jw-7AR" secondAttribute="centerY" id="6If-jr-BE9"/>
-                            <constraint firstItem="jYR-18-v8W" firstAttribute="centerX" secondItem="BsM-Jw-7AR" secondAttribute="centerX" id="r7w-uF-xzV"/>
-                            <constraint firstItem="sT4-u7-Rdg" firstAttribute="top" secondItem="JFP-4L-Ia3" secondAttribute="top" constant="12" id="wGm-T3-55j"/>
+                            <constraint firstAttribute="bottom" secondItem="Fod-Uk-Zuy" secondAttribute="bottom" id="4HF-zp-YSZ"/>
+                            <constraint firstItem="Fod-Uk-Zuy" firstAttribute="leading" secondItem="JFP-4L-Ia3" secondAttribute="leading" id="53U-Bu-znf"/>
+                            <constraint firstItem="Fod-Uk-Zuy" firstAttribute="top" secondItem="JFP-4L-Ia3" secondAttribute="top" constant="30" id="CbU-Rm-kY9"/>
+                            <constraint firstAttribute="trailing" secondItem="Fod-Uk-Zuy" secondAttribute="trailing" id="oha-Sc-xAs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JFP-4L-Ia3"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRi-vb-S3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="94"/>
+            <point key="canvasLocation" x="63.768115942028992" y="93.75"/>
         </scene>
     </scenes>
     <resources>

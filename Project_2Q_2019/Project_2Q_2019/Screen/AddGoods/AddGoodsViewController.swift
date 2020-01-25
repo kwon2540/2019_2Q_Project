@@ -10,9 +10,11 @@ import UIKit
 
 class AddGoodsViewController: UIViewController, GetStoryboard {
 
-    @IBOutlet weak var mainView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.layer.cornerRadius = 20
+    }
+
+    @IBAction private func dismiss(_ sender: Any) {
+        dismiss(animated: true)
     }
 }

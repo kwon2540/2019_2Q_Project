@@ -31,6 +31,7 @@
 		1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */; };
 		1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */; };
 		1073EC3823DC00D6003BB2C5 /* AddGoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3723DC00D6003BB2C5 /* AddGoodsViewModel.swift */; };
+		1073EC3A23DC18A7003BB2C5 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3923DC18A7003BB2C5 /* ShadowView.swift */; };
 		107A3864237FDC5600D276E9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A3863237FDC5600D276E9 /* ActivityIndicator.swift */; };
 		107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A3865237FE5B400D276E9 /* DropDownManager.swift */; };
 		108FFD86237FFFDA005B21CC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FFD85237FFFDA005B21CC /* Extension+UIColor.swift */; };
@@ -110,6 +111,7 @@
 		1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGoodsViewController.storyboard; sourceTree = "<group>"; };
 		1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodsViewController.swift; sourceTree = "<group>"; };
 		1073EC3723DC00D6003BB2C5 /* AddGoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodsViewModel.swift; sourceTree = "<group>"; };
+		1073EC3923DC18A7003BB2C5 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		107A3863237FDC5600D276E9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		107A3865237FE5B400D276E9 /* DropDownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownManager.swift; sourceTree = "<group>"; };
 		108FFD85237FFFDA005B21CC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				1032FE712338ED910039E9C0 /* RoundButton.swift */,
 				1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */,
 				10188E1123C996EC00F94681 /* AlertView */,
+				1073EC3923DC18A7003BB2C5 /* ShadowView.swift */,
 			);
 			path = ViewParts;
 			sourceTree = "<group>";
@@ -735,6 +738,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1073EC3A23DC18A7003BB2C5 /* ShadowView.swift in Sources */,
 				1032FE5A2338C2A70039E9C0 /* LoginViewController.swift in Sources */,
 				1032FE6B2338E4440039E9C0 /* RoundView.swift in Sources */,
 				10A7E5952312B83F00DF3D34 /* AppRootViewController.swift in Sources */,
