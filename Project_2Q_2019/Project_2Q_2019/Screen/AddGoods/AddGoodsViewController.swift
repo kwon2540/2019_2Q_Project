@@ -10,6 +10,12 @@ import UIKit
 
 class AddGoodsViewController: UIViewController, GetStoryboard {
 
+    enum TextFieldTag: Int {
+        case nameTextField
+        case priceTextField
+        case countTextField
+    }
+
     @IBOutlet private weak var scrollViewBottomContraints: NSLayoutConstraint!
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var priceTextField: UITextField!
@@ -17,6 +23,10 @@ class AddGoodsViewController: UIViewController, GetStoryboard {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        nameTextField.delegate = self
+        priceTextField.delegate = self
+        countTextField.delegate = self
 
         nameTextField.becomeFirstResponder()
     }
@@ -33,6 +43,19 @@ class AddGoodsViewController: UIViewController, GetStoryboard {
 
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
+    }
+}
+
+extension AddGoodsViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch TextFieldTag.init(rawValue: textField.tag) {
+        case .nameTextField:
+            priceTextField.becomeFirstResponder()
+        default:
+            break
+        }
+        return true
     }
 }
 
