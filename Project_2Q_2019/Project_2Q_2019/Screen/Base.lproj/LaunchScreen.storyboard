@@ -16,47 +16,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashBg" translatesAutoresizingMaskIntoConstraints="NO" id="cSy-1k-RXp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash_Bg" translatesAutoresizingMaskIntoConstraints="NO" id="0Gx-5l-WQT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Aw-zY-LzQ">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ACy-XV-vhK">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mzu-Ll-GSn" userLabel="Spacing View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qr8-Qa-Zyj" userLabel="Spacing View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="110" id="hsK-yj-YyT"/>
+                                            <constraint firstAttribute="height" constant="110" id="RX5-TF-AwE"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="QUn-r3-KWr">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ChW-pH-WQw">
                                         <rect key="frame" x="0.0" y="110" width="375" height="92"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="92" id="9LZ-JJ-ANd"/>
+                                            <constraint firstAttribute="height" constant="92" id="8j8-sC-drZ"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JeI-uq-E5H" userLabel="Spacing View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLf-sl-xKr" userLabel="Spacing View">
                                         <rect key="frame" x="0.0" y="202" width="375" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="RdV-Z7-dvZ"/>
+                                            <constraint firstAttribute="height" constant="40" id="s0D-db-lAo"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEN-3H-BbZ" userLabel="Spacing View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7k-ut-S3V" userLabel="Spacing View">
                                         <rect key="frame" x="0.0" y="242" width="375" height="81"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashImage" translatesAutoresizingMaskIntoConstraints="NO" id="2jD-Hc-gIp">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash_Image" translatesAutoresizingMaskIntoConstraints="NO" id="Ov8-f7-Qru">
                                         <rect key="frame" x="0.0" y="323" width="375" height="321"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="321" id="5FB-wz-ii3"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="321" id="VUL-gq-StG"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-9Z-NKR" userLabel="Spacing View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmr-Z7-OEZ" userLabel="Spacing View">
                                         <rect key="frame" x="0.0" y="644" width="375" height="90"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="90" id="tM8-0l-TRX"/>
+                                            <constraint firstAttribute="height" constant="90" id="oh6-z7-qN6"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -64,14 +64,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3Aw-zY-LzQ" firstAttribute="leading" secondItem="38b-HW-OwD" secondAttribute="leading" id="6Ff-Sv-ntb"/>
-                            <constraint firstItem="38b-HW-OwD" firstAttribute="bottom" secondItem="3Aw-zY-LzQ" secondAttribute="bottom" id="Dir-b2-T0p"/>
-                            <constraint firstAttribute="bottom" secondItem="cSy-1k-RXp" secondAttribute="bottom" id="Rh9-uI-h3u"/>
-                            <constraint firstItem="3Aw-zY-LzQ" firstAttribute="trailing" secondItem="38b-HW-OwD" secondAttribute="trailing" id="XKB-KX-e9j"/>
-                            <constraint firstItem="3Aw-zY-LzQ" firstAttribute="top" secondItem="38b-HW-OwD" secondAttribute="top" id="dGg-K2-IDV"/>
-                            <constraint firstItem="cSy-1k-RXp" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="hRl-Ag-6ch"/>
-                            <constraint firstAttribute="trailing" secondItem="cSy-1k-RXp" secondAttribute="trailing" id="mes-aU-JcQ"/>
-                            <constraint firstItem="cSy-1k-RXp" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="szY-9N-Rs3"/>
+                            <constraint firstItem="ACy-XV-vhK" firstAttribute="top" secondItem="38b-HW-OwD" secondAttribute="top" id="7Dc-bE-hO0"/>
+                            <constraint firstItem="0Gx-5l-WQT" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="8ca-5C-QRw"/>
+                            <constraint firstItem="38b-HW-OwD" firstAttribute="trailing" secondItem="ACy-XV-vhK" secondAttribute="trailing" id="FKc-LQ-n5U"/>
+                            <constraint firstItem="ACy-XV-vhK" firstAttribute="bottom" secondItem="38b-HW-OwD" secondAttribute="bottom" id="Fzb-AX-gqT"/>
+                            <constraint firstItem="ACy-XV-vhK" firstAttribute="leading" secondItem="38b-HW-OwD" secondAttribute="leading" id="KQg-DE-FHT"/>
+                            <constraint firstAttribute="bottom" secondItem="0Gx-5l-WQT" secondAttribute="bottom" id="SCa-RW-11j"/>
+                            <constraint firstAttribute="trailing" secondItem="0Gx-5l-WQT" secondAttribute="trailing" id="ge0-i6-B48"/>
+                            <constraint firstItem="0Gx-5l-WQT" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="prS-uy-iVQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="38b-HW-OwD"/>
                     </view>
@@ -82,8 +82,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SplashBg" width="375" height="812"/>
-        <image name="SplashImage" width="329" height="321"/>
-        <image name="SplashLogo" width="236" height="92"/>
+        <image name="Splash_Bg" width="375" height="812"/>
+        <image name="Splash_Image" width="329" height="321"/>
+        <image name="Splash_Logo" width="236" height="92"/>
     </resources>
 </document>

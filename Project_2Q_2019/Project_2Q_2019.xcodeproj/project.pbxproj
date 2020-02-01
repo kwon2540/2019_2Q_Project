@@ -230,7 +230,6 @@
 		1032FE552338C0920039E9C0 /* SharedObject */ = {
 			isa = PBXGroup;
 			children = (
-				10A7E52F22EDC14100DF3D34 /* LaunchScreen.storyboard */,
 				1032FE562338C1050039E9C0 /* GetStoryboard.swift */,
 				10B6CF4F2365B13D00314C98 /* AccountFormState.swift */,
 				10B00E0623769DBD00864551 /* LogManager.swift */,
@@ -378,6 +377,7 @@
 		10A7E5932312B81D00DF3D34 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				10A7E52F22EDC14100DF3D34 /* LaunchScreen.storyboard */,
 				10A7E5942312B83F00DF3D34 /* AppRootViewController.swift */,
 				10A00A9E237FB9A300BA90EB /* Splash */,
 				1032FE582338C2940039E9C0 /* Login */,
