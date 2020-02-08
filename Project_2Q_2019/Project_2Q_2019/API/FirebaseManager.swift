@@ -22,6 +22,15 @@ enum ApiState {
 
 struct FirebaseManager: AuthManager {
 
+    enum Collections: String {
+        case users
+        case goodslist
+
+        var key: String {
+            return self.rawValue
+        }
+    }
+
     static var shared = FirebaseManager()
 
     private init() {}
@@ -41,7 +50,7 @@ struct FirebaseManager: AuthManager {
             let userModel = UserModel(email: email, name: name, uid: uid, startDate: Date())
             guard let data = try? FirestoreEncoder().encode(userModel) else { return }
 
-            Firestore.firestore().collection("users").document(uid).setData(data, completion: { (error) in
+            Firestore.firestore().collection(Collections.users.key).document(uid).setData(data, completion: { (error) in
                 if error != nil {
                     return completion(.failed(error: error.debugDescription))
                 }
@@ -61,5 +70,30 @@ struct FirebaseManager: AuthManager {
 
     func signOut() {
         try? Auth.auth().signOut()
+    }
+
+    func addGoods(dateList: [DateList], completion: @escaping (ApiState) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+
+        let goodsListModel = GoodsListModel(uid: uid, dateList: dateList)
+        guard let data = try? FirestoreEncoder().encode(goodsListModel) else { return }
+
+        Firestore.firestore().collection(Collections.goodslist.key).document(uid).setData(data, completion: { (error) in
+            if error != nil {
+                return completion(.failed(error: error.debugDescription))
+            }
+            completion(.success)
+        })
+    }
+
+    // TODO: 임시
+    func loadGoodsList() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Firestore.firestore().collection(Collections.goodslist.key).document(uid).getDocument { (snapshot, error) in
+            if error != nil {
+
+            }
+            print(snapshot?.data() ?? "")
+        }
     }
 }
