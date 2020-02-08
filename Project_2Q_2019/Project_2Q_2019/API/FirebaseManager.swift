@@ -50,12 +50,12 @@ struct FirebaseManager: AuthManager {
             let userModel = UserModel(email: email, name: name, uid: uid, startDate: Date())
             guard let data = try? FirestoreEncoder().encode(userModel) else { return }
 
-            Firestore.firestore().collection(Collections.users.key).document(uid).setData(data, completion: { (error) in
+            Firestore.firestore().collection(Collections.users.key).document(uid).setData(data) { (error) in
                 if error != nil {
                     return completion(.failed(error: error.debugDescription))
                 }
                 completion(.success)
-            })
+            }
         }
     }
 
@@ -78,12 +78,12 @@ struct FirebaseManager: AuthManager {
         let goodsListModel = GoodsListModel(uid: uid, dateList: dateList)
         guard let data = try? FirestoreEncoder().encode(goodsListModel) else { return }
 
-        Firestore.firestore().collection(Collections.goodslist.key).document(uid).setData(data, completion: { (error) in
+        Firestore.firestore().collection(Collections.goodslist.key).document(uid).setData(data) { (error) in
             if error != nil {
                 return completion(.failed(error: error.debugDescription))
             }
             completion(.success)
-        })
+        }
     }
 
     // TODO: 임시
