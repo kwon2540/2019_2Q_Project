@@ -76,20 +76,22 @@ class RegisterViewController: UIViewController, GetStoryboard {
             let password = passwordTextField.text,
             let name = nameTextField.text else { return }
         ActivityIndicator.shared.start(view: self.view)
-        FirebaseManager.shared.createUserAccount(email: email, password: password, name: name) { (state) in
+        FirebaseManager.shared.createUserAccount(email: email, password: password, name: name) { [weak self] (state) in
+            guard let this = self, let view = self?.view else { return }
+
             switch state {
             case .success:
-                ActivityIndicator.shared.stop(view: self.view)
-                self.dismiss(animated: true)
+                ActivityIndicator.shared.stop(view: view)
+                this.dismiss(animated: true)
                 AppDelegate.shared.rootViewController.showHomeScreen()
             case .failed(let error):
-                DropDownManager.shared.showDropDownNotification(view: self.view,
+                DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,
                                                                 height: nil,
                                                                 type: .error,
                                                                 message: error.description)
                 apiErrorLog(logMessage: error)
-                ActivityIndicator.shared.stop(view: self.view)
+                ActivityIndicator.shared.stop(view: view)
             }
         }
     }
