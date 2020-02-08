@@ -61,17 +61,20 @@ class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         let goods = Goods(name: name, amount: amount, price: price, isBought: false)
 
         var goodsData = viewModel.dateList
-
-        if goodsData.isEmpty {
-            goodsData = [DateList(date: viewModel.date, goods: [goods])]
-        } else {
-            if let index = goodsData.firstIndex(where: { $0.date == viewModel.date }) {
-                goodsData[index].goods.append(goods)
-            } else {
-                goodsData.append(DateList(date: viewModel.date, goods: [goods]))
-            }
+        
+        // 저장된 데이터가 없을 경우
+        guard !goodsData.isEmpty else {
+            return [DateList(date: viewModel.date, goods: [goods])]
         }
-
+        
+        // 저장된 데이터가 있지만 오늘 데이터가 없을 경우
+        guard let index = goodsData.firstIndex(where: { $0.date == viewModel.date }) else {
+            goodsData.append(DateList(date: viewModel.date, goods: [goods]))
+            return goodsData
+        }
+        
+        // 저장된 데이터가 있고 오늘 데이터도 있을 경우
+        goodsData[index].goods.append(goods)
         return goodsData
     }
 
