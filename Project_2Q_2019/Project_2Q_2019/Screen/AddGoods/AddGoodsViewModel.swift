@@ -9,4 +9,19 @@
 import Foundation
 
 struct AddGoodsViewModel {
+
+    var date: String
+    var dateList: [DateList] = []
+
+    init(date: String?, dateList: [DateList]?) {
+        if let date = date {
+            self.date = date
+        } else {
+            self.date = Date().toString(format: .firebase_key_date)
+        }
+
+        if let dateList = dateList {
+            self.dateList = dateList
+        }
+    }
 }
