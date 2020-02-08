@@ -13,6 +13,7 @@ enum DateType {
     case jp_year
     case jp_month
     case jp_day
+    case firebase_key_date
 
     var format: String {
         switch self {
@@ -24,6 +25,8 @@ enum DateType {
             return "MM月"
         case .jp_day:
             return "dd日"
+        case .firebase_key_date:
+            return "yyyyMMdd"
         }
     }
 }
