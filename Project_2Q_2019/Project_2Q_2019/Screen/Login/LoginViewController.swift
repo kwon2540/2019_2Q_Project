@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LoginViewController: UIViewController, GetStoryboard {
+final class LoginViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
@@ -24,7 +24,7 @@ class LoginViewController: UIViewController, GetStoryboard {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.bindViewModel()
+        bindViewModel()
     }
 
     private func bindViewModel() {
@@ -66,13 +66,13 @@ class LoginViewController: UIViewController, GetStoryboard {
                                                                 height: nil,
                                                                 type: .error,
                                                                 message: error.description)
-                apiErrorLog(logMessage: error)
+                apiErrorLog(logMessage: error.description)
                 ActivityIndicator.shared.stop(view: self.view)
             }
         }
     }
 
     @IBAction private func didTapRegister(_ sender: Any) {
-        self.present(RegisterViewController.getStoryBoard(), animated: true)
+        present(RegisterViewController.getStoryBoard(), animated: true)
     }
 }

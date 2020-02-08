@@ -8,12 +8,12 @@
 
 import UIKit
 
-class AppRootViewController: UIViewController {
+final class AppRootViewController: UIViewController {
 
     private var current: UIViewController
 
     init() {
-        self.current = SplashViewController.getStoryBoard()
+        current = SplashViewController.getStoryBoard()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -33,8 +33,8 @@ class AppRootViewController: UIViewController {
     private func changeChild(currentViewController: UIViewController, newViewController: UIViewController, trasitionOption: UIView.AnimationOptions = .transitionCrossDissolve) {
         currentViewController.willMove(toParent: nil)
 
-        self.addChild(newViewController)
-        self.view.addSubview(newViewController.view)
+        addChild(newViewController)
+        view.addSubview(newViewController.view)
 
         transition(from: current, to: newViewController, duration: 0.5, options: trasitionOption, animations: {
             newViewController.view.alpha = 1

@@ -8,14 +8,19 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, GetStoryboard {
+final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setCollectionView()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        setCollectionView()
     }
 
     @IBAction private func signOut(_ sender: Any) {
@@ -24,19 +29,19 @@ class HomeViewController: UIViewController, GetStoryboard {
     }
 
     @IBAction private func menu(_ sender: Any) {
-        self.present(MenuViewController.getStoryBoard(), animated: true)
+        present(MenuViewController.getStoryBoard(), animated: true)
     }
 
     @IBAction private func expense(_ sender: Any) {
-        self.present(ExpenseViewController.getStoryBoard(), animated: true)
+        present(ExpenseViewController.getStoryBoard(), animated: true)
     }
 
     @IBAction private func history(_ sender: Any) {
-        self.present(HistoryViewController.getStoryBoard(), animated: true)
+        present(HistoryViewController.getStoryBoard(), animated: true)
     }
 
     @IBAction private func add(_ sender: Any) {
-        self.present(AddListViewController.getStoryBoard(), animated: true)
+        present(AddListViewController.getStoryBoard(), animated: true)
     }
 
     private func setCollectionView() {
@@ -64,7 +69,7 @@ class HomeViewController: UIViewController, GetStoryboard {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.present(EditListViewController.getStoryBoard(), animated: true)
+        present(EditListViewController.getStoryBoard(), animated: true)
     }
 }
 

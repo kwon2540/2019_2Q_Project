@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeCollectionViewCell: UICollectionViewCell {
+final class HomeCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var mainView: UIView!
 

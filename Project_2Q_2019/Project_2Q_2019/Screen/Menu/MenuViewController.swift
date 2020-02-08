@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController, GetStoryboard {
+final class MenuViewController: UIViewController, StoryboardInstantiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()

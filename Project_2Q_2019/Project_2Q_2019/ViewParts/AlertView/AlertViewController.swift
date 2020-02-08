@@ -12,7 +12,7 @@ protocol AlertViewControllerDelegate: class {
     func ok()
 }
 
-class AlertViewController: UIViewController, GetStoryboard {
+final class AlertViewController: UIViewController, StoryboardInstantiable {
 
     enum DisplayType {
         case delete

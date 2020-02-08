@@ -8,11 +8,21 @@
 
 import UIKit
 
-class RoundButton: UIButton {
+final class RoundButton: UIButton {
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = self.frame.height / 2
+    }
+
+    override var isHighlighted: Bool {
+        didSet {
+            if isHighlighted {
+                self.backgroundColor = .c859EFF_50
+            } else {
+                self.backgroundColor = .c859EFF
+            }
+        }
     }
 
     override var isEnabled: Bool {

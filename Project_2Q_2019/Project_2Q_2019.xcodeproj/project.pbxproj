@@ -16,7 +16,7 @@
 		1016000523922B5C00A92C4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1016000423922B5C00A92C4D /* GoogleService-Info.plist */; };
 		10188E1423C9970900F94681 /* AlertViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10188E1323C9970900F94681 /* AlertViewController.storyboard */; };
 		10188E1623C997B900F94681 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10188E1523C997B900F94681 /* AlertViewController.swift */; };
-		1032FE572338C1050039E9C0 /* GetStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE562338C1050039E9C0 /* GetStoryboard.swift */; };
+		1032FE572338C1050039E9C0 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */; };
 		1032FE5A2338C2A70039E9C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE592338C2A70039E9C0 /* LoginViewController.swift */; };
 		1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */; };
 		1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE5F2338DE530039E9C0 /* RegisterViewController.swift */; };
@@ -28,6 +28,11 @@
 		1032FE6E2338ECC90039E9C0 /* Assets.colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */; };
 		1032FE722338ED910039E9C0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE712338ED910039E9C0 /* RoundButton.swift */; };
 		1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */; };
+		1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */; };
+		1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */; };
+		1073EC3823DC00D6003BB2C5 /* AddGoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3723DC00D6003BB2C5 /* AddGoodsViewModel.swift */; };
+		1073EC3A23DC18A7003BB2C5 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3923DC18A7003BB2C5 /* ShadowView.swift */; };
+		1073EC3C23EE6E35003BB2C5 /* GoodsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3B23EE6E35003BB2C5 /* GoodsListModel.swift */; };
 		107A3864237FDC5600D276E9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A3863237FDC5600D276E9 /* ActivityIndicator.swift */; };
 		107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A3865237FE5B400D276E9 /* DropDownManager.swift */; };
 		108FFD86237FFFDA005B21CC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FFD85237FFFDA005B21CC /* Extension+UIColor.swift */; };
@@ -92,7 +97,7 @@
 		1016000423922B5C00A92C4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10188E1323C9970900F94681 /* AlertViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertViewController.storyboard; sourceTree = "<group>"; };
 		10188E1523C997B900F94681 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
-		1032FE562338C1050039E9C0 /* GetStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStoryboard.swift; sourceTree = "<group>"; };
+		1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		1032FE592338C2A70039E9C0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		1032FE5F2338DE530039E9C0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +109,11 @@
 		1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.colors.xcassets; sourceTree = "<group>"; };
 		1032FE712338ED910039E9C0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBorderButton.swift; sourceTree = "<group>"; };
+		1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGoodsViewController.storyboard; sourceTree = "<group>"; };
+		1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodsViewController.swift; sourceTree = "<group>"; };
+		1073EC3723DC00D6003BB2C5 /* AddGoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodsViewModel.swift; sourceTree = "<group>"; };
+		1073EC3923DC18A7003BB2C5 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		1073EC3B23EE6E35003BB2C5 /* GoodsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsListModel.swift; sourceTree = "<group>"; };
 		107A3863237FDC5600D276E9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		107A3865237FE5B400D276E9 /* DropDownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownManager.swift; sourceTree = "<group>"; };
 		108FFD85237FFFDA005B21CC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -222,8 +232,7 @@
 		1032FE552338C0920039E9C0 /* SharedObject */ = {
 			isa = PBXGroup;
 			children = (
-				10A7E52F22EDC14100DF3D34 /* LaunchScreen.storyboard */,
-				1032FE562338C1050039E9C0 /* GetStoryboard.swift */,
+				1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */,
 				10B6CF4F2365B13D00314C98 /* AccountFormState.swift */,
 				10B00E0623769DBD00864551 /* LogManager.swift */,
 				107A3863237FDC5600D276E9 /* ActivityIndicator.swift */,
@@ -259,6 +268,7 @@
 				1032FE712338ED910039E9C0 /* RoundButton.swift */,
 				1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */,
 				10188E1123C996EC00F94681 /* AlertView */,
+				1073EC3923DC18A7003BB2C5 /* ShadowView.swift */,
 			);
 			path = ViewParts;
 			sourceTree = "<group>";
@@ -277,6 +287,16 @@
 			children = (
 			);
 			path = "View Parts";
+			sourceTree = "<group>";
+		};
+		1073EC3223DC0054003BB2C5 /* AddGoods */ = {
+			isa = PBXGroup;
+			children = (
+				1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */,
+				1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */,
+				1073EC3723DC00D6003BB2C5 /* AddGoodsViewModel.swift */,
+			);
+			path = AddGoods;
 			sourceTree = "<group>";
 		};
 		108FFD83237FFCFF005B21CC /* Extension */ = {
@@ -359,6 +379,7 @@
 		10A7E5932312B81D00DF3D34 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				10A7E52F22EDC14100DF3D34 /* LaunchScreen.storyboard */,
 				10A7E5942312B83F00DF3D34 /* AppRootViewController.swift */,
 				10A00A9E237FB9A300BA90EB /* Splash */,
 				1032FE582338C2940039E9C0 /* Login */,
@@ -366,6 +387,7 @@
 				10A7E5962312B85700DF3D34 /* Home */,
 				10A8FE0C23A4B3CA00F64F96 /* Menu */,
 				10A8FE0D23A4B3D600F64F96 /* AddList */,
+				1073EC3223DC0054003BB2C5 /* AddGoods */,
 				10A8FE0E23A4B3EB00F64F96 /* EditList */,
 				100CF47723ADFEC500B3557D /* Expense */,
 				100CF47E23AE00F500B3557D /* History */,
@@ -419,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				10B00E042376846E00864551 /* UserModel.swift */,
+				1073EC3B23EE6E35003BB2C5 /* GoodsListModel.swift */,
 				10A7C2F8237047F20050F6B8 /* FirebaseManager.swift */,
 			);
 			path = API;
@@ -558,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10A8FE1C23A4B49200F64F96 /* EditListViewController.storyboard in Resources */,
+				1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */,
 				100CF48023AE011400B3557D /* HistoryViewController.storyboard in Resources */,
 				1032FE6E2338ECC90039E9C0 /* Assets.colors.xcassets in Resources */,
 				10A7E5982312B86800DF3D34 /* HomeViewController.storyboard in Resources */,
@@ -717,6 +741,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1073EC3A23DC18A7003BB2C5 /* ShadowView.swift in Sources */,
 				1032FE5A2338C2A70039E9C0 /* LoginViewController.swift in Sources */,
 				1032FE6B2338E4440039E9C0 /* RoundView.swift in Sources */,
 				10A7E5952312B83F00DF3D34 /* AppRootViewController.swift in Sources */,
@@ -727,17 +752,19 @@
 				10188E1623C997B900F94681 /* AlertViewController.swift in Sources */,
 				10B00E0723769DBD00864551 /* LogManager.swift in Sources */,
 				1032FE642338E2340039E9C0 /* LoginViewModel.swift in Sources */,
-				1032FE572338C1050039E9C0 /* GetStoryboard.swift in Sources */,
+				1032FE572338C1050039E9C0 /* StoryboardInstantiable.swift in Sources */,
 				10A8FE0923A4B10C00F64F96 /* Extension+Date.swift in Sources */,
 				1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */,
 				10A8FE1A23A4B47600F64F96 /* AddListViewModel.swift in Sources */,
 				10A8FE1423A4B44100F64F96 /* MenuViewModel.swift in Sources */,
+				1073EC3823DC00D6003BB2C5 /* AddGoodsViewModel.swift in Sources */,
 				100CF48423AE012800B3557D /* HistoryViewModel.swift in Sources */,
 				10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */,
 				100CF47D23ADFF1400B3557D /* ExpenseViewModel.swift in Sources */,
 				107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */,
 				10A7C2F9237047F20050F6B8 /* FirebaseManager.swift in Sources */,
 				108FFD86237FFFDA005B21CC /* Extension+UIColor.swift in Sources */,
+				1073EC3C23EE6E35003BB2C5 /* GoodsListModel.swift in Sources */,
 				1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */,
 				10A8FE1223A4B43800F64F96 /* MenuViewController.swift in Sources */,
 				10A8FE2023A4B4A500F64F96 /* EditListViewModel.swift in Sources */,
@@ -748,6 +775,7 @@
 				10B00E052376846E00864551 /* UserModel.swift in Sources */,
 				10A8FE1E23A4B49B00F64F96 /* EditListViewController.swift in Sources */,
 				10B6CF502365B13D00314C98 /* AccountFormState.swift in Sources */,
+				1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */,
 				107A3864237FDC5600D276E9 /* ActivityIndicator.swift in Sources */,
 				10A00AA2237FBBCD00BA90EB /* SplashViewController.swift in Sources */,
 			);

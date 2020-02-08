@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddListViewController: UIViewController, GetStoryboard {
+final class AddListViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var dayLabel: UILabel!
@@ -17,8 +17,8 @@ class AddListViewController: UIViewController, GetStoryboard {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     @IBAction private func dismiss(_ sender: Any) {
@@ -30,7 +30,10 @@ class AddListViewController: UIViewController, GetStoryboard {
     }
 
     @IBAction private func add(_ sender: Any) {
-
+        let vc = AddGoodsViewController.getStoryBoard()
+        // TODO: 임시 데이터
+        vc.viewModel = AddGoodsViewModel(date: nil, dateList: nil)
+        present(vc, animated: true)
     }
 }
 

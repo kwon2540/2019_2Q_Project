@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol GetStoryboard {}
+protocol StoryboardInstantiable {}
 
-extension GetStoryboard where Self: UIViewController {
+extension StoryboardInstantiable where Self: UIViewController {
 
     static var storyBoardName: String {
         return String(describing: Self.self)

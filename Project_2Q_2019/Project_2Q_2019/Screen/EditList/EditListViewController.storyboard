@@ -12,13 +12,13 @@
         <!--Edit List View Controller-->
         <scene sceneID="imZ-oK-RO7">
             <objects>
-                <viewController storyboardIdentifier="EditListViewController" id="aOh-ul-kUe" customClass="EditListViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditListViewController" modalPresentationStyle="overFullScreen" id="aOh-ul-kUe" customClass="EditListViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fbh-GR-Opn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6g1-Wn-gwH">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6g1-Wn-gwH" customClass="ShadowView" customModule="Project_2Q_2019" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="74" width="414" height="788"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PU3-KO-ccI">
                                         <rect key="frame" x="376" y="12" width="26" height="26"/>
@@ -26,27 +26,27 @@
                                             <constraint firstAttribute="height" constant="26" id="hAc-ut-t9y"/>
                                             <constraint firstAttribute="width" constant="26" id="lEk-y4-HAU"/>
                                         </constraints>
-                                        <state key="normal" image="dismiss"/>
+                                        <state key="normal" image="Dismiss"/>
                                         <connections>
                                             <action selector="dismiss:" destination="aOh-ul-kUe" eventType="touchUpInside" id="7KT-EY-Wfv"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cn0-IM-lO9" userLabel="Separator Line">
-                                        <rect key="frame" x="0.0" y="767.5" width="414" height="0.5"/>
+                                        <rect key="frame" x="0.0" y="737.5" width="414" height="0.5"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="0.5" id="u1V-9f-Uxd"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYt-QX-9m2" userLabel="Bottom View">
-                                        <rect key="frame" x="0.0" y="768" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="738" width="414" height="50"/>
                                         <color key="backgroundColor" name="cFAFAFA"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="PGy-EH-lvo"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLb-NX-5XS">
-                                        <rect key="frame" x="170" y="744" width="74" height="74"/>
+                                        <rect key="frame" x="170" y="714" width="74" height="74"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="74" id="XsH-BP-dA9"/>
                                             <constraint firstAttribute="width" constant="74" id="geV-lk-5zX"/>
@@ -54,7 +54,7 @@
                                         <state key="normal" image="Addlist"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="리스트 추가화면과 동일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zss-81-3vl">
-                                        <rect key="frame" x="70.5" y="391" width="273" height="36"/>
+                                        <rect key="frame" x="70.5" y="376" width="273" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -82,9 +82,9 @@
                                 <color key="backgroundColor" name="cFAFAFA"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6g1-Wn-gwH" firstAttribute="top" secondItem="OFt-vY-pvQ" secondAttribute="top" id="1zW-zd-jaX"/>
+                            <constraint firstItem="6g1-Wn-gwH" firstAttribute="top" secondItem="OFt-vY-pvQ" secondAttribute="top" constant="30" id="1zW-zd-jaX"/>
                             <constraint firstAttribute="bottom" secondItem="LmH-2c-C9z" secondAttribute="bottom" id="CRe-tS-beD"/>
                             <constraint firstItem="6g1-Wn-gwH" firstAttribute="leading" secondItem="OFt-vY-pvQ" secondAttribute="leading" id="QhG-bE-Owg"/>
                             <constraint firstItem="LmH-2c-C9z" firstAttribute="trailing" secondItem="OFt-vY-pvQ" secondAttribute="trailing" id="TCa-Eg-LDQ"/>
@@ -103,7 +103,7 @@
     </scenes>
     <resources>
         <image name="Addlist" width="74" height="74"/>
-        <image name="dismiss" width="18" height="18"/>
+        <image name="Dismiss" width="18" height="18"/>
         <namedColor name="cFAFAFA">
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
