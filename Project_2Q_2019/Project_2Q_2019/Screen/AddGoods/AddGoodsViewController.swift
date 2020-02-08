@@ -44,6 +44,28 @@ class AddGoodsViewController: UIViewController, GetStoryboard {
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
     }
+    private func makeGoodsData() -> [DateList]? {
+        guard let name = nameTextField.text else { return nil }
+
+        let amount = countTextField.text
+        let price = priceTextField.text
+        
+        let goods = Goods(name: name, amount: amount, price: price, isBought: false)
+
+        var goodsData = viewModel.dateList
+
+        if goodsData.isEmpty {
+            goodsData = [DateList(date: viewModel.date, goods: [goods])]
+        } else {
+            if let index = goodsData.firstIndex(where: { $0.date == viewModel.date }) {
+                goodsData[index].goods.append(goods)
+            } else {
+                goodsData.append(DateList(date: viewModel.date, goods: [goods]))
+            }
+        }
+
+        return goodsData
+    }
 }
 
 extension AddGoodsViewController: UITextFieldDelegate {
