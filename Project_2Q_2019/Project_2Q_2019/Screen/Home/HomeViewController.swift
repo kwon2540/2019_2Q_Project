@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, StoryboardInstantiable {
+final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
@@ -19,7 +19,7 @@ class HomeViewController: UIViewController, StoryboardInstantiable {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
         setCollectionView()
     }
 

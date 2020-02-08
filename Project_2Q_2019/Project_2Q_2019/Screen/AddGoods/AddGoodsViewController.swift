@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddGoodsViewController: UIViewController, StoryboardInstantiable {
+final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
     enum TextFieldTag: Int {
         case nameTextField
@@ -61,18 +61,18 @@ class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         let goods = Goods(name: name, amount: amount, price: price, isBought: false)
 
         var goodsData = viewModel.dateList
-        
+
         // 저장된 데이터가 없을 경우
         guard !goodsData.isEmpty else {
             return [DateList(date: viewModel.date, goods: [goods])]
         }
-        
+
         // 저장된 데이터가 있지만 오늘 데이터가 없을 경우
         guard let index = goodsData.firstIndex(where: { $0.date == viewModel.date }) else {
             goodsData.append(DateList(date: viewModel.date, goods: [goods]))
             return goodsData
         }
-        
+
         // 저장된 데이터가 있고 오늘 데이터도 있을 경우
         goodsData[index].goods.append(goods)
         return goodsData

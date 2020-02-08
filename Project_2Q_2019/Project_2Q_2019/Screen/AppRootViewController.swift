@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppRootViewController: UIViewController {
+final class AppRootViewController: UIViewController {
 
     private var current: UIViewController
 

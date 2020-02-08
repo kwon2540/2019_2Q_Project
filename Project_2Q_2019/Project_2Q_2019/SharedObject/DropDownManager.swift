@@ -20,7 +20,7 @@ struct DropDownManager {
     }
 }
 
-class DropDownNotification: UIView {
+final class DropDownNotification: UIView {
 
     enum DropDownType {
         case notification

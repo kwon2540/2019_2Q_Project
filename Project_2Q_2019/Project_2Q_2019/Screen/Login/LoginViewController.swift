@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LoginViewController: UIViewController, StoryboardInstantiable {
+final class LoginViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController, StoryboardInstantiable {
+final class HistoryViewController: UIViewController, StoryboardInstantiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()

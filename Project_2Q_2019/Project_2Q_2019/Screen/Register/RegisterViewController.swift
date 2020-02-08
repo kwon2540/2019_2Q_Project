@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class RegisterViewController: UIViewController, StoryboardInstantiable {
+final class RegisterViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
