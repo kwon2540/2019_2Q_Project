@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditListViewController: UIViewController, GetStoryboard {
+class EditListViewController: UIViewController, StoryboardInstantiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()

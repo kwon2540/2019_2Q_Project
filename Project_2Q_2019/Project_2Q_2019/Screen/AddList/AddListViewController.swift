@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddListViewController: UIViewController, GetStoryboard {
+class AddListViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var dayLabel: UILabel!

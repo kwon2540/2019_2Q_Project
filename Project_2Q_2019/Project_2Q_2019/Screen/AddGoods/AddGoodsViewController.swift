@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddGoodsViewController: UIViewController, GetStoryboard {
+class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
     enum TextFieldTag: Int {
         case nameTextField

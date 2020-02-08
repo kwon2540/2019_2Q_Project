@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExpenseViewController: UIViewController, GetStoryboard {
+class ExpenseViewController: UIViewController, StoryboardInstantiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()

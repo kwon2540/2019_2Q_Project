@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SplashViewController: UIViewController, GetStoryboard {
+class SplashViewController: UIViewController, StoryboardInstantiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()

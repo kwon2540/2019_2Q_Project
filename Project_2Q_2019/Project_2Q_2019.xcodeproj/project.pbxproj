@@ -16,7 +16,7 @@
 		1016000523922B5C00A92C4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1016000423922B5C00A92C4D /* GoogleService-Info.plist */; };
 		10188E1423C9970900F94681 /* AlertViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10188E1323C9970900F94681 /* AlertViewController.storyboard */; };
 		10188E1623C997B900F94681 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10188E1523C997B900F94681 /* AlertViewController.swift */; };
-		1032FE572338C1050039E9C0 /* GetStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE562338C1050039E9C0 /* GetStoryboard.swift */; };
+		1032FE572338C1050039E9C0 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */; };
 		1032FE5A2338C2A70039E9C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE592338C2A70039E9C0 /* LoginViewController.swift */; };
 		1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */; };
 		1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE5F2338DE530039E9C0 /* RegisterViewController.swift */; };
@@ -97,7 +97,7 @@
 		1016000423922B5C00A92C4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10188E1323C9970900F94681 /* AlertViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertViewController.storyboard; sourceTree = "<group>"; };
 		10188E1523C997B900F94681 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
-		1032FE562338C1050039E9C0 /* GetStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStoryboard.swift; sourceTree = "<group>"; };
+		1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		1032FE592338C2A70039E9C0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		1032FE5F2338DE530039E9C0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 		1032FE552338C0920039E9C0 /* SharedObject */ = {
 			isa = PBXGroup;
 			children = (
-				1032FE562338C1050039E9C0 /* GetStoryboard.swift */,
+				1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */,
 				10B6CF4F2365B13D00314C98 /* AccountFormState.swift */,
 				10B00E0623769DBD00864551 /* LogManager.swift */,
 				107A3863237FDC5600D276E9 /* ActivityIndicator.swift */,
@@ -752,7 +752,7 @@
 				10188E1623C997B900F94681 /* AlertViewController.swift in Sources */,
 				10B00E0723769DBD00864551 /* LogManager.swift in Sources */,
 				1032FE642338E2340039E9C0 /* LoginViewModel.swift in Sources */,
-				1032FE572338C1050039E9C0 /* GetStoryboard.swift in Sources */,
+				1032FE572338C1050039E9C0 /* StoryboardInstantiable.swift in Sources */,
 				10A8FE0923A4B10C00F64F96 /* Extension+Date.swift in Sources */,
 				1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */,
 				10A8FE1A23A4B47600F64F96 /* AddListViewModel.swift in Sources */,

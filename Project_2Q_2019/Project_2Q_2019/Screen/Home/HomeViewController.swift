@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, GetStoryboard {
+class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
