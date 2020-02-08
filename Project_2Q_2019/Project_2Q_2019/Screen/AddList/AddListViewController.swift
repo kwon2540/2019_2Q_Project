@@ -30,7 +30,10 @@ class AddListViewController: UIViewController, GetStoryboard {
     }
 
     @IBAction private func add(_ sender: Any) {
-        present(AddGoodsViewController.getStoryBoard(), animated: true)
+        let vc = AddGoodsViewController.getStoryBoard()
+        // TODO: 임시 데이터
+        vc.viewModel = AddGoodsViewModel(date: nil, dateList: nil)
+        present(vc, animated: true)
     }
 }
 
