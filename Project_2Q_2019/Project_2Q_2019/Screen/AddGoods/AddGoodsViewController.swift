@@ -21,6 +21,8 @@ class AddGoodsViewController: UIViewController, GetStoryboard {
     @IBOutlet private weak var priceTextField: UITextField!
     @IBOutlet private weak var countTextField: UITextField!
 
+    var viewModel: AddGoodsViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,12 +46,18 @@ class AddGoodsViewController: UIViewController, GetStoryboard {
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
     }
+    @IBAction private func add(_ sender: Any) {
+        guard let dateList = makeGoodsData() else { return }
+
+        addGoodsToFirebase(dateList: dateList)
+    }
+
     private func makeGoodsData() -> [DateList]? {
         guard let name = nameTextField.text else { return nil }
 
         let amount = countTextField.text
         let price = priceTextField.text
-        
+
         let goods = Goods(name: name, amount: amount, price: price, isBought: false)
 
         var goodsData = viewModel.dateList
@@ -65,6 +73,27 @@ class AddGoodsViewController: UIViewController, GetStoryboard {
         }
 
         return goodsData
+    }
+
+    private func addGoodsToFirebase(dateList: [DateList]) {
+        ActivityIndicator.shared.start(view: self.view)
+
+        FirebaseManager.shared.addGoods(dateList: dateList) { [weak self] (state) in
+            guard let this = self, let view = this.view else { return }
+            switch state {
+            case .success:
+                ActivityIndicator.shared.stop(view: view)
+                this.dismiss(animated: true)
+            case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: view,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
+                apiErrorLog(logMessage: error)
+                ActivityIndicator.shared.stop(view: view)
+            }
+        }
     }
 }
 
