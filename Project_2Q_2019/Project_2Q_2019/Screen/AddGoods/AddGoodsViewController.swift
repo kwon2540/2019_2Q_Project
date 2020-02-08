@@ -90,7 +90,7 @@ class AddGoodsViewController: UIViewController, StoryboardInstantiable {
                                                                 height: nil,
                                                                 type: .error,
                                                                 message: error.description)
-                apiErrorLog(logMessage: error)
+                apiErrorLog(logMessage: error.description)
                 ActivityIndicator.shared.stop(view: view)
             }
         }
