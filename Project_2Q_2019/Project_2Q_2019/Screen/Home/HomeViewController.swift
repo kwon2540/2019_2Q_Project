@@ -18,6 +18,8 @@ class HomeViewController: UIViewController, StoryboardInstantiable {
     }
 
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         setCollectionView()
     }
 
