@@ -10,6 +10,10 @@ import Foundation
 
 struct AddGoodsViewModel {
 
+    struct UIState: AddGoodsStateProtocol {
+
+        var nameText: String
+    }
     var date: String
     var dateList: [DateList] = []
 

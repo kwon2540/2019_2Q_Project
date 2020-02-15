@@ -12,7 +12,7 @@ import RxCocoa
 
 struct RegisterViewModel {
 
-    struct State: AccountRegisterStateProtocol {
+    struct UIState: AccountRegisterStateProtocol {
 
         let nameText: String
         let emailText: String
@@ -36,7 +36,7 @@ struct RegisterViewModel {
 
     init() {
         let state = Observable
-            .combineLatest(nameText, emailText, passwordText, verifyPasswordText) { State(nameText: $0, emailText: $1, passwordText: $2, verifyPasswordText: $3) }
+            .combineLatest(nameText, emailText, passwordText, verifyPasswordText) { UIState(nameText: $0, emailText: $1, passwordText: $2, verifyPasswordText: $3) }
         isNameValid = state.map { $0.isNameValid }
         isEmailValid = state.map { $0.isEmailValid }
         isPasswordValid = state.map { $0.isPasswordValid }
