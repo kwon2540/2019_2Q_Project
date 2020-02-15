@@ -12,7 +12,7 @@ import RxCocoa
 
 struct LoginViewModel {
 
-    struct State: AccountLoginStateProtocol {
+    struct UIState: AccountLoginStateProtocol {
 
         let emailText: String
         let passwordText: String
@@ -27,7 +27,7 @@ struct LoginViewModel {
 
     init() {
         let state = Observable
-            .combineLatest(emailText, passwordText) { State(emailText: $0, passwordText: $1) }
+            .combineLatest(emailText, passwordText) { UIState(emailText: $0, passwordText: $1) }
         isEmailValid = state.map { $0.isEmailValid }
         isPasswordValid = state.map { $0.isPasswordValid }
         isLoginEnabled = state.map { $0.isLoginEnabled }

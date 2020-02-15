@@ -62,7 +62,7 @@
 		10B00E052376846E00864551 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B00E042376846E00864551 /* UserModel.swift */; };
 		10B00E0723769DBD00864551 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B00E0623769DBD00864551 /* LogManager.swift */; };
 		10B6CF4E2365B05B00314C98 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */; };
-		10B6CF502365B13D00314C98 /* AccountFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4F2365B13D00314C98 /* AccountFormState.swift */; };
+		10B6CF502365B13D00314C98 /* UIStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4F2365B13D00314C98 /* UIStateProtocol.swift */; };
 		10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10CB467D23922F4200380E06 /* HomeCollectionViewCell.xib */; };
 		10CB468023922F8800380E06 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB467F23922F8800380E06 /* HomeCollectionViewCell.swift */; };
 		1273A3F231517C61780C5E9F /* Pods_Project_2Q_2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E7A66781B6AE5A7AF269C /* Pods_Project_2Q_2019.framework */; };
@@ -149,7 +149,7 @@
 		10B00E042376846E00864551 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		10B00E0623769DBD00864551 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
-		10B6CF4F2365B13D00314C98 /* AccountFormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFormState.swift; sourceTree = "<group>"; };
+		10B6CF4F2365B13D00314C98 /* UIStateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateProtocol.swift; sourceTree = "<group>"; };
 		10CB467D23922F4200380E06 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		10CB467F23922F8800380E06 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		1CD2A4C0F6B6D48B5FC49979 /* Pods-Project_2Q_2019UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019UITests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019UITests/Pods-Project_2Q_2019UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */,
-				10B6CF4F2365B13D00314C98 /* AccountFormState.swift */,
+				10B6CF4F2365B13D00314C98 /* UIStateProtocol.swift */,
 				10B00E0623769DBD00864551 /* LogManager.swift */,
 				107A3863237FDC5600D276E9 /* ActivityIndicator.swift */,
 				107A3865237FE5B400D276E9 /* DropDownManager.swift */,
@@ -280,6 +280,15 @@
 				1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		104B3E9F23F7C37B00B1A352 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10B00E042376846E00864551 /* UserModel.swift */,
+				1073EC3B23EE6E35003BB2C5 /* GoodsListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1073EC3123D2EA51003BB2C5 /* View Parts */ = {
@@ -440,8 +449,7 @@
 		10B00E012376818B00864551 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				10B00E042376846E00864551 /* UserModel.swift */,
-				1073EC3B23EE6E35003BB2C5 /* GoodsListModel.swift */,
+				104B3E9F23F7C37B00B1A352 /* Model */,
 				10A7C2F8237047F20050F6B8 /* FirebaseManager.swift */,
 			);
 			path = API;
@@ -774,7 +782,7 @@
 				10CB468023922F8800380E06 /* HomeCollectionViewCell.swift in Sources */,
 				10B00E052376846E00864551 /* UserModel.swift in Sources */,
 				10A8FE1E23A4B49B00F64F96 /* EditListViewController.swift in Sources */,
-				10B6CF502365B13D00314C98 /* AccountFormState.swift in Sources */,
+				10B6CF502365B13D00314C98 /* UIStateProtocol.swift in Sources */,
 				1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */,
 				107A3864237FDC5600D276E9 /* ActivityIndicator.swift in Sources */,
 				10A00AA2237FBBCD00BA90EB /* SplashViewController.swift in Sources */,

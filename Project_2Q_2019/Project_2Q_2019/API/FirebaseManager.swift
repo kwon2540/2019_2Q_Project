@@ -10,21 +10,22 @@ import FirebaseAuth
 import FirebaseFirestore
 import CodableFirebase
 
-protocol AuthManager {
+protocol APIManager {
     func checkLogin() -> Bool
-    func createUserAccount(email: String, password: String, name: String, completion: @escaping (ApiState) -> Void)
-    func signIn(email: String, password: String, completion: @escaping (ApiState) -> Void)
+    func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void)
+    func signIn(email: String, password: String, completion: @escaping (APIState) -> Void)
     func signOut()
-    func addGoods(dateList: [DateList], completion: @escaping (ApiState) -> Void)
-    func loadGoodsList(completion: @escaping (ApiState) -> Void)
+    func addGoods(dateList: [DateList], completion: @escaping (APIState) -> Void)
+    func loadGoodsList(completion: @escaping (APIState) -> Void)
 }
 
-enum ApiState {
+enum APIState {
+    case loading
     case success
     case failed(error: FirebaseManager.Error)
 }
 
-struct FirebaseManager: AuthManager {
+struct FirebaseManager: APIManager {
 
     enum Error {
         case firebaseError(debugDescription: String)
@@ -60,7 +61,7 @@ struct FirebaseManager: AuthManager {
         return Auth.auth().currentUser?.uid != nil
     }
 
-    func createUserAccount(email: String, password: String, name: String, completion: @escaping (ApiState) -> Void) {
+    func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (_, error) in
             if error != nil {
                 return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
@@ -85,7 +86,7 @@ struct FirebaseManager: AuthManager {
         }
     }
 
-    func signIn(email: String, password: String, completion: @escaping (ApiState) -> Void) {
+    func signIn(email: String, password: String, completion: @escaping (APIState) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
             if error != nil {
                 return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
@@ -98,7 +99,7 @@ struct FirebaseManager: AuthManager {
         try? Auth.auth().signOut()
     }
 
-    func addGoods(dateList: [DateList], completion: @escaping (ApiState) -> Void) {
+    func addGoods(dateList: [DateList], completion: @escaping (APIState) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else {
             return completion(.failed(error: .authError))
         }
@@ -117,7 +118,7 @@ struct FirebaseManager: AuthManager {
     }
 
     // TODO: 임시
-    func loadGoodsList(completion: @escaping (ApiState) -> Void) {
+    func loadGoodsList(completion: @escaping (APIState) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else {
             return completion(.failed(error: .authError))
         }
