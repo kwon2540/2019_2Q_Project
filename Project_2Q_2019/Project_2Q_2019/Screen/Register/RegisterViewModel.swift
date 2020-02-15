@@ -33,7 +33,6 @@ struct RegisterViewModel: APIStateProtocol {
     let isCorrespondPassword: Observable<Bool>
     let isRegisterEnabled: Observable<Bool>
 
-    let disposeBag = DisposeBag()
     let apiStateRelay = PublishRelay<APIState>()
 
     init() {
