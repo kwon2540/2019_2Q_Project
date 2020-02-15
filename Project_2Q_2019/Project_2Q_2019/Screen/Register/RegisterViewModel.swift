@@ -45,4 +45,13 @@ struct RegisterViewModel: APIStateProtocol {
         isCorrespondPassword = state.map { $0.isCorrespondPassword }
         isRegisterEnabled = state.map { $0.isRegisterEnabled }
     }
+    
+    func regist() {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.createUserAccount(email: emailText.value,
+                                                 password: passwordText.value,
+                                                 name: nameText.value) { (state) in
+            self.apiStateRelay.accept(state)
+        }
+    }
 }
