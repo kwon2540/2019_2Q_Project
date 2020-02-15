@@ -282,6 +282,15 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		104B3E9F23F7C37B00B1A352 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10B00E042376846E00864551 /* UserModel.swift */,
+				1073EC3B23EE6E35003BB2C5 /* GoodsListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1073EC3123D2EA51003BB2C5 /* View Parts */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,8 +449,7 @@
 		10B00E012376818B00864551 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				10B00E042376846E00864551 /* UserModel.swift */,
-				1073EC3B23EE6E35003BB2C5 /* GoodsListModel.swift */,
+				104B3E9F23F7C37B00B1A352 /* Model */,
 				10A7C2F8237047F20050F6B8 /* FirebaseManager.swift */,
 			);
 			path = API;

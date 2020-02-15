@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: AccountLoginStateProtocol
 protocol AccountLoginStateProtocol {
 
     var emailText: String { get }
@@ -29,6 +30,7 @@ extension AccountLoginStateProtocol {
     }
 }
 
+// MARK: AccountRegisterStateProtocol
 protocol AccountRegisterStateProtocol {
 
     var nameText: String { get }
@@ -63,3 +65,5 @@ extension AccountRegisterStateProtocol {
         return isNameValid && isEmailValid && isPasswordValid && isCorrespondPassword && isVerifyPasswordValid
     }
 }
+
+
