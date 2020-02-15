@@ -21,10 +21,10 @@ struct RegisterViewModel: APIStateProtocol {
         let verifyPasswordText: String
     }
 
-    let nameText = BehaviorSubject(value: "")
-    let emailText = BehaviorSubject(value: "")
-    let passwordText = BehaviorSubject(value: "")
-    let verifyPasswordText = BehaviorSubject(value: "")
+    let nameText = BehaviorRelay(value: "")
+    let emailText = BehaviorRelay(value: "")
+    let passwordText = BehaviorRelay(value: "")
+    let verifyPasswordText = BehaviorRelay(value: "")
 
     let isNameValid: Observable<Bool>
     let isEmailValid: Observable<Bool>
