@@ -9,6 +9,7 @@
 import FirebaseAuth
 import FirebaseFirestore
 import CodableFirebase
+import RxCocoa
 
 protocol APIManager {
     func checkLogin() -> Bool
@@ -130,4 +131,13 @@ struct FirebaseManager: APIManager {
             print(snapshot?.data() ?? "")
         }
     }
+}
+
+// MARK: APIStateProtocol
+protocol APIStateProtocol {
+    var apiStateRelay: PublishRelay<APIState> { get }
+}
+
+extension APIStateProtocol {
+    var apiState: Signal<APIState> { apiStateRelay.asSignal() }
 }
