@@ -66,4 +66,15 @@ extension AccountRegisterStateProtocol {
     }
 }
 
+// MARK: AddGoodsStateProtocol
+protocol AddGoodsStateProtocol {
 
+    var nameText: String { get }
+}
+
+extension AddGoodsStateProtocol {
+
+    var isAddButtonEnabled: Bool {
+        return !nameText.isEmpty
+    }
+}
