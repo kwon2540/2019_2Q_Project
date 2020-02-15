@@ -52,7 +52,6 @@ final class LoginViewController: UIViewController, StoryboardInstantiable {
             .disposed(by: disposeBag)
     }
 
-    @IBAction private func didTapLogin(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         ActivityIndicator.shared.start(view: self.view)
         FirebaseManager.shared.signIn(email: email, password: password) { (state) in
@@ -70,9 +69,10 @@ final class LoginViewController: UIViewController, StoryboardInstantiable {
                 ActivityIndicator.shared.stop(view: self.view)
             }
         }
+    @IBAction private func login(_ sender: Any) {
     }
 
-    @IBAction private func didTapRegister(_ sender: Any) {
+    @IBAction private func register(_ sender: Any) {
         present(RegisterViewController.getStoryBoard(), animated: true)
     }
 }

@@ -71,7 +71,6 @@ final class RegisterViewController: UIViewController, StoryboardInstantiable {
             .disposed(by: disposeBag)
     }
 
-    @IBAction private func didTapRegister(_ sender: Any) {
         guard let email = emailTextField.text,
             let password = passwordTextField.text,
             let name = nameTextField.text else { return }
@@ -94,9 +93,10 @@ final class RegisterViewController: UIViewController, StoryboardInstantiable {
                 ActivityIndicator.shared.stop(view: view)
             }
         }
+    @IBAction private func regist(_ sender: Any) {
     }
 
-    @IBAction private func didTapCancel(_ sender: Any) {
+    @IBAction private func cancel(_ sender: Any) {
         dismiss(animated: true)
     }
 }
