@@ -67,8 +67,9 @@ struct AddGoodsViewModel: APIStateProtocol {
     }
 
     func addGoodsToFirebase(dateList: [DateList]) {
+        apiStateRelay.accept(.loading)
         FirebaseManager.shared.addGoods(dateList: dateList) { (state) in
-            self.apiState.accept(state)
+            self.apiStateRelay.accept(state)
         }
     }
 }
