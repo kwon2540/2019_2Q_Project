@@ -10,7 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct RegisterViewModel {
+struct RegisterViewModel: APIStateProtocol {
+    
 
     struct UIState: AccountRegisterStateProtocol {
 
@@ -33,6 +34,7 @@ struct RegisterViewModel {
     let isRegisterEnabled: Observable<Bool>
 
     let disposeBag = DisposeBag()
+    let apiStateRelay = PublishRelay<APIState>()
 
     init() {
         let state = Observable

@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct LoginViewModel {
+struct LoginViewModel: APIStateProtocol {
 
     struct UIState: AccountLoginStateProtocol {
 
@@ -24,6 +24,7 @@ struct LoginViewModel {
     let isEmailValid: Observable<Bool>
     let isPasswordValid: Observable<Bool>
     let isLoginEnabled: Observable<Bool>
+    let apiStateRelay = PublishRelay<APIState>()
 
     init() {
         let state = Observable

@@ -10,15 +10,14 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct AddGoodsViewModel {
+struct AddGoodsViewModel: APIStateProtocol {
 
     struct UIState: AddGoodsStateProtocol {
 
         var nameText: String
     }
 
-    private let apiState = PublishRelay<APIState>()
-    lazy var apiStateRelay = apiState.asSignal()
+    let apiStateRelay = PublishRelay<APIState>()
 
     let nameText = BehaviorRelay(value: "")
     let priceText = BehaviorRelay(value: "")
