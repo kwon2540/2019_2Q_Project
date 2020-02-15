@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct LoginViewModel {
+struct LoginViewModel: APIStateProtocol {
 
     struct UIState: AccountLoginStateProtocol {
 
@@ -18,12 +18,14 @@ struct LoginViewModel {
         let passwordText: String
     }
 
-    let emailText = BehaviorSubject(value: "")
-    let passwordText = BehaviorSubject(value: "")
+    let emailText = BehaviorRelay(value: "")
+    let passwordText = BehaviorRelay(value: "")
 
     let isEmailValid: Observable<Bool>
     let isPasswordValid: Observable<Bool>
     let isLoginEnabled: Observable<Bool>
+
+    let apiStateRelay = PublishRelay<APIState>()
 
     init() {
         let state = Observable
@@ -31,5 +33,12 @@ struct LoginViewModel {
         isEmailValid = state.map { $0.isEmailValid }
         isPasswordValid = state.map { $0.isPasswordValid }
         isLoginEnabled = state.map { $0.isLoginEnabled }
+    }
+
+    func login() {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.signIn(email: emailText.value, password: passwordText.value) { (state) in
+            self.apiStateRelay.accept(state)
+        }
     }
 }

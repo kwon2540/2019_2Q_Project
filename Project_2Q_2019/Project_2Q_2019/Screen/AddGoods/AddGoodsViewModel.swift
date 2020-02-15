@@ -10,15 +10,14 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct AddGoodsViewModel {
+struct AddGoodsViewModel: APIStateProtocol {
 
     struct UIState: AddGoodsStateProtocol {
 
         var nameText: String
     }
 
-    private let apiState = PublishRelay<APIState>()
-    lazy var apiStateRelay = apiState.asSignal()
+    let apiStateRelay = PublishRelay<APIState>()
 
     let nameText = BehaviorRelay(value: "")
     let priceText = BehaviorRelay(value: "")
@@ -68,8 +67,9 @@ struct AddGoodsViewModel {
     }
 
     func addGoodsToFirebase(dateList: [DateList]) {
+        apiStateRelay.accept(.loading)
         FirebaseManager.shared.addGoods(dateList: dateList) { (state) in
-            self.apiState.accept(state)
+            self.apiStateRelay.accept(state)
         }
     }
 }

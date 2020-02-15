@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct RegisterViewModel {
+struct RegisterViewModel: APIStateProtocol {
 
     struct UIState: AccountRegisterStateProtocol {
 
@@ -20,10 +20,10 @@ struct RegisterViewModel {
         let verifyPasswordText: String
     }
 
-    let nameText = BehaviorSubject(value: "")
-    let emailText = BehaviorSubject(value: "")
-    let passwordText = BehaviorSubject(value: "")
-    let verifyPasswordText = BehaviorSubject(value: "")
+    let nameText = BehaviorRelay(value: "")
+    let emailText = BehaviorRelay(value: "")
+    let passwordText = BehaviorRelay(value: "")
+    let verifyPasswordText = BehaviorRelay(value: "")
 
     let isNameValid: Observable<Bool>
     let isEmailValid: Observable<Bool>
@@ -32,7 +32,7 @@ struct RegisterViewModel {
     let isCorrespondPassword: Observable<Bool>
     let isRegisterEnabled: Observable<Bool>
 
-    let disposeBag = DisposeBag()
+    let apiStateRelay = PublishRelay<APIState>()
 
     init() {
         let state = Observable
@@ -43,5 +43,14 @@ struct RegisterViewModel {
         isVerifyPasswordValid = state.map { $0.isVerifyPasswordValid }
         isCorrespondPassword = state.map { $0.isCorrespondPassword }
         isRegisterEnabled = state.map { $0.isRegisterEnabled }
+    }
+
+    func register() {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.createUserAccount(email: emailText.value,
+                                                 password: passwordText.value,
+                                                 name: nameText.value) { (state) in
+                                                    self.apiStateRelay.accept(state)
+        }
     }
 }

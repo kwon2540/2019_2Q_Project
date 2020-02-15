@@ -179,7 +179,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="didTapRegister:" destination="7hG-io-vrU" eventType="touchUpInside" id="Tyj-EX-zwG"/>
+                                            <action selector="register:" destination="7hG-io-vrU" eventType="touchUpInside" id="rx6-ca-2Kw"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQ4-wY-MC1" userLabel="Spacing View">
@@ -200,7 +200,7 @@
                                             <color key="titleColor" name="c859EFF"/>
                                         </state>
                                         <connections>
-                                            <action selector="didTapCancel:" destination="7hG-io-vrU" eventType="touchUpInside" id="6Md-fx-dpN"/>
+                                            <action selector="cancel:" destination="7hG-io-vrU" eventType="touchUpInside" id="aXX-nf-3zo"/>
                                         </connections>
                                     </button>
                                 </subviews>

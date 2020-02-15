@@ -76,7 +76,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
             .bind(to: addButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
-        viewModel.apiStateRelay.emit(onNext: { [weak self] (state) in
+        viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
 
             switch state {

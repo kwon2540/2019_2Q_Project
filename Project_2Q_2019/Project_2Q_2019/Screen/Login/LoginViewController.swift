@@ -50,29 +50,33 @@ final class LoginViewController: UIViewController, StoryboardInstantiable {
         viewModel.isLoginEnabled
             .bind(to: loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
-    }
 
-    @IBAction private func didTapLogin(_ sender: Any) {
-        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
-        ActivityIndicator.shared.start(view: self.view)
-        FirebaseManager.shared.signIn(email: email, password: password) { (state) in
+        viewModel.apiState.emit(onNext: { [weak self] (state) in
+            guard let this = self, let view = this.view else { return }
+
             switch state {
+            case .loading:
+                ActivityIndicator.shared.start(view: view)
             case .success:
-                ActivityIndicator.shared.stop(view: self.view)
+                ActivityIndicator.shared.stop(view: view)
                 AppDelegate.shared.rootViewController.showHomeScreen()
             case .failed(let error):
-                DropDownManager.shared.showDropDownNotification(view: self.view,
+                DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,
                                                                 height: nil,
                                                                 type: .error,
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
-                ActivityIndicator.shared.stop(view: self.view)
+                ActivityIndicator.shared.stop(view: view)
             }
-        }
+        }).disposed(by: disposeBag)
     }
 
-    @IBAction private func didTapRegister(_ sender: Any) {
+    @IBAction private func login(_ sender: Any) {
+        viewModel.login()
+    }
+
+    @IBAction private func register(_ sender: Any) {
         present(RegisterViewController.getStoryBoard(), animated: true)
     }
 }
