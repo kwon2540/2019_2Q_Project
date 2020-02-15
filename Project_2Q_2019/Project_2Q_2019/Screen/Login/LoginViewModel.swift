@@ -24,7 +24,7 @@ struct LoginViewModel: APIStateProtocol {
     let isEmailValid: Observable<Bool>
     let isPasswordValid: Observable<Bool>
     let isLoginEnabled: Observable<Bool>
-    
+
     let apiStateRelay = PublishRelay<APIState>()
 
     init() {

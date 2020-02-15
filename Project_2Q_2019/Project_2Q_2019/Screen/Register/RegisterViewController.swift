@@ -69,10 +69,10 @@ final class RegisterViewController: UIViewController, StoryboardInstantiable {
         viewModel.isRegisterEnabled
             .bind(to: registerButton.rx.isEnabled)
             .disposed(by: disposeBag)
-        
+
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = self?.view else { return }
-            
+
             switch state {
             case .loading:
                 ActivityIndicator.shared.start(view: view)
@@ -92,8 +92,8 @@ final class RegisterViewController: UIViewController, StoryboardInstantiable {
         }).disposed(by: disposeBag)
     }
 
-    @IBAction private func regist(_ sender: Any) {
-        viewModel.regist()
+    @IBAction private func register(_ sender: Any) {
+        viewModel.register()
     }
 
     @IBAction private func cancel(_ sender: Any) {

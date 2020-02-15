@@ -152,7 +152,7 @@
                                             <color key="titleColor" name="c859EFF"/>
                                         </state>
                                         <connections>
-                                            <action selector="register:" destination="wvI-1A-WEd" eventType="touchUpInside" id="ChZ-KC-wDl"/>
+                                            <action selector="register:" destination="wvI-1A-WEd" eventType="touchUpInside" id="yoo-Wv-Hni"/>
                                         </connections>
                                     </button>
                                 </subviews>
