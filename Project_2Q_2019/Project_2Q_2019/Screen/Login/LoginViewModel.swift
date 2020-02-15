@@ -34,4 +34,11 @@ struct LoginViewModel: APIStateProtocol {
         isPasswordValid = state.map { $0.isPasswordValid }
         isLoginEnabled = state.map { $0.isLoginEnabled }
     }
+
+    func login() {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.signIn(email: emailText.value, password: passwordText.value) { (state) in
+            self.apiStateRelay.accept(state)
+        }
+    }
 }
