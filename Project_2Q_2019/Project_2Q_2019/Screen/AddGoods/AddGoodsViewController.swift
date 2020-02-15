@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
@@ -19,7 +20,10 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var scrollViewBottomContraints: NSLayoutConstraint!
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var priceTextField: UITextField!
-    @IBOutlet private weak var countTextField: UITextField!
+    @IBOutlet private weak var amountTextField: UITextField!
+    @IBOutlet private weak var addButton: RoundButton!
+
+    private let disposeBag = DisposeBag()
 
     var viewModel: AddGoodsViewModel!
 
@@ -28,9 +32,11 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
         nameTextField.delegate = self
         priceTextField.delegate = self
-        countTextField.delegate = self
+        amountTextField.delegate = self
 
         nameTextField.becomeFirstResponder()
+
+        bindViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,47 +52,42 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
     }
-    @IBAction private func add(_ sender: Any) {
-        guard let dateList = makeGoodsData() else { return }
-
-        addGoodsToFirebase(dateList: dateList)
+    @IBAction private func addGoods(_ sender: Any) {
+        viewModel.addGoodsToFirebase(dateList: viewModel.makeGoodsData())
     }
 
-    private func makeGoodsData() -> [DateList]? {
-        guard let name = nameTextField.text else { return nil }
+    private func bindViewModel() {
 
-        let amount = countTextField.text
-        let price = priceTextField.text
+        // Input
+        nameTextField.rx.text.orEmpty
+            .bind(to: viewModel.nameText)
+            .disposed(by: disposeBag)
 
-        let goods = Goods(name: name, amount: amount, price: price, isBought: false)
+        priceTextField.rx.text.orEmpty
+            .bind(to: viewModel.priceText)
+            .disposed(by: disposeBag)
 
-        var goodsData = viewModel.dateList
+        amountTextField.rx.text.orEmpty
+            .bind(to: viewModel.amountText)
+            .disposed(by: disposeBag)
 
-        // 저장된 데이터가 없을 경우
-        guard !goodsData.isEmpty else {
-            return [DateList(date: viewModel.date, goods: [goods])]
-        }
+        // Output
+        viewModel.isAddButtonValid
+            .bind(to: addButton.rx.isEnabled)
+            .disposed(by: disposeBag)
 
-        // 저장된 데이터가 있지만 오늘 데이터가 없을 경우
-        guard let index = goodsData.firstIndex(where: { $0.date == viewModel.date }) else {
-            goodsData.append(DateList(date: viewModel.date, goods: [goods]))
-            return goodsData
-        }
-
-        // 저장된 데이터가 있고 오늘 데이터도 있을 경우
-        goodsData[index].goods.append(goods)
-        return goodsData
-    }
-
-    private func addGoodsToFirebase(dateList: [DateList]) {
-        ActivityIndicator.shared.start(view: self.view)
-
-        FirebaseManager.shared.addGoods(dateList: dateList) { [weak self] (state) in
+        viewModel.apiStateRelay.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
+
             switch state {
+            // 로딩 시 인디케이터 표시
+            case .loading:
+                ActivityIndicator.shared.start(view: view)
+            // 성공시 인디케이터 중지 및 디스미스
             case .success:
                 ActivityIndicator.shared.stop(view: view)
                 this.dismiss(animated: true)
+            // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,
@@ -96,7 +97,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
                 apiErrorLog(logMessage: error.description)
                 ActivityIndicator.shared.stop(view: view)
             }
-        }
+        }).disposed(by: disposeBag)
     }
 }
 
