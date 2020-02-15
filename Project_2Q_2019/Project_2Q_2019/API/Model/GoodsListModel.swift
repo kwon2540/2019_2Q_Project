@@ -26,4 +26,5 @@ struct Goods: Codable {
     let amount: String?
     let price: String?
     let isBought: Bool
+    let date: Date
 }
