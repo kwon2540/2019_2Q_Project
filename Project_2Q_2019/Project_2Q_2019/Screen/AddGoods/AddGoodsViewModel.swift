@@ -14,6 +14,7 @@ struct AddGoodsViewModel {
 
         var nameText: String
     }
+    let isAddButtonValid: Observable<Bool>
     var date: String
     var dateList: [DateList] = []
 
@@ -27,5 +28,10 @@ struct AddGoodsViewModel {
         if let dateList = dateList {
             self.dateList = dateList
         }
+
+        //  AddGoods 버튼의 Enabled 판정
+        let state = nameText.asObservable().map { UIState(nameText: $0) }
+        isAddButtonValid = state.map { $0.isAddButtonEnabled }
+    }
     }
 }
