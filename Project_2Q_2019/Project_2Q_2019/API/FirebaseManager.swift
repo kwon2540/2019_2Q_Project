@@ -123,7 +123,7 @@ struct FirebaseManager: APIManager {
     }
 
     func addGoods(dateList: [DateList], completion: @escaping (APIState) -> Void) {
-        
+
         guard let uid = Auth.auth().currentUser?.uid else {
             // 로그인 인증 할수 없는 경우
             return completion(.failed(error: .authError))
@@ -145,7 +145,7 @@ struct FirebaseManager: APIManager {
     }
 
     func loadGoodsList(completion: @escaping (GoodsListModel?, APIState) -> Void) {
-        
+
         guard let uid = Auth.auth().currentUser?.uid else {
             // UID 인증 할수 없는 경우
             return completion(nil, .failed(error: .authError))

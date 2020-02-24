@@ -16,6 +16,7 @@ final class AddListViewModel: APIStateProtocol {
 
     var date: String
     var response: GoodsListModel?
+    var dateList: DateList?
 
     init(date: String) {
         self.date = date
@@ -25,8 +26,17 @@ final class AddListViewModel: APIStateProtocol {
         apiStateRelay.accept(.loading)
         FirebaseManager.shared.loadGoodsList { [weak self] (response, state) in
             guard let this = self else { return }
-            this.response = response
+
+            // 데이트리스트에서 같은 날짜를 갖고있는 데이터 찾기
+            this.dateList = response?.dateList.filter {
+                $0.date == this.date
+            }.first
+
             this.apiStateRelay.accept(state)
         }
+    }
+
+    func rowCounts() -> Int {
+        return dateList?.goods.count ?? 0
     }
 }
