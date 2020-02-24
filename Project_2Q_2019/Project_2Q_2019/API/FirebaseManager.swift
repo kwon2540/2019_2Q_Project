@@ -18,6 +18,13 @@ protocol APIManager {
     func signOut()
     func addGoods(dateList: [DateList], completion: @escaping (APIState) -> Void)
     func loadGoodsList(completion: @escaping (APIState) -> Void)
+// MARK: APIStateProtocol
+protocol APIStateProtocol {
+    var apiStateRelay: PublishRelay<APIState> { get }
+}
+
+extension APIStateProtocol {
+    var apiState: Signal<APIState> { apiStateRelay.asSignal() }
 }
 
 enum APIState {
@@ -140,11 +147,16 @@ struct FirebaseManager: APIManager {
     }
 }
 
-// MARK: APIStateProtocol
-protocol APIStateProtocol {
-    var apiStateRelay: PublishRelay<APIState> { get }
-}
+            guard !snapshotData.isEmpty else {
+                // 스냅샷 데이터가 비어있는 경우
+                return completion(nil, .success)
+            }
 
-extension APIStateProtocol {
-    var apiState: Signal<APIState> { apiStateRelay.asSignal() }
+            guard let data = try? FirestoreDecoder().decode(GoodsListModel.self, from: snapshotData) else {
+                // 스냅샷 데이터가 있지만 디코딩 에러인 경우
+                return completion(nil, .failed(error: .decodeError))
+            }
+            completion(data, .success)
+        }
+    }
 }
