@@ -10,6 +10,28 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+// MARK: AccountLoginStateProtocol
+protocol AccountLoginStateProtocol {
+
+    var emailText: String { get }
+    var passwordText: String { get }
+}
+
+extension AccountLoginStateProtocol {
+
+    var isEmailValid: Bool {
+        return emailText.contains("@") && emailText.contains(".")
+    }
+
+    var isPasswordValid: Bool {
+        return passwordText.count > 5
+    }
+
+    var isLoginEnabled: Bool {
+        return isPasswordValid && isEmailValid
+    }
+}
+
 struct LoginViewModel: APIStateProtocol {
 
     struct UIState: AccountLoginStateProtocol {

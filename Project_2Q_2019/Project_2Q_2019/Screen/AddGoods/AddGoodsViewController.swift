@@ -52,6 +52,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
     }
+    
     @IBAction private func addGoods(_ sender: Any) {
         viewModel.addGoodsToFirebase(dateList: viewModel.makeGoodsData())
     }
