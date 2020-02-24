@@ -27,6 +27,8 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
     var viewModel: AddGoodsViewModel!
 
+    var dismissed: (() -> Void)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,7 +54,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
     }
-    
+
     @IBAction private func addGoods(_ sender: Any) {
         viewModel.addGoodsToFirebase(dateList: viewModel.makeGoodsData())
     }
@@ -87,7 +89,10 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
             // 성공시 인디케이터 중지 및 디스미스
             case .success:
                 ActivityIndicator.shared.stop(view: view)
-                this.dismiss(animated: true)
+                this.dismiss(animated: true) { [weak self] in
+                    guard let this = self else { return }
+                    this.dismissed?()
+                }
             // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
@@ -97,6 +102,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
                 ActivityIndicator.shared.stop(view: view)
+                this.dismiss(animated: true)
             }
         }).disposed(by: disposeBag)
     }

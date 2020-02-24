@@ -33,6 +33,11 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
         let vc = AddGoodsViewController.getStoryBoard()
         // TODO: 임시 데이터
         vc.viewModel = AddGoodsViewModel(date: nil, dateList: nil)
+        vc.dismissed = { [weak self] in
+            guard let this = self else { return }
+            this.viewModel.loadGoodsFromFirebase()
+        }
+
         present(vc, animated: true)
     }
 }
