@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class AddListViewController: UIViewController, StoryboardInstantiable {
 
@@ -14,11 +15,18 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var dayLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
 
+    private let disposeBag = DisposeBag()
+
+    var viewModel: AddListViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
+
+        bindViewModel()
+        viewModel.loadGoodsFromFirebase()
     }
 
     @IBAction private func dismiss(_ sender: Any) {
@@ -39,6 +47,33 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
         }
 
         present(vc, animated: true)
+    }
+
+    private func bindViewModel() {
+
+        // Output
+        viewModel.apiState.emit(onNext: { [weak self] (state) in
+            guard let this = self, let view = this.view else { return }
+
+            switch state {
+            // 로딩 시 인디케이터 표시
+            case .loading:
+                ActivityIndicator.shared.start(view: view)
+            // 성공시 인디케이터 중지 및 디스미스
+            case .success:
+                this.tableView.reloadData()
+                ActivityIndicator.shared.stop(view: view)
+            // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
+            case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: view,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
+                apiErrorLog(logMessage: error.description)
+                ActivityIndicator.shared.stop(view: view)
+            }
+        }).disposed(by: disposeBag)
     }
 }
 
