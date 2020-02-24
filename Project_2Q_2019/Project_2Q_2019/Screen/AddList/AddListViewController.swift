@@ -24,6 +24,7 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.registerXib(of: AddListTableViewCell.self)
 
         bindViewModel()
         viewModel.loadGoodsFromFirebase()
@@ -110,10 +111,15 @@ extension AddListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.rowCounts()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let data = viewModel.dateList?.goods else { return UITableViewCell() }
+        let cell = tableView.dequeueCell(of: AddListTableViewCell.self, for: indexPath)
+
+        cell.set(name: data[indexPath.row].name, amount: data[indexPath.row].amount, price: data[indexPath.row].price)
+
+        return cell
     }
 }
