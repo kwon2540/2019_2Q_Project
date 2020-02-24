@@ -10,6 +10,42 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+// MARK: AccountRegisterStateProtocol
+protocol AccountRegisterStateProtocol {
+
+    var nameText: String { get }
+    var emailText: String { get }
+    var passwordText: String { get }
+    var verifyPasswordText: String { get }
+}
+
+extension AccountRegisterStateProtocol {
+
+    var isNameValid: Bool {
+        return nameText.count > 2
+    }
+
+    var isEmailValid: Bool {
+        return emailText.contains("@") && emailText.contains(".")
+    }
+
+    var isPasswordValid: Bool {
+        return passwordText.count > 5
+    }
+
+    var isVerifyPasswordValid: Bool {
+        return verifyPasswordText.count > 5
+    }
+
+    var isCorrespondPassword: Bool {
+        return passwordText == verifyPasswordText
+    }
+
+    var isRegisterEnabled: Bool {
+        return isNameValid && isEmailValid && isPasswordValid && isCorrespondPassword && isVerifyPasswordValid
+    }
+}
+
 struct RegisterViewModel: APIStateProtocol {
 
     struct UIState: AccountRegisterStateProtocol {

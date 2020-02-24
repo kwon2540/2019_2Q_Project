@@ -10,6 +10,19 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+// MARK: AddGoodsStateProtocol
+protocol AddGoodsStateProtocol {
+
+    var nameText: String { get }
+}
+
+extension AddGoodsStateProtocol {
+
+    var isAddButtonEnabled: Bool {
+        return !nameText.isEmpty
+    }
+}
+
 struct AddGoodsViewModel: APIStateProtocol {
 
     struct UIState: AddGoodsStateProtocol {
@@ -45,7 +58,6 @@ struct AddGoodsViewModel: APIStateProtocol {
     }
 
     func makeGoodsData() -> [DateList] {
-
         let goods = Goods(name: nameText.value, amount: amountText.value, price: priceText.value, isBought: false, date: Date())
 
         var goodsData = dateList
@@ -63,6 +75,7 @@ struct AddGoodsViewModel: APIStateProtocol {
 
         // 저장된 데이터가 있고 오늘 데이터도 있을 경우
         goodsData[index].goods.append(goods)
+        
         return goodsData
     }
 
