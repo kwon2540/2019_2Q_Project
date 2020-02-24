@@ -17,7 +17,9 @@ protocol APIManager {
     func signIn(email: String, password: String, completion: @escaping (APIState) -> Void)
     func signOut()
     func addGoods(dateList: [DateList], completion: @escaping (APIState) -> Void)
-    func loadGoodsList(completion: @escaping (APIState) -> Void)
+    func loadGoodsList(completion: @escaping (GoodsListModel?, APIState) -> Void)
+}
+
 // MARK: APIStateProtocol
 protocol APIStateProtocol {
     var apiStateRelay: PublishRelay<APIState> { get }
@@ -132,20 +134,23 @@ struct FirebaseManager: APIManager {
         }
     }
 
-    // TODO: 임시
-    func loadGoodsList(completion: @escaping (APIState) -> Void) {
+    func loadGoodsList(completion: @escaping (GoodsListModel?, APIState) -> Void) {
+        
         guard let uid = Auth.auth().currentUser?.uid else {
-            return completion(.failed(error: .authError))
+            // UID 인증 할수 없는 경우
+            return completion(nil, .failed(error: .authError))
         }
 
         Firestore.firestore().collection(Collections.goodslist.key).document(uid).getDocument { (snapshot, error) in
             if error != nil {
-
+                // 도큐멘트를 받을수 없는 경우
+                return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
-            print(snapshot?.data() ?? "")
-        }
-    }
-}
+
+            guard let snapshotData = snapshot?.data() else {
+                // 스냅샷 데이터를 받을수 없는 경우
+                return completion(nil, .failed(error: .loadError))
+            }
 
             guard !snapshotData.isEmpty else {
                 // 스냅샷 데이터가 비어있는 경우
