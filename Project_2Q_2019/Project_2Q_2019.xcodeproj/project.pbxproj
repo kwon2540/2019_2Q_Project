@@ -13,6 +13,7 @@
 		100CF48023AE011400B3557D /* HistoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 100CF47F23AE011400B3557D /* HistoryViewController.storyboard */; };
 		100CF48223AE012000B3557D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CF48123AE012000B3557D /* HistoryViewController.swift */; };
 		100CF48423AE012800B3557D /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CF48323AE012800B3557D /* HistoryViewModel.swift */; };
+		10128AAE2403B55B00C6F5B9 /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AAD2403B55B00C6F5B9 /* Extension+UITableView.swift */; };
 		10128AB02403B59000C6F5B9 /* Extension+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */; };
 		1016000523922B5C00A92C4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1016000423922B5C00A92C4D /* GoogleService-Info.plist */; };
 		10188E1423C9970900F94681 /* AlertViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10188E1323C9970900F94681 /* AlertViewController.storyboard */; };
@@ -94,6 +95,7 @@
 		100CF47F23AE011400B3557D /* HistoryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HistoryViewController.storyboard; sourceTree = "<group>"; };
 		100CF48123AE012000B3557D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		100CF48323AE012800B3557D /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		10128AAD2403B55B00C6F5B9 /* Extension+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
 		10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSObject.swift"; sourceTree = "<group>"; };
 		1016000423922B5C00A92C4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10188E1323C9970900F94681 /* AlertViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertViewController.storyboard; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			children = (
 				108FFD85237FFFDA005B21CC /* Extension+UIColor.swift */,
 				10A8FE0823A4B10C00F64F96 /* Extension+Date.swift */,
+				10128AAD2403B55B00C6F5B9 /* Extension+UITableView.swift */,
 				10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */,
 			);
 			path = Extension;
@@ -769,6 +772,7 @@
 				1073EC3823DC00D6003BB2C5 /* AddGoodsViewModel.swift in Sources */,
 				100CF48423AE012800B3557D /* HistoryViewModel.swift in Sources */,
 				10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */,
+				10128AAE2403B55B00C6F5B9 /* Extension+UITableView.swift in Sources */,
 				100CF47D23ADFF1400B3557D /* ExpenseViewModel.swift in Sources */,
 				107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */,
 				10A7C2F9237047F20050F6B8 /* FirebaseManager.swift in Sources */,
