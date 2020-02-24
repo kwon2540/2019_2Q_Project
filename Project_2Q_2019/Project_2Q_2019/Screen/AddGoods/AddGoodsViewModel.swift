@@ -58,7 +58,7 @@ struct AddGoodsViewModel: APIStateProtocol {
     }
 
     func makeGoodsData() -> [DateList] {
-        let goods = Goods(name: nameText.value, amount: amountText.value, price: priceText.value, isBought: false, date: Date())
+        let goods = Goods(name: nameText.value, amount: amountText.value, price: priceText.value, isBought: false, date: Date().toString(format: .firebase_key_fulldate))
 
         var goodsData = dateList
 
@@ -75,7 +75,7 @@ struct AddGoodsViewModel: APIStateProtocol {
 
         // 저장된 데이터가 있고 오늘 데이터도 있을 경우
         goodsData[index].goods.append(goods)
-        
+
         return goodsData
     }
 
