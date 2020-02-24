@@ -7,6 +7,26 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-struct AddListViewModel {
+final class AddListViewModel: APIStateProtocol {
+
+    let apiStateRelay = PublishRelay<APIState>()
+
+    var date: String
+    var response: GoodsListModel?
+
+    init(date: String) {
+        self.date = date
+    }
+
+    func loadGoodsFromFirebase() {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.loadGoodsList { [weak self] (response, state) in
+            guard let this = self else { return }
+            this.response = response
+            this.apiStateRelay.accept(state)
+        }
+    }
 }
