@@ -11,6 +11,7 @@ import FirebaseFirestore
 import CodableFirebase
 import RxCocoa
 
+// MARK: APIManager
 protocol APIManager {
     func checkLogin() -> Bool
     func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void)
@@ -81,21 +82,25 @@ struct FirebaseManager: APIManager {
     func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (_, error) in
             if error != nil {
+                // 회원가입 실패인 경우
                 return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
 
             guard let uid = Auth.auth().currentUser?.uid else {
+                // UID 인증 할수 없는 경우
                 return completion(.failed(error: .authError))
             }
 
             let userModel = UserModel(email: email, name: name, uid: uid, startDate: Date())
 
             guard let data = try? FirestoreEncoder().encode(userModel) else {
+                // 엔코딩 실패인 경우
                 return completion(.failed(error: .encodeError))
             }
 
             Firestore.firestore().collection(Collections.users.key).document(uid).setData(data) { (error) in
                 if error != nil {
+                    // 콜렉션 추가에 실패한 경우
                     return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
                 }
                 completion(.success)
@@ -106,6 +111,7 @@ struct FirebaseManager: APIManager {
     func signIn(email: String, password: String, completion: @escaping (APIState) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
             if error != nil {
+                // 로그인 실패인 경우
                 return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
             completion(.success)
@@ -117,17 +123,21 @@ struct FirebaseManager: APIManager {
     }
 
     func addGoods(dateList: [DateList], completion: @escaping (APIState) -> Void) {
+        
         guard let uid = Auth.auth().currentUser?.uid else {
+            // 로그인 인증 할수 없는 경우
             return completion(.failed(error: .authError))
         }
 
         let goodsListModel = GoodsListModel(uid: uid, dateList: dateList)
         guard let data = try? FirestoreEncoder().encode(goodsListModel) else {
+            // 엔코딩 실패인 경우
             return completion(.failed(error: .encodeError))
         }
 
         Firestore.firestore().collection(Collections.goodslist.key).document(uid).setData(data) { (error) in
             if error != nil {
+                // 콜렉션 추가에 실패한 경우
                 return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
             completion(.success)
