@@ -13,6 +13,8 @@
 		100CF48023AE011400B3557D /* HistoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 100CF47F23AE011400B3557D /* HistoryViewController.storyboard */; };
 		100CF48223AE012000B3557D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CF48123AE012000B3557D /* HistoryViewController.swift */; };
 		100CF48423AE012800B3557D /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100CF48323AE012800B3557D /* HistoryViewModel.swift */; };
+		10128AAA2403AFA900C6F5B9 /* AddListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AA92403AFA900C6F5B9 /* AddListTableViewCell.swift */; };
+		10128AAC2403AFBC00C6F5B9 /* AddListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10128AAB2403AFBC00C6F5B9 /* AddListTableViewCell.xib */; };
 		10128AAE2403B55B00C6F5B9 /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AAD2403B55B00C6F5B9 /* Extension+UITableView.swift */; };
 		10128AB02403B59000C6F5B9 /* Extension+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */; };
 		1016000523922B5C00A92C4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1016000423922B5C00A92C4D /* GoogleService-Info.plist */; };
@@ -95,6 +97,8 @@
 		100CF47F23AE011400B3557D /* HistoryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HistoryViewController.storyboard; sourceTree = "<group>"; };
 		100CF48123AE012000B3557D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		100CF48323AE012800B3557D /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		10128AA92403AFA900C6F5B9 /* AddListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListTableViewCell.swift; sourceTree = "<group>"; };
+		10128AAB2403AFBC00C6F5B9 /* AddListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddListTableViewCell.xib; sourceTree = "<group>"; };
 		10128AAD2403B55B00C6F5B9 /* Extension+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
 		10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSObject.swift"; sourceTree = "<group>"; };
 		1016000423922B5C00A92C4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -295,6 +299,8 @@
 		1073EC3123D2EA51003BB2C5 /* View Parts */ = {
 			isa = PBXGroup;
 			children = (
+				10128AAB2403AFBC00C6F5B9 /* AddListTableViewCell.xib */,
+				10128AA92403AFA900C6F5B9 /* AddListTableViewCell.swift */,
 			);
 			path = "View Parts";
 			sourceTree = "<group>";
@@ -606,6 +612,7 @@
 				1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */,
 				10188E1423C9970900F94681 /* AlertViewController.storyboard in Resources */,
 				10A7E52E22EDC14100DF3D34 /* Assets.xcassets in Resources */,
+				10128AAC2403AFBC00C6F5B9 /* AddListTableViewCell.xib in Resources */,
 				10A00AA0237FBB1A00BA90EB /* SplashViewController.storyboard in Resources */,
 				1032FE622338DE5F0039E9C0 /* RegisterViewController.storyboard in Resources */,
 			);
@@ -775,6 +782,7 @@
 				10128AAE2403B55B00C6F5B9 /* Extension+UITableView.swift in Sources */,
 				100CF47D23ADFF1400B3557D /* ExpenseViewModel.swift in Sources */,
 				107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */,
+				10128AAA2403AFA900C6F5B9 /* AddListTableViewCell.swift in Sources */,
 				10A7C2F9237047F20050F6B8 /* FirebaseManager.swift in Sources */,
 				108FFD86237FFFDA005B21CC /* Extension+UIColor.swift in Sources */,
 				1073EC3C23EE6E35003BB2C5 /* GoodsListModel.swift in Sources */,
