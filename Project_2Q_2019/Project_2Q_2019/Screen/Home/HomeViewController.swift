@@ -41,7 +41,10 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func add(_ sender: Any) {
-        present(AddListViewController.getStoryBoard(), animated: true)
+        let vc = AddListViewController.getStoryBoard()
+        // TODO: 임시데이터
+        vc.viewModel = AddListViewModel(date: "20200224")
+        present(vc, animated: true)
     }
 
     private func setCollectionView() {
