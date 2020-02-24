@@ -28,10 +28,21 @@ enum APIState {
 
 struct FirebaseManager: APIManager {
 
+    enum Collections: String {
+        case users
+        case goodslist
+
+        var key: String {
+            return self.rawValue
+        }
+    }
+
     enum Error {
         case firebaseError(debugDescription: String)
         case authError
+        case loadError
         case encodeError
+        case decodeError
 
         var description: String {
             switch self {
@@ -39,18 +50,14 @@ struct FirebaseManager: APIManager {
                 return debugDescription
             case .authError:
                 return "Auth Error"
+            case .loadError:
+                return "Load Error"
             case .encodeError:
                 return "Encode Error"
+            case .decodeError:
+                return "Decode Error"
+
             }
-        }
-    }
-
-    enum Collections: String {
-        case users
-        case goodslist
-
-        var key: String {
-            return self.rawValue
         }
     }
 
