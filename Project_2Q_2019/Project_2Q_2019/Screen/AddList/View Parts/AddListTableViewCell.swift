@@ -14,9 +14,15 @@ class AddListTableViewCell: UITableViewCell {
     @IBOutlet private weak var amountLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
 
-    func set(name: String, amount: String?, price: String?) {
+    func set(name: String, amount: String, price: String) {
         nameLabel.text = name
-        amountLabel.text = amount
-        priceLabel.text = price
+
+        if !amount.isEmpty {
+            amountLabel.text =  "\(String(describing: amount))個"
+        }
+
+        if !price.isEmpty {
+            priceLabel.text =  "¥ \(String(describing: price))"
+        }
     }
 }
