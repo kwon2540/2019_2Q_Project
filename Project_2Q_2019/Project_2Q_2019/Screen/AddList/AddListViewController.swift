@@ -135,10 +135,17 @@ extension AddListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let data = viewModel.dateList?.goods else { return UITableViewCell() }
         let cell = tableView.dequeueCell(of: AddListTableViewCell.self, for: indexPath)
+        let data: Goods
 
-        cell.set(name: data[indexPath.row].name, amount: data[indexPath.row].amount, price: data[indexPath.row].price)
+        switch viewModel.sections[indexPath.section] {
+        case .toPurchase:
+            data = viewModel.toPurchaseData[indexPath.row]
+        case .purchased:
+            data = viewModel.purchased[indexPath.row]
+        }
+
+        cell.set(name: data.name, amount: data.amount ?? "", price: data.price ?? "")
 
         return cell
     }
