@@ -82,17 +82,37 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
 extension AddListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView()
-        header.backgroundColor = .lightGray
+        let header = AddListTableViewHeaderView()
+
+        switch viewModel.sections[section] {
+        case .toPurchase:
+            header.set(title: viewModel.sections[section].title, count: String(viewModel.toPurchaseData.count))
+        case .purchased:
+            header.set(title: viewModel.sections[section].title, count: String(viewModel.purchased.count))
+        }
+
         return header
     }
 
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footer = AddListTableViewFooterView()
+
+        switch viewModel.sections[section] {
+        case .toPurchase:
+            footer.set(totalPrice: viewModel.toPurchaseTotalPrice)
+        case .purchased:
+            footer.set(totalPrice: viewModel.purchasedTotalPrice)
+        }
+
+        return footer
+    }
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return 50
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return CGFloat.leastNonzeroMagnitude
+        return 50
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
