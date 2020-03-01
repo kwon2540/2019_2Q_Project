@@ -17,7 +17,11 @@
 		10128AAC2403AFBC00C6F5B9 /* AddListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10128AAB2403AFBC00C6F5B9 /* AddListTableViewCell.xib */; };
 		10128AAE2403B55B00C6F5B9 /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AAD2403B55B00C6F5B9 /* Extension+UITableView.swift */; };
 		10128AB02403B59000C6F5B9 /* Extension+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */; };
+		10128AB2240B71B000C6F5B9 /* AddListTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10128AB1240B71B000C6F5B9 /* AddListTableViewHeaderView.xib */; };
+		10128AB4240B71C000C6F5B9 /* AddListTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AB3240B71C000C6F5B9 /* AddListTableViewHeaderView.swift */; };
 		10128AB6240B78A400C6F5B9 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AB5240B78A400C6F5B9 /* Extension+UIView.swift */; };
+		10128AB8240B8EA700C6F5B9 /* AddListTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AB7240B8EA700C6F5B9 /* AddListTableViewFooterView.swift */; };
+		10128ABA240B8EBC00C6F5B9 /* AddListTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10128AB9240B8EBC00C6F5B9 /* AddListTableViewFooterView.xib */; };
 		1016000523922B5C00A92C4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1016000423922B5C00A92C4D /* GoogleService-Info.plist */; };
 		10188E1423C9970900F94681 /* AlertViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10188E1323C9970900F94681 /* AlertViewController.storyboard */; };
 		10188E1623C997B900F94681 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10188E1523C997B900F94681 /* AlertViewController.swift */; };
@@ -102,7 +106,11 @@
 		10128AAB2403AFBC00C6F5B9 /* AddListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddListTableViewCell.xib; sourceTree = "<group>"; };
 		10128AAD2403B55B00C6F5B9 /* Extension+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
 		10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSObject.swift"; sourceTree = "<group>"; };
+		10128AB1240B71B000C6F5B9 /* AddListTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddListTableViewHeaderView.xib; sourceTree = "<group>"; };
+		10128AB3240B71C000C6F5B9 /* AddListTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListTableViewHeaderView.swift; sourceTree = "<group>"; };
 		10128AB5240B78A400C6F5B9 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		10128AB7240B8EA700C6F5B9 /* AddListTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListTableViewFooterView.swift; sourceTree = "<group>"; };
+		10128AB9240B8EBC00C6F5B9 /* AddListTableViewFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddListTableViewFooterView.xib; sourceTree = "<group>"; };
 		1016000423922B5C00A92C4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10188E1323C9970900F94681 /* AlertViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertViewController.storyboard; sourceTree = "<group>"; };
 		10188E1523C997B900F94681 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +309,10 @@
 		1073EC3123D2EA51003BB2C5 /* View Parts */ = {
 			isa = PBXGroup;
 			children = (
+				10128AB1240B71B000C6F5B9 /* AddListTableViewHeaderView.xib */,
+				10128AB3240B71C000C6F5B9 /* AddListTableViewHeaderView.swift */,
+				10128AB9240B8EBC00C6F5B9 /* AddListTableViewFooterView.xib */,
+				10128AB7240B8EA700C6F5B9 /* AddListTableViewFooterView.swift */,
 				10128AAB2403AFBC00C6F5B9 /* AddListTableViewCell.xib */,
 				10128AA92403AFA900C6F5B9 /* AddListTableViewCell.swift */,
 			);
@@ -605,9 +617,11 @@
 				100CF48023AE011400B3557D /* HistoryViewController.storyboard in Resources */,
 				1032FE6E2338ECC90039E9C0 /* Assets.colors.xcassets in Resources */,
 				10A7E5982312B86800DF3D34 /* HomeViewController.storyboard in Resources */,
+				10128AB2240B71B000C6F5B9 /* AddListTableViewHeaderView.xib in Resources */,
 				10A8FE1623A4B45A00F64F96 /* AddListViewController.storyboard in Resources */,
 				10A8FE1023A4B42A00F64F96 /* MenuViewController.storyboard in Resources */,
 				1016000523922B5C00A92C4D /* GoogleService-Info.plist in Resources */,
+				10128ABA240B8EBC00C6F5B9 /* AddListTableViewFooterView.xib in Resources */,
 				10A7E55622EDC1F500DF3D34 /* .swiftlint.yml in Resources */,
 				10A7E53122EDC14100DF3D34 /* LaunchScreen.storyboard in Resources */,
 				100CF47923ADFEFC00B3557D /* ExpenseViewController.storyboard in Resources */,
@@ -792,6 +806,7 @@
 				1073EC3C23EE6E35003BB2C5 /* GoodsListModel.swift in Sources */,
 				1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */,
 				10A8FE1223A4B43800F64F96 /* MenuViewController.swift in Sources */,
+				10128AB8240B8EA700C6F5B9 /* AddListTableViewFooterView.swift in Sources */,
 				10A8FE2023A4B4A500F64F96 /* EditListViewModel.swift in Sources */,
 				1032FE662338E2410039E9C0 /* RegisterViewModel.swift in Sources */,
 				10A8FE1823A4B46B00F64F96 /* AddListViewController.swift in Sources */,
@@ -801,6 +816,7 @@
 				10A8FE1E23A4B49B00F64F96 /* EditListViewController.swift in Sources */,
 				1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */,
 				107A3864237FDC5600D276E9 /* ActivityIndicator.swift in Sources */,
+				10128AB4240B71C000C6F5B9 /* AddListTableViewHeaderView.swift in Sources */,
 				10A00AA2237FBBCD00BA90EB /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
