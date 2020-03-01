@@ -17,6 +17,7 @@
 		10128AAC2403AFBC00C6F5B9 /* AddListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10128AAB2403AFBC00C6F5B9 /* AddListTableViewCell.xib */; };
 		10128AAE2403B55B00C6F5B9 /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AAD2403B55B00C6F5B9 /* Extension+UITableView.swift */; };
 		10128AB02403B59000C6F5B9 /* Extension+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */; };
+		10128AB6240B78A400C6F5B9 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10128AB5240B78A400C6F5B9 /* Extension+UIView.swift */; };
 		1016000523922B5C00A92C4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1016000423922B5C00A92C4D /* GoogleService-Info.plist */; };
 		10188E1423C9970900F94681 /* AlertViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10188E1323C9970900F94681 /* AlertViewController.storyboard */; };
 		10188E1623C997B900F94681 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10188E1523C997B900F94681 /* AlertViewController.swift */; };
@@ -101,6 +102,7 @@
 		10128AAB2403AFBC00C6F5B9 /* AddListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddListTableViewCell.xib; sourceTree = "<group>"; };
 		10128AAD2403B55B00C6F5B9 /* Extension+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
 		10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSObject.swift"; sourceTree = "<group>"; };
+		10128AB5240B78A400C6F5B9 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		1016000423922B5C00A92C4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10188E1323C9970900F94681 /* AlertViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertViewController.storyboard; sourceTree = "<group>"; };
 		10188E1523C997B900F94681 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				10A8FE0823A4B10C00F64F96 /* Extension+Date.swift */,
 				10128AAD2403B55B00C6F5B9 /* Extension+UITableView.swift */,
 				10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */,
+				10128AB5240B78A400C6F5B9 /* Extension+UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				10188E1623C997B900F94681 /* AlertViewController.swift in Sources */,
 				10B00E0723769DBD00864551 /* LogManager.swift in Sources */,
 				1032FE642338E2340039E9C0 /* LoginViewModel.swift in Sources */,
+				10128AB6240B78A400C6F5B9 /* Extension+UIView.swift in Sources */,
 				1032FE572338C1050039E9C0 /* StoryboardInstantiable.swift in Sources */,
 				10A8FE0923A4B10C00F64F96 /* Extension+Date.swift in Sources */,
 				1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */,
