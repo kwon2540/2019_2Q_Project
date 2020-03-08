@@ -42,8 +42,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBAction private func add(_ sender: Any) {
         let vc = AddListViewController.getStoryBoard()
-        // TODO: 임시데이터
-        vc.viewModel = AddListViewModel(date: "20200224")
+        vc.viewModel = AddListViewModel(date: Date().toString(format: .firebase_key_date))
         present(vc, animated: true)
     }
 
