@@ -74,6 +74,8 @@ final class AddListViewModel: APIStateProtocol {
         FirebaseManager.shared.loadGoodsList { [weak self] (response, state) in
             guard let this = self else { return }
 
+            this.response = response
+
             // 데이트리스트에서 같은 날짜를 갖고있는 데이터 찾기
             let data = response?.dateList.filter {
                 $0.date == this.date
