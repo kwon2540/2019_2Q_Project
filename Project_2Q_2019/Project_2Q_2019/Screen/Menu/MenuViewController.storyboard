@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqx-Ze-N90" customClass="ShadowView" customModule="Project_2Q_2019" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="74" width="414" height="822"/>
+                                <rect key="frame" x="0.0" y="59" width="414" height="837"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFT-gd-DtZ">
-                                        <rect key="frame" x="376" y="12" width="26" height="26"/>
+                                        <rect key="frame" x="373" y="15" width="26" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="26" id="QzD-AH-fmQ"/>
                                             <constraint firstAttribute="width" constant="26" id="wUa-fc-Vxb"/>
@@ -31,7 +31,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정 메뉴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlU-Of-uBn">
-                                        <rect key="frame" x="152" y="393" width="110.5" height="36"/>
+                                        <rect key="frame" x="152" y="400.5" width="110.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -39,10 +39,10 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="RFT-gd-DtZ" secondAttribute="trailing" constant="12" id="D8F-sa-65o"/>
+                                    <constraint firstAttribute="trailing" secondItem="RFT-gd-DtZ" secondAttribute="trailing" constant="15" id="D8F-sa-65o"/>
                                     <constraint firstItem="WlU-Of-uBn" firstAttribute="centerX" secondItem="Dqx-Ze-N90" secondAttribute="centerX" id="LIA-gM-fgC"/>
                                     <constraint firstItem="WlU-Of-uBn" firstAttribute="centerY" secondItem="Dqx-Ze-N90" secondAttribute="centerY" id="gbp-Xf-mWg"/>
-                                    <constraint firstItem="RFT-gd-DtZ" firstAttribute="top" secondItem="Dqx-Ze-N90" secondAttribute="top" constant="12" id="qcZ-ju-s11"/>
+                                    <constraint firstItem="RFT-gd-DtZ" firstAttribute="top" secondItem="Dqx-Ze-N90" secondAttribute="top" constant="15" id="qcZ-ju-s11"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -50,7 +50,7 @@
                         <constraints>
                             <constraint firstItem="Dqx-Ze-N90" firstAttribute="leading" secondItem="KOm-qI-g0W" secondAttribute="leading" id="MHz-iE-cl6"/>
                             <constraint firstItem="KOm-qI-g0W" firstAttribute="trailing" secondItem="Dqx-Ze-N90" secondAttribute="trailing" id="gPU-bm-9LD"/>
-                            <constraint firstItem="Dqx-Ze-N90" firstAttribute="top" secondItem="KOm-qI-g0W" secondAttribute="top" constant="30" id="h0Z-GY-6wS"/>
+                            <constraint firstItem="Dqx-Ze-N90" firstAttribute="top" secondItem="KOm-qI-g0W" secondAttribute="top" constant="15" id="h0Z-GY-6wS"/>
                             <constraint firstAttribute="bottom" secondItem="Dqx-Ze-N90" secondAttribute="bottom" id="rAy-Ei-Jj9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KOm-qI-g0W"/>

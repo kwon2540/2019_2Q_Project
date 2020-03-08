@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UU5-hu-St4" customClass="ShadowView" customModule="Project_2Q_2019" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="74" width="414" height="822"/>
+                                <rect key="frame" x="0.0" y="54" width="414" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="YhZ-Wn-5Dj">
-                                        <rect key="frame" x="0.0" y="0.0" width="172" height="60"/>
+                                        <rect key="frame" x="0.0" y="10" width="172" height="60"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHh-Wv-xrn" userLabel="Spacing View 20">
                                                 <rect key="frame" x="0.0" y="10" width="20" height="50"/>
@@ -76,13 +76,13 @@
                                         </constraints>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cPl-QF-bE6">
-                                        <rect key="frame" x="0.0" y="76" width="414" height="746"/>
+                                        <rect key="frame" x="0.0" y="86" width="414" height="756"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <inset key="separatorInset" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KI0-Ek-EkT">
-                                        <rect key="frame" x="376" y="12" width="26" height="26"/>
+                                        <rect key="frame" x="373" y="15" width="26" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="26" id="P8u-h6-yLg"/>
                                             <constraint firstAttribute="height" constant="26" id="pls-n0-y9p"/>
@@ -95,12 +95,12 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="KI0-Ek-EkT" firstAttribute="top" secondItem="UU5-hu-St4" secondAttribute="top" constant="12" id="PDg-Ts-kN0"/>
+                                    <constraint firstItem="KI0-Ek-EkT" firstAttribute="top" secondItem="UU5-hu-St4" secondAttribute="top" constant="15" id="PDg-Ts-kN0"/>
                                     <constraint firstItem="cPl-QF-bE6" firstAttribute="leading" secondItem="UU5-hu-St4" secondAttribute="leading" id="PXA-nz-cKD"/>
-                                    <constraint firstItem="YhZ-Wn-5Dj" firstAttribute="top" secondItem="UU5-hu-St4" secondAttribute="top" id="UNf-Fy-AiP"/>
+                                    <constraint firstItem="YhZ-Wn-5Dj" firstAttribute="top" secondItem="UU5-hu-St4" secondAttribute="top" constant="10" id="UNf-Fy-AiP"/>
                                     <constraint firstAttribute="trailing" secondItem="cPl-QF-bE6" secondAttribute="trailing" id="VYa-yO-Rqk"/>
                                     <constraint firstItem="KI0-Ek-EkT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YhZ-Wn-5Dj" secondAttribute="trailing" id="Z4Q-BE-3Ic"/>
-                                    <constraint firstAttribute="trailing" secondItem="KI0-Ek-EkT" secondAttribute="trailing" constant="12" id="ZCw-fE-O6d"/>
+                                    <constraint firstAttribute="trailing" secondItem="KI0-Ek-EkT" secondAttribute="trailing" constant="15" id="ZCw-fE-O6d"/>
                                     <constraint firstItem="YhZ-Wn-5Dj" firstAttribute="leading" secondItem="UU5-hu-St4" secondAttribute="leading" id="bCf-QH-jvZ"/>
                                     <constraint firstItem="cPl-QF-bE6" firstAttribute="top" secondItem="YhZ-Wn-5Dj" secondAttribute="bottom" constant="16" id="vEo-R3-Iol"/>
                                     <constraint firstAttribute="bottom" secondItem="cPl-QF-bE6" secondAttribute="bottom" id="xs1-lZ-cQG"/>
@@ -123,7 +123,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4XO-Ru-NVn" firstAttribute="trailing" secondItem="UU5-hu-St4" secondAttribute="trailing" id="GC9-33-TRG"/>
-                            <constraint firstItem="UU5-hu-St4" firstAttribute="top" secondItem="4XO-Ru-NVn" secondAttribute="top" constant="30" id="NUa-pu-Ng5"/>
+                            <constraint firstItem="UU5-hu-St4" firstAttribute="top" secondItem="4XO-Ru-NVn" secondAttribute="top" constant="10" id="NUa-pu-Ng5"/>
                             <constraint firstItem="4XO-Ru-NVn" firstAttribute="trailing" secondItem="jzn-6b-LCt" secondAttribute="trailing" constant="32" id="Ynd-rn-jR7"/>
                             <constraint firstAttribute="bottom" secondItem="UU5-hu-St4" secondAttribute="bottom" id="bel-g3-aPz"/>
                             <constraint firstItem="4XO-Ru-NVn" firstAttribute="bottom" secondItem="jzn-6b-LCt" secondAttribute="bottom" constant="32" id="l1l-gW-SK3"/>
