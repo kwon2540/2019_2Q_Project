@@ -42,6 +42,11 @@ final class AddListViewModel: APIStateProtocol {
     }
 
     private func updateGoodsData(_ data: DateList?) {
+        purchasedData.removeAll()
+        toPurchaseData.removeAll()
+        toPurchaseTotalPrice = ""
+        purchasedTotalPrice = ""
+
         data?.goods.forEach { good in
             if good.isBought {
                 purchasedData.append(good)
