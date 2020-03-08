@@ -32,10 +32,9 @@ final class AddListViewModel: APIStateProtocol {
     var response: GoodsListModel?
 
     var toPurchaseData: [Goods] = []
-    var purchased: [Goods] = []
+    var purchasedData: [Goods] = []
 
     var toPurchaseTotalPrice = ""
-
     var purchasedTotalPrice = ""
 
     init(date: String) {
@@ -45,7 +44,7 @@ final class AddListViewModel: APIStateProtocol {
     private func updateGoodsData(_ data: DateList?) {
         data?.goods.forEach { good in
             if good.isBought {
-                purchased.append(good)
+                purchasedData.append(good)
             } else {
                 toPurchaseData.append(good)
             }
@@ -58,7 +57,7 @@ final class AddListViewModel: APIStateProtocol {
         self.toPurchaseTotalPrice = String(toPurchaseTotalPrice)
 
         var purchasedTotalPrice = 0
-        purchased.forEach { good in
+        purchasedData.forEach { good in
             purchasedTotalPrice += Int(good.price!) ?? 0
         }
         self.purchasedTotalPrice = String(purchasedTotalPrice)
@@ -84,7 +83,7 @@ final class AddListViewModel: APIStateProtocol {
     func rowCounts(section: sectionType) -> Int {
         switch section {
         case .toPurchase: return toPurchaseData.count
-        case .purchased: return purchased.count
+        case .purchased: return purchasedData.count
         }
     }
 }

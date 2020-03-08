@@ -88,7 +88,7 @@ extension AddListViewController: UITableViewDelegate {
         case .toPurchase:
             header.set(title: viewModel.sections[section].title, count: String(viewModel.toPurchaseData.count))
         case .purchased:
-            header.set(title: viewModel.sections[section].title, count: String(viewModel.purchased.count))
+            header.set(title: viewModel.sections[section].title, count: String(viewModel.purchasedData.count))
         }
 
         return header
@@ -142,7 +142,7 @@ extension AddListViewController: UITableViewDataSource {
         case .toPurchase:
             data = viewModel.toPurchaseData[indexPath.row]
         case .purchased:
-            data = viewModel.purchased[indexPath.row]
+            data = viewModel.purchasedData[indexPath.row]
         }
 
         cell.set(name: data.name, amount: data.amount ?? "", price: data.price ?? "")
