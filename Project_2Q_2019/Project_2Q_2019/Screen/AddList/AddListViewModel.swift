@@ -58,13 +58,15 @@ final class AddListViewModel: APIStateProtocol {
 
         var toPurchaseTotalPrice = 0
         toPurchaseData.forEach { good in
-            toPurchaseTotalPrice += Int(good.price!) ?? 0
+            let totalPrice = (Int(good.price!) ?? 0) * (Int(good.amount!) ?? 0)
+            toPurchaseTotalPrice += totalPrice
         }
         self.toPurchaseTotalPrice = String(toPurchaseTotalPrice)
 
         var purchasedTotalPrice = 0
         purchasedData.forEach { good in
-            purchasedTotalPrice += Int(good.price!) ?? 0
+            let totalPrice = (Int(good.price!) ?? 0) * (Int(good.amount!) ?? 0)
+            purchasedTotalPrice += totalPrice
         }
         self.purchasedTotalPrice = String(purchasedTotalPrice)
     }
