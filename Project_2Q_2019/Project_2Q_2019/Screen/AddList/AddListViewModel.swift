@@ -28,8 +28,9 @@ final class AddListViewModel: APIStateProtocol {
 
     var sections = sectionType.allCases.map { $0 }
 
-    var date: String
-    var response: GoodsListModel?
+    var date: String = Date().toString(format: .firebase_key_date)
+    var goods: [Goods] = []
+    var dateList: [String] = []
 
     var toPurchaseData: [Goods] = []
     var purchasedData: [Goods] = []
@@ -41,13 +42,13 @@ final class AddListViewModel: APIStateProtocol {
         self.date = date
     }
 
-    private func updateGoodsData(_ data: DateList?) {
+    private func updateGoodsData() {
         purchasedData.removeAll()
         toPurchaseData.removeAll()
         toPurchaseTotalPrice = ""
         purchasedTotalPrice = ""
 
-        data?.goods.forEach { good in
+        goods.forEach { good in
             if good.isBought {
                 purchasedData.append(good)
             } else {
@@ -66,22 +67,31 @@ final class AddListViewModel: APIStateProtocol {
             purchasedTotalPrice += Int(good.price!) ?? 0
         }
         self.purchasedTotalPrice = String(purchasedTotalPrice)
+    }
 
+    func loadGoodsDateListFromFirebase() {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.loadGoodsDateList { [weak self] (response, state) in
+            guard let this = self else { return }
+
+            if let dateList = response?.dateList {
+                this.dateList = dateList
+            }
+
+            this.apiStateRelay.accept(state)
+        }
     }
 
     func loadGoodsFromFirebase() {
         apiStateRelay.accept(.loading)
-        FirebaseManager.shared.loadGoodsList { [weak self] (response, state) in
+        FirebaseManager.shared.loadGoodsList(date: date) { [weak self] (response, state) in
             guard let this = self else { return }
 
-            this.response = response
+            if let goods = response?.goods {
+                this.goods = goods
+            }
 
-            // 데이트리스트에서 같은 날짜를 갖고있는 데이터 찾기
-            let data = response?.dateList.filter {
-                $0.date == this.date
-            }.first
-
-            this.updateGoodsData(data)
+            this.updateGoodsData()
 
             this.apiStateRelay.accept(state)
         }

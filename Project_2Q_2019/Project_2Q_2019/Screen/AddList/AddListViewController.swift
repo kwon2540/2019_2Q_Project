@@ -27,6 +27,8 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
         tableView.registerXib(of: AddListTableViewCell.self)
 
         bindViewModel()
+
+        viewModel.loadGoodsDateListFromFirebase()
         viewModel.loadGoodsFromFirebase()
     }
 
@@ -41,7 +43,8 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
     @IBAction private func add(_ sender: Any) {
         let vc = AddGoodsViewController.getStoryBoard()
         vc.viewModel = AddGoodsViewModel(date: viewModel.date,
-                                         dateList: viewModel.response?.dateList)
+                                         goods: viewModel.goods,
+                                         dateList: viewModel.dateList)
 
         vc.dismissed = { [weak self] in
             guard let this = self else { return }

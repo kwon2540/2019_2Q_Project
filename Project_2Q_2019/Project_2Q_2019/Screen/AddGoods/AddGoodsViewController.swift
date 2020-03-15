@@ -56,7 +56,8 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func addGoods(_ sender: Any) {
-        viewModel.addGoodsToFirebase(dateList: viewModel.makeGoodsData())
+        viewModel.makeGoodsDateList()
+        viewModel.addGoodsToFirebase(goods: viewModel.makeGoodsData())
     }
 
     private func bindViewModel() {
