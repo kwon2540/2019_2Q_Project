@@ -152,4 +152,56 @@ extension AddListViewController: UITableViewDataSource {
 
         return cell
     }
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        switch viewModel.sections[indexPath.section] {
+        case .toPurchase:
+            let complete = completeAction(at: indexPath)
+            return UISwipeActionsConfiguration(actions: [complete])
+        case .purchased:
+            let revers = reversAction(at: indexPath)
+            return UISwipeActionsConfiguration(actions: [revers])
+        }
+    }
+
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: nil) { [weak self] (_, _, completion) in
+            guard let this = self else { return }
+            switch this.viewModel.sections[indexPath.section] {
+            case .toPurchase:
+                this.viewModel.toPurchaseData.remove(at: indexPath.row)
+            case .purchased:
+                this.viewModel.purchasedData.remove(at: indexPath.row)
+            }
+            completion(true)
+        }
+        action.image = UIImage(named: "Delete")
+        action.backgroundColor = .white
+        return action
+    }
+
+    func completeAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: nil) { (_, _, completion) in
+
+
+            completion(true)
+        }
+        action.image = UIImage(named: "Complete")
+        action.backgroundColor = .white
+        return action
+    }
+
+    func reversAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: nil) { (_, _, completion) in
+            completion(true)
+        }
+        action.image = UIImage(named: "Revers")
+        action.backgroundColor = .white
+        return action
+    }
 }
