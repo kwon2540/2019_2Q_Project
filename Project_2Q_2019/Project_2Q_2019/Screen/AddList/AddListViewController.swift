@@ -188,6 +188,7 @@ extension AddListViewController: UITableViewDataSource {
     func completeAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: nil) { (_, _, completion) in
 
+            self.viewModel.changeIsBought(indexPath: indexPath)
 
             completion(true)
         }

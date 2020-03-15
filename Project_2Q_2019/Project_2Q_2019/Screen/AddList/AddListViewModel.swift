@@ -70,6 +70,17 @@ final class AddListViewModel: APIStateProtocol {
         }
         self.purchasedTotalPrice = String(purchasedTotalPrice)
     }
+    
+    private func changeGoodsDataToFirebase(goods: [Goods]) {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.addGoods(date: date, goods: goods) { [weak self] (state) in
+            guard let this = self else { return }
+
+            this.updateGoodsData()
+
+            this.apiStateRelay.accept(state)
+        }
+    }
 
     func loadGoodsDateListFromFirebase() {
         apiStateRelay.accept(.loading)
@@ -104,5 +115,17 @@ final class AddListViewModel: APIStateProtocol {
         case .toPurchase: return toPurchaseData.count
         case .purchased: return purchasedData.count
         }
+    }
+
+    func changeIsBought(indexPath: IndexPath) {
+        let index = goods.firstIndex {
+            $0.id == toPurchaseData[indexPath.row].id
+        }
+
+        guard let unwarppedIndex = index else { return }
+
+        goods[unwarppedIndex].isBought = true
+
+        changeGoodsDataToFirebase(goods: goods)
     }
 }
