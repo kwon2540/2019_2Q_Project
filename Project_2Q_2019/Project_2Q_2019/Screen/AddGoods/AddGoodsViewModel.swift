@@ -60,7 +60,12 @@ struct AddGoodsViewModel: APIStateProtocol {
     }
 
     mutating func makeGoodsData() -> [Goods] {
-        let newGoods = Goods(name: nameText.value, amount: amountText.value, price: priceText.value, isBought: false, date: Date().toString(format: .firebase_key_fulldate))
+        let newGoods = Goods(id: UUID.init().uuidString,
+                             name: nameText.value,
+                             amount: amountText.value,
+                             price: priceText.value,
+                             isBought: false,
+                             date: Date().toString(format: .firebase_key_fulldate))
         goodsList.append(newGoods)
 
         return goodsList

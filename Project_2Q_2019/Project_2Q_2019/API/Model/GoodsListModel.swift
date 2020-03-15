@@ -17,7 +17,7 @@ struct GoodsListModel: Codable {
 }
 
 struct Goods: Codable {
-
+    let id: String
     let name: String
     let amount: String?
     let price: String?
