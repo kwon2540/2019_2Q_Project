@@ -14,7 +14,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     enum TextFieldTag: Int {
         case nameTextField
         case priceTextField
-        case countTextField
+        case amountTextField
     }
 
     @IBOutlet private weak var scrollViewBottomContraints: NSLayoutConstraint!
@@ -36,7 +36,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         priceTextField.delegate = self
         amountTextField.delegate = self
 
-        nameTextField.becomeFirstResponder()
+        setupLayouts()
 
         bindViewModel()
     }
@@ -58,6 +58,12 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     @IBAction private func addGoods(_ sender: Any) {
         viewModel.makeGoodsDateList()
         viewModel.addGoodsToFirebase(goods: viewModel.makeGoodsData())
+    }
+
+    private func setupLayouts() {
+        nameTextField.becomeFirstResponder()
+        amountTextField.text = "1"
+        viewModel.amountText.accept("1")
     }
 
     private func bindViewModel() {
@@ -119,6 +125,15 @@ extension AddGoodsViewController: UITextFieldDelegate {
             break
         }
         return true
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch TextFieldTag.init(rawValue: textField.tag) {
+        case .amountTextField:
+            textField.text = ""
+        default:
+            break
+        }
     }
 }
 
