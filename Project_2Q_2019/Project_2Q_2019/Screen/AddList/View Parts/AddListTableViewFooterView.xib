@@ -29,18 +29,25 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計金額" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftX-YO-iWz">
-                            <rect key="frame" x="200" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="200" y="0.0" width="60" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="tqo-Fb-hen"/>
+                                <constraint firstAttribute="width" constant="60" id="tqo-Fb-hen"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                            <color key="textColor" name="c6889FF"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <color key="textColor" name="c3F3E3E"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LE7-9O-G89" userLabel="Spacing View">
+                            <rect key="frame" x="260" y="0.0" width="15" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="8Mu-ch-F3a"/>
+                            </constraints>
+                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZU-nO-5Gs">
-                            <rect key="frame" x="250" y="0.0" width="124" height="50"/>
+                            <rect key="frame" x="275" y="0.0" width="99" height="50"/>
                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
-                            <color key="textColor" name="c6889FF"/>
+                            <color key="textColor" name="c3F3E3E"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -61,8 +68,8 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="c6889FF">
-            <color red="0.40784313725490196" green="0.53725490196078429" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="c3F3E3E">
+            <color red="0.24705882352941178" green="0.24313725490196078" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
