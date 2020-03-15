@@ -17,8 +17,10 @@ protocol APIManager {
     func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void)
     func signIn(email: String, password: String, completion: @escaping (APIState) -> Void)
     func signOut()
-    func addGoods(dateList: [DateList], completion: @escaping (APIState) -> Void)
-    func loadGoodsList(completion: @escaping (GoodsListModel?, APIState) -> Void)
+    func addGoodsDatedate(dateList: [String], completion: @escaping (APIState) -> Void)
+    func addGoods(date: String, goods: [Goods], completion: @escaping (APIState) -> Void)
+    func loadGoodsDateList(completion: @escaping (GoodsDateListModel?, APIState) -> Void)
+    func loadGoodsList(date: String?, completion: @escaping (GoodsListModel?, APIState) -> Void)
 }
 
 // MARK: APIStateProtocol
@@ -50,9 +52,7 @@ struct FirebaseManager: APIManager {
     enum Error {
         case firebaseError(debugDescription: String)
         case authError
-        case loadError
         case encodeError
-        case decodeError
 
         var description: String {
             switch self {
@@ -60,13 +60,8 @@ struct FirebaseManager: APIManager {
                 return debugDescription
             case .authError:
                 return "Auth Error"
-            case .loadError:
-                return "Load Error"
             case .encodeError:
                 return "Encode Error"
-            case .decodeError:
-                return "Decode Error"
-
             }
         }
     }
@@ -122,15 +117,15 @@ struct FirebaseManager: APIManager {
         try? Auth.auth().signOut()
     }
 
-    func addGoods(dateList: [DateList], completion: @escaping (APIState) -> Void) {
+    func addGoodsDatedate(dateList: [String], completion: @escaping (APIState) -> Void) {
 
         guard let uid = Auth.auth().currentUser?.uid else {
             // 로그인 인증 할수 없는 경우
             return completion(.failed(error: .authError))
         }
 
-        let goodsListModel = GoodsListModel(uid: uid, dateList: dateList)
-        guard let data = try? FirestoreEncoder().encode(goodsListModel) else {
+        let goodsDateListModel = GoodsDateListModel(dateList: dateList)
+        guard let data = try? FirestoreEncoder().encode(goodsDateListModel) else {
             // 엔코딩 실패인 경우
             return completion(.failed(error: .encodeError))
         }
@@ -144,7 +139,29 @@ struct FirebaseManager: APIManager {
         }
     }
 
-    func loadGoodsList(completion: @escaping (GoodsListModel?, APIState) -> Void) {
+    func addGoods(date: String, goods: [Goods], completion: @escaping (APIState) -> Void) {
+
+        guard let uid = Auth.auth().currentUser?.uid else {
+            // 로그인 인증 할수 없는 경우
+            return completion(.failed(error: .authError))
+        }
+
+        let goodsListModel = GoodsListModel(goods: goods)
+        guard let data = try? FirestoreEncoder().encode(goodsListModel) else {
+            // 엔코딩 실패인 경우
+            return completion(.failed(error: .encodeError))
+        }
+
+        Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection(date).document(date).setData(data) { (error) in
+            if error != nil {
+                // 콜렉션 추가에 실패한 경우
+                return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
+            }
+            completion(.success)
+        }
+    }
+
+    func loadGoodsDateList(completion: @escaping (GoodsDateListModel?, APIState) -> Void) {
 
         guard let uid = Auth.auth().currentUser?.uid else {
             // UID 인증 할수 없는 경우
@@ -153,24 +170,46 @@ struct FirebaseManager: APIManager {
 
         Firestore.firestore().collection(Collections.goodslist.key).document(uid).getDocument { (snapshot, error) in
             if error != nil {
-                // 도큐멘트를 받을수 없는 경우
+                // 파이어베이스 에러인 경우
                 return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
 
-            guard let snapshotData = snapshot?.data() else {
-                // 스냅샷 데이터를 받을수 없는 경우
-                return completion(nil, .failed(error: .loadError))
+            guard let snapshotData = snapshot?.data(),
+                let data = try? FirestoreDecoder().decode(GoodsDateListModel.self, from: snapshotData) else {
+                    // 스냅샷 데이터가 없는경우
+                    return completion(nil, .success)
             }
 
-            guard !snapshotData.isEmpty else {
-                // 스냅샷 데이터가 비어있는 경우
-                return completion(nil, .success)
+            completion(data, .success)
+        }
+    }
+
+    func loadGoodsList(date: String?, completion: @escaping (GoodsListModel?, APIState) -> Void) {
+
+        guard let uid = Auth.auth().currentUser?.uid else {
+            // UID 인증 할수 없는 경우
+            return completion(nil, .failed(error: .authError))
+        }
+
+        var documentReference: DocumentReference
+        if let date = date {
+            documentReference = Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection(date).document(date)
+        } else {
+            documentReference = Firestore.firestore().collection(Collections.goodslist.key).document(uid)
+        }
+
+        documentReference.getDocument { (snapshot, error) in
+            if error != nil {
+                // 파이어베이스 에러인 경우
+                return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
 
-            guard let data = try? FirestoreDecoder().decode(GoodsListModel.self, from: snapshotData) else {
-                // 스냅샷 데이터가 있지만 디코딩 에러인 경우
-                return completion(nil, .failed(error: .decodeError))
+            guard let snapshotData = snapshot?.data(),
+                let data = try? FirestoreDecoder().decode(GoodsListModel.self, from: snapshotData) else {
+                    // 스냅샷 데이터가 없는경우
+                    return completion(nil, .success)
             }
+
             completion(data, .success)
         }
     }
