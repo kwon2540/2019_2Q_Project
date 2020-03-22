@@ -54,6 +54,13 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
         present(vc, animated: true)
     }
 
+    private func setupDateText() {
+        let date = self.viewModel.date
+        yearLabel.text = date.getYearText()
+        dateLabel.text = "\(date.getMonthText()) \(date.getDateText())"
+        weekLabel.text = date.yyyyMMddToDate().weekday
+    }
+
     private func bindViewModel() {
 
         // Output
