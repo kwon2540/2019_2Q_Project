@@ -35,9 +35,20 @@ enum DateType {
 }
 
 extension Date {
+
+    var weekday: String {
+        let calendar = Calendar(identifier: .gregorian)
+        let component = calendar.component(.weekday, from: self)
+        let weekday = component - 1
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ja")
+        return formatter.shortWeekdaySymbols[weekday]
+    }
+
     func toString(format type: DateType) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = type.format
         return formatter.string(from: self)
     }
+
 }
