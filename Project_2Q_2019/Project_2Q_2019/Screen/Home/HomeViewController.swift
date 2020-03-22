@@ -42,7 +42,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBAction private func add(_ sender: Any) {
         let vc = AddListViewController.getStoryBoard()
-        vc.viewModel = AddListViewModel()
+        vc.viewModel = AddListViewModel(date: nil)
         present(vc, animated: true)
     }
 

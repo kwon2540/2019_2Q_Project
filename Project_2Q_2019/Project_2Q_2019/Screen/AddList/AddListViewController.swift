@@ -11,8 +11,9 @@ import RxSwift
 
 final class AddListViewController: UIViewController, StoryboardInstantiable {
 
+    @IBOutlet private weak var yearLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var dayLabel: UILabel!
+    @IBOutlet private weak var weekLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
 
     private let disposeBag = DisposeBag()
@@ -22,12 +23,10 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.registerXib(of: AddListTableViewCell.self)
+        setupTableView()
+        setupDateText()
 
         bindViewModel()
-
         viewModel.loadGoodsDateListFromFirebase()
         viewModel.loadGoodsFromFirebase()
     }
@@ -52,6 +51,12 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
         }
 
         present(vc, animated: true)
+    }
+
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.registerXib(of: AddListTableViewCell.self)
     }
 
     private func setupDateText() {

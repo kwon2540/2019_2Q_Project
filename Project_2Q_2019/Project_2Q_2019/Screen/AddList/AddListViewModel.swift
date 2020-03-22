@@ -26,7 +26,7 @@ final class AddListViewModel: APIStateProtocol {
 
     let apiStateRelay = PublishRelay<APIState>()
 
-    let date: String = Date().toString(format: .firebase_key_date)
+    var date: String = Date().toString(format: .firebase_key_date)
 
     var sections = sectionType.allCases.map { $0 }
 
@@ -39,6 +39,12 @@ final class AddListViewModel: APIStateProtocol {
 
     var toPurchaseTotalPrice = ""
     var purchasedTotalPrice = ""
+
+    init(date: String?) {
+        if let date = date {
+            self.date = date
+        }
+    }
 
     private func updateGoodsData() {
         purchasedData.removeAll()

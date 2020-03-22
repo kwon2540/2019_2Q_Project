@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIColor {
+
     static let cFAFAFA = UIColor(named: "cFAFAFA")!
     static let cFF5943_85 = UIColor(named: "cFF5943@85")!
     static let c859EFF = UIColor(named: "c859EFF")!
