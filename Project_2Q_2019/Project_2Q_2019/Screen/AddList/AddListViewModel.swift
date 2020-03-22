@@ -94,6 +94,24 @@ final class AddListViewModel: APIStateProtocol {
             }
         }
     }
+    private func deleteGoodsList() {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.deleteGoodsList(date: date) { [weak self] (state) in
+            guard let this = self else { return }
+
+            switch state {
+            case .success:
+                this.goods.removeAll()
+                this.updateGoodsData()
+                this.updateDateList()
+                this.loadGoodsDateListFromFirebase()
+            default:
+                break
+            }
+
+            this.apiStateRelay.accept(state)
+        }
+    }
     func loadGoodsDateListFromFirebase() {
         apiStateRelay.accept(.loading)
         FirebaseManager.shared.loadGoodsDateList { [weak self] (response, state) in
