@@ -22,6 +22,7 @@ protocol APIManager {
     func loadGoodsDateList(completion: @escaping (GoodsDateListModel?, APIState) -> Void)
     func loadGoodsList(date: String?, completion: @escaping (GoodsListModel?, APIState) -> Void)
     func deleteGoodsList(date: String, completion: @escaping (APIState) -> Void)
+    func updateDateList(dateList: [String], completion: @escaping (APIState) -> Void)
 }
 
 // MARK: APIStateProtocol
@@ -223,6 +224,21 @@ struct FirebaseManager: APIManager {
         }
 
         Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection(date).document(date).delete { (error) in
+            if error != nil {
+                // 파이어베이스 에러인 경우
+                return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
+            }
+            completion(.success)
+        }
+    }
+
+    func updateDateList(dateList: [String], completion: @escaping (APIState) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            // UID 인증 할수 없는 경우
+            return completion(.failed(error: .authError))
+        }
+
+        Firestore.firestore().collection(Collections.goodslist.key).document(uid).updateData(["dateList": dateList]) { (error) in
             if error != nil {
                 // 파이어베이스 에러인 경우
                 return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))

@@ -112,6 +112,20 @@ final class AddListViewModel: APIStateProtocol {
             this.apiStateRelay.accept(state)
         }
     }
+
+    private func updateDateList() {
+        apiStateRelay.accept(.loading)
+        let newDateList = dateList.filter {
+            $0 != date
+        }
+
+        FirebaseManager.shared.updateDateList(dateList: newDateList) { [weak self] (state) in
+            guard let this = self else { return }
+
+            this.apiStateRelay.accept(state)
+        }
+    }
+
     func loadGoodsDateListFromFirebase() {
         apiStateRelay.accept(.loading)
         FirebaseManager.shared.loadGoodsDateList { [weak self] (response, state) in
