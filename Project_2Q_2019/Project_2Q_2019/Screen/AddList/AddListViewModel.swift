@@ -26,10 +26,12 @@ final class AddListViewModel: APIStateProtocol {
 
     let apiStateRelay = PublishRelay<APIState>()
 
+    let date: String = Date().toString(format: .firebase_key_date)
+
     var sections = sectionType.allCases.map { $0 }
 
-    var date: String = Date().toString(format: .firebase_key_date)
     var goods: [Goods] = []
+
     var dateList: [String] = []
 
     var toPurchaseData: [Goods] = []
@@ -37,10 +39,6 @@ final class AddListViewModel: APIStateProtocol {
 
     var toPurchaseTotalPrice = ""
     var purchasedTotalPrice = ""
-
-    init(date: String) {
-        self.date = date
-    }
 
     private func updateGoodsData() {
         purchasedData.removeAll()
@@ -56,6 +54,10 @@ final class AddListViewModel: APIStateProtocol {
             }
         }
 
+        calculateTotalPrice()
+    }
+
+    private func calculateTotalPrice() {
         var toPurchaseTotalPrice = 0
         toPurchaseData.forEach { good in
             let totalPrice = (Int(good.price!) ?? 0) * (Int(good.amount!) ?? 0)
@@ -70,7 +72,7 @@ final class AddListViewModel: APIStateProtocol {
         }
         self.purchasedTotalPrice = String(purchasedTotalPrice)
     }
-    
+
     private func changeGoodsDataToFirebase(goods: [Goods]) {
         apiStateRelay.accept(.loading)
         FirebaseManager.shared.addGoods(date: date, goods: goods) { [weak self] (state) in
@@ -94,6 +96,7 @@ final class AddListViewModel: APIStateProtocol {
             }
         }
     }
+
     private func deleteGoodsList() {
         apiStateRelay.accept(.loading)
         FirebaseManager.shared.deleteGoodsList(date: date) { [weak self] (state) in

@@ -42,7 +42,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBAction private func add(_ sender: Any) {
         let vc = AddListViewController.getStoryBoard()
-        vc.viewModel = AddListViewModel(date: Date().toString(format: .firebase_key_date))
+        vc.viewModel = AddListViewModel()
         present(vc, animated: true)
     }
 
