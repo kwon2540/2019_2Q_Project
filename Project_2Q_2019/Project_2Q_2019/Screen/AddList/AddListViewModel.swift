@@ -82,6 +82,18 @@ final class AddListViewModel: APIStateProtocol {
         }
     }
 
+    private func searchGoodsIndex(sectionType: sectionType, indexPath: IndexPath) -> Int? {
+        switch sectionType {
+        case .toPurchase:
+            return goods.firstIndex {
+                $0.id == toPurchaseData[indexPath.row].id
+            }
+        case .purchased:
+            return goods.firstIndex {
+                $0.id == purchasedData[indexPath.row].id
+            }
+        }
+    }
     func loadGoodsDateListFromFirebase() {
         apiStateRelay.accept(.loading)
         FirebaseManager.shared.loadGoodsDateList { [weak self] (response, state) in
@@ -117,14 +129,22 @@ final class AddListViewModel: APIStateProtocol {
         }
     }
 
-    func changeIsBought(indexPath: IndexPath) {
-        let index = goods.firstIndex {
-            $0.id == toPurchaseData[indexPath.row].id
+    func deleteGoods(sectionType: sectionType, indexPath: IndexPath) {
+        guard let unwarppedIndex = searchGoodsIndex(sectionType: sectionType, indexPath: indexPath) else { return }
+
+        goods.remove(at: unwarppedIndex)
+
+        if goods.isEmpty {
+            deleteGoodsList()
+        } else {
+            changeGoodsDataToFirebase(goods: goods)
         }
+    }
 
-        guard let unwarppedIndex = index else { return }
+    func changeIsBought(sectionType: sectionType, indexPath: IndexPath) {
+        guard let unwarppedIndex = searchGoodsIndex(sectionType: sectionType, indexPath: indexPath) else { return }
 
-        goods[unwarppedIndex].isBought = true
+        goods[unwarppedIndex].isBought.toggle()
 
         changeGoodsDataToFirebase(goods: goods)
     }

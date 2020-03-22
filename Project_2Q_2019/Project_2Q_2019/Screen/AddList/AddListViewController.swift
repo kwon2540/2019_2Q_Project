@@ -172,12 +172,11 @@ extension AddListViewController: UITableViewDataSource {
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: nil) { [weak self] (_, _, completion) in
             guard let this = self else { return }
-            switch this.viewModel.sections[indexPath.section] {
-            case .toPurchase:
-                this.viewModel.toPurchaseData.remove(at: indexPath.row)
-            case .purchased:
-                this.viewModel.purchasedData.remove(at: indexPath.row)
-            }
+
+            let sectionType = this.viewModel.sections[indexPath.section]
+
+            this.viewModel.deleteGoods(sectionType: sectionType, indexPath: indexPath)
+
             completion(true)
         }
         action.image = UIImage(named: "Delete")
@@ -186,9 +185,10 @@ extension AddListViewController: UITableViewDataSource {
     }
 
     func completeAction(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: nil) { (_, _, completion) in
+        let action = UIContextualAction(style: .destructive, title: nil) { [weak self] (_, _, completion) in
+            guard let this = self else { return }
 
-            self.viewModel.changeIsBought(indexPath: indexPath)
+            this.viewModel.changeIsBought(sectionType: .toPurchase, indexPath: indexPath)
 
             completion(true)
         }
@@ -198,7 +198,11 @@ extension AddListViewController: UITableViewDataSource {
     }
 
     func reversAction(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: nil) { (_, _, completion) in
+        let action = UIContextualAction(style: .destructive, title: nil) { [weak self] (_, _, completion) in
+            guard let this = self else { return }
+
+            this.viewModel.changeIsBought(sectionType: .purchased, indexPath: indexPath)
+
             completion(true)
         }
         action.image = UIImage(named: "Revers")
