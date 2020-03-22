@@ -17,10 +17,10 @@ struct GoodsListModel: Codable {
 }
 
 struct Goods: Codable {
-    let id: String
-    let name: String
-    let amount: String?
-    let price: String?
-    let isBought: Bool
-    let date: String
+    var id: String
+    var name: String
+    var amount: String?
+    var price: String?
+    var isBought: Bool
+    var date: String
 }
