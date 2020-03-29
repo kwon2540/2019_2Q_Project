@@ -23,6 +23,12 @@ final class HomeCollectionViewCell: UICollectionViewCell {
 
     var viewModel: HomeCollectionViewModel!
 
+    override func awakeFromNib() {
+        activityIndicatorView.style = .whiteLarge
+
+        mainView.addSubview(activityIndicatorView)
+    }
+
     override func layoutSubviews() {
         setupLayout()
         setupTableView()
@@ -35,6 +41,8 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.3
         layer.shadowOffset = CGSize(width: 5, height: 5)
         clipsToBounds = false
+
+        activityIndicatorView.center = CGPoint(x: mainView.frame.width / 2, y: mainView.frame.height / 2)
     }
 
     private func setupTableView() {
@@ -51,10 +59,8 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     }
 
     private func activityIndicatorStart() {
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.center = self.center
+
         mainView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        self.contentView.addSubview(activityIndicatorView)
 
         if !(activityIndicatorView.isAnimating) {
             activityIndicatorView.startAnimating()
@@ -62,9 +68,8 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     }
 
     private func activityIndicatorStop() {
-        activityIndicatorView.stopAnimating()
-        activityIndicatorView.removeFromSuperview()
         mainView.backgroundColor = .white
+        activityIndicatorView.stopAnimating()
     }
 
     func bindViewModel() {
