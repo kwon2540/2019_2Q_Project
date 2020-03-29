@@ -12,6 +12,7 @@ import RxSwift
 final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var noDataLabel: UILabel!
 
     private let disposeBag = DisposeBag()
 
@@ -27,7 +28,8 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        setCollectionView()
+        setupLayout()
+        setupCollectionView()
     }
 
     @IBAction private func signOut(_ sender: Any) {
@@ -53,7 +55,14 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         present(vc, animated: true)
     }
 
-    private func setCollectionView() {
+    private func setupLayout() {
+        noDataLabel.layer.borderWidth = 1
+        noDataLabel.layer.borderColor = UIColor.cD8D8D8.cgColor
+        noDataLabel.layer.cornerRadius = noDataLabel.frame.height / 3
+        noDataLabel.clipsToBounds = true
+    }
+
+    private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerXib(of: HomeCollectionViewCell.self)
@@ -86,6 +95,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
                 ActivityIndicator.shared.start(view: view)
             // 성공시 인디케이터 중지 및 디스미스
             case .success:
+                this.noDataLabel.isHidden = !this.viewModel.dateList.isEmpty
                 this.collectionView.reloadData()
                 ActivityIndicator.shared.stop(view: view)
             // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지

@@ -59,6 +59,17 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="保存されたデータがありません。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPL-Bh-R3C">
+                                <rect key="frame" x="10" y="259" width="300" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Fxh-7N-ucl"/>
+                                    <constraint firstAttribute="height" constant="50" id="s1h-KG-UrV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" name="c3F3E3E"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTl-QZ-W8B" userLabel="Separator Line">
                                 <rect key="frame" x="0.0" y="517.5" width="320" height="0.5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,6 +141,7 @@
                             <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="wTl-QZ-W8B" secondAttribute="trailing" id="51x-qe-YR0"/>
                             <constraint firstItem="UQM-lN-9Cj" firstAttribute="top" secondItem="M59-Jb-JGH" secondAttribute="top" constant="12" id="Fhf-1q-9e8"/>
                             <constraint firstItem="yEw-HF-wWm" firstAttribute="leading" secondItem="Bu1-yd-RcO" secondAttribute="leading" id="KbP-Ki-Kyr"/>
+                            <constraint firstItem="bPL-Bh-R3C" firstAttribute="centerY" secondItem="Bu1-yd-RcO" secondAttribute="centerY" id="NFP-yc-wDs"/>
                             <constraint firstItem="vbF-12-fvH" firstAttribute="top" secondItem="M59-Jb-JGH" secondAttribute="top" constant="80" id="OPA-MO-F3V"/>
                             <constraint firstItem="yEw-HF-wWm" firstAttribute="top" secondItem="vbF-12-fvH" secondAttribute="bottom" constant="80" id="QRZ-FL-8RA"/>
                             <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="jgc-y4-xMj" secondAttribute="trailing" constant="18" id="TOF-gn-zPR"/>
@@ -145,6 +157,7 @@
                             <constraint firstItem="yEw-HF-wWm" firstAttribute="top" secondItem="rwZ-wb-cH4" secondAttribute="bottom" id="oBk-co-6zx"/>
                             <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="rwZ-wb-cH4" secondAttribute="trailing" id="oZ2-Vg-7eV"/>
                             <constraint firstItem="UQM-lN-9Cj" firstAttribute="leading" secondItem="M59-Jb-JGH" secondAttribute="leading" constant="16" id="pbw-Hs-T7e"/>
+                            <constraint firstItem="bPL-Bh-R3C" firstAttribute="centerX" secondItem="Bu1-yd-RcO" secondAttribute="centerX" id="t27-MD-D9T"/>
                             <constraint firstItem="mgz-qh-JVh" firstAttribute="centerX" secondItem="Bu1-yd-RcO" secondAttribute="centerX" id="vey-w4-zzO"/>
                             <constraint firstItem="rwZ-wb-cH4" firstAttribute="top" secondItem="wTl-QZ-W8B" secondAttribute="bottom" id="wmM-UW-Tzz"/>
                         </constraints>
@@ -152,6 +165,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="vbF-12-fvH" id="vqs-bs-UmB"/>
+                        <outlet property="noDataLabel" destination="bPL-Bh-R3C" id="E6p-2C-EDC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTt-nN-Tkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -164,6 +178,9 @@
         <image name="Logout" width="26" height="26"/>
         <image name="Menu" width="30" height="30"/>
         <image name="Short_Bg" width="375" height="200"/>
+        <namedColor name="c3F3E3E">
+            <color red="0.24705882352941178" green="0.24313725490196078" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="cFAFAFA">
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
