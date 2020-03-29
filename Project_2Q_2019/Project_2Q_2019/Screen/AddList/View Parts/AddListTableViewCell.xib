@@ -22,7 +22,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2T2-4V-sNE" userLabel="Spacing View 40">
                                 <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Ri8-nu-Au0"/>
                                 </constraints>
@@ -53,7 +53,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPV-SO-POc" userLabel="Spacing View 20">
                                 <rect key="frame" x="394" y="0.0" width="20" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="fvB-ZT-dTJ"/>
                                 </constraints>
@@ -71,6 +71,7 @@
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9dX-4W-Cvm" secondAttribute="bottom" id="p15-9A-LLz"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="amountLabel" destination="hzo-77-d3r" id="o04-eM-Arg"/>
                 <outlet property="nameLabel" destination="DJ8-u2-iuf" id="KB7-kJ-4j6"/>

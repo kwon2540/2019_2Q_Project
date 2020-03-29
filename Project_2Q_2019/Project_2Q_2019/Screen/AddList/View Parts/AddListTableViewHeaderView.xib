@@ -25,7 +25,7 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8a2-kx-c9E" userLabel="Spacing View">
                             <rect key="frame" x="0.0" y="0.0" width="20" height="50"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="0TL-RG-kqh"/>
                             </constraints>
@@ -38,7 +38,7 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9AD-0A-4LG" userLabel="Spacing View">
                             <rect key="frame" x="72" y="0.0" width="10" height="50"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="10" id="fL8-Tz-ip8"/>
                             </constraints>
@@ -68,7 +68,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="1EA-kw-RTc" firstAttribute="centerY" secondItem="hZJ-1v-bcF" secondAttribute="centerY" id="HHb-5Q-2yG"/>
                                 <constraint firstItem="1EA-kw-RTc" firstAttribute="leading" secondItem="hZJ-1v-bcF" secondAttribute="leading" id="PaB-zu-6SZ"/>
@@ -77,7 +77,7 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0C-L3-qZ4" userLabel="Spacing View">
                             <rect key="frame" x="102" y="0.0" width="312" height="50"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
                     <constraints>
@@ -85,7 +85,7 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Gx2-NG-Eow" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WfG-fx-qqQ"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Gx2-NG-Eow" secondAttribute="bottom" id="g3j-yu-OqW"/>
