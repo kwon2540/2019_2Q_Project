@@ -87,8 +87,8 @@
                                             <constraint firstAttribute="width" constant="48" id="T8n-Mo-Vwe"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="지출">
-                                            <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal">
+                                            <color key="titleColor" name="c3F3E3E"/>
                                         </state>
                                         <connections>
                                             <action selector="expense:" destination="a9z-tl-Blt" eventType="touchUpInside" id="kV6-ny-EsL"/>
@@ -100,8 +100,8 @@
                                             <constraint firstAttribute="height" constant="48" id="OiQ-Dt-XPg"/>
                                             <constraint firstAttribute="width" constant="48" id="vYY-l1-kzF"/>
                                         </constraints>
-                                        <state key="normal" title="이력">
-                                            <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal">
+                                            <color key="titleColor" name="c3F3E3E"/>
                                         </state>
                                         <connections>
                                             <action selector="history:" destination="a9z-tl-Blt" eventType="touchUpInside" id="8HU-7j-PQy"/>
