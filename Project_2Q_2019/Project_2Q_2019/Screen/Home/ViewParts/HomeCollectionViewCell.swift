@@ -16,6 +16,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var weekLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var coverView: UIView!
 
     private let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 
@@ -24,9 +25,9 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     var viewModel: HomeCollectionViewModel!
 
     override func awakeFromNib() {
-        activityIndicatorView.style = .whiteLarge
+        activityIndicatorView.style = .gray
 
-        mainView.addSubview(activityIndicatorView)
+        coverView.addSubview(activityIndicatorView)
     }
 
     override func layoutSubviews() {
@@ -37,6 +38,8 @@ final class HomeCollectionViewCell: UICollectionViewCell {
 
     private func setupLayout() {
         mainView.layer.cornerRadius = 25
+        coverView.layer.cornerRadius = 25
+        coverView.backgroundColor = UIColor.cFAFAFA
         layer.shadowRadius = 10
         layer.shadowOpacity = 0.3
         layer.shadowOffset = CGSize(width: 5, height: 5)
@@ -59,8 +62,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     }
 
     private func activityIndicatorStart() {
-
-        mainView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        coverView.isHidden = false
 
         if !(activityIndicatorView.isAnimating) {
             activityIndicatorView.startAnimating()
@@ -68,7 +70,8 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     }
 
     private func activityIndicatorStop() {
-        mainView.backgroundColor = .white
+        coverView.isHidden = true
+
         activityIndicatorView.stopAnimating()
     }
 
