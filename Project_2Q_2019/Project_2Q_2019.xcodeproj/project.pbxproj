@@ -74,9 +74,6 @@
 		10A8FE1623A4B45A00F64F96 /* AddListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A8FE1523A4B45A00F64F96 /* AddListViewController.storyboard */; };
 		10A8FE1823A4B46B00F64F96 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8FE1723A4B46B00F64F96 /* AddListViewController.swift */; };
 		10A8FE1A23A4B47600F64F96 /* AddListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8FE1923A4B47600F64F96 /* AddListViewModel.swift */; };
-		10A8FE1C23A4B49200F64F96 /* EditListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A8FE1B23A4B49200F64F96 /* EditListViewController.storyboard */; };
-		10A8FE1E23A4B49B00F64F96 /* EditListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8FE1D23A4B49B00F64F96 /* EditListViewController.swift */; };
-		10A8FE2023A4B4A500F64F96 /* EditListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8FE1F23A4B4A500F64F96 /* EditListViewModel.swift */; };
 		10B00E052376846E00864551 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B00E042376846E00864551 /* UserModel.swift */; };
 		10B00E0723769DBD00864551 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B00E0623769DBD00864551 /* LogManager.swift */; };
 		10B6CF4E2365B05B00314C98 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */; };
@@ -178,9 +175,6 @@
 		10A8FE1523A4B45A00F64F96 /* AddListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddListViewController.storyboard; sourceTree = "<group>"; };
 		10A8FE1723A4B46B00F64F96 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		10A8FE1923A4B47600F64F96 /* AddListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewModel.swift; sourceTree = "<group>"; };
-		10A8FE1B23A4B49200F64F96 /* EditListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditListViewController.storyboard; sourceTree = "<group>"; };
-		10A8FE1D23A4B49B00F64F96 /* EditListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListViewController.swift; sourceTree = "<group>"; };
-		10A8FE1F23A4B4A500F64F96 /* EditListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListViewModel.swift; sourceTree = "<group>"; };
 		10B00E042376846E00864551 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		10B00E0623769DBD00864551 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
@@ -456,7 +450,6 @@
 				10A8FE0C23A4B3CA00F64F96 /* Menu */,
 				10A8FE0D23A4B3D600F64F96 /* AddList */,
 				1073EC3223DC0054003BB2C5 /* AddGoods */,
-				10A8FE0E23A4B3EB00F64F96 /* EditList */,
 				100CF47723ADFEC500B3557D /* Expense */,
 				100CF47E23AE00F500B3557D /* History */,
 			);
@@ -493,16 +486,6 @@
 				10A8FE1923A4B47600F64F96 /* AddListViewModel.swift */,
 			);
 			path = AddList;
-			sourceTree = "<group>";
-		};
-		10A8FE0E23A4B3EB00F64F96 /* EditList */ = {
-			isa = PBXGroup;
-			children = (
-				10A8FE1B23A4B49200F64F96 /* EditListViewController.storyboard */,
-				10A8FE1D23A4B49B00F64F96 /* EditListViewController.swift */,
-				10A8FE1F23A4B4A500F64F96 /* EditListViewModel.swift */,
-			);
-			path = EditList;
 			sourceTree = "<group>";
 		};
 		10B00E012376818B00864551 /* API */ = {
@@ -647,7 +630,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10A8FE1C23A4B49200F64F96 /* EditListViewController.storyboard in Resources */,
 				1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */,
 				104106E124309663004E6D48 /* HomeTableViewFooterView.xib in Resources */,
 				100CF48023AE011400B3557D /* HistoryViewController.storyboard in Resources */,
@@ -848,7 +830,6 @@
 				1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */,
 				10A8FE1223A4B43800F64F96 /* MenuViewController.swift in Sources */,
 				10128AB8240B8EA700C6F5B9 /* AddListTableViewFooterView.swift in Sources */,
-				10A8FE2023A4B4A500F64F96 /* EditListViewModel.swift in Sources */,
 				104106E324309707004E6D48 /* HomeTableViewFooterView.swift in Sources */,
 				1032FE662338E2410039E9C0 /* RegisterViewModel.swift in Sources */,
 				10A8FE1823A4B46B00F64F96 /* AddListViewController.swift in Sources */,
@@ -856,7 +837,6 @@
 				10CB468023922F8800380E06 /* HomeCollectionViewCell.swift in Sources */,
 				104106D724306C6D004E6D48 /* Extension+UICollectionView.swift in Sources */,
 				10B00E052376846E00864551 /* UserModel.swift in Sources */,
-				10A8FE1E23A4B49B00F64F96 /* EditListViewController.swift in Sources */,
 				104106D5242744A1004E6D48 /* Extension+String.swift in Sources */,
 				1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */,
 				107A3864237FDC5600D276E9 /* ActivityIndicator.swift in Sources */,
