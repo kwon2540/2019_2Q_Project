@@ -116,7 +116,10 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 extension HomeViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        present(EditListViewController.getStoryBoard(), animated: true)
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let vc = AddListViewController.getStoryBoard()
+        vc.viewModel = AddListViewModel(date: viewModel.dateList[indexPath.item])
+        present(vc, animated: true)
     }
 }
 
