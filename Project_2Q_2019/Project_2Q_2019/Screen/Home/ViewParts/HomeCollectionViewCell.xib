@@ -91,18 +91,27 @@
                             <constraint firstItem="u15-RX-v1M" firstAttribute="top" secondItem="Cp8-R7-Klt" secondAttribute="top" constant="15" id="qos-6j-bQ6"/>
                         </constraints>
                     </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYw-MP-m2R">
+                        <rect key="frame" x="0.0" y="0.0" width="301" height="474"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="rYw-MP-m2R" firstAttribute="top" secondItem="tUL-6J-Ujg" secondAttribute="top" id="6Ve-N7-BGM"/>
                 <constraint firstItem="Cp8-R7-Klt" firstAttribute="leading" secondItem="tUL-6J-Ujg" secondAttribute="leading" id="93H-0i-wJ1"/>
+                <constraint firstAttribute="bottom" secondItem="rYw-MP-m2R" secondAttribute="bottom" id="EdV-xm-n4t"/>
                 <constraint firstItem="Cp8-R7-Klt" firstAttribute="top" secondItem="tUL-6J-Ujg" secondAttribute="top" id="Hqw-5l-oho"/>
                 <constraint firstAttribute="bottom" secondItem="Cp8-R7-Klt" secondAttribute="bottom" id="Mch-Nw-oxK"/>
                 <constraint firstAttribute="trailing" secondItem="Cp8-R7-Klt" secondAttribute="trailing" id="QpU-9M-kUI"/>
+                <constraint firstAttribute="trailing" secondItem="rYw-MP-m2R" secondAttribute="trailing" id="SjR-ju-3Rj"/>
+                <constraint firstItem="rYw-MP-m2R" firstAttribute="leading" secondItem="tUL-6J-Ujg" secondAttribute="leading" id="n8M-lS-3WT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Eb5-WY-A3D"/>
             <size key="customSize" width="301" height="474"/>
             <connections>
+                <outlet property="coverView" destination="rYw-MP-m2R" id="atg-QZ-Uzy"/>
                 <outlet property="dateLabel" destination="Ih0-Qf-hc3" id="e90-Fo-Zpk"/>
                 <outlet property="mainView" destination="Cp8-R7-Klt" id="Pte-DS-gAX"/>
                 <outlet property="tableView" destination="N0N-86-DQ2" id="b8i-Sc-ZTv"/>
