@@ -129,6 +129,8 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: HomeCollectionViewCell.self, for: indexPath)
         cell.viewModel = HomeCollectionViewModel(date: viewModel.dateList[indexPath.item])
+        cell.bindViewModel()
+        cell.viewModel.loadGoodsFromFirebase()
 
         return cell
     }
