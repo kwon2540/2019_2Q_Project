@@ -82,7 +82,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
             // 로딩 시 인디케이터 표시
             case .loading:
                 this.activityIndicatorStart()
-            // 성공시 인디케이터 중지 및 디스미스
+            // 성공시 인디케이터 중지 및 테이블뷰 리로드
             case .success:
                 this.tableView.reloadData()
                 this.activityIndicatorStop()
