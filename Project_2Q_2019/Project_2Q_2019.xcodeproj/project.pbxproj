@@ -38,6 +38,7 @@
 		1032FE722338ED910039E9C0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE712338ED910039E9C0 /* RoundButton.swift */; };
 		104106D5242744A1004E6D48 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106D4242744A1004E6D48 /* Extension+String.swift */; };
 		104106D724306C6D004E6D48 /* Extension+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106D624306C6D004E6D48 /* Extension+UICollectionView.swift */; };
+		104106D9243071DF004E6D48 /* HomeCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106D8243071DF004E6D48 /* HomeCollectionViewModel.swift */; };
 		1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */; };
 		1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */; };
 		1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */; };
@@ -129,6 +130,7 @@
 		1032FE712338ED910039E9C0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		104106D4242744A1004E6D48 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		104106D624306C6D004E6D48 /* Extension+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionView.swift"; sourceTree = "<group>"; };
+		104106D8243071DF004E6D48 /* HomeCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewModel.swift; sourceTree = "<group>"; };
 		1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBorderButton.swift; sourceTree = "<group>"; };
 		1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGoodsViewController.storyboard; sourceTree = "<group>"; };
 		1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodsViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			children = (
 				10CB467D23922F4200380E06 /* HomeCollectionViewCell.xib */,
 				10CB467F23922F8800380E06 /* HomeCollectionViewCell.swift */,
+				104106D8243071DF004E6D48 /* HomeCollectionViewModel.swift */,
 			);
 			path = ViewParts;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				1032FE642338E2340039E9C0 /* LoginViewModel.swift in Sources */,
 				10128AB6240B78A400C6F5B9 /* Extension+UIView.swift in Sources */,
 				1032FE572338C1050039E9C0 /* StoryboardInstantiable.swift in Sources */,
+				104106D9243071DF004E6D48 /* HomeCollectionViewModel.swift in Sources */,
 				10A8FE0923A4B10C00F64F96 /* Extension+Date.swift in Sources */,
 				1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */,
 				10A8FE1A23A4B47600F64F96 /* AddListViewModel.swift in Sources */,
