@@ -95,15 +95,13 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
             guard let this = self, let view = this.view else { return }
 
             switch state {
-            // 로딩 시 인디케이터 표시
             case .loading:
-                ActivityIndicator.shared.start(view: view)
-            // 성공시 인디케이터 중지 및 디스미스
+                break
+            // 성공시 콜렉션뷰 리로드
             case .success:
                 this.noDataLabel.isHidden = !this.viewModel.dateList.isEmpty
                 this.collectionView.reloadData()
-                ActivityIndicator.shared.stop(view: view)
-            // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
+            // 실패시 드롭다운 표시 및 에러 핸들링
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,
@@ -111,7 +109,6 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
                                                                 type: .error,
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
-                ActivityIndicator.shared.stop(view: view)
             }
         }).disposed(by: disposeBag)
     }
