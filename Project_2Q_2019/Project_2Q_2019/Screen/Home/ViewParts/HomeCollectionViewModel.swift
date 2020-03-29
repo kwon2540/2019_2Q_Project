@@ -88,4 +88,11 @@ final class HomeCollectionViewModel: APIStateProtocol {
             this.apiStateRelay.accept(state)
         }
     }
+
+    func getRowCount(section: sectionType) -> Int {
+        switch section {
+        case .toPurchase: return toPurchaseData.count
+        case .purchased: return purchasedData.count
+        }
+    }
 }

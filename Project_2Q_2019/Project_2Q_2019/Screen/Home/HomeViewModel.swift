@@ -21,7 +21,7 @@ final class HomeViewModel: APIStateProtocol {
         apiStateRelay.accept(.loading)
         FirebaseManager.shared.loadGoodsDateList { [weak self] (response, state) in
             guard let this = self else { return }
-            
+
             if let dateList = response?.dateList {
                 this.dateList = dateList
             }

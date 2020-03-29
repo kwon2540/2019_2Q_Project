@@ -12,6 +12,7 @@ import RxSwift
 final class HomeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var mainView: UIView!
+    @IBOutlet private weak var tableView: UITableView!
 
     private let disposeBag = DisposeBag()
 
@@ -37,6 +38,11 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     }
 
     private func bindViewModel() {
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.registerXib(of: HomeTableViewCell.self)
+    }
 
         // Output
         viewModel.apiState.emit(onNext: { [weak self] (state) in
@@ -62,7 +68,76 @@ final class HomeCollectionViewCell: UICollectionViewCell {
             }
         }).disposed(by: disposeBag)
     }
+}
 
-    private func bindUI() {
+extension HomeCollectionViewCell: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = HomeTableViewHeaderView()
+
+        switch viewModel.sections[section] {
+        case .toPurchase:
+            header.set(title: viewModel.sections[section].title, count: String(viewModel.toPurchaseData.count))
+        case .purchased:
+            header.set(title: viewModel.sections[section].title, count: String(viewModel.purchasedData.count))
+        }
+
+        return header
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footer = HomeTableViewFooterView()
+
+        switch viewModel.sections[section] {
+        case .toPurchase:
+            footer.set(totalPrice: viewModel.toPurchaseTotalPrice)
+        case .purchased:
+            footer.set(totalPrice: viewModel.purchasedTotalPrice)
+        }
+
+        return footer
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
+    }
+}
+
+extension HomeCollectionViewCell: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.sections.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.getRowCount(section: viewModel.sections[section])
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueCell(of: HomeTableViewCell.self, for: indexPath)
+        let data: Goods
+
+        switch viewModel.sections[indexPath.section] {
+        case .toPurchase:
+            data = viewModel.toPurchaseData[indexPath.row]
+        case .purchased:
+            data = viewModel.purchasedData[indexPath.row]
+        }
+
+        cell.set(name: data.name, amount: data.amount ?? "", price: data.price ?? "")
+
+        return cell
     }
 }
