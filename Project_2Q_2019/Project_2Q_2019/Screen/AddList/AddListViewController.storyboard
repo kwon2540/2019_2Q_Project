@@ -108,7 +108,7 @@
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cPl-QF-bE6">
                                         <rect key="frame" x="0.0" y="90" width="414" height="752"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
@@ -124,7 +124,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="KI0-Ek-EkT" firstAttribute="top" secondItem="UU5-hu-St4" secondAttribute="top" constant="15" id="PDg-Ts-kN0"/>
                                     <constraint firstItem="cPl-QF-bE6" firstAttribute="leading" secondItem="UU5-hu-St4" secondAttribute="leading" id="PXA-nz-cKD"/>

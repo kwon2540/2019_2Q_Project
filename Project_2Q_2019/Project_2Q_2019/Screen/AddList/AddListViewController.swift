@@ -20,6 +20,8 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
 
     var viewModel: AddListViewModel!
 
+    var dismissed: (() -> Void)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +34,10 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func dismiss(_ sender: Any) {
-        dismiss(animated: true)
+        dismiss(animated: true) { [weak self] in
+            guard let this = self else { return }
+            this.dismissed?()
+        }
     }
 
     @IBAction private func changeDate(_ sender: Any) {
@@ -76,7 +81,7 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
             // 로딩 시 인디케이터 표시
             case .loading:
                 ActivityIndicator.shared.start(view: view)
-            // 성공시 인디케이터 중지 및 디스미스
+            // 성공시 인디케이터 중지 및 테이블뷰 리로드
             case .success:
                 this.tableView.reloadData()
                 ActivityIndicator.shared.stop(view: view)
@@ -131,7 +136,7 @@ extension AddListViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return 50
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -146,7 +151,7 @@ extension AddListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.rowCounts(section: viewModel.sections[section])
+        return viewModel.getRowCount(section: viewModel.sections[section])
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

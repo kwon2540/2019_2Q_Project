@@ -7,20 +7,29 @@
 //
 
 import UIKit
+import RxSwift
 
 final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var noDataLabel: UILabel!
+
+    private let disposeBag = DisposeBag()
+
+    var viewModel: HomeViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        bindViewModel()
+        viewModel.loadGoodsDateListFromFirebase()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        setCollectionView()
+        setupLayout()
+        setupCollectionView()
     }
 
     @IBAction private func signOut(_ sender: Any) {
@@ -42,14 +51,26 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBAction private func add(_ sender: Any) {
         let vc = AddListViewController.getStoryBoard()
+        vc.dismissed = { [weak self] in
+            guard let this = self else { return }
+            this.viewModel.loadGoodsDateListFromFirebase()
+        }
         vc.viewModel = AddListViewModel(date: nil)
+
         present(vc, animated: true)
     }
 
-    private func setCollectionView() {
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
-        self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeCollectionViewCell")
+    private func setupLayout() {
+        noDataLabel.layer.borderWidth = 1
+        noDataLabel.layer.borderColor = UIColor.cD8D8D8.cgColor
+        noDataLabel.layer.cornerRadius = noDataLabel.frame.height / 3
+        noDataLabel.clipsToBounds = true
+    }
+
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerXib(of: HomeCollectionViewCell.self)
 
         let cellWidth = collectionView.frame.width - 80
         let cellHeight = collectionView.frame.height
@@ -67,21 +88,59 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
 
+    private func bindViewModel() {
+
+        // Output
+        viewModel.apiState.emit(onNext: { [weak self] (state) in
+            guard let this = self, let view = this.view else { return }
+
+            switch state {
+            case .loading:
+                break
+            // 성공시 콜렉션뷰 리로드
+            case .success:
+                this.noDataLabel.isHidden = !this.viewModel.dateList.isEmpty
+                this.collectionView.reloadData()
+            // 실패시 드롭다운 표시 및 에러 핸들링
+            case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: view,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
+                apiErrorLog(logMessage: error.description)
+            }
+        }).disposed(by: disposeBag)
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate {
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        present(EditListViewController.getStoryBoard(), animated: true)
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let vc = AddListViewController.getStoryBoard()
+        vc.dismissed = { [weak self] in
+            guard let this = self else { return }
+            this.viewModel.loadGoodsDateListFromFirebase()
+        }
+        vc.viewModel = AddListViewModel(date: viewModel.dateList[indexPath.item])
+
+        present(vc, animated: true)
     }
 }
 
 extension HomeViewController: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.dateList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath)
+        let cell = collectionView.dequeueCell(of: HomeCollectionViewCell.self, for: indexPath)
+        cell.viewModel = HomeCollectionViewModel(date: viewModel.dateList[indexPath.item])
+        cell.bindViewModel()
+        cell.viewModel.loadGoodsFromFirebase()
+
         return cell
     }
 }

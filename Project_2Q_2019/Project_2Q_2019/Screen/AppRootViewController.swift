@@ -52,10 +52,13 @@ final class AppRootViewController: UIViewController {
 extension AppRootViewController {
 
     func showLoginScreen() {
-        changeChild(currentViewController: current, newViewController: LoginViewController.getStoryBoard())
+        let vc = LoginViewController.getStoryBoard()
+        changeChild(currentViewController: current, newViewController: vc)
     }
 
     func showHomeScreen() {
-        changeChild(currentViewController: current, newViewController: HomeViewController.getStoryBoard())
+        let vc = HomeViewController.getStoryBoard()
+        vc.viewModel = HomeViewModel()
+        changeChild(currentViewController: current, newViewController: vc)
     }
 }
