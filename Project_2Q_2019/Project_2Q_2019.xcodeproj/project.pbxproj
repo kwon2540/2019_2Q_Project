@@ -37,6 +37,7 @@
 		1032FE6E2338ECC90039E9C0 /* Assets.colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */; };
 		1032FE722338ED910039E9C0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE712338ED910039E9C0 /* RoundButton.swift */; };
 		104106D5242744A1004E6D48 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106D4242744A1004E6D48 /* Extension+String.swift */; };
+		104106D724306C6D004E6D48 /* Extension+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106D624306C6D004E6D48 /* Extension+UICollectionView.swift */; };
 		1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */; };
 		1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */; };
 		1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */; };
@@ -127,6 +128,7 @@
 		1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.colors.xcassets; sourceTree = "<group>"; };
 		1032FE712338ED910039E9C0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		104106D4242744A1004E6D48 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		104106D624306C6D004E6D48 /* Extension+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionView.swift"; sourceTree = "<group>"; };
 		1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBorderButton.swift; sourceTree = "<group>"; };
 		1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGoodsViewController.storyboard; sourceTree = "<group>"; };
 		1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodsViewController.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				108FFD85237FFFDA005B21CC /* Extension+UIColor.swift */,
 				10A8FE0823A4B10C00F64F96 /* Extension+Date.swift */,
 				10128AAD2403B55B00C6F5B9 /* Extension+UITableView.swift */,
+				104106D624306C6D004E6D48 /* Extension+UICollectionView.swift */,
 				10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */,
 				10128AB5240B78A400C6F5B9 /* Extension+UIView.swift */,
 				104106D4242744A1004E6D48 /* Extension+String.swift */,
@@ -815,6 +818,7 @@
 				10A8FE1823A4B46B00F64F96 /* AddListViewController.swift in Sources */,
 				100CF47B23ADFF0800B3557D /* ExpenseViewController.swift in Sources */,
 				10CB468023922F8800380E06 /* HomeCollectionViewCell.swift in Sources */,
+				104106D724306C6D004E6D48 /* Extension+UICollectionView.swift in Sources */,
 				10B00E052376846E00864551 /* UserModel.swift in Sources */,
 				10A8FE1E23A4B49B00F64F96 /* EditListViewController.swift in Sources */,
 				104106D5242744A1004E6D48 /* Extension+String.swift in Sources */,

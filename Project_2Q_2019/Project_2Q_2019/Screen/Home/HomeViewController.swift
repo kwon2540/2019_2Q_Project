@@ -47,9 +47,9 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
     }
 
     private func setCollectionView() {
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
-        self.collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeCollectionViewCell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerXib(of: HomeCollectionViewCell.self)
 
         let cellWidth = collectionView.frame.width - 80
         let cellHeight = collectionView.frame.height
@@ -70,18 +70,20 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         present(EditListViewController.getStoryBoard(), animated: true)
     }
 }
 
 extension HomeViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath)
+        let cell = collectionView.dequeueCell(of: HomeCollectionViewCell.self, for: indexPath)
         return cell
     }
 }
