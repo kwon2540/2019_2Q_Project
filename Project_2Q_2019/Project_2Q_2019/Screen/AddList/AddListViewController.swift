@@ -20,6 +20,8 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
 
     var viewModel: AddListViewModel!
 
+    var dismissed: (() -> Void)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +34,10 @@ final class AddListViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func dismiss(_ sender: Any) {
-        dismiss(animated: true)
+        dismiss(animated: true) { [weak self] in
+            guard let this = self else { return }
+            this.dismissed?()
+        }
     }
 
     @IBAction private func changeDate(_ sender: Any) {

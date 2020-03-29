@@ -51,7 +51,12 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBAction private func add(_ sender: Any) {
         let vc = AddListViewController.getStoryBoard()
+        vc.dismissed = { [weak self] in
+            guard let this = self else { return }
+            this.viewModel.loadGoodsDateListFromFirebase()
+        }
         vc.viewModel = AddListViewModel(date: nil)
+
         present(vc, animated: true)
     }
 
@@ -110,7 +115,6 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
             }
         }).disposed(by: disposeBag)
     }
-
 }
 
 extension HomeViewController: UICollectionViewDelegate {
@@ -118,7 +122,12 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let vc = AddListViewController.getStoryBoard()
+        vc.dismissed = { [weak self] in
+            guard let this = self else { return }
+            this.viewModel.loadGoodsDateListFromFirebase()
+        }
         vc.viewModel = AddListViewModel(date: viewModel.dateList[indexPath.item])
+
         present(vc, animated: true)
     }
 }
