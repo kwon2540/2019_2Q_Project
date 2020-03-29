@@ -151,6 +151,7 @@ extension HomeCollectionViewCell: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(of: HomeTableViewCell.self, for: indexPath)
+        cell.selectionStyle = .none
         let data: Goods
 
         switch viewModel.sections[indexPath.section] {
