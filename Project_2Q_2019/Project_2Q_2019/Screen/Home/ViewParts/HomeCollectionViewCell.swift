@@ -56,20 +56,14 @@ final class HomeCollectionViewCell: UICollectionViewCell {
             switch state {
             // 로딩 시 인디케이터 표시
             case .loading:
-                ActivityIndicator.shared.start(view: this.mainView)
+                this.activityIndicatorStart()
             // 성공시 인디케이터 중지 및 디스미스
             case .success:
-                this.bindUI()
-                ActivityIndicator.shared.stop(view: this.mainView)
+                this.tableView.reloadData()
+                this.activityIndicatorStop()
             // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
-            case .failed(let error):
-                DropDownManager.shared.showDropDownNotification(view: this.mainView,
-                                                                width: nil,
-                                                                height: nil,
-                                                                type: .error,
-                                                                message: error.description)
-                apiErrorLog(logMessage: error.description)
-                ActivityIndicator.shared.stop(view: this.mainView)
+            case .failed:
+                this.activityIndicatorStop()
             }
         }).disposed(by: disposeBag)
     }
