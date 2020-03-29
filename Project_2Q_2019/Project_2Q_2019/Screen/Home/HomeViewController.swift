@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import RxSwift
 
 final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
+    private let disposeBag = DisposeBag()
+
+    var viewModel: HomeViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        bindViewModel()
+        viewModel.loadGoodsDateListFromFirebase()
     }
 
     override func viewDidLayoutSubviews() {
@@ -67,23 +74,52 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
 
+    private func bindViewModel() {
+
+        // Output
+        viewModel.apiState.emit(onNext: { [weak self] (state) in
+            guard let this = self, let view = this.view else { return }
+
+            switch state {
+            // 로딩 시 인디케이터 표시
+            case .loading:
+                ActivityIndicator.shared.start(view: view)
+            // 성공시 인디케이터 중지 및 디스미스
+            case .success:
+                this.collectionView.reloadData()
+                ActivityIndicator.shared.stop(view: view)
+            // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
+            case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: view,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
+                apiErrorLog(logMessage: error.description)
+                ActivityIndicator.shared.stop(view: view)
+            }
+        }).disposed(by: disposeBag)
+    }
+
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         present(EditListViewController.getStoryBoard(), animated: true)
     }
 }
 
 extension HomeViewController: UICollectionViewDataSource {
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.dateList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: HomeCollectionViewCell.self, for: indexPath)
+        cell.viewModel = HomeCollectionViewModel(date: viewModel.dateList[indexPath.item])
+
         return cell
     }
 }
