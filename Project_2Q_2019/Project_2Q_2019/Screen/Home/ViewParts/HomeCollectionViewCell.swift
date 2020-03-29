@@ -10,26 +10,26 @@ import UIKit
 import RxSwift
 
 final class HomeCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet private weak var mainView: UIView!
+    @IBOutlet private weak var yearLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var weekLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
+
+    private let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 
     private let disposeBag = DisposeBag()
 
     var viewModel: HomeCollectionViewModel!
 
-    override func awakeFromNib() {
-
-    }
-
     override func layoutSubviews() {
-        setLayout()
-
-        bindViewModel()
-        viewModel.loadGoodsFromFirebase()
+        setupLayout()
+        setupTableView()
+        setupDateText()
     }
 
-    private func setLayout() {
+    private func setupLayout() {
         mainView.layer.cornerRadius = 25
         layer.shadowRadius = 10
         layer.shadowOpacity = 0.3
@@ -37,13 +37,18 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         clipsToBounds = false
     }
 
-    private func bindViewModel() {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerXib(of: HomeTableViewCell.self)
     }
 
+    private func setupDateText() {
+        let date = self.viewModel.date
+        yearLabel.text = date.getYearText()
+        dateLabel.text = "\(date.getMonthText()) \(date.getDateText())"
+        weekLabel.text = date.yyyyMMddToDate().weekday
+    }
         // Output
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self else { return }
