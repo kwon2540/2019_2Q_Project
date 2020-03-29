@@ -39,6 +39,12 @@
 		104106D5242744A1004E6D48 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106D4242744A1004E6D48 /* Extension+String.swift */; };
 		104106D724306C6D004E6D48 /* Extension+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106D624306C6D004E6D48 /* Extension+UICollectionView.swift */; };
 		104106D9243071DF004E6D48 /* HomeCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106D8243071DF004E6D48 /* HomeCollectionViewModel.swift */; };
+		104106DD2430954B004E6D48 /* HomeTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106DC2430954B004E6D48 /* HomeTableViewHeaderView.swift */; };
+		104106DF2430955D004E6D48 /* HomeTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 104106DE2430955D004E6D48 /* HomeTableViewHeaderView.xib */; };
+		104106E124309663004E6D48 /* HomeTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 104106E024309663004E6D48 /* HomeTableViewFooterView.xib */; };
+		104106E324309707004E6D48 /* HomeTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106E224309707004E6D48 /* HomeTableViewFooterView.swift */; };
+		104106E524309741004E6D48 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 104106E424309741004E6D48 /* HomeTableViewCell.xib */; };
+		104106E72430975B004E6D48 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106E62430975B004E6D48 /* HomeTableViewCell.swift */; };
 		1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */; };
 		1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */; };
 		1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */; };
@@ -131,6 +137,12 @@
 		104106D4242744A1004E6D48 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		104106D624306C6D004E6D48 /* Extension+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionView.swift"; sourceTree = "<group>"; };
 		104106D8243071DF004E6D48 /* HomeCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewModel.swift; sourceTree = "<group>"; };
+		104106DC2430954B004E6D48 /* HomeTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewHeaderView.swift; sourceTree = "<group>"; };
+		104106DE2430955D004E6D48 /* HomeTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewHeaderView.xib; sourceTree = "<group>"; };
+		104106E024309663004E6D48 /* HomeTableViewFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewFooterView.xib; sourceTree = "<group>"; };
+		104106E224309707004E6D48 /* HomeTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewFooterView.swift; sourceTree = "<group>"; };
+		104106E424309741004E6D48 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		104106E62430975B004E6D48 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBorderButton.swift; sourceTree = "<group>"; };
 		1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGoodsViewController.storyboard; sourceTree = "<group>"; };
 		1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodsViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +248,7 @@
 		1016000623922EFE00A92C4D /* ViewParts */ = {
 			isa = PBXGroup;
 			children = (
+				104106DA243094F9004E6D48 /* View Parts */,
 				10CB467D23922F4200380E06 /* HomeCollectionViewCell.xib */,
 				10CB467F23922F8800380E06 /* HomeCollectionViewCell.swift */,
 				104106D8243071DF004E6D48 /* HomeCollectionViewModel.swift */,
@@ -302,6 +315,19 @@
 				1032FE6D2338ECC90039E9C0 /* Assets.colors.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		104106DA243094F9004E6D48 /* View Parts */ = {
+			isa = PBXGroup;
+			children = (
+				104106DE2430955D004E6D48 /* HomeTableViewHeaderView.xib */,
+				104106DC2430954B004E6D48 /* HomeTableViewHeaderView.swift */,
+				104106E024309663004E6D48 /* HomeTableViewFooterView.xib */,
+				104106E224309707004E6D48 /* HomeTableViewFooterView.swift */,
+				104106E424309741004E6D48 /* HomeTableViewCell.xib */,
+				104106E62430975B004E6D48 /* HomeTableViewCell.swift */,
+			);
+			path = "View Parts";
 			sourceTree = "<group>";
 		};
 		104B3E9F23F7C37B00B1A352 /* Model */ = {
@@ -623,6 +649,7 @@
 			files = (
 				10A8FE1C23A4B49200F64F96 /* EditListViewController.storyboard in Resources */,
 				1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */,
+				104106E124309663004E6D48 /* HomeTableViewFooterView.xib in Resources */,
 				100CF48023AE011400B3557D /* HistoryViewController.storyboard in Resources */,
 				1032FE6E2338ECC90039E9C0 /* Assets.colors.xcassets in Resources */,
 				10A7E5982312B86800DF3D34 /* HomeViewController.storyboard in Resources */,
@@ -633,11 +660,13 @@
 				10128ABA240B8EBC00C6F5B9 /* AddListTableViewFooterView.xib in Resources */,
 				10A7E55622EDC1F500DF3D34 /* .swiftlint.yml in Resources */,
 				10A7E53122EDC14100DF3D34 /* LaunchScreen.storyboard in Resources */,
+				104106E524309741004E6D48 /* HomeTableViewCell.xib in Resources */,
 				100CF47923ADFEFC00B3557D /* ExpenseViewController.storyboard in Resources */,
 				10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */,
 				1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */,
 				10188E1423C9970900F94681 /* AlertViewController.storyboard in Resources */,
 				10A7E52E22EDC14100DF3D34 /* Assets.xcassets in Resources */,
+				104106DF2430955D004E6D48 /* HomeTableViewHeaderView.xib in Resources */,
 				10128AAC2403AFBC00C6F5B9 /* AddListTableViewCell.xib in Resources */,
 				10A00AA0237FBB1A00BA90EB /* SplashViewController.storyboard in Resources */,
 				1032FE622338DE5F0039E9C0 /* RegisterViewController.storyboard in Resources */,
@@ -803,6 +832,7 @@
 				10A8FE0923A4B10C00F64F96 /* Extension+Date.swift in Sources */,
 				1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */,
 				10A8FE1A23A4B47600F64F96 /* AddListViewModel.swift in Sources */,
+				104106DD2430954B004E6D48 /* HomeTableViewHeaderView.swift in Sources */,
 				10A8FE1423A4B44100F64F96 /* MenuViewModel.swift in Sources */,
 				1073EC3823DC00D6003BB2C5 /* AddGoodsViewModel.swift in Sources */,
 				100CF48423AE012800B3557D /* HistoryViewModel.swift in Sources */,
@@ -814,10 +844,12 @@
 				10A7C2F9237047F20050F6B8 /* FirebaseManager.swift in Sources */,
 				108FFD86237FFFDA005B21CC /* Extension+UIColor.swift in Sources */,
 				1073EC3C23EE6E35003BB2C5 /* GoodsListModel.swift in Sources */,
+				104106E72430975B004E6D48 /* HomeTableViewCell.swift in Sources */,
 				1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */,
 				10A8FE1223A4B43800F64F96 /* MenuViewController.swift in Sources */,
 				10128AB8240B8EA700C6F5B9 /* AddListTableViewFooterView.swift in Sources */,
 				10A8FE2023A4B4A500F64F96 /* EditListViewModel.swift in Sources */,
+				104106E324309707004E6D48 /* HomeTableViewFooterView.swift in Sources */,
 				1032FE662338E2410039E9C0 /* RegisterViewModel.swift in Sources */,
 				10A8FE1823A4B46B00F64F96 /* AddListViewController.swift in Sources */,
 				100CF47B23ADFF0800B3557D /* ExpenseViewController.swift in Sources */,
