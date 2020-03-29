@@ -21,31 +21,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68v-mj-UGu" userLabel="Spacing View 40">
-                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="gqY-x2-Uhe"/>
+                                    <constraint firstAttribute="width" constant="30" id="gqY-x2-Uhe"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY4-ib-eri">
-                                <rect key="frame" x="40" y="0.0" width="174" height="40"/>
+                                <rect key="frame" x="30" y="0.0" width="224" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="c3F3E3E"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XQ-cY-TNJ">
-                                <rect key="frame" x="214" y="0.0" width="80" height="40"/>
+                                <rect key="frame" x="254" y="0.0" width="60" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="sCr-dr-Foz"/>
+                                    <constraint firstAttribute="width" constant="60" id="sCr-dr-Foz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="c3F3E3E"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpM-6v-aNz">
-                                <rect key="frame" x="294" y="0.0" width="100" height="40"/>
+                                <rect key="frame" x="314" y="0.0" width="80" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="cFw-VV-uVE"/>
+                                    <constraint firstAttribute="width" constant="80" id="cFw-VV-uVE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="c3F3E3E"/>
