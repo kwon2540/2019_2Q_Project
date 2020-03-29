@@ -49,6 +49,26 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         dateLabel.text = "\(date.getMonthText()) \(date.getDateText())"
         weekLabel.text = date.yyyyMMddToDate().weekday
     }
+
+    private func activityIndicatorStart() {
+        activityIndicatorView.style = .whiteLarge
+        activityIndicatorView.center = self.center
+        mainView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        self.contentView.addSubview(activityIndicatorView)
+
+        if !(activityIndicatorView.isAnimating) {
+            activityIndicatorView.startAnimating()
+        }
+    }
+
+    private func activityIndicatorStop() {
+        activityIndicatorView.stopAnimating()
+        activityIndicatorView.removeFromSuperview()
+        mainView.backgroundColor = .white
+    }
+
+    func bindViewModel() {
+
         // Output
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self else { return }
