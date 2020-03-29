@@ -8,23 +8,19 @@
 
 import Foundation
 
-struct GoodsListModel: Codable {
-
-    let uid: String
-    var dateList: [DateList]
+struct GoodsDateListModel: Codable {
+    var dateList: [String]
 }
 
-struct DateList: Codable {
-
-    let date: String
+struct GoodsListModel: Codable {
     var goods: [Goods]
 }
 
 struct Goods: Codable {
-
-    let name: String
-    let amount: String?
-    let price: String?
-    let isBought: Bool
-    let date: Date
+    var id: String
+    var name: String
+    var amount: String?
+    var price: String?
+    var isBought: Bool
+    var date: String
 }

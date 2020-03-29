@@ -41,7 +41,9 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func add(_ sender: Any) {
-        present(AddListViewController.getStoryBoard(), animated: true)
+        let vc = AddListViewController.getStoryBoard()
+        vc.viewModel = AddListViewModel(date: nil)
+        present(vc, animated: true)
     }
 
     private func setCollectionView() {

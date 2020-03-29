@@ -39,49 +39,48 @@ struct AddGoodsViewModel: APIStateProtocol {
     let isAddButtonValid: Observable<Bool>
 
     var date: String
-    var dateList: [DateList] = []
+    var goodsList: [Goods] = []
+    var dateList: [String] = []
 
-    init(date: String?, dateList: [DateList]?) {
-        if let date = date {
-            self.date = date
-        } else {
-            self.date = Date().toString(format: .firebase_key_date)
-        }
-
-        if let dateList = dateList {
-            self.dateList = dateList
-        }
+    init(date: String, goods: [Goods], dateList: [String]) {
+        self.date = date
+        self.goodsList = goods
+        self.dateList = dateList
 
         //  AddGoods 버튼의 Enabled 판정
         let state = nameText.asObservable().map { UIState(nameText: $0) }
         isAddButtonValid = state.map { $0.isAddButtonEnabled }
     }
 
-    func makeGoodsData() -> [DateList] {
-        let goods = Goods(name: nameText.value, amount: amountText.value, price: priceText.value, isBought: false, date: Date())
-
-        var goodsData = dateList
-
-        // 저장된 데이터가 없을 경우
-        guard !goodsData.isEmpty else {
-            return [DateList(date: date, goods: [goods])]
+    private func addGoodsDateListToFirebase() {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.addGoodsDatedate(dateList: dateList) {(state) in
+            self.apiStateRelay.accept(state)
         }
-
-        // 저장된 데이터가 있지만 오늘 데이터가 없을 경우
-        guard let index = goodsData.firstIndex(where: { $0.date == date }) else {
-            goodsData.append(DateList(date: date, goods: [goods]))
-            return goodsData
-        }
-
-        // 저장된 데이터가 있고 오늘 데이터도 있을 경우
-        goodsData[index].goods.append(goods)
-        
-        return goodsData
     }
 
-    func addGoodsToFirebase(dateList: [DateList]) {
+    mutating func makeGoodsData() -> [Goods] {
+        let newGoods = Goods(id: UUID.init().uuidString,
+                             name: nameText.value,
+                             amount: amountText.value,
+                             price: priceText.value,
+                             isBought: false,
+                             date: Date().toString(format: .firebase_key_fulldate))
+        goodsList.append(newGoods)
+
+        return goodsList
+    }
+
+    mutating func makeGoodsDateList() {
+        if !dateList.contains(date) {
+            dateList.append(date)
+            addGoodsDateListToFirebase()
+        }
+    }
+
+    func addGoodsToFirebase(goods: [Goods]) {
         apiStateRelay.accept(.loading)
-        FirebaseManager.shared.addGoods(dateList: dateList) { (state) in
+        FirebaseManager.shared.addGoods(date: date, goods: goods) { (state) in
             self.apiStateRelay.accept(state)
         }
     }

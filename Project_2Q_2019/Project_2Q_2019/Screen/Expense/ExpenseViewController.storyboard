@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fod-Uk-Zuy" customClass="ShadowView" customModule="Project_2Q_2019" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="74" width="414" height="822"/>
+                                <rect key="frame" x="0.0" y="59" width="414" height="837"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sT4-u7-Rdg">
-                                        <rect key="frame" x="376" y="12" width="26" height="26"/>
+                                        <rect key="frame" x="373" y="15" width="26" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="26" id="PpZ-Lh-2fU"/>
                                             <constraint firstAttribute="height" constant="26" id="tez-bP-mEW"/>
@@ -33,8 +33,8 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="sT4-u7-Rdg" secondAttribute="trailing" constant="12" id="AZj-7M-XTg"/>
-                                    <constraint firstItem="sT4-u7-Rdg" firstAttribute="top" secondItem="Fod-Uk-Zuy" secondAttribute="top" constant="12" id="hPh-YN-JNn"/>
+                                    <constraint firstAttribute="trailing" secondItem="sT4-u7-Rdg" secondAttribute="trailing" constant="15" id="AZj-7M-XTg"/>
+                                    <constraint firstItem="sT4-u7-Rdg" firstAttribute="top" secondItem="Fod-Uk-Zuy" secondAttribute="top" constant="15" id="hPh-YN-JNn"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -42,7 +42,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Fod-Uk-Zuy" secondAttribute="bottom" id="4HF-zp-YSZ"/>
                             <constraint firstItem="Fod-Uk-Zuy" firstAttribute="leading" secondItem="JFP-4L-Ia3" secondAttribute="leading" id="53U-Bu-znf"/>
-                            <constraint firstItem="Fod-Uk-Zuy" firstAttribute="top" secondItem="JFP-4L-Ia3" secondAttribute="top" constant="30" id="CbU-Rm-kY9"/>
+                            <constraint firstItem="Fod-Uk-Zuy" firstAttribute="top" secondItem="JFP-4L-Ia3" secondAttribute="top" constant="15" id="CbU-Rm-kY9"/>
                             <constraint firstAttribute="trailing" secondItem="Fod-Uk-Zuy" secondAttribute="trailing" id="oha-Sc-xAs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JFP-4L-Ia3"/>

@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcX-sL-DFa" customClass="ShadowView" customModule="Project_2Q_2019" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="74" width="414" height="822"/>
+                                <rect key="frame" x="0.0" y="59" width="414" height="837"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="StU-8o-yrD">
-                                        <rect key="frame" x="376" y="12" width="26" height="26"/>
+                                        <rect key="frame" x="373" y="15" width="26" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="26" id="F48-tr-JPc"/>
                                             <constraint firstAttribute="height" constant="26" id="evy-51-mmS"/>
@@ -33,8 +33,8 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="StU-8o-yrD" firstAttribute="top" secondItem="KcX-sL-DFa" secondAttribute="top" constant="12" id="O1s-IN-PnH"/>
-                                    <constraint firstAttribute="trailing" secondItem="StU-8o-yrD" secondAttribute="trailing" constant="12" id="t2C-uc-xEm"/>
+                                    <constraint firstItem="StU-8o-yrD" firstAttribute="top" secondItem="KcX-sL-DFa" secondAttribute="top" constant="15" id="O1s-IN-PnH"/>
+                                    <constraint firstAttribute="trailing" secondItem="StU-8o-yrD" secondAttribute="trailing" constant="15" id="t2C-uc-xEm"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -43,7 +43,7 @@
                             <constraint firstAttribute="bottom" secondItem="KcX-sL-DFa" secondAttribute="bottom" id="Rse-O3-GRL"/>
                             <constraint firstItem="KcX-sL-DFa" firstAttribute="leading" secondItem="fBV-gw-u2H" secondAttribute="leading" id="ckp-uw-0xM"/>
                             <constraint firstItem="fBV-gw-u2H" firstAttribute="trailing" secondItem="KcX-sL-DFa" secondAttribute="trailing" id="laq-fl-04q"/>
-                            <constraint firstItem="KcX-sL-DFa" firstAttribute="top" secondItem="fBV-gw-u2H" secondAttribute="top" constant="30" id="qgp-VU-1Oh"/>
+                            <constraint firstItem="KcX-sL-DFa" firstAttribute="top" secondItem="fBV-gw-u2H" secondAttribute="top" constant="15" id="qgp-VU-1Oh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fBV-gw-u2H"/>
                     </view>

@@ -14,7 +14,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     enum TextFieldTag: Int {
         case nameTextField
         case priceTextField
-        case countTextField
+        case amountTextField
     }
 
     @IBOutlet private weak var scrollViewBottomContraints: NSLayoutConstraint!
@@ -27,6 +27,8 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
     var viewModel: AddGoodsViewModel!
 
+    var dismissed: (() -> Void)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +36,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         priceTextField.delegate = self
         amountTextField.delegate = self
 
-        nameTextField.becomeFirstResponder()
+        setupLayouts()
 
         bindViewModel()
     }
@@ -52,9 +54,16 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
     }
-    
+
     @IBAction private func addGoods(_ sender: Any) {
-        viewModel.addGoodsToFirebase(dateList: viewModel.makeGoodsData())
+        viewModel.makeGoodsDateList()
+        viewModel.addGoodsToFirebase(goods: viewModel.makeGoodsData())
+    }
+
+    private func setupLayouts() {
+        nameTextField.becomeFirstResponder()
+        amountTextField.text = "1"
+        viewModel.amountText.accept("1")
     }
 
     private func bindViewModel() {
@@ -87,7 +96,10 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
             // 성공시 인디케이터 중지 및 디스미스
             case .success:
                 ActivityIndicator.shared.stop(view: view)
-                this.dismiss(animated: true)
+                this.dismiss(animated: true) { [weak self] in
+                    guard let this = self else { return }
+                    this.dismissed?()
+                }
             // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
@@ -97,6 +109,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
                 ActivityIndicator.shared.stop(view: view)
+                this.dismiss(animated: true)
             }
         }).disposed(by: disposeBag)
     }
@@ -112,6 +125,15 @@ extension AddGoodsViewController: UITextFieldDelegate {
             break
         }
         return true
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch TextFieldTag.init(rawValue: textField.tag) {
+        case .amountTextField:
+            textField.text = ""
+        default:
+            break
+        }
     }
 }
 

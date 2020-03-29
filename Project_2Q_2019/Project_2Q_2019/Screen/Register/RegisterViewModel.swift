@@ -56,6 +56,8 @@ struct RegisterViewModel: APIStateProtocol {
         let verifyPasswordText: String
     }
 
+    let apiStateRelay = PublishRelay<APIState>()
+
     let nameText = BehaviorRelay(value: "")
     let emailText = BehaviorRelay(value: "")
     let passwordText = BehaviorRelay(value: "")
@@ -67,8 +69,6 @@ struct RegisterViewModel: APIStateProtocol {
     let isVerifyPasswordValid: Observable<Bool>
     let isCorrespondPassword: Observable<Bool>
     let isRegisterEnabled: Observable<Bool>
-
-    let apiStateRelay = PublishRelay<APIState>()
 
     init() {
         let state = Observable
