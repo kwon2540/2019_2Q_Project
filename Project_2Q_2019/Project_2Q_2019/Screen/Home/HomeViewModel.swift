@@ -11,22 +11,25 @@ import RxCocoa
 
 final class HomeViewModel: APIStateProtocol {
 
-    let apiStateRelay = PublishRelay<APIState>()
+    enum CardType: Int, CaseIterable {
+        case a
+        case b
+        case c
+        case d
+        case e
 
-    var date: String = Date().toString(format: .firebase_key_date)
-
-    var dateList: [String] = []
-
-    func loadGoodsDateListFromFirebase() {
-        apiStateRelay.accept(.loading)
-        FirebaseManager.shared.loadGoodsDateList { [weak self] (response, state) in
-            guard let this = self else { return }
-
-            if let dateList = response?.dateList {
-                this.dateList = dateList
+        var color: UIColor {
+            switch self {
+            case .a: return .cFFA9B0
+            case .b: return .cCCD1FF
+            case .c: return .cFFDDA6
+            case .d: return .cD8D8D8
+            case .e: return .cF96E4C
             }
-
-            this.apiStateRelay.accept(state)
         }
     }
+
+    let apiStateRelay = PublishRelay<APIState>()
+
+    var cardType: [CardType] = CardType.allCases.map({ $0 })
 }

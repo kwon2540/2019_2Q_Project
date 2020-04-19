@@ -18,4 +18,7 @@ extension UIColor {
     static let cF96E4C = UIColor(named: "cF96E4C")!
     static let c6889FF = UIColor(named: "c6889FF")!
     static let c3F3E3E = UIColor(named: "c3F3E3E")!
+    static let cFFA9B0 = UIColor(named: "cFFA9B0")!
+    static let cCCD1FF = UIColor(named: "cCCD1FF")!
+    static let cFFDDA6 = UIColor(named: "cFFDDA6")!
 }
