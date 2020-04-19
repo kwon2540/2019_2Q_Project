@@ -39,7 +39,7 @@
                                 </constraints>
                             </view>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yl7-Rl-Zuv">
-                                <rect key="frame" x="0.0" y="164" width="414" height="578"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MAu-IK-zet">
                                     <size key="itemSize" width="50" height="50"/>
@@ -52,8 +52,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fBV-gw-u2H" firstAttribute="bottom" secondItem="Yl7-Rl-Zuv" secondAttribute="bottom" constant="120" id="8cn-Wl-GXT"/>
-                            <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="top" secondItem="fBV-gw-u2H" secondAttribute="top" constant="120" id="AEe-SO-Tyr"/>
+                            <constraint firstItem="fBV-gw-u2H" firstAttribute="bottom" secondItem="Yl7-Rl-Zuv" secondAttribute="bottom" constant="100" id="8cn-Wl-GXT"/>
+                            <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="top" secondItem="fBV-gw-u2H" secondAttribute="top" constant="100" id="AEe-SO-Tyr"/>
                             <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="leading" secondItem="fBV-gw-u2H" secondAttribute="leading" id="D60-VO-QWf"/>
                             <constraint firstAttribute="bottom" secondItem="KcX-sL-DFa" secondAttribute="bottom" id="Rse-O3-GRL"/>
                             <constraint firstItem="KcX-sL-DFa" firstAttribute="leading" secondItem="fBV-gw-u2H" secondAttribute="leading" id="ckp-uw-0xM"/>
