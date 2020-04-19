@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,22 +32,40 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="cFAFAFA"/>
                                 <constraints>
                                     <constraint firstItem="StU-8o-yrD" firstAttribute="top" secondItem="KcX-sL-DFa" secondAttribute="top" constant="15" id="O1s-IN-PnH"/>
                                     <constraint firstAttribute="trailing" secondItem="StU-8o-yrD" secondAttribute="trailing" constant="15" id="t2C-uc-xEm"/>
                                 </constraints>
                             </view>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yl7-Rl-Zuv">
+                                <rect key="frame" x="0.0" y="164" width="414" height="578"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MAu-IK-zet">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fBV-gw-u2H" firstAttribute="bottom" secondItem="Yl7-Rl-Zuv" secondAttribute="bottom" constant="120" id="8cn-Wl-GXT"/>
+                            <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="top" secondItem="fBV-gw-u2H" secondAttribute="top" constant="120" id="AEe-SO-Tyr"/>
+                            <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="leading" secondItem="fBV-gw-u2H" secondAttribute="leading" id="D60-VO-QWf"/>
                             <constraint firstAttribute="bottom" secondItem="KcX-sL-DFa" secondAttribute="bottom" id="Rse-O3-GRL"/>
                             <constraint firstItem="KcX-sL-DFa" firstAttribute="leading" secondItem="fBV-gw-u2H" secondAttribute="leading" id="ckp-uw-0xM"/>
                             <constraint firstItem="fBV-gw-u2H" firstAttribute="trailing" secondItem="KcX-sL-DFa" secondAttribute="trailing" id="laq-fl-04q"/>
                             <constraint firstItem="KcX-sL-DFa" firstAttribute="top" secondItem="fBV-gw-u2H" secondAttribute="top" constant="15" id="qgp-VU-1Oh"/>
+                            <constraint firstItem="fBV-gw-u2H" firstAttribute="trailing" secondItem="Yl7-Rl-Zuv" secondAttribute="trailing" id="wHd-KZ-Ju4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fBV-gw-u2H"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Yl7-Rl-Zuv" id="fzq-g3-wZ2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6O9-jl-fgN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,5 +74,8 @@
     </scenes>
     <resources>
         <image name="Dismiss" width="18" height="18"/>
+        <namedColor name="cFAFAFA">
+            <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
