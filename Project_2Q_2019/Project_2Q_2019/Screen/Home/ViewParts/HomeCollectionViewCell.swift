@@ -12,11 +12,11 @@ import RxSwift
 final class HomeCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var mainView: UIView!
-    @IBOutlet private weak var yearLabel: UILabel!
-    @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var weekLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var coverView: UIView!
+    @IBOutlet private weak var topTitleView: UIView!
+    @IBOutlet private weak var topTitleImageView: UIImageView!
+    @IBOutlet private weak var topTitleLabel: UILabel!
 
     private let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 
@@ -33,7 +33,8 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         setupLayout()
         setupTableView()
-        setupDateText()
+        setupTopTitleView()
+        setupBackgroundView()
     }
 
     private func setupLayout() {
@@ -45,20 +46,37 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         layer.shadowOffset = CGSize(width: 5, height: 5)
         clipsToBounds = false
 
-        activityIndicatorView.center = CGPoint(x: mainView.frame.width / 2, y: mainView.frame.height / 2)
+        activityIndicatorView.center = CGPoint(x: self.frame.width / 2, y: (self.frame.height / 2) - 50)
+
+        // 아래쪽만 코너레디우스 처리
+        let maskPath = UIBezierPath(roundedRect: topTitleView.bounds,
+                                    byRoundingCorners: [.bottomLeft, .bottomRight],
+                                    cornerRadii: CGSize(width: topTitleView.frame.width / 2, height: topTitleView.frame.height / 2))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = topTitleView.bounds
+        maskLayer.path = maskPath.cgPath
+        topTitleView.layer.mask = maskLayer
+    }
+
+    private func setupTopTitleView() {
+        if let cardType = viewModel.cardType {
+            topTitleView.backgroundColor = cardType.color
+            topTitleImageView.image = cardType.image
+            topTitleLabel.text = cardType.title
+        }
+    }
+
+    private func setupBackgroundView() {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: self.tableView.frame.height))
+        imageView.image = UIImage(named: "NoGoodsImage")
+        imageView.contentMode = .center
+        tableView.backgroundView = imageView
     }
 
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerXib(of: HomeTableViewCell.self)
-    }
-
-    private func setupDateText() {
-        let date = self.viewModel.date
-        yearLabel.text = date.getYearText()
-        dateLabel.text = "\(date.getMonthText()) \(date.getDateText())"
-        weekLabel.text = date.yyyyMMddToDate().weekday
     }
 
     private func activityIndicatorStart() {
@@ -88,7 +106,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
             // 성공시 인디케이터 중지 및 테이블뷰 리로드
             case .success:
                 this.tableView.reloadData()
-                this.activityIndicatorStop()
+                //                this.activityIndicatorStop()
             // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
             case .failed:
                 this.activityIndicatorStop()
@@ -99,38 +117,12 @@ final class HomeCollectionViewCell: UICollectionViewCell {
 
 extension HomeCollectionViewCell: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = HomeTableViewHeaderView()
-
-        switch viewModel.sections[section] {
-        case .toPurchase:
-            header.set(title: viewModel.sections[section].title, count: String(viewModel.toPurchaseData.count))
-        case .purchased:
-            header.set(title: viewModel.sections[section].title, count: String(viewModel.purchasedData.count))
-        }
-
-        return header
-    }
-
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footer = HomeTableViewFooterView()
-
-        switch viewModel.sections[section] {
-        case .toPurchase:
-            footer.set(totalPrice: viewModel.toPurchaseTotalPrice)
-        case .purchased:
-            footer.set(totalPrice: viewModel.purchasedTotalPrice)
-        }
-
-        return footer
-    }
-
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return CGFloat.leastNonzeroMagnitude
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 40
+        return CGFloat.leastNonzeroMagnitude
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -144,27 +136,13 @@ extension HomeCollectionViewCell: UITableViewDelegate {
 
 extension HomeCollectionViewCell: UITableViewDataSource {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.sections.count
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getRowCount(section: viewModel.sections[section])
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(of: HomeTableViewCell.self, for: indexPath)
         cell.selectionStyle = .none
-        let data: Goods
-
-        switch viewModel.sections[indexPath.section] {
-        case .toPurchase:
-            data = viewModel.toPurchaseData[indexPath.row]
-        case .purchased:
-            data = viewModel.purchasedData[indexPath.row]
-        }
-
-        cell.set(name: data.name, amount: data.amount ?? "", price: data.price ?? "")
 
         return cell
     }
