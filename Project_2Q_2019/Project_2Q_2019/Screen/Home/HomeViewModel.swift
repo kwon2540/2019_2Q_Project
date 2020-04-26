@@ -12,19 +12,26 @@ import RxCocoa
 final class HomeViewModel: APIStateProtocol {
 
     enum CardType: Int, CaseIterable {
-        case a
-        case b
-        case c
-        case d
-        case e
+        case life
+        case fashion
+        case hobby
+        case etc
 
         var color: UIColor {
             switch self {
-            case .a: return .cFFA9B0
-            case .b: return .cCCD1FF
-            case .c: return .cFFDDA6
-            case .d: return .cD8D8D8
-            case .e: return .cF96E4C
+            case .life: return .cFFA700
+            case .fashion: return .cFF536F
+            case .hobby: return .c2C7EFF
+            case .etc: return .cB8B8B8
+            }
+        }
+
+        var image: UIImage? {
+            switch self {
+            case .life: return UIImage(named: "Life")
+            case .fashion: return UIImage(named: "Fashion")
+            case .hobby: return UIImage(named: "Hobby")
+            case .etc: return UIImage(named: "Etc")
             }
         }
     }
