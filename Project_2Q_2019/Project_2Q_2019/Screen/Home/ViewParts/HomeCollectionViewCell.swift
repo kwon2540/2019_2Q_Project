@@ -15,6 +15,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var coverView: UIView!
     @IBOutlet private weak var topTitleView: UIView!
+    @IBOutlet private weak var topTitleImageView: UIImageView!
 
     private let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 
@@ -45,11 +46,21 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         clipsToBounds = false
 
         activityIndicatorView.center = CGPoint(x: self.frame.width / 2, y: (self.frame.height / 2) - 50)
+
+        // 아래쪽만 코너레디우스 처리
+        let maskPath = UIBezierPath(roundedRect: topTitleView.bounds,
+                                    byRoundingCorners: [.bottomLeft, .bottomRight],
+                                    cornerRadii: CGSize(width: topTitleView.frame.width / 2, height: topTitleView.frame.height / 2))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = topTitleView.bounds
+        maskLayer.path = maskPath.cgPath
+        topTitleView.layer.mask = maskLayer
     }
 
     private func setupTopTitleViewColor() {
         if let cardType = viewModel.cardType {
             topTitleView.backgroundColor = cardType.color
+            topTitleImageView.image = cardType.image
         }
     }
 
