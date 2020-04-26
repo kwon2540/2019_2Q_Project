@@ -32,6 +32,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         setupLayout()
         setupTableView()
         setupTopTitleViewColor()
+        setupBackgroundView()
     }
 
     private func setupLayout() {
@@ -50,6 +51,13 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         if let cardType = viewModel.cardType {
             topTitleView.backgroundColor = cardType.color
         }
+    }
+
+    private func setupBackgroundView() {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: self.tableView.frame.height))
+        imageView.image = UIImage(named: "NoGoodsImage")
+        imageView.contentMode = .center
+        tableView.backgroundView = imageView
     }
 
     private func setupTableView() {
