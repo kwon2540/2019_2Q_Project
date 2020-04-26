@@ -16,6 +16,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var coverView: UIView!
     @IBOutlet private weak var topTitleView: UIView!
     @IBOutlet private weak var topTitleImageView: UIImageView!
+    @IBOutlet private weak var topTitleLabel: UILabel!
 
     private let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 
@@ -32,7 +33,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         setupLayout()
         setupTableView()
-        setupTopTitleViewColor()
+        setupTopTitleView()
         setupBackgroundView()
     }
 
@@ -57,10 +58,11 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         topTitleView.layer.mask = maskLayer
     }
 
-    private func setupTopTitleViewColor() {
+    private func setupTopTitleView() {
         if let cardType = viewModel.cardType {
             topTitleView.backgroundColor = cardType.color
             topTitleImageView.image = cardType.image
+            topTitleLabel.text = cardType.title
         }
     }
 

@@ -34,6 +34,15 @@ final class HomeViewModel: APIStateProtocol {
             case .etc: return UIImage(named: "Etc")
             }
         }
+
+        var title: String {
+            switch self {
+            case .life: return "生活"
+            case .fashion: return "ファッション"
+            case .hobby: return "趣味"
+            case .etc: return "その他"
+            }
+        }
     }
 
     let apiStateRelay = PublishRelay<APIState>()
