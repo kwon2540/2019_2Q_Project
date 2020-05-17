@@ -38,7 +38,6 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerXib(of: HomeTableViewCell.self)
     }
 
     private func setupDateText() {
@@ -71,24 +70,12 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
 
 extension HistoryCollectionViewCell: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = HomeTableViewHeaderView()
-        header.set(title: "購入済み", count: "")
-        return header
-    }
-
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footer = HomeTableViewFooterView()
-        footer.set(totalPrice: "")
-        return footer
-    }
-
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return CGFloat.leastNonzeroMagnitude
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 40
+        return CGFloat.leastNonzeroMagnitude
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,11 +98,6 @@ extension HistoryCollectionViewCell: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueCell(of: HomeTableViewCell.self, for: indexPath)
-        cell.selectionStyle = .none
-
-        cell.set(name: "", amount: "", price: "")
-
-        return cell
+        return UITableViewCell()
     }
 }
