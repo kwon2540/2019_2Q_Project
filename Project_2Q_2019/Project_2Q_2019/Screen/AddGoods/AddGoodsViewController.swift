@@ -19,8 +19,6 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var scrollViewBottomContraints: NSLayoutConstraint!
     @IBOutlet private weak var nameTextField: UITextField!
-    @IBOutlet private weak var priceTextField: UITextField!
-    @IBOutlet private weak var amountTextField: UITextField!
     @IBOutlet private weak var addButton: RoundButton!
 
     private let disposeBag = DisposeBag()
@@ -32,9 +30,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        nameTextField.delegate = self
-        priceTextField.delegate = self
-        amountTextField.delegate = self
+        //        nameTextField.delegate = self
 
         setupLayouts()
 
@@ -52,89 +48,79 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func dismiss(_ sender: Any) {
+        dismissed?()
         dismiss(animated: true)
     }
 
     @IBAction private func addGoods(_ sender: Any) {
-        viewModel.makeGoodsDateList()
-        viewModel.addGoodsToFirebase(goods: viewModel.makeGoodsData())
+
     }
 
     private func setupLayouts() {
-        nameTextField.becomeFirstResponder()
-        amountTextField.text = "1"
-        viewModel.amountText.accept("1")
+
     }
 
     private func bindViewModel() {
 
         // Input
-        nameTextField.rx.text.orEmpty
-            .bind(to: viewModel.nameText)
-            .disposed(by: disposeBag)
-
-        priceTextField.rx.text.orEmpty
-            .bind(to: viewModel.priceText)
-            .disposed(by: disposeBag)
-
-        amountTextField.rx.text.orEmpty
-            .bind(to: viewModel.amountText)
-            .disposed(by: disposeBag)
+        //        nameTextField.rx.text.orEmpty
+        //            .bind(to: viewModel.nameText)
+        //            .disposed(by: disposeBag)
 
         // Output
-        viewModel.isAddButtonValid
-            .bind(to: addButton.rx.isEnabled)
-            .disposed(by: disposeBag)
+        //        viewModel.isAddButtonValid
+        //            .bind(to: addButton.rx.isEnabled)
+        //            .disposed(by: disposeBag)
 
-        viewModel.apiState.emit(onNext: { [weak self] (state) in
-            guard let this = self, let view = this.view else { return }
-
-            switch state {
-            // 로딩 시 인디케이터 표시
-            case .loading:
-                ActivityIndicator.shared.start(view: view)
-            // 성공시 인디케이터 중지 및 디스미스
-            case .success:
-                ActivityIndicator.shared.stop(view: view)
-                this.dismiss(animated: true) { [weak self] in
-                    guard let this = self else { return }
-                    this.dismissed?()
-                }
-            // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
-            case .failed(let error):
-                DropDownManager.shared.showDropDownNotification(view: view,
-                                                                width: nil,
-                                                                height: nil,
-                                                                type: .error,
-                                                                message: error.description)
-                apiErrorLog(logMessage: error.description)
-                ActivityIndicator.shared.stop(view: view)
-                this.dismiss(animated: true)
-            }
-        }).disposed(by: disposeBag)
+        //        viewModel.apiState.emit(onNext: { [weak self] (state) in
+        //            guard let this = self, let view = this.view else { return }
+        //
+        //            switch state {
+        //            // 로딩 시 인디케이터 표시
+        //            case .loading:
+        //                ActivityIndicator.shared.start(view: view)
+        //            // 성공시 인디케이터 중지 및 디스미스
+        //            case .success:
+        //                ActivityIndicator.shared.stop(view: view)
+        //                this.dismiss(animated: true) { [weak self] in
+        //                    guard let this = self else { return }
+        //                    this.dismissed?()
+        //                }
+        //            // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
+        //            case .failed(let error):
+        //                DropDownManager.shared.showDropDownNotification(view: view,
+        //                                                                width: nil,
+        //                                                                height: nil,
+        //                                                                type: .error,
+        //                                                                message: error.description)
+        //                apiErrorLog(logMessage: error.description)
+        //                ActivityIndicator.shared.stop(view: view)
+        //                this.dismiss(animated: true)
+        //            }
+        //        }).disposed(by: disposeBag)
     }
 }
 
 extension AddGoodsViewController: UITextFieldDelegate {
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch TextFieldTag.init(rawValue: textField.tag) {
-        case .nameTextField:
-            priceTextField.becomeFirstResponder()
-        default:
-            break
-        }
-        return true
-    }
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        switch TextFieldTag.init(rawValue: textField.tag) {
-        case .amountTextField:
-            textField.text = ""
-        default:
-            break
-        }
-    }
+    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    //        switch TextFieldTag.init(rawValue: textField.tag) {
+    //        case .nameTextField:
+    //            priceTextField.becomeFirstResponder()
+    //        default:
+    //            break
+    //        }
+    //        return true
+    //    }
+    //
+    //    func textFieldDidBeginEditing(_ textField: UITextField) {
+    //        switch TextFieldTag.init(rawValue: textField.tag) {
+    //        case .amountTextField:
+    //            textField.text = ""
+    //        default:
+    //            break
+    //        }
+    //    }
 }
 
 // MARK: Keyboard Notifications
