@@ -12,6 +12,7 @@ import RxSwift
 final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var corverView: UIView!
 
     private let disposeBag = DisposeBag()
 
@@ -47,12 +48,14 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func add(_ sender: Any) {
-        let vc = AddListViewController.getStoryBoard()
-        //        vc.dismissed = { [weak self] in
-        //            guard let this = self else { return }
-        //        }
-        vc.viewModel = AddListViewModel(date: nil)
+        let vc = AddGoodsViewController.getStoryBoard()
+        vc.dismissed = { [weak self] in
+            guard let this = self else { return }
+            this.corverView.isHidden = true
+        }
+        vc.viewModel = AddGoodsViewModel()
 
+        corverView.isHidden = false
         present(vc, animated: true)
     }
 

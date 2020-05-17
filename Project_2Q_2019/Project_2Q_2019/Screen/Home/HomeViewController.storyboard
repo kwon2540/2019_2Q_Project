@@ -121,6 +121,10 @@
                                 <rect key="frame" x="0.0" y="568" width="320" height="0.0"/>
                                 <color key="backgroundColor" name="cFAFAFA"/>
                             </view>
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnI-BP-LDL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" name="c000000@20"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -131,11 +135,13 @@
                             <constraint firstItem="UQM-lN-9Cj" firstAttribute="top" secondItem="M59-Jb-JGH" secondAttribute="top" constant="12" id="Fhf-1q-9e8"/>
                             <constraint firstItem="yEw-HF-wWm" firstAttribute="leading" secondItem="Bu1-yd-RcO" secondAttribute="leading" id="KbP-Ki-Kyr"/>
                             <constraint firstItem="vbF-12-fvH" firstAttribute="top" secondItem="M59-Jb-JGH" secondAttribute="top" constant="80" id="OPA-MO-F3V"/>
+                            <constraint firstAttribute="trailing" secondItem="gnI-BP-LDL" secondAttribute="trailing" id="QHH-67-6cE"/>
                             <constraint firstItem="yEw-HF-wWm" firstAttribute="top" secondItem="vbF-12-fvH" secondAttribute="bottom" constant="80" id="QRZ-FL-8RA"/>
                             <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="jgc-y4-xMj" secondAttribute="trailing" constant="18" id="TOF-gn-zPR"/>
                             <constraint firstItem="bnj-S0-ixZ" firstAttribute="top" secondItem="Bu1-yd-RcO" secondAttribute="top" id="Ts9-OY-ekN"/>
                             <constraint firstItem="wTl-QZ-W8B" firstAttribute="leading" secondItem="M59-Jb-JGH" secondAttribute="leading" id="Vf9-jG-72u"/>
                             <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="vbF-12-fvH" secondAttribute="trailing" id="Y5J-co-D4e"/>
+                            <constraint firstItem="gnI-BP-LDL" firstAttribute="leading" secondItem="Bu1-yd-RcO" secondAttribute="leading" id="YnC-sz-3uh"/>
                             <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="bnj-S0-ixZ" secondAttribute="trailing" id="dN0-fg-ClA"/>
                             <constraint firstItem="rwZ-wb-cH4" firstAttribute="bottom" secondItem="M59-Jb-JGH" secondAttribute="bottom" id="dbq-KB-aMw"/>
                             <constraint firstItem="yEw-HF-wWm" firstAttribute="top" secondItem="mgz-qh-JVh" secondAttribute="bottom" id="diB-DC-pJU"/>
@@ -147,11 +153,14 @@
                             <constraint firstItem="UQM-lN-9Cj" firstAttribute="leading" secondItem="M59-Jb-JGH" secondAttribute="leading" constant="16" id="pbw-Hs-T7e"/>
                             <constraint firstItem="mgz-qh-JVh" firstAttribute="centerX" secondItem="Bu1-yd-RcO" secondAttribute="centerX" id="vey-w4-zzO"/>
                             <constraint firstItem="rwZ-wb-cH4" firstAttribute="top" secondItem="wTl-QZ-W8B" secondAttribute="bottom" id="wmM-UW-Tzz"/>
+                            <constraint firstItem="gnI-BP-LDL" firstAttribute="top" secondItem="Bu1-yd-RcO" secondAttribute="top" id="xbA-x4-L5o"/>
+                            <constraint firstAttribute="bottom" secondItem="gnI-BP-LDL" secondAttribute="bottom" id="yrp-ce-E5c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M59-Jb-JGH"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="vbF-12-fvH" id="vqs-bs-UmB"/>
+                        <outlet property="corverView" destination="gnI-BP-LDL" id="W25-PG-Csr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTt-nN-Tkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -166,6 +175,9 @@
         <image name="Logout" width="26" height="26"/>
         <image name="Menu" width="30" height="30"/>
         <image name="Short_Bg" width="375" height="200"/>
+        <namedColor name="c000000@20">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.20000000298023224" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="c3F3E3E">
             <color red="0.24705882352941178" green="0.24313725490196078" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
