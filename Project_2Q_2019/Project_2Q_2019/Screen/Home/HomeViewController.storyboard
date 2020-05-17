@@ -76,7 +76,7 @@
                                             <constraint firstAttribute="width" constant="48" id="T8n-Mo-Vwe"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal">
+                                        <state key="normal" image="Graph">
                                             <color key="titleColor" name="c3F3E3E"/>
                                         </state>
                                         <connections>
@@ -89,7 +89,7 @@
                                             <constraint firstAttribute="height" constant="48" id="OiQ-Dt-XPg"/>
                                             <constraint firstAttribute="width" constant="48" id="vYY-l1-kzF"/>
                                         </constraints>
-                                        <state key="normal">
+                                        <state key="normal" image="History">
                                             <color key="titleColor" name="c3F3E3E"/>
                                         </state>
                                         <connections>
@@ -137,8 +137,8 @@
                             <constraint firstItem="wTl-QZ-W8B" firstAttribute="leading" secondItem="M59-Jb-JGH" secondAttribute="leading" id="Vf9-jG-72u"/>
                             <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="vbF-12-fvH" secondAttribute="trailing" id="Y5J-co-D4e"/>
                             <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="bnj-S0-ixZ" secondAttribute="trailing" id="dN0-fg-ClA"/>
-                            <constraint firstItem="yEw-HF-wWm" firstAttribute="top" secondItem="mgz-qh-JVh" secondAttribute="bottom" id="dRM-EB-pqG"/>
                             <constraint firstItem="rwZ-wb-cH4" firstAttribute="bottom" secondItem="M59-Jb-JGH" secondAttribute="bottom" id="dbq-KB-aMw"/>
+                            <constraint firstItem="yEw-HF-wWm" firstAttribute="top" secondItem="mgz-qh-JVh" secondAttribute="bottom" id="diB-DC-pJU"/>
                             <constraint firstItem="jgc-y4-xMj" firstAttribute="top" secondItem="M59-Jb-JGH" secondAttribute="top" constant="14" id="iY3-xU-FVq"/>
                             <constraint firstAttribute="bottom" secondItem="yEw-HF-wWm" secondAttribute="bottom" id="kFr-8Y-Vih"/>
                             <constraint firstItem="rwZ-wb-cH4" firstAttribute="leading" secondItem="M59-Jb-JGH" secondAttribute="leading" id="nGR-9r-PhO"/>
@@ -160,7 +160,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Addlist" width="74" height="74"/>
+        <image name="Addlist" width="88" height="88"/>
+        <image name="Graph" width="29" height="37"/>
+        <image name="History" width="20" height="40"/>
         <image name="Logout" width="26" height="26"/>
         <image name="Menu" width="30" height="30"/>
         <image name="Short_Bg" width="375" height="200"/>
