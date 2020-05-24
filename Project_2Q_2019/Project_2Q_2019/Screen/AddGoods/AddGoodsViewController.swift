@@ -17,6 +17,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         case amountTextField
     }
 
+    @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var addButton: RoundButton!
 
@@ -56,7 +57,8 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     }
 
     private func setupLayouts() {
-
+        mainView.layer.cornerRadius = 20
+        mainView.clipsToBounds = true
     }
 
     private func bindViewModel() {
