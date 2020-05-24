@@ -31,7 +31,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //        nameTextField.delegate = self
+        nameTextField.delegate = self
 
         setupLayouts()
 
@@ -60,19 +60,23 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     private func setupLayouts() {
         mainView.layer.cornerRadius = 20
         mainView.clipsToBounds = true
+
+        addButton.isEnabled = false
+
+        nameTextField.becomeFirstResponder()
     }
 
     private func bindViewModel() {
 
         // Input
-        //        nameTextField.rx.text.orEmpty
-        //            .bind(to: viewModel.nameText)
-        //            .disposed(by: disposeBag)
+        nameTextField.rx.text.orEmpty
+            .bind(to: viewModel.nameText)
+            .disposed(by: disposeBag)
 
         // Output
-        //        viewModel.isAddButtonValid
-        //            .bind(to: addButton.rx.isEnabled)
-        //            .disposed(by: disposeBag)
+        viewModel.isAddButtonEnabled
+            .bind(to: addButton.rx.isEnabled)
+            .disposed(by: disposeBag)
 
         //        viewModel.apiState.emit(onNext: { [weak self] (state) in
         //            guard let this = self, let view = this.view else { return }

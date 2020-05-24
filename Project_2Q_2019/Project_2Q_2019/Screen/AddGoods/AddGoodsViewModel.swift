@@ -24,6 +24,20 @@ extension AddGoodsStateProtocol {
 }
 
 struct AddGoodsViewModel: APIStateProtocol {
+
+    struct UIState: AddGoodsStateProtocol {
+
+        let nameText: String
+    }
+
     let apiStateRelay = PublishRelay<APIState>()
+    let nameText = BehaviorRelay(value: "")
+    let isAddButtonEnabled: Observable<Bool>
+
+    init() {
+        let state = nameText
+            .asObservable().map { UIState(nameText: $0) }
+        isAddButtonEnabled = state.map { $0.isAddButtonEnabled}
+    }
 
 }
