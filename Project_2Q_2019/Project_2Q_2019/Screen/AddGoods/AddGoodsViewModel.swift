@@ -34,6 +34,13 @@ struct AddGoodsViewModel: APIStateProtocol {
         let nameText: String
     }
 
+    enum Category: Int {
+        case life
+        case fashion
+        case hobbies
+        case etc
+    }
+
     let apiStateRelay = PublishRelay<APIState>()
     let nameText = BehaviorRelay(value: "")
     let isAddButtonEnabled: Observable<Bool>
@@ -45,5 +52,4 @@ struct AddGoodsViewModel: APIStateProtocol {
         isAddButtonEnabled = state.map { $0.isAddButtonEnabled }
         nameSaperatorColor = state.map { $0.nameSaperatorColor }
     }
-
 }
