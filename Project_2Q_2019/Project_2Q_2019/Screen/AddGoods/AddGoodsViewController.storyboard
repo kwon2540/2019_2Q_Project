@@ -163,19 +163,39 @@
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aej-W5-wem">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                                                        <state key="normal" image="Life_on"/>
+                                                                                        <state key="normal" image="Life_off"/>
+                                                                                        <state key="selected" image="Life_on"/>
+                                                                                        <state key="highlighted" image="Life_on"/>
+                                                                                        <connections>
+                                                                                            <action selector="categoryButtons:" destination="N7i-Y4-vE3" eventType="touchUpInside" id="fRe-Xv-OLk"/>
+                                                                                        </connections>
                                                                                     </button>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2V-62-YsL">
+                                                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2V-62-YsL">
                                                                                         <rect key="frame" x="104.5" y="0.0" width="60" height="60"/>
                                                                                         <state key="normal" image="Fashion_off"/>
+                                                                                        <state key="selected" image="Fashion_on"/>
+                                                                                        <state key="highlighted" image="Fashion_on"/>
+                                                                                        <connections>
+                                                                                            <action selector="categoryButtons:" destination="N7i-Y4-vE3" eventType="touchUpInside" id="jwO-Na-bDm"/>
+                                                                                        </connections>
                                                                                     </button>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djn-72-GgW">
+                                                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djn-72-GgW">
                                                                                         <rect key="frame" x="209.5" y="0.0" width="60" height="60"/>
                                                                                         <state key="normal" image="Hobbies_off"/>
+                                                                                        <state key="selected" image="Hobbies_on"/>
+                                                                                        <state key="highlighted" image="Hobbies_on"/>
+                                                                                        <connections>
+                                                                                            <action selector="categoryButtons:" destination="N7i-Y4-vE3" eventType="touchUpInside" id="yb5-9O-1zr"/>
+                                                                                        </connections>
                                                                                     </button>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dt-uV-Xvl">
+                                                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dt-uV-Xvl">
                                                                                         <rect key="frame" x="314" y="0.0" width="60" height="60"/>
                                                                                         <state key="normal" image="Etc_off"/>
+                                                                                        <state key="selected" image="Etc_on"/>
+                                                                                        <state key="highlighted" image="Etc_on"/>
+                                                                                        <connections>
+                                                                                            <action selector="categoryButtons:" destination="N7i-Y4-vE3" eventType="touchUpInside" id="Liu-vG-3fS"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
@@ -311,7 +331,11 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="Tty-Hp-FJc" id="11Y-CT-j8P"/>
+                        <outlet property="etcButton" destination="1dt-uV-Xvl" id="BpR-wd-2fw"/>
+                        <outlet property="fashionButton" destination="J2V-62-YsL" id="ixQ-d7-95i"/>
+                        <outlet property="hobbiesButton" destination="djn-72-GgW" id="GcX-ce-NdE"/>
                         <outlet property="keyboardSpaceConstraint" destination="xwh-fZ-4fI" id="m5f-9B-W41"/>
+                        <outlet property="lifeButton" destination="Aej-W5-wem" id="gpO-ct-pQr"/>
                         <outlet property="mainView" destination="BML-4V-XWU" id="Y0U-Lv-6CL"/>
                         <outlet property="nameSaperator" destination="Yso-ul-oEz" id="6S5-AR-zcZ"/>
                         <outlet property="nameTextField" destination="uXB-cT-Ff1" id="oC8-kv-inw"/>
@@ -324,8 +348,12 @@
     </scenes>
     <resources>
         <image name="Etc_off" width="60" height="45"/>
+        <image name="Etc_on" width="60" height="45"/>
         <image name="Fashion_off" width="60" height="45"/>
+        <image name="Fashion_on" width="60" height="45"/>
         <image name="Hobbies_off" width="60" height="45"/>
+        <image name="Hobbies_on" width="60" height="45"/>
+        <image name="Life_off" width="60" height="45"/>
         <image name="Life_on" width="60" height="45"/>
         <namedColor name="c3B3B3B">
             <color red="0.23137254901960785" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
