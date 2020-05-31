@@ -11,22 +11,29 @@ import RxSwift
 
 final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
-    enum TextFieldTag: Int {
-        case nameTextField
-        case priceTextField
-        case amountTextField
-    }
+    //    enum TextFieldTag: Int {
+    //        case nameTextField
+    //        case priceTextField
+    //        case amountTextField
+    //    }
 
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var addButton: RoundButton!
+    @IBOutlet private weak var lifeButton: UIButton!
+    @IBOutlet private weak var fashionButton: UIButton!
+    @IBOutlet private weak var hobbiesButton: UIButton!
+    @IBOutlet private weak var etcButton: UIButton!
     @IBOutlet private weak var nameSaperator: UIView!
     @IBOutlet private weak var keyboardSpaceConstraint: NSLayoutConstraint!
 
     private let disposeBag = DisposeBag()
 
-    var viewModel: AddGoodsViewModel!
+    private var selectedCategory: AddGoodsViewModel.Category = .life
 
+    private lazy var categoryButtons: [UIButton] = [lifeButton, fashionButton, hobbiesButton, etcButton]
+
+    var viewModel: AddGoodsViewModel!
     var dismissed: (() -> Void)?
 
     override func viewDidLoad() {
@@ -58,11 +65,27 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
     }
 
+    @IBAction private func categoryButtons(_ sender: UIButton) {
+        guard !sender.isSelected,
+            let category = AddGoodsViewModel.Category(rawValue: sender.tag) else { return }
+
+        categoryButtons[sender.tag].isSelected = true
+        categoryButtons.enumerated().forEach { index, button in
+            if index != sender.tag {
+                button.isSelected = false
+            }
+        }
+
+        selectedCategory = category
+    }
+
     private func setupLayouts() {
         mainView.layer.cornerRadius = 20
         mainView.clipsToBounds = true
 
         addButton.isEnabled = false
+
+        lifeButton.isSelected = true
 
         nameTextField.becomeFirstResponder()
     }
