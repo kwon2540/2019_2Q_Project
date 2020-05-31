@@ -170,8 +170,8 @@
     </scenes>
     <resources>
         <image name="Addlist" width="88" height="88"/>
-        <image name="Graph" width="29" height="37"/>
-        <image name="History" width="20" height="40"/>
+        <image name="Graph" width="48" height="48"/>
+        <image name="History" width="48" height="48"/>
         <image name="Logout" width="26" height="26"/>
         <image name="Menu" width="30" height="30"/>
         <image name="Short_Bg" width="375" height="200"/>

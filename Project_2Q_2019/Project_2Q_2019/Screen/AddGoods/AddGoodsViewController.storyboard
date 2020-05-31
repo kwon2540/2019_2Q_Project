@@ -158,49 +158,25 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BxH-fT-41d" userLabel="Button View">
                                                                         <rect key="frame" x="0.0" y="27" width="374" height="60"/>
                                                                         <subviews>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPJ-UB-atu">
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="aPJ-UB-atu">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aej-W5-wem">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                                                        <color key="backgroundColor" name="cFFA700"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="height" constant="60" id="63R-iq-lMt"/>
-                                                                                            <constraint firstAttribute="width" constant="60" id="HHL-Sj-3Y6"/>
-                                                                                        </constraints>
-                                                                                        <state key="normal" image="Life"/>
+                                                                                        <state key="normal" image="Life_on"/>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2V-62-YsL">
-                                                                                        <rect key="frame" x="60" y="0.0" width="60" height="60"/>
-                                                                                        <color key="backgroundColor" name="cFF536F"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="height" constant="60" id="4BM-aV-2xI"/>
-                                                                                            <constraint firstAttribute="width" constant="60" id="WDb-HF-a88"/>
-                                                                                        </constraints>
-                                                                                        <state key="normal" image="Fashion"/>
-                                                                                    </button>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dt-uV-Xvl">
-                                                                                        <rect key="frame" x="120" y="0.0" width="60" height="60"/>
-                                                                                        <color key="backgroundColor" name="c2C7EFF"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="width" constant="60" id="7BN-fF-Uno"/>
-                                                                                            <constraint firstAttribute="height" constant="60" id="8LM-Lp-hfz"/>
-                                                                                        </constraints>
-                                                                                        <state key="normal" image="Hobby"/>
+                                                                                        <rect key="frame" x="104.5" y="0.0" width="60" height="60"/>
+                                                                                        <state key="normal" image="Fashion_off"/>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djn-72-GgW">
-                                                                                        <rect key="frame" x="180" y="0.0" width="60" height="60"/>
-                                                                                        <color key="backgroundColor" name="cB8B8B8"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="width" constant="60" id="QGL-wh-HNt"/>
-                                                                                            <constraint firstAttribute="height" constant="60" id="lqU-mV-ZaX"/>
-                                                                                        </constraints>
-                                                                                        <state key="normal" image="Etc"/>
+                                                                                        <rect key="frame" x="209.5" y="0.0" width="60" height="60"/>
+                                                                                        <state key="normal" image="Hobbies_off"/>
                                                                                     </button>
-                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cb5-bE-C3q">
-                                                                                        <rect key="frame" x="240" y="0.0" width="134" height="60"/>
-                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                                                    </view>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dt-uV-Xvl">
+                                                                                        <rect key="frame" x="314" y="0.0" width="60" height="60"/>
+                                                                                        <state key="normal" image="Etc_off"/>
+                                                                                    </button>
                                                                                 </subviews>
                                                                             </stackView>
                                                                         </subviews>
@@ -263,7 +239,7 @@
                                                                             <constraint firstAttribute="height" constant="15" id="Pfd-qf-1dU"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uXB-cT-Ff1">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="商品名を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uXB-cT-Ff1">
                                                                         <rect key="frame" x="0.0" y="27" width="374" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="fsE-Vt-ok4"/>
@@ -280,7 +256,7 @@
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yso-ul-oEz" userLabel="Saperator Line">
                                                                         <rect key="frame" x="0.0" y="52" width="374" height="1"/>
-                                                                        <color key="backgroundColor" name="c6889FF"/>
+                                                                        <color key="backgroundColor" name="cD8D8D8"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="vaN-dy-bYJ"/>
                                                                         </constraints>
@@ -337,6 +313,7 @@
                         <outlet property="addButton" destination="Tty-Hp-FJc" id="11Y-CT-j8P"/>
                         <outlet property="keyboardSpaceConstraint" destination="xwh-fZ-4fI" id="m5f-9B-W41"/>
                         <outlet property="mainView" destination="BML-4V-XWU" id="Y0U-Lv-6CL"/>
+                        <outlet property="nameSaperator" destination="Yso-ul-oEz" id="6S5-AR-zcZ"/>
                         <outlet property="nameTextField" destination="uXB-cT-Ff1" id="oC8-kv-inw"/>
                     </connections>
                 </viewController>
@@ -346,36 +323,21 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Etc" width="24" height="4"/>
-        <image name="Fashion" width="25" height="20"/>
-        <image name="Hobby" width="24" height="24"/>
-        <image name="Life" width="20" height="21"/>
-        <namedColor name="c2C7EFF">
-            <color red="0.17254901960784313" green="0.49411764705882355" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="Etc_off" width="60" height="45"/>
+        <image name="Fashion_off" width="60" height="45"/>
+        <image name="Hobbies_off" width="60" height="45"/>
+        <image name="Life_on" width="60" height="45"/>
         <namedColor name="c3B3B3B">
             <color red="0.23137254901960785" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="c545454">
             <color red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="c6889FF">
-            <color red="0.40784313725490196" green="0.53725490196078429" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="c859EFF">
             <color red="0.52156862745098043" green="0.61960784313725492" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="cB8B8B8">
-            <color red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="cD8D8D8">
             <color red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="cFF536F">
-            <color red="1" green="0.32549019607843138" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="cFFA700">
-            <color red="1" green="0.65490196078431373" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
