@@ -17,20 +17,11 @@ final class HomeViewModel: APIStateProtocol {
         case hobby
         case etc
 
-        var color: UIColor {
-            switch self {
-            case .life: return .cFFA700
-            case .fashion: return .cFF536F
-            case .hobby: return .c2C7EFF
-            case .etc: return .cB8B8B8
-            }
-        }
-
         var image: UIImage? {
             switch self {
             case .life: return UIImage(named: "Life")
             case .fashion: return UIImage(named: "Fashion")
-            case .hobby: return UIImage(named: "Hobby")
+            case .hobby: return UIImage(named: "Hobbies")
             case .etc: return UIImage(named: "Etc")
             }
         }
