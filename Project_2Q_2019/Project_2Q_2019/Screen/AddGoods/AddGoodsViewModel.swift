@@ -21,6 +21,10 @@ extension AddGoodsStateProtocol {
     var isAddButtonEnabled: Bool {
         return !nameText.isEmpty
     }
+
+    var nameSaperatorColor: UIColor {
+        return nameText.isEmpty ? UIColor.cD8D8D8 : UIColor.c859EFF
+    }
 }
 
 struct AddGoodsViewModel: APIStateProtocol {
@@ -33,11 +37,13 @@ struct AddGoodsViewModel: APIStateProtocol {
     let apiStateRelay = PublishRelay<APIState>()
     let nameText = BehaviorRelay(value: "")
     let isAddButtonEnabled: Observable<Bool>
+    let nameSaperatorColor: Observable<UIColor>
 
     init() {
         let state = nameText
             .asObservable().map { UIState(nameText: $0) }
-        isAddButtonEnabled = state.map { $0.isAddButtonEnabled}
+        isAddButtonEnabled = state.map { $0.isAddButtonEnabled }
+        nameSaperatorColor = state.map { $0.nameSaperatorColor }
     }
 
 }

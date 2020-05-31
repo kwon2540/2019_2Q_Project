@@ -20,6 +20,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var addButton: RoundButton!
+    @IBOutlet private weak var nameSaperator: UIView!
     @IBOutlet private weak var keyboardSpaceConstraint: NSLayoutConstraint!
 
     private let disposeBag = DisposeBag()
@@ -76,6 +77,10 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         // Output
         viewModel.isAddButtonEnabled
             .bind(to: addButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
+        viewModel.nameSaperatorColor
+            .bind(to: nameSaperator.rx.backgroundColor)
             .disposed(by: disposeBag)
 
         //        viewModel.apiState.emit(onNext: { [weak self] (state) in
