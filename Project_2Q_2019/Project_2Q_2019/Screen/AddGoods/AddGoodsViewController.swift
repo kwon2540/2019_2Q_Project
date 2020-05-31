@@ -137,16 +137,10 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
 extension AddGoodsViewController: UITextFieldDelegate {
 
-    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    //        switch TextFieldTag.init(rawValue: textField.tag) {
-    //        case .nameTextField:
-    //            priceTextField.becomeFirstResponder()
-    //        default:
-    //            break
-    //        }
-    //        return true
-    //    }
-    //
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return false
+    }
+
     //    func textFieldDidBeginEditing(_ textField: UITextField) {
     //        switch TextFieldTag.init(rawValue: textField.tag) {
     //        case .amountTextField:
