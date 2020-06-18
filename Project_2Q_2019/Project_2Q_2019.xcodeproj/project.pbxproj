@@ -35,6 +35,7 @@
 		104106D9243071DF004E6D48 /* HomeCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106D8243071DF004E6D48 /* HomeCollectionViewModel.swift */; };
 		104106E524309741004E6D48 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 104106E424309741004E6D48 /* HomeTableViewCell.xib */; };
 		104106E72430975B004E6D48 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106E62430975B004E6D48 /* HomeTableViewCell.swift */; };
+		10519E5A249B55C700A41E60 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10519E59249B55C700A41E60 /* GoogleService-Info-dev.plist */; };
 		1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */; };
 		1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */; };
 		1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */; };
@@ -121,6 +122,7 @@
 		104106D8243071DF004E6D48 /* HomeCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewModel.swift; sourceTree = "<group>"; };
 		104106E424309741004E6D48 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		104106E62430975B004E6D48 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		10519E59249B55C700A41E60 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
 		1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBorderButton.swift; sourceTree = "<group>"; };
 		1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGoodsViewController.storyboard; sourceTree = "<group>"; };
 		1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodsViewController.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 				1032FE552338C0920039E9C0 /* SharedObject */,
 				10A7E52622EDC14000DF3D34 /* AppDelegate.swift */,
 				1016000423922B5C00A92C4D /* GoogleService-Info.plist */,
+				10519E59249B55C700A41E60 /* GoogleService-Info-dev.plist */,
 				10A7E53222EDC14100DF3D34 /* Info.plist */,
 			);
 			path = Project_2Q_2019;
@@ -608,6 +611,7 @@
 				100CF47923ADFEFC00B3557D /* ExpenseViewController.storyboard in Resources */,
 				10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */,
 				1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */,
+				10519E5A249B55C700A41E60 /* GoogleService-Info-dev.plist in Resources */,
 				10188E1423C9970900F94681 /* AlertViewController.storyboard in Resources */,
 				10A7E52E22EDC14100DF3D34 /* Assets.xcassets in Resources */,
 				10A00AA0237FBB1A00BA90EB /* SplashViewController.storyboard in Resources */,
@@ -974,7 +978,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "j.kwon.Project-2Q-2019";
+				PRODUCT_BUNDLE_IDENTIFIER = "j.kwon.Project-2Q-2019-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
