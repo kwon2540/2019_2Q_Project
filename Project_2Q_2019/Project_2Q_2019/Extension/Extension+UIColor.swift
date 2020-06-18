@@ -25,4 +25,12 @@ extension UIColor {
     static let c545454 = UIColor(named: "c545454")!
     static let c2F2F2F = UIColor(named: "c2F2F2F")!
     static let c3B3B3B = UIColor(named: "c3B3B3B")!
+    /// Life
+    static let cFEBA5B = UIColor(named: "cFEBA5B")!
+    /// Fashion
+    static let cFF7273 = UIColor(named: "cFF7273")!
+    /// Hobbies
+    static let c60A8E0 = UIColor(named: "c60A8E0")!
+    /// Miscellaneous
+    static let cA8C953 = UIColor(named: "cA8C953")!
 }
