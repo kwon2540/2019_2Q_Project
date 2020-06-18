@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>195666049609-639mjdriratblr4oh33tf28dror6tnbo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.195666049609-639mjdriratblr4oh33tf28dror6tnbo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAzHyNd_J1KsqqSJSt5U59fdYMoFrX6oQ4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>195666049609</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>j.kwon.Project-2Q-2019-dev</string>
+	<key>PROJECT_ID</key>
+	<string>buylog-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>buylog-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:195666049609:ios:26445be0035bd2f0fd5d98</string>
+	<key>DATABASE_URL</key>
+	<string>https://buylog-dev.firebaseio.com</string>
+</dict>
+</plist>
