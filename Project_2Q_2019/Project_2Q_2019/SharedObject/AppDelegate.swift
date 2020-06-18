@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        enum BundleType {
+        enum Environment {
             case debug
             case release
             
@@ -29,9 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        let bundleType: BundleType = AppDelegate.isDebug ? .debug : .release
+        let environment: Environment = AppDelegate.isDebug ? .debug : .release
         
-        if let path = Bundle.main.path(forResource: bundleType.firebasePlistName, ofType: "plist"),
+        if let path = Bundle.main.path(forResource: environment.firebasePlistName, ofType: "plist"),
             let firbaseOptions = FirebaseOptions(contentsOfFile: path) {
           FirebaseApp.configure(options: firbaseOptions)
         }
