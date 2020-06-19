@@ -103,7 +103,7 @@ struct FirebaseManager: APIManager {
     func signIn(email: String, password: String, completion: @escaping (APIState) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
             if error != nil {
-                // 로그인 실패인 경우
+                // Failed Login
                 return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
             completion(.success)
@@ -117,19 +117,19 @@ struct FirebaseManager: APIManager {
     func addGoodsDatedate(dateList: [String], completion: @escaping (APIState) -> Void) {
 
         guard let uid = Auth.auth().currentUser?.uid else {
-            // 로그인 인증 할수 없는 경우
+            // Failed Login
             return completion(.failed(error: .authError))
         }
 
         let goodsDateListModel = GoodsDateListModel(dateList: dateList)
         guard let data = try? FirestoreEncoder().encode(goodsDateListModel) else {
-            // 엔코딩 실패인 경우
+            // Failed Encode
             return completion(.failed(error: .encodeError))
         }
 
         Firestore.firestore().collection(Collections.goodslist.key).document(uid).setData(data) { (error) in
             if error != nil {
-                // 콜렉션 추가에 실패한 경우
+                // Failed Add Collection Data
                 return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
             completion(.success)
