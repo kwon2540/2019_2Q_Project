@@ -36,6 +36,7 @@
 		104106E524309741004E6D48 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 104106E424309741004E6D48 /* HomeTableViewCell.xib */; };
 		104106E72430975B004E6D48 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104106E62430975B004E6D48 /* HomeTableViewCell.swift */; };
 		10519E5A249B55C700A41E60 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10519E59249B55C700A41E60 /* GoogleService-Info-dev.plist */; };
+		10519E5D249C96E800A41E60 /* GoodsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10519E5C249C96E800A41E60 /* GoodsCategory.swift */; };
 		1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */; };
 		1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */; };
 		1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */; };
@@ -123,6 +124,7 @@
 		104106E424309741004E6D48 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		104106E62430975B004E6D48 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		10519E59249B55C700A41E60 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
+		10519E5C249C96E800A41E60 /* GoodsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCategory.swift; sourceTree = "<group>"; };
 		1063530E23B740F7004A4BB4 /* RoundBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBorderButton.swift; sourceTree = "<group>"; };
 		1073EC3323DC00BC003BB2C5 /* AddGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGoodsViewController.storyboard; sourceTree = "<group>"; };
 		1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodsViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		1032FE552338C0920039E9C0 /* SharedObject */ = {
 			isa = PBXGroup;
 			children = (
+				10519E5B249C96C300A41E60 /* Model */,
 				1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */,
 				10B00E0623769DBD00864551 /* LogManager.swift */,
 				107A3863237FDC5600D276E9 /* ActivityIndicator.swift */,
@@ -315,6 +318,10 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		10519E5B249C96C300A41E60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10519E5C249C96E800A41E60 /* GoodsCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -783,6 +790,7 @@
 				1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */,
 				10A8FE1423A4B44100F64F96 /* MenuViewModel.swift in Sources */,
 				1073EC3823DC00D6003BB2C5 /* AddGoodsViewModel.swift in Sources */,
+				10519E5D249C96E800A41E60 /* GoodsCategory.swift in Sources */,
 				100CF48423AE012800B3557D /* HistoryViewModel.swift in Sources */,
 				10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */,
 				10128AAE2403B55B00C6F5B9 /* Extension+UITableView.swift in Sources */,

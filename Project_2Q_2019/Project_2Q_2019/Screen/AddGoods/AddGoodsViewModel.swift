@@ -38,7 +38,7 @@ struct AddGoodsViewModel: APIStateProtocol {
         case life
         case fashion
         case hobbies
-        case etc
+        case miscellaneous
     }
 
     let apiStateRelay = PublishRelay<APIState>()
