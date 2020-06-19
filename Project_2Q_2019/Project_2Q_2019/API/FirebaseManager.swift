@@ -17,6 +17,7 @@ protocol APIManager {
     func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void)
     func signIn(email: String, password: String, completion: @escaping (APIState) -> Void)
     func signOut()
+    func loadGoods(completion: @escaping (GoodsList?, APIState) -> Void)
 }
 
 // MARK: APIStateProtocol
@@ -135,6 +136,7 @@ struct FirebaseManager: APIManager {
         }
     }
 
+    func loadGoods(completion: @escaping (GoodsList?, APIState) -> Void) {
 
         guard let uid = Auth.auth().currentUser?.uid else {
             // UID 인증 할수 없는 경우
@@ -148,7 +150,7 @@ struct FirebaseManager: APIManager {
             }
 
             guard let snapshotData = snapshot?.data(),
-                let data = try? FirestoreDecoder().decode(GoodsDateListModel.self, from: snapshotData) else {
+                let data = try? FirestoreDecoder().decode(GoodsList.self, from: snapshotData) else {
                     // 스냅샷 데이터가 없는경우
                     return completion(nil, .success)
             }

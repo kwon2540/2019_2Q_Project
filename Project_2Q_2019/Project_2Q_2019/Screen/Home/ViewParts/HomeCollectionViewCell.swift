@@ -75,12 +75,13 @@ extension HomeCollectionViewCell: UITableViewDelegate {
 extension HomeCollectionViewCell: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.goods.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(of: HomeTableViewCell.self, for: indexPath)
         cell.selectionStyle = .none
+        cell.set(name: viewModel.goods[indexPath.row].name)
 
         return cell
     }
