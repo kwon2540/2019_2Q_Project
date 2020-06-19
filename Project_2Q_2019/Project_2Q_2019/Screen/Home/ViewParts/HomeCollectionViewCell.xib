@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -70,27 +70,18 @@
                             <constraint firstAttribute="trailing" secondItem="XeR-N1-bF5" secondAttribute="trailing" id="jgD-JU-juO"/>
                         </constraints>
                     </view>
-                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYw-MP-m2R">
-                        <rect key="frame" x="0.0" y="50" width="301" height="424"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="rYw-MP-m2R" firstAttribute="top" secondItem="tUL-6J-Ujg" secondAttribute="top" constant="50" id="6Ve-N7-BGM"/>
                 <constraint firstItem="Cp8-R7-Klt" firstAttribute="leading" secondItem="tUL-6J-Ujg" secondAttribute="leading" id="93H-0i-wJ1"/>
-                <constraint firstAttribute="bottom" secondItem="rYw-MP-m2R" secondAttribute="bottom" id="EdV-xm-n4t"/>
                 <constraint firstItem="Cp8-R7-Klt" firstAttribute="top" secondItem="tUL-6J-Ujg" secondAttribute="top" id="Hqw-5l-oho"/>
                 <constraint firstAttribute="bottom" secondItem="Cp8-R7-Klt" secondAttribute="bottom" id="Mch-Nw-oxK"/>
                 <constraint firstAttribute="trailing" secondItem="Cp8-R7-Klt" secondAttribute="trailing" id="QpU-9M-kUI"/>
-                <constraint firstAttribute="trailing" secondItem="rYw-MP-m2R" secondAttribute="trailing" id="SjR-ju-3Rj"/>
-                <constraint firstItem="rYw-MP-m2R" firstAttribute="leading" secondItem="tUL-6J-Ujg" secondAttribute="leading" id="n8M-lS-3WT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Eb5-WY-A3D"/>
             <size key="customSize" width="301" height="474"/>
             <connections>
-                <outlet property="coverView" destination="rYw-MP-m2R" id="atg-QZ-Uzy"/>
                 <outlet property="mainView" destination="Cp8-R7-Klt" id="Pte-DS-gAX"/>
                 <outlet property="tableView" destination="N0N-86-DQ2" id="b8i-Sc-ZTv"/>
                 <outlet property="topTitleImageView" destination="TBB-1p-GSo" id="AwN-QV-Gzi"/>
