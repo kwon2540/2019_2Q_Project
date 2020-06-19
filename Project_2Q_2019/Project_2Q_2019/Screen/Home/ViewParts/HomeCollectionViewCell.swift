@@ -7,27 +7,15 @@
 //
 
 import UIKit
-import RxSwift
 
 final class HomeCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var coverView: UIView!
     @IBOutlet private weak var topTitleImageView: UIImageView!
     @IBOutlet private weak var topTitleLabel: UILabel!
 
-    private let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-
-    private let disposeBag = DisposeBag()
-
     var viewModel: HomeCollectionViewModel!
-
-    override func awakeFromNib() {
-        activityIndicatorView.style = .gray
-
-        coverView.addSubview(activityIndicatorView)
-    }
 
     override func layoutSubviews() {
         setupLayout()
@@ -38,28 +26,10 @@ final class HomeCollectionViewCell: UICollectionViewCell {
 
     private func setupLayout() {
         mainView.layer.cornerRadius = 25
-        coverView.layer.cornerRadius = 25
-        coverView.backgroundColor = UIColor.cFAFAFA
         layer.shadowRadius = 10
         layer.shadowOpacity = 0.3
         layer.shadowOffset = CGSize(width: 5, height: 5)
         clipsToBounds = false
-
-        activityIndicatorView.center = CGPoint(x: self.frame.width / 2, y: (self.frame.height / 2) - 50)
-    }
-
-    private func setupTopTitleView() {
-        if let cardType = viewModel.cardType {
-            topTitleImageView.image = cardType.image
-            topTitleLabel.text = cardType.title
-        }
-    }
-
-    private func setupBackgroundView() {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: self.tableView.frame.height))
-        imageView.image = UIImage(named: "NoGoodsImage")
-        imageView.contentMode = .center
-        tableView.backgroundView = imageView
     }
 
     private func setupTableView() {
@@ -67,40 +37,19 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         tableView.dataSource = self
         tableView.registerXib(of: HomeTableViewCell.self)
     }
-
-    private func activityIndicatorStart() {
-        coverView.isHidden = false
-
-        if !(activityIndicatorView.isAnimating) {
-            activityIndicatorView.startAnimating()
+    
+    private func setupTopTitleView() {
+        topTitleImageView.image = viewModel.category.image
+        topTitleLabel.text = viewModel.category.title
+    }
+    
+    private func setupBackgroundView() {
+        if viewModel.goods.isEmpty {
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: self.tableView.frame.height))
+            imageView.image = UIImage(named: "NoGoodsImage")
+            imageView.contentMode = .center
+            tableView.backgroundView = imageView
         }
-    }
-
-    private func activityIndicatorStop() {
-        coverView.isHidden = true
-
-        activityIndicatorView.stopAnimating()
-    }
-
-    func bindViewModel() {
-
-        // Output
-        viewModel.apiState.emit(onNext: { [weak self] (state) in
-            guard let this = self else { return }
-
-            switch state {
-            // 로딩 시 인디케이터 표시
-            case .loading:
-                this.activityIndicatorStart()
-            // 성공시 인디케이터 중지 및 테이블뷰 리로드
-            case .success:
-                this.tableView.reloadData()
-                //                this.activityIndicatorStop()
-            // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
-            case .failed:
-                this.activityIndicatorStop()
-            }
-        }).disposed(by: disposeBag)
     }
 }
 

@@ -9,38 +9,14 @@
 import Foundation
 import RxCocoa
 
-final class HomeCollectionViewModel: APIStateProtocol {
-
-    let apiStateRelay = PublishRelay<APIState>()
-
-    var cardType: HomeViewModel.CardType?
+struct HomeCollectionViewModel {
+    
+    var category: GoodsCategory
 
     var goods: [Goods] = []
 
-    init(cardType: HomeViewModel.CardType) {
-        self.cardType = cardType
-
+    init(category: GoodsCategory, goods: [Goods]) {
+        self.category = category
+        self.goods = goods
     }
-
-    //    func loadGoodsFromFirebase() {
-    //        apiStateRelay.accept(.loading)
-    //        FirebaseManager.shared.loadGoodsList(date: date) { [weak self] (response, state) in
-    //            guard let this = self else { return }
-    //
-    //            if let goods = response?.goods {
-    //                this.goods = goods
-    //            }
-    //
-    //            this.updateGoodsData()
-    //
-    //            this.apiStateRelay.accept(state)
-    //        }
-    //    }
-
-    //    func getRowCount(section: SectionType) -> Int {
-    //        switch section {
-    //        case .toPurchase: return toPurchaseData.count
-    //        case .purchased: return purchasedData.count
-    //        }
-    //    }
 }

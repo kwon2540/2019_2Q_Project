@@ -118,7 +118,6 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: HomeCollectionViewCell.self, for: indexPath)
         cell.viewModel = HomeCollectionViewModel(cardType: viewModel.cardType[indexPath.item])
-        cell.bindViewModel()
 
         return cell
     }
