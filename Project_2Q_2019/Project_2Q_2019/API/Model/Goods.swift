@@ -8,11 +8,8 @@
 
 import Foundation
 
-struct GoodsList: Codable {
-    var goods: [Goods]
-}
-
 struct Goods: Codable {
     var name: String
     var category: String
+    var id: String
 }

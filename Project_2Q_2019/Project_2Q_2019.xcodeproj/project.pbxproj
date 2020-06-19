@@ -42,7 +42,7 @@
 		1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */; };
 		1073EC3823DC00D6003BB2C5 /* AddGoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3723DC00D6003BB2C5 /* AddGoodsViewModel.swift */; };
 		1073EC3A23DC18A7003BB2C5 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3923DC18A7003BB2C5 /* ShadowView.swift */; };
-		1073EC3C23EE6E35003BB2C5 /* GoodsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3B23EE6E35003BB2C5 /* GoodsList.swift */; };
+		1073EC3C23EE6E35003BB2C5 /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073EC3B23EE6E35003BB2C5 /* Goods.swift */; };
 		107901CA24710B8600D28D4B /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107901C924710B8600D28D4B /* AlertView.swift */; };
 		107A3864237FDC5600D276E9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A3863237FDC5600D276E9 /* ActivityIndicator.swift */; };
 		107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A3865237FE5B400D276E9 /* DropDownManager.swift */; };
@@ -130,7 +130,7 @@
 		1073EC3523DC00CB003BB2C5 /* AddGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodsViewController.swift; sourceTree = "<group>"; };
 		1073EC3723DC00D6003BB2C5 /* AddGoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoodsViewModel.swift; sourceTree = "<group>"; };
 		1073EC3923DC18A7003BB2C5 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
-		1073EC3B23EE6E35003BB2C5 /* GoodsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsList.swift; sourceTree = "<group>"; };
+		1073EC3B23EE6E35003BB2C5 /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
 		107901C924710B8600D28D4B /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		107A3863237FDC5600D276E9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		107A3865237FE5B400D276E9 /* DropDownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownManager.swift; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				10B00E042376846E00864551 /* User.swift */,
-				1073EC3B23EE6E35003BB2C5 /* GoodsList.swift */,
+				1073EC3B23EE6E35003BB2C5 /* Goods.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -798,7 +798,7 @@
 				107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */,
 				10A7C2F9237047F20050F6B8 /* FirebaseManager.swift in Sources */,
 				108FFD86237FFFDA005B21CC /* Extension+UIColor.swift in Sources */,
-				1073EC3C23EE6E35003BB2C5 /* GoodsList.swift in Sources */,
+				1073EC3C23EE6E35003BB2C5 /* Goods.swift in Sources */,
 				104106E72430975B004E6D48 /* HomeTableViewCell.swift in Sources */,
 				1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */,
 				10A8FE1223A4B43800F64F96 /* MenuViewController.swift in Sources */,
