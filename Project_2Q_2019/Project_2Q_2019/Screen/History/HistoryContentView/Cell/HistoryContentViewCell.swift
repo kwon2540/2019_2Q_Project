@@ -10,19 +10,15 @@ import UIKit
 
 class HistoryContentViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     // MARK: IBOutlet
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var amountLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    //MARK: Bind
+    func bind(viewModel: HistoryContentCellViewModel) {
+        nameLabel.text = viewModel.name
+        amountLabel.text = viewModel.amount
+        priceLabel.text = viewModel.price
     }
-    
 }
