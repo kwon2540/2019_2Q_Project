@@ -6,4 +6,17 @@
 //  Copyright © 2020 JUNHYEOK KWON. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class HistoryContentView: UIView {
+    
+    //MARK: IBOutlets
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var totalGoodsAmountLabelArea: UIView!
+    @IBOutlet weak var totalGoodsAmountLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+}
