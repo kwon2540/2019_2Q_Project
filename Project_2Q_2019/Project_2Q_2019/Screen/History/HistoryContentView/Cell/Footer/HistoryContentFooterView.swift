@@ -15,6 +15,15 @@ final class HistoryContentFooterView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setup()
     }
     
+    private func setup() {
+        setupContentView()
+    }
+    
+    // TODO: Make Rounded Corner On Bottom Edges
+    private func setupContentView() {
+    }
 }
