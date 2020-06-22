@@ -9,12 +9,16 @@
 import Foundation
 import UIKit
 
-extension UIView {
+protocol XibInstantiable { }
 
-    func loadXib() {
-        let nib = UINib(nibName: String(describing: Self.self), bundle: nil)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
-        view.frame = self.bounds
-        addSubview(view)
+extension XibInstantiable where Self: UIView {
+    static var xibName: String {
+        return String(describing: Self.self)
+    }
+
+    static func loadXib() -> Self {
+        let nib = UINib(nibName: xibName, bundle: nil)
+        let view = nib.instantiate(withOwner: self, options: nil).first as! Self
+        return view
     }
 }
