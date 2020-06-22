@@ -10,13 +10,22 @@ import Foundation
 import RxCocoa
 
 struct HomeCollectionViewModel {
-    
+        
     var category: GoodsCategory
-
     var goods: [Goods] = []
 
     init(category: GoodsCategory, goods: [Goods]) {
         self.category = category
         self.goods = goods
+    }
+    
+    func getBackgroundImage(frame: CGRect) -> UIImageView? {
+        if goods.isEmpty {
+            let imageView = UIImageView(frame: frame)
+            imageView.image = UIImage(named: "NoGoodsImage")
+            imageView.contentMode = .center
+            return imageView
+        }
+        return nil
     }
 }
