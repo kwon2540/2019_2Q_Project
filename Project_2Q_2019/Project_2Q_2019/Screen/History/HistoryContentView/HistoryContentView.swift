@@ -7,26 +7,63 @@
 //
 
 import UIKit
+import RxSwift
 
 final class HistoryContentView: UIView {
-    
-    //MARK: IBOutlets
+
+    // MARK: IBOutlets
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var totalGoodsAmountLabelArea: UIView!
     @IBOutlet weak var totalGoodsAmountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
+
+    // MARK: Properties
+    private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "")
+    private let disposeBag: DisposeBag = DisposeBag()
+
+    // MARK: LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        setup()
+        bind()
+    }
+
+    func startFetchingBoughtGoods() {
+        viewModel.fetchAllBoughtGoods()
+    }
+
     // MARK: Setup
     private func setup() {
         setupTableView()
     }
+
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerXib(of: HistoryContentViewCell.self)
     }
+
+    // MARK: Bind
+    private func bind() {
+        viewModel.apiState.emit(onNext: { [weak self] (state) in
+            guard let this = self else { return }
+
+            switch state {
+            case .loading:
+                ActivityIndicator.shared.start(view: this)
+            case .success:
+                ActivityIndicator.shared.stop(view: this)
+                this.tableView.reloadData()
+            case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: this,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
+                apiErrorLog(logMessage: error.description)
+                ActivityIndicator.shared.stop(view: this)
+            }
+        }).disposed(by: disposeBag)
     }
 }
 
