@@ -57,7 +57,7 @@
                                 <constraint firstItem="6kI-Pi-eGW" firstAttribute="leading" secondItem="5kA-Dj-WJS" secondAttribute="leading" constant="20" id="xl1-6S-Z0q"/>
                             </constraints>
                         </view>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nZt-i5-DO2">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nZt-i5-DO2">
                             <rect key="frame" x="0.0" y="47" width="375" height="620"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </tableView>
