@@ -14,6 +14,10 @@ class HistoryContentViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    // MARK: IBOutlet
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var amountLabel: UILabel!
+    @IBOutlet private weak var priceLabel: UILabel!
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
