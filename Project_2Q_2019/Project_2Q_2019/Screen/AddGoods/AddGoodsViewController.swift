@@ -11,12 +11,6 @@ import RxSwift
 
 final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
-    //    enum TextFieldTag: Int {
-    //        case nameTextField
-    //        case priceTextField
-    //        case amountTextField
-    //    }
-
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var addButton: RoundButton!
@@ -38,8 +32,6 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        nameTextField.delegate = self
 
         setupLayouts()
 
@@ -135,20 +127,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     }
 }
 
-extension AddGoodsViewController: UITextFieldDelegate {
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return false
     }
-
-    //    func textFieldDidBeginEditing(_ textField: UITextField) {
-    //        switch TextFieldTag.init(rawValue: textField.tag) {
-    //        case .amountTextField:
-    //            textField.text = ""
-    //        default:
-    //            break
-    //        }
-    //    }
 }
 
 // MARK: Keyboard Notifications

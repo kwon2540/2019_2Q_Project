@@ -105,10 +105,6 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate {
-
-}
-
 extension HomeViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
