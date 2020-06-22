@@ -79,6 +79,8 @@
 		6477C81624A0927500BD2BD0 /* HistoryContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C81524A0927500BD2BD0 /* HistoryContentHeaderView.swift */; };
 		6477C81824A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C81724A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift */; };
 		6477C81A24A0928F00BD2BD0 /* HistoryContentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6477C81924A0928F00BD2BD0 /* HistoryContentHeaderView.xib */; };
+		6477C81D24A09BFD00BD2BD0 /* HistoryContentFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C81C24A09BFD00BD2BD0 /* HistoryContentFooterView.swift */; };
+		6477C81F24A09C2700BD2BD0 /* HistoryContentFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6477C81E24A09C2700BD2BD0 /* HistoryContentFooterView.xib */; };
 		E1799685027F0730AF491B88 /* Pods_Project_2Q_2019UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F464980BEC4F3155A426D2A /* Pods_Project_2Q_2019UITests.framework */; };
 		EAE39FA429389A4E5C7D7140 /* Pods_Project_2Q_2019Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9561781C47D200A1C5A49BA /* Pods_Project_2Q_2019Tests.framework */; };
 /* End PBXBuildFile section */
@@ -182,6 +184,8 @@
 		6477C81524A0927500BD2BD0 /* HistoryContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentHeaderView.swift; sourceTree = "<group>"; };
 		6477C81724A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentHeaderViewModel.swift; sourceTree = "<group>"; };
 		6477C81924A0928F00BD2BD0 /* HistoryContentHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryContentHeaderView.xib; sourceTree = "<group>"; };
+		6477C81C24A09BFD00BD2BD0 /* HistoryContentFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentFooterView.swift; sourceTree = "<group>"; };
+		6477C81E24A09C2700BD2BD0 /* HistoryContentFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryContentFooterView.xib; sourceTree = "<group>"; };
 		C992C0A258A303CDF11D7171 /* Pods-Project_2Q_2019.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019/Pods-Project_2Q_2019.release.xcconfig"; sourceTree = "<group>"; };
 		CECB5D85303E0522B8E01512 /* Pods-Project_2Q_2019Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019Tests.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E1BF6ABDCD5D650FDE1DC48F /* Pods-Project_2Q_2019UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019UITests.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019UITests/Pods-Project_2Q_2019UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -523,6 +527,7 @@
 		6477C80B24A088DC00BD2BD0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				6477C81B24A09AC500BD2BD0 /* Footer */,
 				6477C81424A0918E00BD2BD0 /* Header */,
 				6477C80E24A0894000BD2BD0 /* HistoryContentViewCell.swift */,
 				6477C80F24A0894000BD2BD0 /* HistoryContentViewCell.xib */,
@@ -539,6 +544,15 @@
 				6477C81724A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		6477C81B24A09AC500BD2BD0 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				6477C81C24A09BFD00BD2BD0 /* HistoryContentFooterView.swift */,
+				6477C81E24A09C2700BD2BD0 /* HistoryContentFooterView.xib */,
+			);
+			path = Footer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -662,6 +676,7 @@
 				10A7E55622EDC1F500DF3D34 /* .swiftlint.yml in Resources */,
 				10A7E53122EDC14100DF3D34 /* LaunchScreen.storyboard in Resources */,
 				104106E524309741004E6D48 /* HomeTableViewCell.xib in Resources */,
+				6477C81F24A09C2700BD2BD0 /* HistoryContentFooterView.xib in Resources */,
 				6477C81124A0894000BD2BD0 /* HistoryContentViewCell.xib in Resources */,
 				100CF47923ADFEFC00B3557D /* ExpenseViewController.storyboard in Resources */,
 				10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */,
@@ -831,6 +846,7 @@
 				1032FE572338C1050039E9C0 /* StoryboardInstantiable.swift in Sources */,
 				104106D9243071DF004E6D48 /* HomeCollectionViewModel.swift in Sources */,
 				10A8FE0923A4B10C00F64F96 /* Extension+Date.swift in Sources */,
+				6477C81D24A09BFD00BD2BD0 /* HistoryContentFooterView.swift in Sources */,
 				1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */,
 				10A8FE1423A4B44100F64F96 /* MenuViewModel.swift in Sources */,
 				1073EC3823DC00D6003BB2C5 /* AddGoodsViewModel.swift in Sources */,
