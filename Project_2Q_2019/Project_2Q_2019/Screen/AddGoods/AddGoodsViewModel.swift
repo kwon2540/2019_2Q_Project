@@ -27,7 +27,7 @@ extension AddGoodsStateProtocol {
     }
 }
 
-struct AddGoodsViewModel: APIStateProtocol {
+final class AddGoodsViewModel: APIStateProtocol {
 
     struct UIState: AddGoodsStateProtocol {
 
@@ -44,5 +44,14 @@ struct AddGoodsViewModel: APIStateProtocol {
             .asObservable().map { UIState(nameText: $0) }
         isAddButtonEnabled = state.map { $0.isAddButtonEnabled }
         nameSaperatorColor = state.map { $0.nameSaperatorColor }
+    }
+    
+    func addGoods(goods: Goods) {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.addGoods(goods: goods) { [weak self] state in
+            guard let this = self else { return }
+            
+            this.apiStateRelay.accept(state)
+        }
     }
 }

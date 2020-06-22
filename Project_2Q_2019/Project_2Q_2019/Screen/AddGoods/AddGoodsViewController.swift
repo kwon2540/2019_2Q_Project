@@ -23,12 +23,10 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
     private let disposeBag = DisposeBag()
 
-    private var selectedCategory: AddGoodsViewModel.Category = .life
-
     private lazy var categoryButtons: [UIButton] = [lifeButton, fashionButton, hobbiesButton, etcButton]
 
     var viewModel: AddGoodsViewModel!
-    var dismissed: (() -> Void)?
+    var dismissed: ((Bool) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,17 +47,15 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func dismiss(_ sender: Any) {
-        dismissed?()
-        dismiss(animated: true)
+        close(isDataChanged: false)
     }
 
     @IBAction private func addGoods(_ sender: Any) {
-
+        viewModel.addGoods(goods: Goods(name: viewModel.nameText.value, category: getCategoryKey(), id: UUID().uuidString))
     }
 
     @IBAction private func categoryButtons(_ sender: UIButton) {
-        guard !sender.isSelected,
-            let category = AddGoodsViewModel.Category(rawValue: sender.tag) else { return }
+        guard !sender.isSelected else { return }
 
         categoryButtons[sender.tag].isSelected = true
         categoryButtons.enumerated().forEach { index, button in
@@ -67,8 +63,6 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
                 button.isSelected = false
             }
         }
-
-        selectedCategory = category
     }
 
     private func setupLayouts() {
@@ -80,6 +74,17 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         lifeButton.isSelected = true
 
         nameTextField.becomeFirstResponder()
+    }
+    
+    private func getCategoryKey() -> String {
+        guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag,
+            let key = GoodsCategory(rawValue: tag)?.key else { return GoodsCategory.life.key }
+        return key
+    }
+    
+    private func close(isDataChanged: Bool) {
+        dismissed?(isDataChanged)
+        dismiss(animated: true)
     }
 
     private func bindViewModel() {
@@ -98,35 +103,29 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
             .bind(to: nameSaperator.rx.backgroundColor)
             .disposed(by: disposeBag)
 
-        //        viewModel.apiState.emit(onNext: { [weak self] (state) in
-        //            guard let this = self, let view = this.view else { return }
-        //
-        //            switch state {
-        //            // 로딩 시 인디케이터 표시
-        //            case .loading:
-        //                ActivityIndicator.shared.start(view: view)
-        //            // 성공시 인디케이터 중지 및 디스미스
-        //            case .success:
-        //                ActivityIndicator.shared.stop(view: view)
-        //                this.dismiss(animated: true) { [weak self] in
-        //                    guard let this = self else { return }
-        //                    this.dismissed?()
-        //                }
-        //            // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
-        //            case .failed(let error):
-        //                DropDownManager.shared.showDropDownNotification(view: view,
-        //                                                                width: nil,
-        //                                                                height: nil,
-        //                                                                type: .error,
-        //                                                                message: error.description)
-        //                apiErrorLog(logMessage: error.description)
-        //                ActivityIndicator.shared.stop(view: view)
-        //                this.dismiss(animated: true)
-        //            }
-        //        }).disposed(by: disposeBag)
-    }
-}
-
+        viewModel.apiState.emit(onNext: { [weak self] (state) in
+            guard let this = self, let view = this.view else { return }
+            
+            switch state {
+            // 로딩 시 인디케이터 표시
+            case .loading:
+                ActivityIndicator.shared.start(view: view)
+            // 성공시 인디케이터 중지 및 디스미스
+            case .success:
+                ActivityIndicator.shared.stop(view: view)
+                this.close(isDataChanged: true)
+            // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
+            case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: view,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
+                apiErrorLog(logMessage: error.description)
+                ActivityIndicator.shared.stop(view: view)
+                this.close(isDataChanged: false)
+            }
+        }).disposed(by: disposeBag)
     }
 }
 
