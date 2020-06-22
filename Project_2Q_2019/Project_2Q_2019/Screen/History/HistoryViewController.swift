@@ -66,7 +66,7 @@ extension HistoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: HistoryCollectionViewCell.self, for: indexPath)
         cell.viewModel = HistoryCollectionViewModel(date: "20200405")
-        cell.bindViewModel()
+        //        cell.bindViewModel()
 
         return cell
     }
