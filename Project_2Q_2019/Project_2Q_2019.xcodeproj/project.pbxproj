@@ -76,6 +76,9 @@
 		6477C81024A0894000BD2BD0 /* HistoryContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C80E24A0894000BD2BD0 /* HistoryContentViewCell.swift */; };
 		6477C81124A0894000BD2BD0 /* HistoryContentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6477C80F24A0894000BD2BD0 /* HistoryContentViewCell.xib */; };
 		6477C81324A08CB100BD2BD0 /* HistoryContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C81224A08CB100BD2BD0 /* HistoryContentCellViewModel.swift */; };
+		6477C81624A0927500BD2BD0 /* HistoryContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C81524A0927500BD2BD0 /* HistoryContentHeaderView.swift */; };
+		6477C81824A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C81724A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift */; };
+		6477C81A24A0928F00BD2BD0 /* HistoryContentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6477C81924A0928F00BD2BD0 /* HistoryContentHeaderView.xib */; };
 		E1799685027F0730AF491B88 /* Pods_Project_2Q_2019UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F464980BEC4F3155A426D2A /* Pods_Project_2Q_2019UITests.framework */; };
 		EAE39FA429389A4E5C7D7140 /* Pods_Project_2Q_2019Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9561781C47D200A1C5A49BA /* Pods_Project_2Q_2019Tests.framework */; };
 /* End PBXBuildFile section */
@@ -176,6 +179,9 @@
 		6477C80E24A0894000BD2BD0 /* HistoryContentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentViewCell.swift; sourceTree = "<group>"; };
 		6477C80F24A0894000BD2BD0 /* HistoryContentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryContentViewCell.xib; sourceTree = "<group>"; };
 		6477C81224A08CB100BD2BD0 /* HistoryContentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentCellViewModel.swift; sourceTree = "<group>"; };
+		6477C81524A0927500BD2BD0 /* HistoryContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentHeaderView.swift; sourceTree = "<group>"; };
+		6477C81724A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentHeaderViewModel.swift; sourceTree = "<group>"; };
+		6477C81924A0928F00BD2BD0 /* HistoryContentHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryContentHeaderView.xib; sourceTree = "<group>"; };
 		C992C0A258A303CDF11D7171 /* Pods-Project_2Q_2019.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019/Pods-Project_2Q_2019.release.xcconfig"; sourceTree = "<group>"; };
 		CECB5D85303E0522B8E01512 /* Pods-Project_2Q_2019Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019Tests.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E1BF6ABDCD5D650FDE1DC48F /* Pods-Project_2Q_2019UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019UITests.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019UITests/Pods-Project_2Q_2019UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -517,11 +523,22 @@
 		6477C80B24A088DC00BD2BD0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				6477C81424A0918E00BD2BD0 /* Header */,
 				6477C80E24A0894000BD2BD0 /* HistoryContentViewCell.swift */,
 				6477C80F24A0894000BD2BD0 /* HistoryContentViewCell.xib */,
 				6477C81224A08CB100BD2BD0 /* HistoryContentCellViewModel.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		6477C81424A0918E00BD2BD0 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				6477C81524A0927500BD2BD0 /* HistoryContentHeaderView.swift */,
+				6477C81724A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift */,
+				6477C81924A0928F00BD2BD0 /* HistoryContentHeaderView.xib */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -636,6 +653,7 @@
 			files = (
 				1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */,
 				100CF48023AE011400B3557D /* HistoryViewController.storyboard in Resources */,
+				6477C81A24A0928F00BD2BD0 /* HistoryContentHeaderView.xib in Resources */,
 				1032FE6E2338ECC90039E9C0 /* Assets.colors.xcassets in Resources */,
 				10A7E5982312B86800DF3D34 /* HomeViewController.storyboard in Resources */,
 				108D9F822439AD320058EF41 /* HistoryCollectionViewCell.xib in Resources */,
@@ -841,6 +859,8 @@
 				1073EC3623DC00CB003BB2C5 /* AddGoodsViewController.swift in Sources */,
 				107A3864237FDC5600D276E9 /* ActivityIndicator.swift in Sources */,
 				6477C81324A08CB100BD2BD0 /* HistoryContentCellViewModel.swift in Sources */,
+				6477C81824A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift in Sources */,
+				6477C81624A0927500BD2BD0 /* HistoryContentHeaderView.swift in Sources */,
 				10A00AA2237FBBCD00BA90EB /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
