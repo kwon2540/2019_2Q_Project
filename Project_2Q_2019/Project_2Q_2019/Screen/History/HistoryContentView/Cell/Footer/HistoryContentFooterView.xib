@@ -10,12 +10,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HistoryContentFooterView" customModule="Project_2Q_2019" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="24"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDA-ul-BEM">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="24"/>
+                    <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="UDA-ul-BEM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3BC-84-Wr0"/>
+                <constraint firstAttribute="trailing" secondItem="UDA-ul-BEM" secondAttribute="trailing" id="dOU-5a-W2t"/>
+                <constraint firstItem="UDA-ul-BEM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jZl-Qt-fa8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="UDA-ul-BEM" secondAttribute="bottom" id="pjU-Bm-ajV"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="contentView" destination="UDA-ul-BEM" id="Q7s-RL-E7S"/>
+            </connections>
             <point key="canvasLocation" x="133" y="154"/>
         </view>
     </objects>
