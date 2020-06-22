@@ -8,14 +8,14 @@
 
 import UIKit
 
-class HistoryContentViewCell: UITableViewCell {
+final class HistoryContentViewCell: UITableViewCell {
 
     // MARK: IBOutlet
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var amountLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
 
-    //MARK: Bind
+    // MARK: Bind
     func bind(viewModel: HistoryContentCellViewModel) {
         nameLabel.text = viewModel.name
         amountLabel.text = viewModel.amount
