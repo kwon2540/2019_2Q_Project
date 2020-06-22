@@ -11,32 +11,50 @@ import RxCocoa
 
 final class HomeViewModel: APIStateProtocol {
 
-    enum CardType: Int, CaseIterable {
-        case life
-        case fashion
-        case hobby
-        case etc
-
-        var image: UIImage? {
-            switch self {
-            case .life: return UIImage(named: "Life")
-            case .fashion: return UIImage(named: "Fashion")
-            case .hobby: return UIImage(named: "Hobbies")
-            case .etc: return UIImage(named: "Etc")
-            }
-        }
-
-        var title: String {
-            switch self {
-            case .life: return "生活"
-            case .fashion: return "ファッション"
-            case .hobby: return "趣味"
-            case .etc: return "その他"
-            }
-        }
-    }
-
     let apiStateRelay = PublishRelay<APIState>()
 
-    var cardType: [CardType] = CardType.allCases.map({ $0 })
+    var reloadState: APIState = .loading
+    var category: [GoodsCategory] = GoodsCategory.allCases.map({ $0 })
+    var lifeGoods: [Goods] = []
+    var fashionGoods: [Goods] = []
+    var hobbyGoods: [Goods] = []
+    var miscellaneousGoods: [Goods] = []
+    
+    func loadGoods() {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.loadGoods() { [weak self] (response, state) in
+            guard let this = self else { return }
+            
+            if let goods = response {
+                
+                this.lifeGoods = goods.filter {
+                    $0.category == GoodsCategory.life.key
+                }
+                
+                this.fashionGoods = goods.filter {
+                    $0.category == GoodsCategory.fashion.key
+                }
+                
+                this.hobbyGoods = goods.filter {
+                    $0.category == GoodsCategory.hobby.key
+                }
+                
+                this.miscellaneousGoods = goods.filter {
+                    $0.category == GoodsCategory.miscellaneous.key
+                }
+            }
+            
+            this.apiStateRelay.accept(state)
+            this.reloadState = state
+        }
+    }
+    
+    func getGoodsData(category: GoodsCategory) -> [Goods] {
+        switch category {
+        case .life: return lifeGoods
+        case .fashion: return fashionGoods
+        case .hobby: return hobbyGoods
+        case .miscellaneous: return miscellaneousGoods
+        }
+    }
 }

@@ -15,13 +15,15 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var corverView: UIView!
 
     private let disposeBag = DisposeBag()
-
+    
     var viewModel: HomeViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         bindViewModel()
+        
+        viewModel.loadGoods()
     }
 
     override func viewDidLayoutSubviews() {
@@ -49,9 +51,13 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBAction private func add(_ sender: Any) {
         let vc = AddGoodsViewController.getStoryBoard()
-        vc.dismissed = { [weak self] in
+        vc.dismissed = { [weak self] isDataChanged in
             guard let this = self else { return }
             this.corverView.isHidden = true
+            
+            if isDataChanged {
+                this.viewModel.loadGoods()
+            }
         }
         vc.viewModel = AddGoodsViewModel()
 
@@ -85,13 +91,14 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         // Output
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
-
+            
             switch state {
             case .loading:
-                break
+                ActivityIndicator.shared.start(view: view)
             // 성공시 콜렉션뷰 리로드
             case .success:
                 this.collectionView.reloadData()
+                ActivityIndicator.shared.stop(view: view)
             // 실패시 드롭다운 표시 및 에러 핸들링
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
@@ -100,26 +107,30 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
                                                                 type: .error,
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
+                ActivityIndicator.shared.start(view: view)
             }
         }).disposed(by: disposeBag)
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate {
-
-}
-
 extension HomeViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.cardType.count
+        return viewModel.category.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: HomeCollectionViewCell.self, for: indexPath)
-        cell.viewModel = HomeCollectionViewModel(cardType: viewModel.cardType[indexPath.item])
-        cell.bindViewModel()
-
+        let category = viewModel.category[indexPath.item]
+        cell.viewModel = HomeCollectionViewModel(category: category, goods: viewModel.getGoodsData(category: category))
+        
+        switch viewModel.reloadState {
+        case .success:
+            cell.reload()
+        default:
+            break
+        }
+        
         return cell
     }
 }
