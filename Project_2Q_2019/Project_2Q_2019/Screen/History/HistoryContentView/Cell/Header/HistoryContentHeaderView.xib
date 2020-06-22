@@ -50,7 +50,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="categoryIcon" destination="uZf-f4-lFr" id="nBz-q1-eJ9"/>
+                <outlet property="categoryIconView" destination="uZf-f4-lFr" id="nBz-q1-eJ9"/>
                 <outlet property="totalAmountLabel" destination="fYM-Wi-1Wq" id="1qI-5O-YBq"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="153.01339285714286"/>

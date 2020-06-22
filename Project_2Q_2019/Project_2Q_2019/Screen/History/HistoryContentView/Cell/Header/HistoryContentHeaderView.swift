@@ -11,7 +11,11 @@ import UIKit
 final class HistoryContentHeaderView: UIView {
 
     // MARK: IBOutlet
-    @IBOutlet private weak var categoryIcon: UIImageView!
+    @IBOutlet private weak var categoryIconView: UIImageView!
     @IBOutlet private weak var totalAmountLabel: UILabel!
-
+    
+    func bind(viewModel: HistoryContentHeaderViewModel) {
+        categoryIconView.image = viewModel.categoryIcon
+        totalAmountLabel.text = viewModel.totalAmount
+    }
 }

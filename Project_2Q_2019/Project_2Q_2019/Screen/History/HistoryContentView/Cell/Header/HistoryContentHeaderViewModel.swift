@@ -23,7 +23,7 @@ struct HistoryContentHeaderViewModel {
         return "\(amount)¥"
     }
 
-    var icon: UIImage? {
+    var categoryIcon: UIImage? {
         return category.image
     }
 }

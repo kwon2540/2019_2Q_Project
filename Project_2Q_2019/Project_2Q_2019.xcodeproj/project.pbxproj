@@ -535,8 +535,8 @@
 			isa = PBXGroup;
 			children = (
 				6477C81524A0927500BD2BD0 /* HistoryContentHeaderView.swift */,
-				6477C81724A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift */,
 				6477C81924A0928F00BD2BD0 /* HistoryContentHeaderView.xib */,
+				6477C81724A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
