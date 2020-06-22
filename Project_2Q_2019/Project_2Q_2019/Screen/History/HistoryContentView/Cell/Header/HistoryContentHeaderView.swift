@@ -6,4 +6,12 @@
 //  Copyright © 2020 JUNHYEOK KWON. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class HistoryContentHeaderView: UIView {
+
+    // MARK: IBOutlet
+    @IBOutlet private weak var categoryIcon: UIImageView!
+    @IBOutlet private weak var totalAmountLabel: UILabel!
+
+}
