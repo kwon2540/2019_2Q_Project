@@ -17,7 +17,8 @@ protocol APIManager {
     func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void)
     func signIn(email: String, password: String, completion: @escaping (APIState) -> Void)
     func signOut()
-    func loadGoods(completion: @escaping (GoodsList?, APIState) -> Void)
+    func addGoods(goods: Goods, completion: @escaping (APIState) -> Void)
+    func loadGoods(completion: @escaping ([Goods]?, APIState) -> Void)
 }
 
 // MARK: APIStateProtocol
@@ -114,20 +115,19 @@ struct FirebaseManager: APIManager {
         try? Auth.auth().signOut()
     }
 
-    func addGoodsDatedate(dateList: [String], completion: @escaping (APIState) -> Void) {
+    func addGoods(goods: Goods, completion: @escaping (APIState) -> Void) {
 
         guard let uid = Auth.auth().currentUser?.uid else {
             // Failed Login
             return completion(.failed(error: .authError))
         }
 
-        let goodsDateListModel = GoodsDateListModel(dateList: dateList)
-        guard let data = try? FirestoreEncoder().encode(goodsDateListModel) else {
+        guard let data = try? FirestoreEncoder().encode(goods) else {
             // Failed Encode
             return completion(.failed(error: .encodeError))
         }
-
-        Firestore.firestore().collection(Collections.goodslist.key).document(uid).setData(data) { (error) in
+        
+        Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection("goods").document(goods.id).setData(data) { (error) in
             if error != nil {
                 // Failed Add Collection Data
                 return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
@@ -136,26 +136,29 @@ struct FirebaseManager: APIManager {
         }
     }
 
-    func loadGoods(completion: @escaping (GoodsList?, APIState) -> Void) {
+    func loadGoods(completion: @escaping ([Goods]?, APIState) -> Void) {
 
         guard let uid = Auth.auth().currentUser?.uid else {
-            // UID 인증 할수 없는 경우
+            // Failed Login
             return completion(nil, .failed(error: .authError))
         }
-
-        Firestore.firestore().collection(Collections.goodslist.key).document(uid).getDocument { (snapshot, error) in
+        
+        Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection("goods").getDocuments { (snapshot, error) in
             if error != nil {
-                // 파이어베이스 에러인 경우
+                // Failed Add Collection Data
                 return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
 
-            guard let snapshotData = snapshot?.data(),
-                let data = try? FirestoreDecoder().decode(GoodsList.self, from: snapshotData) else {
-                    // 스냅샷 데이터가 없는경우
-                    return completion(nil, .success)
+            guard let snapshotData = snapshot?.documents else {
+                // Failed Get Snapshot Data
+                return completion(nil, .success)
+            }
+            
+            let goods = snapshotData.compactMap {
+                try? FirestoreDecoder().decode(Goods.self, from: $0.data())
             }
 
-            completion(data, .success)
+            completion(goods, .success)
         }
 //
 //        Firestore.firestore().collection(Collections.goodslist.key).document(uid).getDocument { (snapshot, error) in
