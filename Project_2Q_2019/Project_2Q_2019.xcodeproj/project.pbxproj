@@ -73,6 +73,8 @@
 		10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10CB467D23922F4200380E06 /* HomeCollectionViewCell.xib */; };
 		10CB468023922F8800380E06 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB467F23922F8800380E06 /* HomeCollectionViewCell.swift */; };
 		1273A3F231517C61780C5E9F /* Pods_Project_2Q_2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E7A66781B6AE5A7AF269C /* Pods_Project_2Q_2019.framework */; };
+		6477C81024A0894000BD2BD0 /* HistoryContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C80E24A0894000BD2BD0 /* HistoryContentViewCell.swift */; };
+		6477C81124A0894000BD2BD0 /* HistoryContentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6477C80F24A0894000BD2BD0 /* HistoryContentViewCell.xib */; };
 		E1799685027F0730AF491B88 /* Pods_Project_2Q_2019UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F464980BEC4F3155A426D2A /* Pods_Project_2Q_2019UITests.framework */; };
 		EAE39FA429389A4E5C7D7140 /* Pods_Project_2Q_2019Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9561781C47D200A1C5A49BA /* Pods_Project_2Q_2019Tests.framework */; };
 /* End PBXBuildFile section */
@@ -170,6 +172,8 @@
 		3F464980BEC4F3155A426D2A /* Pods_Project_2Q_2019UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_2Q_2019UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6044ADC4EDFDADB003FD5279 /* Pods-Project_2Q_2019Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019Tests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		63298C60E1C21A50B02057F2 /* Pods-Project_2Q_2019.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019/Pods-Project_2Q_2019.debug.xcconfig"; sourceTree = "<group>"; };
+		6477C80E24A0894000BD2BD0 /* HistoryContentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentViewCell.swift; sourceTree = "<group>"; };
+		6477C80F24A0894000BD2BD0 /* HistoryContentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryContentViewCell.xib; sourceTree = "<group>"; };
 		C992C0A258A303CDF11D7171 /* Pods-Project_2Q_2019.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019/Pods-Project_2Q_2019.release.xcconfig"; sourceTree = "<group>"; };
 		CECB5D85303E0522B8E01512 /* Pods-Project_2Q_2019Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019Tests.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E1BF6ABDCD5D650FDE1DC48F /* Pods-Project_2Q_2019UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019UITests.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019UITests/Pods-Project_2Q_2019UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 		100CF47E23AE00F500B3557D /* History */ = {
 			isa = PBXGroup;
 			children = (
+				6477C80A24A084D000BD2BD0 /* HistoryContentView */,
 				108D9F7D2439A86E0058EF41 /* ViewParts */,
 				100CF47F23AE011400B3557D /* HistoryViewController.storyboard */,
 				100CF48123AE012000B3557D /* HistoryViewController.swift */,
@@ -499,6 +504,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6477C80A24A084D000BD2BD0 /* HistoryContentView */ = {
+			isa = PBXGroup;
+			children = (
+				6477C80B24A088DC00BD2BD0 /* Cell */,
+			);
+			path = HistoryContentView;
+			sourceTree = "<group>";
+		};
+		6477C80B24A088DC00BD2BD0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6477C80E24A0894000BD2BD0 /* HistoryContentViewCell.swift */,
+				6477C80F24A0894000BD2BD0 /* HistoryContentViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -619,6 +641,7 @@
 				10A7E55622EDC1F500DF3D34 /* .swiftlint.yml in Resources */,
 				10A7E53122EDC14100DF3D34 /* LaunchScreen.storyboard in Resources */,
 				104106E524309741004E6D48 /* HomeTableViewCell.xib in Resources */,
+				6477C81124A0894000BD2BD0 /* HistoryContentViewCell.xib in Resources */,
 				100CF47923ADFEFC00B3557D /* ExpenseViewController.storyboard in Resources */,
 				10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */,
 				1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */,
@@ -798,6 +821,7 @@
 				107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */,
 				10A7C2F9237047F20050F6B8 /* FirebaseManager.swift in Sources */,
 				108FFD86237FFFDA005B21CC /* Extension+UIColor.swift in Sources */,
+				6477C81024A0894000BD2BD0 /* HistoryContentViewCell.swift in Sources */,
 				1073EC3C23EE6E35003BB2C5 /* Goods.swift in Sources */,
 				104106E72430975B004E6D48 /* HomeTableViewCell.swift in Sources */,
 				1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */,
