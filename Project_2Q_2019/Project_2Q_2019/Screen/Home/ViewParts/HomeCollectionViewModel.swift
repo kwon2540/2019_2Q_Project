@@ -20,12 +20,10 @@ struct HomeCollectionViewModel {
     }
     
     func getBackgroundImage(frame: CGRect) -> UIImageView? {
-        if goods.isEmpty {
-            let imageView = UIImageView(frame: frame)
-            imageView.image = UIImage(named: "NoGoodsImage")
-            imageView.contentMode = .center
-            return imageView
-        }
-        return nil
+        guard goods.isEmpty else { return nil }
+        let imageView = UIImageView(frame: frame)
+        imageView.image = UIImage(named: "NoGoodsImage")
+        imageView.contentMode = .center
+        return imageView
     }
 }

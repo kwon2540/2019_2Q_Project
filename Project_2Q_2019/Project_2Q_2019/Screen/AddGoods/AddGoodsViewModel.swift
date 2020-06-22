@@ -46,8 +46,11 @@ final class AddGoodsViewModel: APIStateProtocol {
         nameSaperatorColor = state.map { $0.nameSaperatorColor }
     }
     
-    func addGoods(goods: Goods) {
+    func addGoods(categoryKey: String) {
         apiStateRelay.accept(.loading)
+        
+        let goods = Goods(name: nameText.value, category: categoryKey, id: UUID().uuidString)
+        
         FirebaseManager.shared.addGoods(goods: goods) { [weak self] state in
             guard let this = self else { return }
             

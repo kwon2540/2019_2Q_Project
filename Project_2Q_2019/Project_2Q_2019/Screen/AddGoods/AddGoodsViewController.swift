@@ -47,11 +47,11 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func dismiss(_ sender: Any) {
-        close(isDataChanged: false)
+        closeAddGoodsModal(isDataChanged: false)
     }
 
     @IBAction private func addGoods(_ sender: Any) {
-        viewModel.addGoods(goods: Goods(name: viewModel.nameText.value, category: getCategoryKey(), id: UUID().uuidString))
+        viewModel.addGoods(categoryKey: getCategoryKey())
     }
 
     @IBAction private func categoryButtons(_ sender: UIButton) {
@@ -82,7 +82,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         return key
     }
     
-    private func close(isDataChanged: Bool) {
+    private func closeAddGoodsModal(isDataChanged: Bool) {
         dismissed?(isDataChanged)
         dismiss(animated: true)
     }
@@ -113,7 +113,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
             // 성공시 인디케이터 중지 및 디스미스
             case .success:
                 ActivityIndicator.shared.stop(view: view)
-                this.close(isDataChanged: true)
+                this.closeAddGoodsModal(isDataChanged: true)
             // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
@@ -123,7 +123,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
                 ActivityIndicator.shared.stop(view: view)
-                this.close(isDataChanged: false)
+                this.closeAddGoodsModal(isDataChanged: false)
             }
         }).disposed(by: disposeBag)
     }
