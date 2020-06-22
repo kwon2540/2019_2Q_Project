@@ -10,13 +10,14 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct HistoryContentViewModel {
+struct HistoryContentViewModel: APIStateProtocol {
 
     struct HistoryContentViewSection {
         var category: GoodsCategory
         var boughtGoods: [BoughtGoods]
     }
 
+    private var date: String
     private let boughtGoods: BehaviorRelay<[BoughtGoods]> = BehaviorRelay(value: [])
     private var boughtGoodsSection: [HistoryContentViewSection] {
         return GoodsCategory.allCases.map { (category) -> HistoryContentViewSection in
@@ -24,6 +25,11 @@ struct HistoryContentViewModel {
             let categorizedSection = HistoryContentViewSection(category: category, boughtGoods: categorizedGoods)
             return categorizedSection
         }
+    }
+
+    init(date: String) {
+        self.date = date
+        fetchAllBoughtGoods()
     }
 
     let apiStateRelay = PublishRelay<APIState>()
@@ -52,7 +58,7 @@ struct HistoryContentViewModel {
 // MARK: Api Fetching
 extension HistoryContentViewModel {
     //TODO: Make Api Call Here
-    func fetchAllBoughtGoods(for date: String) {
+    func fetchAllBoughtGoods() {
 
         apiStateRelay.accept(.loading)
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
