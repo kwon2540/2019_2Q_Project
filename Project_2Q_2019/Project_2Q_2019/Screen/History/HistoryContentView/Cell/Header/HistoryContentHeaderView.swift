@@ -13,9 +13,25 @@ final class HistoryContentHeaderView: UIView {
     // MARK: IBOutlet
     @IBOutlet private weak var categoryIconView: UIImageView!
     @IBOutlet private weak var totalAmountLabel: UILabel!
+    @IBOutlet private weak var contentView: UIView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setup()
+    }
     
     func bind(viewModel: HistoryContentHeaderViewModel) {
         categoryIconView.image = viewModel.categoryIcon
         totalAmountLabel.text = viewModel.totalAmount
+    }
+    
+    private func setup() {
+        setupContentView()
+    }
+    
+    // TODO: Make Rounded Corner On Top Edges
+    private func setupContentView() {
+        
     }
 }
