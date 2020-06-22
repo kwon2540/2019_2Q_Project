@@ -20,3 +20,4 @@ final class HistoryContentView: UIView {
         super.awakeFromNib()
     }
 }
+extension HistoryContentView: XibInstantiable { }

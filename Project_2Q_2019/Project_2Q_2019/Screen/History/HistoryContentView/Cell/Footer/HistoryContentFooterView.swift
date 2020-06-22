@@ -9,21 +9,23 @@
 import UIKit
 
 final class HistoryContentFooterView: UIView {
-    
+
     // MARK: IBOutlets
     @IBOutlet private weak var contentView: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         setup()
     }
-    
+
     private func setup() {
         setupContentView()
     }
-    
+
     // TODO: Make Rounded Corner On Bottom Edges
     private func setupContentView() {
     }
 }
+
+extension HistoryContentFooterView: XibInstantiable { }

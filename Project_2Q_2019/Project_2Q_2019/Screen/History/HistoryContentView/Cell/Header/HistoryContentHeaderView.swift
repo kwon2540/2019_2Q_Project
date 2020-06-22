@@ -35,3 +35,5 @@ final class HistoryContentHeaderView: UIView {
         
     }
 }
+
+extension HistoryContentHeaderView: XibInstantiable { }
