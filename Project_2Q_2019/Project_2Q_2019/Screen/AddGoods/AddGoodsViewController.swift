@@ -17,13 +17,13 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var lifeButton: UIButton!
     @IBOutlet private weak var fashionButton: UIButton!
     @IBOutlet private weak var hobbiesButton: UIButton!
-    @IBOutlet private weak var etcButton: UIButton!
+    @IBOutlet private weak var miscellaneousButton: UIButton!
     @IBOutlet private weak var nameSaperator: UIView!
     @IBOutlet private weak var keyboardSpaceConstraint: NSLayoutConstraint!
 
     private let disposeBag = DisposeBag()
 
-    private lazy var categoryButtons: [UIButton] = [lifeButton, fashionButton, hobbiesButton, etcButton]
+    private lazy var categoryButtons: [UIButton] = [lifeButton, fashionButton, hobbiesButton, miscellaneousButton]
 
     var viewModel: AddGoodsViewModel!
     var dismissed: ((Bool) -> Void)?
