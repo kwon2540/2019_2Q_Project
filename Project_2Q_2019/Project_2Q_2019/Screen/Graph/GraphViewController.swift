@@ -1,5 +1,5 @@
 //
-//  ExpenseViewController.swift
+//  GraphViewController.swift
 //  Project_2Q_2019
 //
 //  Created by JUNHYEOK KWON on 2019/12/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ExpenseViewController: UIViewController, StoryboardInstantiable {
+final class GraphViewController: UIViewController, StoryboardInstantiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
