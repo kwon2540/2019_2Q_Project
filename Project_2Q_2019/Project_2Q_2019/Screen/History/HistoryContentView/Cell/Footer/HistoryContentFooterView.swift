@@ -10,7 +10,6 @@ import UIKit
 
 final class HistoryContentFooterView: UIView {
 
-    // MARK: IBOutlets
     @IBOutlet private weak var contentView: UIView!
 
     override func awakeFromNib() {

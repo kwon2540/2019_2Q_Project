@@ -9,19 +9,16 @@
 import UIKit
 import RxSwift
 
-final class HistoryContentView: UIView {
+final class HistoryContentView: UIView, XibInstantiable {
 
-    // MARK: IBOutlets
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var totalGoodsAmountLabelArea: UIView!
     @IBOutlet weak var totalGoodsAmountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
 
-    // MARK: Properties
     private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "")
     private let disposeBag: DisposeBag = DisposeBag()
 
-    // MARK: LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -120,5 +117,3 @@ extension HistoryContentView: UITableViewDelegate {
         return 22
     }
 }
-
-extension HistoryContentView: XibInstantiable { }

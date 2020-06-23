@@ -12,7 +12,7 @@ struct HistoryContentHeaderViewModel {
 
     private var boughtGoods: [BoughtGoods]
     private var category: GoodsCategory
-    
+
     var totalAmount: String {
         let amount: Int = boughtGoods.reduce(0) { $0 + ($1.price * $1.amount) }
         return "\(amount)¥"

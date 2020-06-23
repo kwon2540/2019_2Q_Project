@@ -37,21 +37,21 @@ enum APIState {
 }
 
 struct FirebaseManager: APIManager {
-    
+
     enum Collections: String {
         case users
         case goodslist
-        
+
         var key: String {
             return self.rawValue
         }
     }
-    
+
     enum Error {
         case firebaseError(debugDescription: String)
         case authError
         case encodeError
-        
+
         var description: String {
             switch self {
             case .firebaseError(let debugDescription):
@@ -63,34 +63,34 @@ struct FirebaseManager: APIManager {
             }
         }
     }
-    
+
     static var shared = FirebaseManager()
-    
+
     private init() {}
-    
+
     func checkLogin() -> Bool {
         return Auth.auth().currentUser?.uid != nil
     }
-    
+
     func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (_, error) in
             if error != nil {
                 // Failed Create
                 return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
-            
+
             guard let uid = Auth.auth().currentUser?.uid else {
                 // Failed Get UID
                 return completion(.failed(error: .authError))
             }
-            
+
             let user = User(email: email, name: name, uid: uid, startDate: Date())
-            
+
             guard let data = try? FirestoreEncoder().encode(user) else {
                 // Failed Encode
                 return completion(.failed(error: .encodeError))
             }
-            
+
             Firestore.firestore().collection(Collections.users.key).document(uid).setData(data) { (error) in
                 if error != nil {
                     // Failed Add Collection Data
@@ -100,7 +100,7 @@ struct FirebaseManager: APIManager {
             }
         }
     }
-    
+
     func signIn(email: String, password: String, completion: @escaping (APIState) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
             if error != nil {
@@ -110,23 +110,23 @@ struct FirebaseManager: APIManager {
             completion(.success)
         }
     }
-    
+
     func signOut() {
         try? Auth.auth().signOut()
     }
-    
+
     func addGoods(goods: Goods, completion: @escaping (APIState) -> Void) {
-        
+
         guard let uid = Auth.auth().currentUser?.uid else {
             // Failed Login
             return completion(.failed(error: .authError))
         }
-        
+
         guard let data = try? FirestoreEncoder().encode(goods) else {
             // Failed Encode
             return completion(.failed(error: .encodeError))
         }
-        
+
         Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection("goods").document(goods.id).setData(data) { (error) in
             if error != nil {
                 // Failed Add Collection Data
@@ -135,29 +135,29 @@ struct FirebaseManager: APIManager {
             completion(.success)
         }
     }
-    
+
     func loadGoods(completion: @escaping ([Goods]?, APIState) -> Void) {
-        
+
         guard let uid = Auth.auth().currentUser?.uid else {
             // Failed Login
             return completion(nil, .failed(error: .authError))
         }
-        
+
         Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection("goods").getDocuments { (snapshot, error) in
             if error != nil {
                 // Failed Add Collection Data
                 return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
-            
+
             guard let snapshotData = snapshot?.documents else {
                 // Failed Get Snapshot Data
                 return completion(nil, .success)
             }
-            
+
             let goods = snapshotData.compactMap {
                 try? FirestoreDecoder().decode(Goods.self, from: $0.data())
             }
-            
+
             completion(goods, .success)
         }
         //
@@ -176,7 +176,7 @@ struct FirebaseManager: APIManager {
         //            completion(data, .success)
         //        }
     }
-    
+
     //    func loadGoodsList(date: String?, completion: @escaping (GoodsListModel?, APIState) -> Void) {
     //
     //        guard let uid = Auth.auth().currentUser?.uid else {

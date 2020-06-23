@@ -11,7 +11,7 @@ import Foundation
 struct HistoryContentCellViewModel {
 
     private let boughtGood: BoughtGoods
-    
+
     var name: String {
         return boughtGood.name
     }

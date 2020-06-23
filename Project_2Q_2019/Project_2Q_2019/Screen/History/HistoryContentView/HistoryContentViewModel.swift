@@ -26,7 +26,7 @@ struct HistoryContentViewModel: APIStateProtocol {
             return categorizedSection
         }
     }
-    
+
     let apiStateRelay = PublishRelay<APIState>()
     var sectionCount: Int {
         return boughtGoodsSection.count

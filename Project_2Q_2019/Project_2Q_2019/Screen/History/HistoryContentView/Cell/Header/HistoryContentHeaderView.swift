@@ -10,7 +10,6 @@ import UIKit
 
 final class HistoryContentHeaderView: UIView {
 
-    // MARK: IBOutlet
     @IBOutlet private weak var categoryIconView: UIImageView!
     @IBOutlet private weak var totalAmountLabel: UILabel!
     @IBOutlet private weak var contentView: UIView!
