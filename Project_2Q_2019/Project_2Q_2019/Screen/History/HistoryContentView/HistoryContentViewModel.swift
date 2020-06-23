@@ -26,15 +26,15 @@ struct HistoryContentViewModel: APIStateProtocol {
             return categorizedSection
         }
     }
+    
+    let apiStateRelay = PublishRelay<APIState>()
+    var sectionCount: Int {
+        return boughtGoodsSection.count
+    }
 
     init(date: String) {
         self.date = date
         fetchAllBoughtGoods()
-    }
-
-    let apiStateRelay = PublishRelay<APIState>()
-    var sectionCount: Int {
-        return boughtGoodsSection.count
     }
 
     func numberOfRows(in section: Int) -> Int {

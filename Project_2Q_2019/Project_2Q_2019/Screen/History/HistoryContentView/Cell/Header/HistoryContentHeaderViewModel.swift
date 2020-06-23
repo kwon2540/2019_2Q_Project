@@ -12,12 +12,7 @@ struct HistoryContentHeaderViewModel {
 
     private var boughtGoods: [BoughtGoods]
     private var category: GoodsCategory
-
-    init(boughtGoods: [BoughtGoods], category: GoodsCategory) {
-        self.boughtGoods = boughtGoods
-        self.category = category
-    }
-
+    
     var totalAmount: String {
         let amount: Int = boughtGoods.reduce(0) { $0 + ($1.price * $1.amount) }
         return "\(amount)¥"
@@ -25,5 +20,10 @@ struct HistoryContentHeaderViewModel {
 
     var categoryIcon: UIImage? {
         return category.image
+    }
+
+    init(boughtGoods: [BoughtGoods], category: GoodsCategory) {
+        self.boughtGoods = boughtGoods
+        self.category = category
     }
 }

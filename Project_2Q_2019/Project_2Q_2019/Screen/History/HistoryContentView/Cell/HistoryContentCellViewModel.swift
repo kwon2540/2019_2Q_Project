@@ -11,11 +11,7 @@ import Foundation
 struct HistoryContentCellViewModel {
 
     private let boughtGood: BoughtGoods
-
-    init(boughtGood: BoughtGoods) {
-        self.boughtGood = boughtGood
-    }
-
+    
     var name: String {
         return boughtGood.name
     }
@@ -27,4 +23,9 @@ struct HistoryContentCellViewModel {
     var price: String {
         return "\(boughtGood.price)¥"
     }
+
+    init(boughtGood: BoughtGoods) {
+        self.boughtGood = boughtGood
+    }
+
 }
