@@ -10,7 +10,7 @@ import Foundation
 import RxCocoa
 
 struct HomeCollectionViewModel {
-        
+
     var category: GoodsCategory
     var goods: [Goods] = []
 
@@ -18,7 +18,7 @@ struct HomeCollectionViewModel {
         self.category = category
         self.goods = goods
     }
-    
+
     func getBackgroundImage(frame: CGRect) -> UIImageView? {
         guard goods.isEmpty else { return nil }
         let imageView = UIImageView(frame: frame)

@@ -31,7 +31,7 @@ enum GoodsCategory: Int, CaseIterable {
         case .miscellaneous: return "その他"
         }
     }
-    
+
     var key: String {
         switch self {
         case .life: return "life"
@@ -40,7 +40,7 @@ enum GoodsCategory: Int, CaseIterable {
         case .miscellaneous: return "miscellaneous"
         }
     }
-    
+
     var color: UIColor {
         switch self {
         case .life: return .cFEBA5B

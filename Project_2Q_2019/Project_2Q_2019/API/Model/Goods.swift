@@ -14,13 +14,12 @@ struct Goods: Codable {
     var id: String
 }
 
-
 struct BoughtGoods: Codable {
     var name: String
     var category: String
     var id: String
     var boughtDate: String
-    
+
     var price: Int = 0
     var amount: Int = 1
 }
