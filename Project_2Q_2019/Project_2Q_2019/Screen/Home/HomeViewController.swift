@@ -143,7 +143,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: HomeCollectionViewCell.self, for: indexPath)
         let category = viewModel.category[indexPath.item]
-        cell.viewModel = HomeCollectionViewModel(category: category, goods: viewModel.getGoodsData(category: category))
+        cell.bind(viewmodel: HomeCollectionViewModel(category: category, goods: viewModel.getGoodsData(category: category)))
         cell.didSelectGoods = { [weak self] goods in
             guard let this = self else { return }
             

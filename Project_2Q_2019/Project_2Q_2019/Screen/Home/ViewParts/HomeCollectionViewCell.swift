@@ -18,7 +18,8 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     
     private let disposeBag = DisposeBag()
 
-    var viewModel: HomeCollectionViewModel!
+    private var viewModel: HomeCollectionViewModel!
+    
     var didSelectGoods: ((Goods) -> Void)?
     
     override func awakeFromNib() {
@@ -53,6 +54,10 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     private func setupBackgroundView() {
         let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: self.tableView.frame.height)
         tableView.backgroundView = viewModel.getBackgroundImage(frame: frame)
+    }
+    
+    func bind(viewmodel: HomeCollectionViewModel) {
+        viewModel = viewmodel
     }
     
     func reload() {
