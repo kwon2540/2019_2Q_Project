@@ -34,7 +34,13 @@ final class HistoryContentView: UIView {
 
     // MARK: Setup
     private func setup() {
+        setupContentView()
         setupTableView()
+    }
+
+    private func setupContentView() {
+        layer.cornerRadius = 25
+        clipsToBounds = true
     }
 
     private func setupTableView() {

@@ -75,13 +75,13 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
         nameTextField.becomeFirstResponder()
     }
-    
+
     private func getCategoryKey() -> String {
         guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag,
             let key = GoodsCategory(rawValue: tag)?.key else { return GoodsCategory.life.key }
         return key
     }
-    
+
     private func closeAddGoodsModal(isDataChanged: Bool) {
         dismissed?(isDataChanged)
         dismiss(animated: true)
@@ -105,7 +105,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
-            
+
             switch state {
             // 로딩 시 인디케이터 표시
             case .loading:

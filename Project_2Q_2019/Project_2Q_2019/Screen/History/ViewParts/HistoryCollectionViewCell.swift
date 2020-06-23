@@ -23,11 +23,13 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
         setupHistoryContentView()
+        setupLayout()
     }
 
     override func layoutSubviews() {
-        setupLayout()
+        //        setupLayout()
         //        setupTableView()
         //        setupDateText()
     }
@@ -37,6 +39,8 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
         layer.shadowRadius = 10
         layer.shadowOpacity = 0.3
         layer.shadowOffset = CGSize(width: 5, height: 5)
+
+        layer.masksToBounds = false
         clipsToBounds = false
     }
 

@@ -19,36 +19,36 @@ final class HomeViewModel: APIStateProtocol {
     var fashionGoods: [Goods] = []
     var hobbyGoods: [Goods] = []
     var miscellaneousGoods: [Goods] = []
-    
+
     func loadGoods() {
         apiStateRelay.accept(.loading)
-        FirebaseManager.shared.loadGoods() { [weak self] (response, state) in
+        FirebaseManager.shared.loadGoods { [weak self] (response, state) in
             guard let this = self else { return }
-            
+
             if let goods = response {
-                
+
                 this.lifeGoods = goods.filter {
                     $0.category == GoodsCategory.life.key
                 }
-                
+
                 this.fashionGoods = goods.filter {
                     $0.category == GoodsCategory.fashion.key
                 }
-                
+
                 this.hobbyGoods = goods.filter {
                     $0.category == GoodsCategory.hobby.key
                 }
-                
+
                 this.miscellaneousGoods = goods.filter {
                     $0.category == GoodsCategory.miscellaneous.key
                 }
             }
-            
+
             this.apiStateRelay.accept(state)
             this.reloadState = state
         }
     }
-    
+
     func getGoodsData(category: GoodsCategory) -> [Goods] {
         switch category {
         case .life: return lifeGoods

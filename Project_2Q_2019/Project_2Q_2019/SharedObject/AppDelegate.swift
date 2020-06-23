@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         enum Environment {
             case debug
             case release
-            
+
             var firebasePlistName: String {
                 switch self {
                 case .debug: return "GoogleService-Info-dev"
@@ -28,14 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-        
+
         let environment: Environment = AppDelegate.isDebug ? .debug : .release
-        
+
         if let path = Bundle.main.path(forResource: environment.firebasePlistName, ofType: "plist"),
             let firbaseOptions = FirebaseOptions(contentsOfFile: path) {
-          FirebaseApp.configure(options: firbaseOptions)
+            FirebaseApp.configure(options: firbaseOptions)
         }
-        
+
         window = UIWindow()
         window?.makeKeyAndVisible()
         window?.rootViewController = AppRootViewController()
@@ -72,7 +72,7 @@ extension AppDelegate {
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
-    
+
     static var isDebug: Bool {
         #if DEBUG
         return true
