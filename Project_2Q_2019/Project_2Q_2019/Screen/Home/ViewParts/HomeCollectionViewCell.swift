@@ -19,6 +19,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     private let disposeBag = DisposeBag()
 
     var viewModel: HomeCollectionViewModel!
+    var didSelectGoods: ((Goods) -> Void)?
     
     override func awakeFromNib() {
         setupTableView()
@@ -80,6 +81,10 @@ extension HomeCollectionViewCell: UITableViewDelegate {
 }
 
 extension HomeCollectionViewCell: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelectGoods?(viewModel.goods[indexPath.row])
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.goods.count
