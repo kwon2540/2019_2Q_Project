@@ -21,19 +21,19 @@
                         <rect key="frame" x="16" y="0.0" width="288" height="44"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="お皿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffj-bq-vHT">
-                                <rect key="frame" x="20" y="13.5" width="144" height="17"/>
+                                <rect key="frame" x="14" y="13.5" width="156" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="3,300¥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZj-ta-uF9">
-                                <rect key="frame" x="221" y="13.5" width="47" height="17"/>
+                                <rect key="frame" x="227" y="13.5" width="47" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="２個" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdj-8I-BdN">
-                                <rect key="frame" x="172" y="13.5" width="29" height="17"/>
+                                <rect key="frame" x="178" y="13.5" width="29" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,10 +44,10 @@
                             <constraint firstItem="uZj-ta-uF9" firstAttribute="centerY" secondItem="ZfD-ZW-Acd" secondAttribute="centerY" id="A5u-wW-6GS"/>
                             <constraint firstItem="uZj-ta-uF9" firstAttribute="leading" secondItem="mdj-8I-BdN" secondAttribute="trailing" constant="20" id="G3r-n3-TvC"/>
                             <constraint firstItem="mdj-8I-BdN" firstAttribute="centerY" secondItem="ZfD-ZW-Acd" secondAttribute="centerY" id="Qbn-4Q-vbQ"/>
-                            <constraint firstAttribute="trailing" secondItem="uZj-ta-uF9" secondAttribute="trailing" constant="20" id="bIQ-3v-zec"/>
+                            <constraint firstAttribute="trailing" secondItem="uZj-ta-uF9" secondAttribute="trailing" constant="14" id="bIQ-3v-zec"/>
                             <constraint firstItem="mdj-8I-BdN" firstAttribute="leading" secondItem="Ffj-bq-vHT" secondAttribute="trailing" constant="8" id="qFc-Zi-JHx"/>
                             <constraint firstItem="Ffj-bq-vHT" firstAttribute="centerY" secondItem="ZfD-ZW-Acd" secondAttribute="centerY" id="rKr-9O-d8P"/>
-                            <constraint firstItem="Ffj-bq-vHT" firstAttribute="leading" secondItem="ZfD-ZW-Acd" secondAttribute="leading" constant="20" id="wM5-Rv-LBF"/>
+                            <constraint firstItem="Ffj-bq-vHT" firstAttribute="leading" secondItem="ZfD-ZW-Acd" secondAttribute="leading" constant="14" id="wM5-Rv-LBF"/>
                         </constraints>
                     </view>
                 </subviews>

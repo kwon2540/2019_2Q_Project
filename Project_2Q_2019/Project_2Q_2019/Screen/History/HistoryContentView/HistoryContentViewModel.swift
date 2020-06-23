@@ -17,14 +17,13 @@ struct HistoryContentViewModel: APIStateProtocol {
         var boughtGoods: [BoughtGoods]
     }
 
-    private var date: String
+    private let date: String
     private let boughtGoods: BehaviorRelay<[BoughtGoods]> = BehaviorRelay(value: [])
     private var boughtGoodsSection: [HistoryContentViewSection] { generateHistoryContentSections() }
 
     let apiStateRelay = PublishRelay<APIState>()
-    var sectionCount: Int {
-        return boughtGoodsSection.count
-    }
+    var sectionCount: Int { return boughtGoodsSection.count }
+    var totalGoodsAmount: Observable<String> { return boughtGoods.map { $0.count }.map { String($0) } }
 
     init(date: String) {
         self.date = date

@@ -33,6 +33,7 @@ final class HistoryContentView: UIView, XibInstantiable {
     private func setup() {
         setupContentView()
         setupTableView()
+        setupTotalGoodsAmountView()
     }
 
     private func setupContentView() {
@@ -46,8 +47,25 @@ final class HistoryContentView: UIView, XibInstantiable {
         tableView.registerXib(of: HistoryContentViewCell.self)
     }
 
+    private func setupTotalGoodsAmountView() {
+        totalGoodsAmountLabelArea.layer.cornerRadius = 2
+    }
+
     // MARK: Bind
     private func bind() {
+        bindApiState()
+        bindUI()
+    }
+
+    private func bindUI() {
+        viewModel
+            .totalGoodsAmount
+            .asDriver(onErrorJustReturn: "")
+            .drive(totalGoodsAmountLabel.rx.text)
+            .disposed(by: disposeBag)
+    }
+
+    private func bindApiState() {
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self else { return }
 
