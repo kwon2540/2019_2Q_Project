@@ -19,13 +19,7 @@ struct HistoryContentViewModel: APIStateProtocol {
 
     private var date: String
     private let boughtGoods: BehaviorRelay<[BoughtGoods]> = BehaviorRelay(value: [])
-    private var boughtGoodsSection: [HistoryContentViewSection] {
-        return GoodsCategory.allCases.map { (category) -> HistoryContentViewSection in
-            let categorizedGoods = boughtGoods.value.filter { $0.category == category.key }
-            let categorizedSection = HistoryContentViewSection(category: category, boughtGoods: categorizedGoods)
-            return categorizedSection
-        }
-    }
+    private var boughtGoodsSection: [HistoryContentViewSection] { generateHistoryContentSections() }
 
     let apiStateRelay = PublishRelay<APIState>()
     var sectionCount: Int {
@@ -53,6 +47,13 @@ struct HistoryContentViewModel: APIStateProtocol {
         return HistoryContentCellViewModel(boughtGood: boughtGood)
     }
 
+    private func generateHistoryContentSections() -> [HistoryContentViewSection] {
+        return GoodsCategory.allCases.map { (category) -> HistoryContentViewSection in
+            let categorizedGoods = boughtGoods.value.filter { $0.category == category.key }
+            let categorizedSection = HistoryContentViewSection(category: category, boughtGoods: categorizedGoods)
+            return categorizedSection
+        }
+    }
 }
 
 // MARK: Api Fetching

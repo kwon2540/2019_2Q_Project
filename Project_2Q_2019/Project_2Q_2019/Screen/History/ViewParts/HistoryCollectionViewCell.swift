@@ -47,6 +47,5 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
             contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
             contentView.topAnchor.constraint(equalTo: topAnchor)
         ])
-
     }
 }
