@@ -27,6 +27,7 @@ class EditGoodsViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     var viewModel: EditGoodsViewModel!
+    var dismissed: ((Bool) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -40,6 +41,7 @@ class EditGoodsViewController: UIViewController {
         removeKeyboardObservers()
     }
     @IBAction private func dismiss(_ sender: Any) {
+        closeEditGoodsModal(isDataChanged: false)
     }
     
     @IBAction private func remove(_ sender: Any) {
@@ -52,6 +54,11 @@ class EditGoodsViewController: UIViewController {
     @IBAction private func categoryButtons(_ sender: UIButton) {
     }
         priceTextField.becomeFirstResponder()
+    private func closeEditGoodsModal(isDataChanged: Bool) {
+        dismissed?(isDataChanged)
+        dismiss(animated: true)
+    }
+    
     private func bindViewModel() {
         
         // Input
