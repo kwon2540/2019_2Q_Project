@@ -9,6 +9,19 @@
 import UIKit
 
 class EditGoodsViewController: UIViewController {
+    @IBOutlet private weak var mainView: UIView!
+    @IBOutlet private weak var removeButton: RoundButton!
+    @IBOutlet private weak var completeButton: RoundButton!
+    @IBOutlet private weak var lifeButton: UIButton!
+    @IBOutlet private weak var fashionButton: UIButton!
+    @IBOutlet private weak var hobbiesButton: UIButton!
+    @IBOutlet private weak var miscellaneousButton: UIButton!
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var nameSaperator: UIView!
+    @IBOutlet private weak var amountTextField: UITextField!
+    @IBOutlet private weak var amountSaperator: UIView!
+    @IBOutlet private weak var priceTextField: UITextField!
+    @IBOutlet private weak var priceSaperator: UIView!
     @IBOutlet private weak var keyboardSpaceConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
@@ -21,6 +34,18 @@ class EditGoodsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeKeyboardObservers()
+    }
+    @IBAction private func dismiss(_ sender: Any) {
+    }
+    
+    @IBAction private func remove(_ sender: Any) {
+        
+    }
+    
+    @IBAction private func complete(_ sender: Any) {
+        
+    }
+    @IBAction private func categoryButtons(_ sender: UIButton) {
     }
         priceTextField.becomeFirstResponder()
 // MARK: Keyboard Notifications
