@@ -9,7 +9,8 @@
 import UIKit
 import RxSwift
 
-class EditGoodsViewController: UIViewController {
+class EditGoodsViewController: UIViewController, StoryboardInstantiable {
+    
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var removeButton: RoundButton!
     @IBOutlet private weak var completeButton: RoundButton!
@@ -24,13 +25,20 @@ class EditGoodsViewController: UIViewController {
     @IBOutlet private weak var priceTextField: UITextField!
     @IBOutlet private weak var priceSaperator: UIView!
     @IBOutlet private weak var keyboardSpaceConstraint: NSLayoutConstraint!
+    
     private let disposeBag = DisposeBag()
 
     var viewModel: EditGoodsViewModel!
     var dismissed: ((Bool) -> Void)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupLayouts()
+        
         bindViewModel()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addKeyboardObservers()
@@ -40,6 +48,7 @@ class EditGoodsViewController: UIViewController {
         super.viewWillDisappear(animated)
         removeKeyboardObservers()
     }
+    
     @IBAction private func dismiss(_ sender: Any) {
         closeEditGoodsModal(isDataChanged: false)
     }
@@ -53,7 +62,18 @@ class EditGoodsViewController: UIViewController {
     }
     @IBAction private func categoryButtons(_ sender: UIButton) {
     }
+    private func setupLayouts() {
+        mainView.layer.cornerRadius = 20
+        mainView.clipsToBounds = true
+
+        completeButton.isEnabled = false
+
+        lifeButton.isSelected = true
+
         priceTextField.becomeFirstResponder()
+        
+        nameTextField.text = viewModel.goods.name
+    }
     private func closeEditGoodsModal(isDataChanged: Bool) {
         dismissed?(isDataChanged)
         dismiss(animated: true)
