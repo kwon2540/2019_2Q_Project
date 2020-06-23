@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class EditGoodsViewController: UIViewController {
     @IBOutlet private weak var mainView: UIView!
@@ -23,9 +24,12 @@ class EditGoodsViewController: UIViewController {
     @IBOutlet private weak var priceTextField: UITextField!
     @IBOutlet private weak var priceSaperator: UIView!
     @IBOutlet private weak var keyboardSpaceConstraint: NSLayoutConstraint!
+    private let disposeBag = DisposeBag()
 
+    var viewModel: EditGoodsViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addKeyboardObservers()
@@ -48,6 +52,41 @@ class EditGoodsViewController: UIViewController {
     @IBAction private func categoryButtons(_ sender: UIButton) {
     }
         priceTextField.becomeFirstResponder()
+    private func bindViewModel() {
+        
+        // Input
+        nameTextField.rx.text.orEmpty
+            .bind(to: viewModel.nameText)
+            .disposed(by: disposeBag)
+        
+        amountTextField.rx.text.orEmpty
+        .bind(to: viewModel.amountText)
+        .disposed(by: disposeBag)
+        
+        priceTextField.rx.text.orEmpty
+        .bind(to: viewModel.priceText)
+        .disposed(by: disposeBag)
+        
+        // Output
+        viewModel.isCompleteButtonEnabled
+            .bind(to: completeButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
+        viewModel.nameSaperatorColor
+            .bind(to: nameSaperator.rx.backgroundColor)
+            .disposed(by: disposeBag)
+        
+        viewModel.amountSaperatorColor
+        .bind(to: amountSaperator.rx.backgroundColor)
+        .disposed(by: disposeBag)
+        
+        viewModel.priceSaperatorColor
+        .bind(to: priceSaperator.rx.backgroundColor)
+        .disposed(by: disposeBag)
+    }
+}
+
+
 // MARK: Keyboard Notifications
 extension EditGoodsViewController {
 
