@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class HistoryContentHeaderView: UIView {
+final class HistoryContentHeaderView: UIView, XibInstantiable {
 
     @IBOutlet private weak var categoryIconView: UIImageView!
     @IBOutlet private weak var totalAmountLabel: UILabel!
@@ -29,10 +29,9 @@ final class HistoryContentHeaderView: UIView {
         setupContentView()
     }
 
-    // TODO: Make Rounded Corner On Top Edges
     private func setupContentView() {
-
+        contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = 15
+        contentView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
 }
-
-extension HistoryContentHeaderView: XibInstantiable { }
