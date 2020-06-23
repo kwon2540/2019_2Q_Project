@@ -71,6 +71,7 @@ final class HistoryContentView: UIView, XibInstantiable {
 }
 
 extension HistoryContentView: UITableViewDataSource {
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.sectionCount
     }
