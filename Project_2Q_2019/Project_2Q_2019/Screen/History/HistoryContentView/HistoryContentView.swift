@@ -63,6 +63,12 @@ final class HistoryContentView: UIView, XibInstantiable {
             .asDriver(onErrorJustReturn: "")
             .drive(totalGoodsAmountLabel.rx.text)
             .disposed(by: disposeBag)
+
+        viewModel
+            .date
+            .asDriver(onErrorJustReturn: "")
+            .drive(dateLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 
     private func bindApiState() {
