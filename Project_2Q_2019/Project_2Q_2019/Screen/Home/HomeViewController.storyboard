@@ -80,7 +80,7 @@
                                             <color key="titleColor" name="c3F3E3E"/>
                                         </state>
                                         <connections>
-                                            <action selector="expense:" destination="a9z-tl-Blt" eventType="touchUpInside" id="kV6-ny-EsL"/>
+                                            <action selector="graph:" destination="a9z-tl-Blt" eventType="touchUpInside" id="J2F-Vb-hG6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZM-Hb-GYI">

@@ -41,8 +41,8 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         present(MenuViewController.getStoryBoard(), animated: true)
     }
 
-    @IBAction private func expense(_ sender: Any) {
-        present(ExpenseViewController.getStoryBoard(), animated: true)
+    @IBAction private func graph(_ sender: Any) {
+        present(GraphViewController.getStoryBoard(), animated: true)
     }
 
     @IBAction private func history(_ sender: Any) {
