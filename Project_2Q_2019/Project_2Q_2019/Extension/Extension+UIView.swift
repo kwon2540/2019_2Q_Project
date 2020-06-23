@@ -12,6 +12,7 @@ import UIKit
 protocol XibInstantiable { }
 
 extension XibInstantiable where Self: UIView {
+
     static var xibName: String {
         return String(describing: Self.self)
     }
@@ -20,5 +21,15 @@ extension XibInstantiable where Self: UIView {
         let nib = UINib(nibName: xibName, bundle: nil)
         let view = nib.instantiate(withOwner: self, options: nil).first as! Self
         return view
+    }
+}
+
+extension UIView {
+
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
     }
 }
