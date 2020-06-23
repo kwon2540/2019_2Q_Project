@@ -22,8 +22,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020/05/10 月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kI-Pi-eGW">
-                                    <rect key="frame" x="20" y="9" width="169.5" height="29"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                    <rect key="frame" x="20" y="11.5" width="142" height="24"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -57,23 +57,47 @@
                                 <constraint firstItem="6kI-Pi-eGW" firstAttribute="leading" secondItem="5kA-Dj-WJS" secondAttribute="leading" constant="20" id="xl1-6S-Z0q"/>
                             </constraints>
                         </view>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nZt-i5-DO2">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nZt-i5-DO2">
                             <rect key="frame" x="0.0" y="47" width="375" height="620"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </tableView>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWN-Bz-rSE" userLabel="ActivityIndicator">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vGM-Em-zpb">
+                            <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="PZJ-8O-o7h"/>
+                                <constraint firstAttribute="height" constant="100" id="f08-SC-HTd"/>
+                            </constraints>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="vGM-Em-zpb" firstAttribute="centerX" secondItem="ZWN-Bz-rSE" secondAttribute="centerX" id="LdR-bc-hCn"/>
+                        <constraint firstItem="vGM-Em-zpb" firstAttribute="centerY" secondItem="ZWN-Bz-rSE" secondAttribute="centerY" id="bQG-S4-Meu"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZWN-Bz-rSE" secondAttribute="trailing" id="0ce-dg-RHD"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Lxn-fK-ONy" secondAttribute="trailing" id="5zt-C6-2BC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZWN-Bz-rSE" secondAttribute="bottom" id="9hZ-ia-DgO"/>
                 <constraint firstItem="Lxn-fK-ONy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="AyK-7K-dEd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Lxn-fK-ONy" secondAttribute="bottom" id="FOh-KA-4Vf"/>
                 <constraint firstItem="Lxn-fK-ONy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cog-c6-ZQ0"/>
+                <constraint firstItem="ZWN-Bz-rSE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="wpd-eC-hOi"/>
+                <constraint firstItem="ZWN-Bz-rSE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="x7J-fi-7kx"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="activityIndicator" destination="vGM-Em-zpb" id="ymZ-HZ-jet"/>
                 <outlet property="dateLabel" destination="6kI-Pi-eGW" id="q6S-1q-g1f"/>
+                <outlet property="ovelayView" destination="ZWN-Bz-rSE" id="Scb-Yn-7Pm"/>
                 <outlet property="tableView" destination="nZt-i5-DO2" id="aLr-v7-J1Z"/>
                 <outlet property="totalGoodsAmountLabel" destination="rXh-Ca-fWy" id="3OB-Dp-ADN"/>
                 <outlet property="totalGoodsAmountLabelArea" destination="VtG-Dv-hcV" id="UWV-W8-cgm"/>

@@ -11,18 +11,21 @@ import RxSwift
 
 final class HistoryContentView: UIView, XibInstantiable {
 
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var totalGoodsAmountLabelArea: UIView!
-    @IBOutlet weak var totalGoodsAmountLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var totalGoodsAmountLabelArea: UIView!
+    @IBOutlet private weak var totalGoodsAmountLabel: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var ovelayView: UIView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
 
-    private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "")
+    private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "20200622")
     private let disposeBag: DisposeBag = DisposeBag()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
         bind()
+        startFetchingBoughtGoods()
     }
 
     func startFetchingBoughtGoods() {
@@ -77,9 +80,11 @@ final class HistoryContentView: UIView, XibInstantiable {
 
             switch state {
             case .loading:
-                ActivityIndicator.shared.start(view: this)
+                this.activityIndicator.startAnimating()
+                this.ovelayView.isHidden = false
             case .success:
-                ActivityIndicator.shared.stop(view: this)
+                this.activityIndicator.stopAnimating()
+                this.ovelayView.isHidden = true
                 this.tableView.reloadData()
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: this,
@@ -88,7 +93,8 @@ final class HistoryContentView: UIView, XibInstantiable {
                                                                 type: .error,
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
-                ActivityIndicator.shared.stop(view: this)
+                this.activityIndicator.startAnimating()
+                this.ovelayView.isHidden = false
             }
         }).disposed(by: disposeBag)
     }
