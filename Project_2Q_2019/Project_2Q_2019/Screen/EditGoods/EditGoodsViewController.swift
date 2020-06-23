@@ -28,6 +28,8 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
     
     private let disposeBag = DisposeBag()
 
+    private lazy var categoryButtons: [UIButton] = [lifeButton, fashionButton, hobbiesButton, miscellaneousButton]
+    
     var viewModel: EditGoodsViewModel!
     var dismissed: ((Bool) -> Void)?
 
@@ -61,7 +63,16 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
         
     }
     @IBAction private func categoryButtons(_ sender: UIButton) {
+        guard !sender.isSelected else { return }
+
+        categoryButtons[sender.tag].isSelected = true
+        categoryButtons.enumerated().forEach { index, button in
+            if index != sender.tag {
+                button.isSelected = false
+            }
+        }
     }
+    
     private func setupLayouts() {
         mainView.layer.cornerRadius = 20
         mainView.clipsToBounds = true
