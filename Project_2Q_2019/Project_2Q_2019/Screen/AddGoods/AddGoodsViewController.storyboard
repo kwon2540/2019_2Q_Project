@@ -280,7 +280,7 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="fsE-Vt-ok4"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dg1-4s-2e2" userLabel="Spacing View 5">

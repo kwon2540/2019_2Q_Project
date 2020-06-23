@@ -43,7 +43,7 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sb-3b-dgm" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
                                                                                 <rect key="frame" x="20" y="7" width="57" height="26"/>
-                                                                                <color key="backgroundColor" name="cB8B8B8"/>
+                                                                                <color key="backgroundColor" name="cFF536F"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="57" id="CeS-dz-Fc3"/>
                                                                                     <constraint firstAttribute="height" constant="26" id="xQG-p2-nr7"/>
@@ -68,7 +68,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Snw-JT-Ufp" userLabel="Title View">
                                                                         <rect key="frame" x="106.5" y="0.0" width="107" height="40"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="編集" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6E-Ej-x48">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入完了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6E-Ej-x48">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="107" height="40"/>
                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                                 <color key="textColor" name="c3B3B3B"/>
@@ -298,12 +298,12 @@
                                                                             <constraint firstAttribute="height" constant="10" id="dth-gu-yCh"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ftb-wd-J6T">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="商品名を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ftb-wd-J6T">
                                                                         <rect key="frame" x="0.0" y="24" width="280" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="2BB-hC-YVY"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTc-37-TEA" userLabel="Spacing View 5">
@@ -338,20 +338,20 @@
                                                             <constraint firstAttribute="height" constant="15" id="2CA-rE-lsM"/>
                                                         </constraints>
                                                     </view>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rF5-Zk-iiv">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rF5-Zk-iiv">
                                                         <rect key="frame" x="0.0" y="201" width="320" height="50"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2M-NJ-H5b" userLabel="Amount View">
-                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="155" height="50"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="43N-ND-MIE">
-                                                                        <rect key="frame" x="20" y="0.0" width="130" height="50"/>
+                                                                        <rect key="frame" x="20" y="0.0" width="135" height="50"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hn6-qr-Zq4" userLabel="Title View">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="130" height="14"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="135" height="14"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seU-rh-uE4">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="14"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="14"/>
                                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                                         <color key="textColor" name="c545454"/>
                                                                                         <nil key="highlightedColor"/>
@@ -367,29 +367,29 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Hg-vJo" userLabel="Spacing View 10">
-                                                                                <rect key="frame" x="0.0" y="14" width="130" height="10"/>
+                                                                                <rect key="frame" x="0.0" y="14" width="135" height="10"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="10" id="buW-M4-ZKn"/>
                                                                                 </constraints>
                                                                             </view>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="数量を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="173-JA-ukM">
-                                                                                <rect key="frame" x="0.0" y="24" width="130" height="20"/>
+                                                                                <rect key="frame" x="0.0" y="24" width="135" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="20" id="S7N-sS-jpE"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                             </textField>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LjX-At-WUe" userLabel="Spacing View 5">
-                                                                                <rect key="frame" x="0.0" y="44" width="130" height="5"/>
+                                                                                <rect key="frame" x="0.0" y="44" width="135" height="5"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="5" id="s3Z-tt-djW"/>
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rT-UM-7IZ" userLabel="Saperator Line">
-                                                                                <rect key="frame" x="0.0" y="49" width="130" height="1"/>
+                                                                                <rect key="frame" x="0.0" y="49" width="135" height="1"/>
                                                                                 <color key="backgroundColor" name="cD8D8D8"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="1" id="NKc-oo-br5"/>
@@ -407,16 +407,16 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7R-6C-BOd" userLabel="Price View">
-                                                                <rect key="frame" x="170" y="0.0" width="150" height="50"/>
+                                                                <rect key="frame" x="165" y="0.0" width="155" height="50"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2FQ-pN-mTw">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="50"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vd-Kk-Gcx" userLabel="Title View">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="130" height="14"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="135" height="14"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8G-Op-1wl">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="14"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="14"/>
                                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                                         <color key="textColor" name="c545454"/>
                                                                                         <nil key="highlightedColor"/>
@@ -432,29 +432,29 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2X-Qs-gh3" userLabel="Spacing View 10">
-                                                                                <rect key="frame" x="0.0" y="14" width="130" height="10"/>
+                                                                                <rect key="frame" x="0.0" y="14" width="135" height="10"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="10" id="7zX-c2-PK1"/>
                                                                                 </constraints>
                                                                             </view>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="金額を入力してください" textAlignment="natural" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="g2o-pV-lmC">
-                                                                                <rect key="frame" x="0.0" y="24" width="130" height="20"/>
+                                                                                <rect key="frame" x="0.0" y="24" width="135" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="20" id="3AZ-kc-FKa"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                             </textField>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrD-0z-NTr" userLabel="Spacing View 5">
-                                                                                <rect key="frame" x="0.0" y="44" width="130" height="5"/>
+                                                                                <rect key="frame" x="0.0" y="44" width="135" height="5"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="5" id="ye8-h3-UD9"/>
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueT-Ge-yGO" userLabel="Saperator Line">
-                                                                                <rect key="frame" x="0.0" y="49" width="130" height="1"/>
+                                                                                <rect key="frame" x="0.0" y="49" width="135" height="1"/>
                                                                                 <color key="backgroundColor" name="cD8D8D8"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="1" id="jAq-Y3-jhv"/>
@@ -550,11 +550,11 @@
         <namedColor name="c859EFF">
             <color red="0.52156862745098043" green="0.61960784313725492" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="cB8B8B8">
-            <color red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="cD8D8D8">
             <color red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="cFF536F">
+            <color red="1" green="0.32549019607843138" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
