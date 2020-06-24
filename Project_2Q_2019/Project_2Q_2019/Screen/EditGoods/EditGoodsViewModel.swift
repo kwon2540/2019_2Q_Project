@@ -59,4 +59,10 @@ final class EditGoodsViewModel: APIStateProtocol {
         amountSaperatorColor = state.map { $0.saperatorColor(text: $0.amountText) }
         priceSaperatorColor = state.map { $0.saperatorColor(text: $0.priceText) }
     }
+    
+    func getSeletedCategoryButtonTag() -> Int? {
+         return GoodsCategory.allCases.filter {
+            $0.key == goods.category
+        }.first?.rawValue
+    }
 }

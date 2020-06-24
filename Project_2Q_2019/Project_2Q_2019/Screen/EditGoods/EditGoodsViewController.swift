@@ -36,7 +36,7 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupLayouts()
+        setup()
         
         bindViewModel()
     }
@@ -73,6 +73,11 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
         }
     }
     
+    private func setup() {
+        setupLayouts()
+        setupCategoryButton()
+    }
+    
     private func setupLayouts() {
         mainView.layer.cornerRadius = 20
         mainView.clipsToBounds = true
@@ -84,6 +89,12 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
         priceTextField.becomeFirstResponder()
         
         nameTextField.text = viewModel.goods.name
+    }
+    
+    private func setupCategoryButton() {
+        if let tag = viewModel.getSeletedCategoryButtonTag() {
+            categoryButtons[tag].isSelected = true
+        }
     }
     private func closeEditGoodsModal(isDataChanged: Bool) {
         dismissed?(isDataChanged)
