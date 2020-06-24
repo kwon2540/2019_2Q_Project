@@ -24,7 +24,7 @@ struct HistoryContentViewModel: APIStateProtocol {
     let apiStateRelay = PublishRelay<APIState>()
     var date: Observable<String> { return dateRelay.map { $0.toDisplayDate() } }
     var sectionCount: Int { return boughtGoodsSection.count }
-    var totalGoodsAmount: Observable<String> { return boughtGoods.map { $0.count }.map { String($0) } }
+    var totalGoodsAmount: Observable<String> { return boughtGoods.map { String($0.count) } }
 
     init(date: String) {
         self.dateRelay = BehaviorRelay(value: date)
@@ -53,8 +53,7 @@ struct HistoryContentViewModel: APIStateProtocol {
     private func generateHistoryContentSections() -> [HistoryContentViewSection] {
         return GoodsCategory.allCases.map { (category) -> HistoryContentViewSection in
             let categorizedGoods = boughtGoods.value.filter { $0.category == category.key }
-            let categorizedSection = HistoryContentViewSection(category: category, boughtGoods: categorizedGoods)
-            return categorizedSection
+            return HistoryContentViewSection(category: category, boughtGoods: categorizedGoods)
         }
     }
 }
