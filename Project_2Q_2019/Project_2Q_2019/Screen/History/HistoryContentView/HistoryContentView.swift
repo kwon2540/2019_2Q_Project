@@ -128,6 +128,8 @@ extension HistoryContentView: UITableViewDataSource {
 extension HistoryContentView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard viewModel.shouldDisplayHederAndFooterView(section: section) else { return nil}
+
         let headerView = HistoryContentHeaderView.loadXib()
         let headerViewModel = viewModel.sectionHeaderViewModel(for: section)
         headerView.bind(viewModel: headerViewModel)
@@ -135,19 +137,21 @@ extension HistoryContentView: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard viewModel.shouldDisplayHederAndFooterView(section: section) else { return nil}
+
         let footerView = HistoryContentFooterView.loadXib()
         return footerView
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 52
+        return 48
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 41
+        return 32
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 22
+        return 24
     }
 }

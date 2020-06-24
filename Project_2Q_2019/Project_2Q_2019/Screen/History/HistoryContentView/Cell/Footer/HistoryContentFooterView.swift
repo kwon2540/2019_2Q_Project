@@ -23,7 +23,7 @@ final class HistoryContentFooterView: UIView, XibInstantiable {
 
     private func setupContentView() {
         contentView.clipsToBounds = true
-        contentView.layer.cornerRadius = 15
+        contentView.layer.cornerRadius = 10
         contentView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
 }

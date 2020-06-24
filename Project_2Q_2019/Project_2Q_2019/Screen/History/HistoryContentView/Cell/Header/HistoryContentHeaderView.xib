@@ -26,37 +26,40 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3,300¥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYM-Wi-1Wq">
-                            <rect key="frame" x="60" y="15" width="59" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <rect key="frame" x="60" y="10" width="64" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATe-mL-OLz">
-                            <rect key="frame" x="344" y="18.5" width="24" height="14"/>
+                            <rect key="frame" x="344" y="13.5" width="24" height="14"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCP-MD-mzg">
-                                    <rect key="frame" x="0.0" y="0.0" width="24" height="14"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCP-MD-mzg">
+                                    <rect key="frame" x="4" y="0.0" width="16" height="14"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                     <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" name="cF98A6C"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="14" id="crO-7u-U0H"/>
-                                <constraint firstAttribute="width" constant="24" id="dod-H3-Acp"/>
+                                <constraint firstItem="sCP-MD-mzg" firstAttribute="leading" secondItem="ATe-mL-OLz" secondAttribute="leading" constant="4" id="Iwy-z0-FOQ"/>
+                                <constraint firstAttribute="height" constant="14" id="S9S-3n-4Wz"/>
+                                <constraint firstAttribute="trailing" secondItem="sCP-MD-mzg" secondAttribute="trailing" constant="4" id="TTy-S9-mbA"/>
+                                <constraint firstAttribute="bottom" secondItem="sCP-MD-mzg" secondAttribute="bottom" id="XsA-yg-fXC"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="Z6d-Br-Nlf"/>
+                                <constraint firstItem="sCP-MD-mzg" firstAttribute="top" secondItem="ATe-mL-OLz" secondAttribute="top" id="l77-bs-BAn"/>
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" name="cF3F3F3"/>
                     <constraints>
-                        <constraint firstItem="ATe-mL-OLz" firstAttribute="centerY" secondItem="fYM-Wi-1Wq" secondAttribute="centerY" id="5GE-8I-wTB"/>
-                        <constraint firstItem="fYM-Wi-1Wq" firstAttribute="top" secondItem="TzY-vA-iB6" secondAttribute="top" constant="15" id="C72-ji-23Q"/>
+                        <constraint firstItem="fYM-Wi-1Wq" firstAttribute="top" secondItem="TzY-vA-iB6" secondAttribute="top" constant="10" id="C72-ji-23Q"/>
                         <constraint firstItem="uZf-f4-lFr" firstAttribute="top" secondItem="TzY-vA-iB6" secondAttribute="top" id="CLS-4M-dGm"/>
+                        <constraint firstAttribute="trailing" secondItem="ATe-mL-OLz" secondAttribute="trailing" constant="14" id="Ifu-Zb-EM3"/>
+                        <constraint firstItem="ATe-mL-OLz" firstAttribute="centerY" secondItem="fYM-Wi-1Wq" secondAttribute="centerY" id="RJt-zK-CiR"/>
                         <constraint firstItem="fYM-Wi-1Wq" firstAttribute="leading" secondItem="uZf-f4-lFr" secondAttribute="trailing" constant="16" id="ejO-qg-FHd"/>
                         <constraint firstItem="uZf-f4-lFr" firstAttribute="leading" secondItem="TzY-vA-iB6" secondAttribute="leading" constant="14" id="kLd-ld-h4e"/>
-                        <constraint firstAttribute="trailing" secondItem="ATe-mL-OLz" secondAttribute="trailing" constant="14" id="lh2-av-oE1"/>
                     </constraints>
                 </view>
             </subviews>
@@ -81,6 +84,9 @@
     </objects>
     <resources>
         <image name="Life" width="30" height="44"/>
+        <namedColor name="cF3F3F3">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="cF98A6C">
             <color red="0.97647058823529409" green="0.54117647058823526" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

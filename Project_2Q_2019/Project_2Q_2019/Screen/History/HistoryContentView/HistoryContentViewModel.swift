@@ -46,6 +46,10 @@ struct HistoryContentViewModel: APIStateProtocol {
         return HistoryContentCellViewModel(boughtGood: boughtGood)
     }
 
+    func shouldDisplayHederAndFooterView(section: Int) -> Bool {
+        return !boughtGoodsSection[section].boughtGoods.isEmpty
+    }
+
     private func generateHistoryContentSections() -> [HistoryContentViewSection] {
         return GoodsCategory.allCases.map { (category) -> HistoryContentViewSection in
             let categorizedGoods = boughtGoods.value.filter { $0.category == category.key }
@@ -69,9 +73,9 @@ extension HistoryContentViewModel {
                 BoughtGoods(name: "Shirt", category: "fashion", id: "id4", boughtDate: "20200622", price: 50, amount: 1),
                 BoughtGoods(name: "Pant", category: "fashion", id: "id5", boughtDate: "20200622", price: 100, amount: 1),
                 BoughtGoods(name: "PokemonCard", category: "hobby", id: "id6", boughtDate: "20200622", price: 20, amount: 5),
-                BoughtGoods(name: "Guitar", category: "hobby", id: "id7", boughtDate: "20200622", price: 100, amount: 1),
-                BoughtGoods(name: "Item1", category: "miscellaneous", id: "id8", boughtDate: "20200622", price: 10, amount: 2),
-                BoughtGoods(name: "Item2", category: "miscellaneous", id: "id9", boughtDate: "20200622", price: 15, amount: 2)
+                BoughtGoods(name: "Guitar", category: "hobby", id: "id7", boughtDate: "20200622", price: 100, amount: 1)
+                //                BoughtGoods(name: "Item1", category: "miscellaneous", id: "id8", boughtDate: "20200622", price: 10, amount: 2),
+                //                BoughtGoods(name: "Item2", category: "miscellaneous", id: "id9", boughtDate: "20200622", price: 15, amount: 2)
             ]
 
             self.boughtGoods.accept(mockData)
