@@ -17,24 +17,17 @@ struct HistoryContentViewModel: APIStateProtocol {
         var boughtGoods: [BoughtGoods]
     }
 
-    private var date: String
+    private let dateRelay: BehaviorRelay<String>
     private let boughtGoods: BehaviorRelay<[BoughtGoods]> = BehaviorRelay(value: [])
-    private var boughtGoodsSection: [HistoryContentViewSection] {
-        return GoodsCategory.allCases.map { (category) -> HistoryContentViewSection in
-            let categorizedGoods = boughtGoods.value.filter { $0.category == category.key }
-            let categorizedSection = HistoryContentViewSection(category: category, boughtGoods: categorizedGoods)
-            return categorizedSection
-        }
-    }
+    private var boughtGoodsSection: [HistoryContentViewSection] { generateHistoryContentSections() }
 
     let apiStateRelay = PublishRelay<APIState>()
-    var sectionCount: Int {
-        return boughtGoodsSection.count
-    }
+    var date: Observable<String> { return dateRelay.map { $0.toDisplayDate() } }
+    var sectionCount: Int { return boughtGoodsSection.count }
+    var totalGoodsAmount: Observable<String> { return boughtGoods.map { String($0.count) } }
 
     init(date: String) {
-        self.date = date
-        fetchAllBoughtGoods()
+        self.dateRelay = BehaviorRelay(value: date)
     }
 
     func numberOfRows(in section: Int) -> Int {
@@ -53,6 +46,16 @@ struct HistoryContentViewModel: APIStateProtocol {
         return HistoryContentCellViewModel(boughtGood: boughtGood)
     }
 
+    func shouldDisplayHederAndFooterView(section: Int) -> Bool {
+        return !boughtGoodsSection[section].boughtGoods.isEmpty
+    }
+
+    private func generateHistoryContentSections() -> [HistoryContentViewSection] {
+        return GoodsCategory.allCases.map { (category) -> HistoryContentViewSection in
+            let categorizedGoods = boughtGoods.value.filter { $0.category == category.key }
+            return HistoryContentViewSection(category: category, boughtGoods: categorizedGoods)
+        }
+    }
 }
 
 // MARK: Api Fetching
@@ -69,9 +72,9 @@ extension HistoryContentViewModel {
                 BoughtGoods(name: "Shirt", category: "fashion", id: "id4", boughtDate: "20200622", price: 50, amount: 1),
                 BoughtGoods(name: "Pant", category: "fashion", id: "id5", boughtDate: "20200622", price: 100, amount: 1),
                 BoughtGoods(name: "PokemonCard", category: "hobby", id: "id6", boughtDate: "20200622", price: 20, amount: 5),
-                BoughtGoods(name: "Guitar", category: "hobby", id: "id7", boughtDate: "20200622", price: 100, amount: 1),
-                BoughtGoods(name: "Item1", category: "miscellaneous", id: "id8", boughtDate: "20200622", price: 10, amount: 2),
-                BoughtGoods(name: "Item2", category: "miscellaneous", id: "id9", boughtDate: "20200622", price: 15, amount: 2)
+                BoughtGoods(name: "Guitar", category: "hobby", id: "id7", boughtDate: "20200622", price: 100, amount: 1)
+                //                BoughtGoods(name: "Item1", category: "miscellaneous", id: "id8", boughtDate: "20200622", price: 10, amount: 2),
+                //                BoughtGoods(name: "Item2", category: "miscellaneous", id: "id9", boughtDate: "20200622", price: 15, amount: 2)
             ]
 
             self.boughtGoods.accept(mockData)

@@ -22,6 +22,10 @@ struct HistoryContentHeaderViewModel {
         return category.image
     }
 
+    var totalGoodsAmount: String {
+        return "\(boughtGoods.count)"
+    }
+
     init(boughtGoods: [BoughtGoods], category: GoodsCategory) {
         self.boughtGoods = boughtGoods
         self.category = category

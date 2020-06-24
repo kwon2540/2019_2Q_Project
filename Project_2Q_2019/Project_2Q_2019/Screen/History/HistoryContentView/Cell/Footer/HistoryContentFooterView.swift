@@ -8,13 +8,12 @@
 
 import UIKit
 
-final class HistoryContentFooterView: UIView {
+final class HistoryContentFooterView: UIView, XibInstantiable {
 
     @IBOutlet private weak var contentView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
         setup()
     }
 
@@ -22,9 +21,9 @@ final class HistoryContentFooterView: UIView {
         setupContentView()
     }
 
-    // TODO: Make Rounded Corner On Bottom Edges
     private func setupContentView() {
+        contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = 10
+        contentView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
 }
-
-extension HistoryContentFooterView: XibInstantiable { }

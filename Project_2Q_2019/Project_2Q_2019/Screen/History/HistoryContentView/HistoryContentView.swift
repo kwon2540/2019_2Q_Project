@@ -11,18 +11,21 @@ import RxSwift
 
 final class HistoryContentView: UIView, XibInstantiable {
 
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var totalGoodsAmountLabelArea: UIView!
-    @IBOutlet weak var totalGoodsAmountLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var totalGoodsAmountLabelArea: UIView!
+    @IBOutlet private weak var totalGoodsAmountLabel: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var ovelayView: UIView!
 
-    private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "")
+    private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "20200622")
     private let disposeBag: DisposeBag = DisposeBag()
+    private let hud: ProgressHUD = ProgressHUD.loadXib()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
         bind()
+        startFetchingBoughtGoods()
     }
 
     func startFetchingBoughtGoods() {
@@ -33,6 +36,8 @@ final class HistoryContentView: UIView, XibInstantiable {
     private func setup() {
         setupContentView()
         setupTableView()
+        setupTotalGoodsAmountView()
+        setupHUD()
     }
 
     private func setupContentView() {
@@ -46,16 +51,44 @@ final class HistoryContentView: UIView, XibInstantiable {
         tableView.registerXib(of: HistoryContentViewCell.self)
     }
 
+    private func setupTotalGoodsAmountView() {
+        totalGoodsAmountLabelArea.layer.cornerRadius = 2
+    }
+
+    private func setupHUD() {
+        addSubview(hud)
+        hud.frame = bounds
+    }
+
     // MARK: Bind
     private func bind() {
+        bindApiState()
+        bindUI()
+    }
+
+    private func bindUI() {
+        viewModel
+            .totalGoodsAmount
+            .asDriver(onErrorJustReturn: "")
+            .drive(totalGoodsAmountLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel
+            .date
+            .asDriver(onErrorJustReturn: "")
+            .drive(dateLabel.rx.text)
+            .disposed(by: disposeBag)
+    }
+
+    private func bindApiState() {
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self else { return }
 
             switch state {
             case .loading:
-                ActivityIndicator.shared.start(view: this)
+                this.hud.startAnimation()
             case .success:
-                ActivityIndicator.shared.stop(view: this)
+                this.hud.stopAnimation()
                 this.tableView.reloadData()
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: this,
@@ -64,7 +97,7 @@ final class HistoryContentView: UIView, XibInstantiable {
                                                                 type: .error,
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
-                ActivityIndicator.shared.stop(view: this)
+                this.hud.stopAnimation()
             }
         }).disposed(by: disposeBag)
     }
@@ -95,6 +128,8 @@ extension HistoryContentView: UITableViewDataSource {
 extension HistoryContentView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard viewModel.shouldDisplayHederAndFooterView(section: section) else { return nil}
+
         let headerView = HistoryContentHeaderView.loadXib()
         let headerViewModel = viewModel.sectionHeaderViewModel(for: section)
         headerView.bind(viewModel: headerViewModel)
@@ -102,19 +137,21 @@ extension HistoryContentView: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard viewModel.shouldDisplayHederAndFooterView(section: section) else { return nil}
+
         let footerView = HistoryContentFooterView.loadXib()
         return footerView
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 52
+        return 48
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 41
+        return 32
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 22
+        return 24
     }
 }

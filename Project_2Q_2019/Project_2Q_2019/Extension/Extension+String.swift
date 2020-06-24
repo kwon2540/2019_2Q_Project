@@ -45,4 +45,13 @@ extension String {
 
         return date
     }
+
+    func toDisplayDate() -> String {
+        guard let year = Int(self.getYearText()),
+            let month = Int(self.getMonthText()),
+            let day = Int(self.getDateText()),
+            let date = DateComponents(calendar: Calendar.current, year: year, month: month, day: day).date else { return "" }
+
+        return "\(year)/\(month)/\(day) \(date.weekday)"
+    }
 }

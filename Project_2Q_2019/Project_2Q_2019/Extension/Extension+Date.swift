@@ -42,7 +42,7 @@ extension Date {
         let weekday = component - 1
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ja")
-        return formatter.weekdaySymbols[weekday]
+        return formatter.shortWeekdaySymbols[weekday]
     }
 
     func toString(format type: DateType) -> String {

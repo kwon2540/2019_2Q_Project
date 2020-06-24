@@ -12,6 +12,7 @@ import UIKit
 protocol XibInstantiable { }
 
 extension XibInstantiable where Self: UIView {
+
     static var xibName: String {
         return String(describing: Self.self)
     }
