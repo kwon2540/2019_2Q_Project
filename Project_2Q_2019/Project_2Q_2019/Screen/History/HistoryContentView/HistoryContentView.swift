@@ -16,10 +16,10 @@ final class HistoryContentView: UIView, XibInstantiable {
     @IBOutlet private weak var totalGoodsAmountLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var ovelayView: UIView!
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
 
     private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "20200622")
     private let disposeBag: DisposeBag = DisposeBag()
+    private let hud: ProgressHUD = ProgressHUD.loadXib()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +37,7 @@ final class HistoryContentView: UIView, XibInstantiable {
         setupContentView()
         setupTableView()
         setupTotalGoodsAmountView()
+        setupHUD()
     }
 
     private func setupContentView() {
@@ -52,6 +53,11 @@ final class HistoryContentView: UIView, XibInstantiable {
 
     private func setupTotalGoodsAmountView() {
         totalGoodsAmountLabelArea.layer.cornerRadius = 2
+    }
+
+    private func setupHUD() {
+        addSubview(hud)
+        hud.frame = bounds
     }
 
     // MARK: Bind
@@ -80,11 +86,9 @@ final class HistoryContentView: UIView, XibInstantiable {
 
             switch state {
             case .loading:
-                this.activityIndicator.startAnimating()
-                this.ovelayView.isHidden = false
+                this.hud.startAnimation()
             case .success:
-                this.activityIndicator.stopAnimating()
-                this.ovelayView.isHidden = true
+                this.hud.stopAnimation()
                 this.tableView.reloadData()
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: this,
@@ -93,8 +97,7 @@ final class HistoryContentView: UIView, XibInstantiable {
                                                                 type: .error,
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
-                this.activityIndicator.startAnimating()
-                this.ovelayView.isHidden = false
+                this.hud.stopAnimation()
             }
         }).disposed(by: disposeBag)
     }
