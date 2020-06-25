@@ -21,6 +21,7 @@ protocol APIManager {
     func loadGoods(completion: @escaping ([Goods]?, APIState) -> Void)
     func addBoughtGoods(boughtGoods: BoughtGoods, completion: @escaping (APIState) -> Void)
     func deleteGoods(id: String, completion: @escaping (APIState) -> Void)
+    func fetchBoughtGoods(completion: @escaping ([BoughtGoods]?, APIState) -> Void)
 }
 
 // MARK: APIStateProtocol
@@ -228,3 +229,45 @@ struct FirebaseManager: APIManager {
 //            completion(.success)
 //        }
 //    }
+    func fetchBoughtGoods(completion: @escaping ([BoughtGoods]?, APIState) -> Void) {
+
+        guard let uid = Auth.auth().currentUser?.uid else {
+            // Failed get UID
+            return completion(nil, .failed(error: .authError))
+        }
+
+        DispatchQueue.global().async {
+            Firestore.firestore()
+                .collection(Collections.goodslist.key)
+                .document(uid)
+                .collection(Collections.boughtgoods.key)
+                .getDocuments { (snapshot, error) in
+
+                    if error != nil {
+                        // Failed get collection data
+                        DispatchQueue.main.async {
+                            completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                        }
+                        return
+                    }
+
+                    guard let documentsData = snapshot?.documents else {
+                        // Failed get documents data
+                        DispatchQueue.main.async {
+                            completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                        }
+                        return
+                    }
+
+                    let goods = documentsData.compactMap {
+                        try? FirestoreDecoder().decode(BoughtGoods.self, from: $0.data())
+                    }
+
+                    DispatchQueue.main.async {
+                        completion(goods, .success)
+                    }
+            }
+        }
+
+    }
+}
