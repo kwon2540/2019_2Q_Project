@@ -86,4 +86,14 @@ final class EditGoodsViewModel: APIStateProtocol {
             this.apiStateRelay.accept(state)
         }
     }
+    
+    func deleteGoods() {
+        apiStateRelay.accept(.loading)
+        
+        FirebaseManager.shared.deleteGoods(id: goods.id) { [weak self] state in
+            guard let this = self else { return }
+            
+            this.apiStateRelay.accept(state)
+        }
+    }
 }
