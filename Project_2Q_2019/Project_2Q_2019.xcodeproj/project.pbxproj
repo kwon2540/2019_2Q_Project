@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -76,6 +76,7 @@
 		10DFFDCB24A09224005611A8 /* EditGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFFDCA24A09224005611A8 /* EditGoodsViewController.swift */; };
 		10DFFDCD24A09238005611A8 /* EditGoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFFDCC24A09238005611A8 /* EditGoodsViewModel.swift */; };
 		1273A3F231517C61780C5E9F /* Pods_Project_2Q_2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E7A66781B6AE5A7AF269C /* Pods_Project_2Q_2019.framework */; };
+		6440D06624A49283000F461C /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 6440D06524A49283000F461C /* Charts */; };
 		6477C81024A0894000BD2BD0 /* HistoryContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C80E24A0894000BD2BD0 /* HistoryContentViewCell.swift */; };
 		6477C81124A0894000BD2BD0 /* HistoryContentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6477C80F24A0894000BD2BD0 /* HistoryContentViewCell.xib */; };
 		6477C81324A08CB100BD2BD0 /* HistoryContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C81224A08CB100BD2BD0 /* HistoryContentCellViewModel.swift */; };
@@ -215,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1273A3F231517C61780C5E9F /* Pods_Project_2Q_2019.framework in Frameworks */,
+				6440D06624A49283000F461C /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +616,9 @@
 			dependencies = (
 			);
 			name = Project_2Q_2019;
+			packageProductDependencies = (
+				6440D06524A49283000F461C /* Charts */,
+			);
 			productName = Project_2Q_2019;
 			productReference = 10A7E52322EDC14000DF3D34 /* Project_2Q_2019.app */;
 			productType = "com.apple.product-type.application";
@@ -689,6 +694,9 @@
 				Base,
 			);
 			mainGroup = 10A7E51A22EDC14000DF3D34;
+			packageReferences = (
+				6440D06424A49283000F461C /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = 10A7E52422EDC14000DF3D34 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1254,6 +1262,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6440D06424A49283000F461C /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6440D06524A49283000F461C /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6440D06424A49283000F461C /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 10A7E51B22EDC14000DF3D34 /* Project object */;
 }
