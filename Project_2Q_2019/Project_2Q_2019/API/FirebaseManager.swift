@@ -149,16 +149,16 @@ struct FirebaseManager: APIManager {
         
         Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection(Collections.goods.key).getDocuments { (snapshot, error) in
             if error != nil {
-                // Failed add collection data
+                // Failed get collection data
                 return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
 
-            guard let snapshotData = snapshot?.documents else {
-                // Failed get snapshot data
-                return completion(nil, .success)
+            guard let documentsData = snapshot?.documents else {
+                // Failed get documents data
+                return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
 
-            let goods = snapshotData.compactMap {
+            let goods = documentsData.compactMap {
                 try? FirestoreDecoder().decode(Goods.self, from: $0.data())
             }
 
