@@ -1,5 +1,5 @@
 //
-//  UserModel.swift
+//  User.swift
 //  Project_2Q_2019
 //
 //  Created by JUNHYEOK KWON on 2019/11/09.
