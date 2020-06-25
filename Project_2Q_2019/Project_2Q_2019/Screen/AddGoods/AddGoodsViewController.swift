@@ -51,7 +51,8 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func addGoods(_ sender: Any) {
-        viewModel.addGoods(categoryKey: getCategoryKey())
+        guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag else { return }
+        viewModel.addGoods(selectedButtonTag: tag)
     }
 
     @IBAction private func categoryButtons(_ sender: UIButton) {
@@ -74,12 +75,6 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         lifeButton.isSelected = true
 
         nameTextField.becomeFirstResponder()
-    }
-    
-    private func getCategoryKey() -> String {
-        guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag,
-            let key = GoodsCategory(rawValue: tag)?.key else { return GoodsCategory.life.key }
-        return key
     }
     
     private func closeAddGoodsModal(isDataChanged: Bool) {
