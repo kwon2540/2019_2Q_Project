@@ -85,9 +85,7 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
         mainView.clipsToBounds = true
 
         completeButton.isEnabled = false
-
-        lifeButton.isSelected = true
-
+        
         priceTextField.becomeFirstResponder()
         
         nameTextField.text = viewModel.goods.name
@@ -98,6 +96,7 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
             categoryButtons[tag].isSelected = true
         }
     }
+    
     private func closeEditGoodsModal(isDataChanged: Bool) {
         dismissed?(isDataChanged)
         dismiss(animated: true)
