@@ -39,14 +39,13 @@ final class EditGoodsViewModel: APIStateProtocol {
     }
     
     let apiStateRelay = PublishRelay<APIState>()
-    let goodsRealy = BehaviorRelay(value: "")
     let nameText = BehaviorRelay(value: "")
     let amountText = BehaviorRelay(value: "1")
     let priceText = BehaviorRelay(value: "0")
     let isCompleteButtonEnabled: Observable<Bool>
-    let nameSaperatorColor: Observable<UIColor>
-    let amountSaperatorColor: Observable<UIColor>
-    let priceSaperatorColor: Observable<UIColor>
+    let nameSeparatorColor: Observable<UIColor>
+    let amountSeparatorColor: Observable<UIColor>
+    let priceSeparatorColor: Observable<UIColor>
     let goods: Goods
     
     
@@ -55,9 +54,9 @@ final class EditGoodsViewModel: APIStateProtocol {
         
         let state = Observable.combineLatest(nameText, amountText, priceText) { UIState(nameText: $0, amountText: $1, priceText: $2) }
         isCompleteButtonEnabled = state.map { $0.isCompleteButtonEnabled }
-        nameSaperatorColor = state.map { $0.saperatorColor(text: $0.nameText) }
-        amountSaperatorColor = state.map { $0.saperatorColor(text: $0.amountText) }
-        priceSaperatorColor = state.map { $0.saperatorColor(text: $0.priceText) }
+        nameSeparatorColor = state.map { $0.saperatorColor(text: $0.nameText) }
+        amountSeparatorColor = state.map { $0.saperatorColor(text: $0.amountText) }
+        priceSeparatorColor = state.map { $0.saperatorColor(text: $0.priceText) }
     }
     
     func getSeletedCategoryButtonTag() -> Int? {

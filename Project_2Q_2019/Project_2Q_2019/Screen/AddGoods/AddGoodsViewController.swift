@@ -88,20 +88,20 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         nameTextField.rx.text.orEmpty
             .bind(to: viewModel.nameText)
             .disposed(by: disposeBag)
-
+        
         // Output
         viewModel.isAddButtonEnabled
             .bind(to: addButton.rx.isEnabled)
             .disposed(by: disposeBag)
-
+        
         viewModel.nameSaperatorColor
             .bind(to: nameSaperator.rx.backgroundColor)
             .disposed(by: disposeBag)
-
+        
         // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
-
+            
             switch state {
             // Show indicator when loading
             case .loading:

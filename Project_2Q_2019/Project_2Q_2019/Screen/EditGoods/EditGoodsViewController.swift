@@ -110,29 +110,29 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
             .disposed(by: disposeBag)
         
         amountTextField.rx.text.orEmpty
-        .bind(to: viewModel.amountText)
-        .disposed(by: disposeBag)
+            .bind(to: viewModel.amountText)
+            .disposed(by: disposeBag)
         
         priceTextField.rx.text.orEmpty
-        .bind(to: viewModel.priceText)
-        .disposed(by: disposeBag)
+            .bind(to: viewModel.priceText)
+            .disposed(by: disposeBag)
         
         // Output
         viewModel.isCompleteButtonEnabled
             .bind(to: completeButton.rx.isEnabled)
             .disposed(by: disposeBag)
-
-        viewModel.nameSaperatorColor
+        
+        viewModel.nameSeparatorColor
             .bind(to: nameSaperator.rx.backgroundColor)
             .disposed(by: disposeBag)
         
-        viewModel.amountSaperatorColor
-        .bind(to: amountSaperator.rx.backgroundColor)
-        .disposed(by: disposeBag)
+        viewModel.amountSeparatorColor
+            .bind(to: amountSaperator.rx.backgroundColor)
+            .disposed(by: disposeBag)
         
-        viewModel.priceSaperatorColor
-        .bind(to: priceSaperator.rx.backgroundColor)
-        .disposed(by: disposeBag)
+        viewModel.priceSeparatorColor
+            .bind(to: priceSaperator.rx.backgroundColor)
+            .disposed(by: disposeBag)
         
         // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
