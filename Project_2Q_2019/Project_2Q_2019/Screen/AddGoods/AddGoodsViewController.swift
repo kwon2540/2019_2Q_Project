@@ -76,7 +76,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
         nameTextField.becomeFirstResponder()
     }
-    
+
     private func closeAddGoodsModal(isDataChanged: Bool) {
         dismissed?(isDataChanged)
         dismiss(animated: true)
@@ -101,7 +101,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
-            
+
             switch state {
             // Show indicator when loading
             case .loading:

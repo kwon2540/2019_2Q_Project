@@ -54,7 +54,7 @@ final class AddGoodsViewModel: APIStateProtocol {
         
         FirebaseManager.shared.addGoods(goods: goods) { [weak self] state in
             guard let this = self else { return }
-            
+
             this.apiStateRelay.accept(state)
         }
     }

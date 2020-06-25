@@ -157,7 +157,7 @@ struct FirebaseManager: APIManager {
                 // Failed get snapshot data
                 return completion(nil, .success)
             }
-            
+
             let goods = snapshotData.compactMap {
                 try? FirestoreDecoder().decode(Goods.self, from: $0.data())
             }
@@ -212,6 +212,7 @@ struct FirebaseManager: APIManager {
             completion(.success)
         }
     }
+}
 
 //    func updateDateList(dateList: [String], completion: @escaping (APIState) -> Void) {
 //        guard let uid = Auth.auth().currentUser?.uid else {
@@ -227,4 +228,3 @@ struct FirebaseManager: APIManager {
 //            completion(.success)
 //        }
 //    }
-}

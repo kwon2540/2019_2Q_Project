@@ -15,14 +15,14 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var corverView: UIView!
 
     private let disposeBag = DisposeBag()
-    
+
     var viewModel: HomeViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         bindViewModel()
-        
+
         viewModel.loadGoods()
     }
 
@@ -41,8 +41,8 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         present(MenuViewController.getStoryBoard(), animated: true)
     }
 
-    @IBAction private func expense(_ sender: Any) {
-        present(ExpenseViewController.getStoryBoard(), animated: true)
+    @IBAction private func graph(_ sender: Any) {
+        present(GraphViewController.getStoryBoard(), animated: true)
     }
 
     @IBAction private func history(_ sender: Any) {
@@ -54,7 +54,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         vc.dismissed = { [weak self] isDataChanged in
             guard let this = self else { return }
             this.corverView.isHidden = true
-            
+
             if isDataChanged {
                 this.viewModel.loadGoods()
             }
@@ -112,7 +112,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
-            
+
             switch state {
             // Show indicator when loading
             case .loading:
@@ -150,14 +150,14 @@ extension HomeViewController: UICollectionViewDataSource {
             
             this.edit(goods: goods)
         }
-        
+
         switch viewModel.reloadState {
         case .success:
             cell.reload()
         default:
             break
         }
-        
+
         return cell
     }
 }

@@ -14,7 +14,6 @@ struct Goods: Codable {
     var id: String
 }
 
-
 struct BoughtGoods: Codable {
     var id: String
     var boughtDate: String

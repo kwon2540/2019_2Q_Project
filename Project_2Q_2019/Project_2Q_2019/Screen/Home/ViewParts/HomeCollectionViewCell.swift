@@ -15,17 +15,16 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var topTitleImageView: UIImageView!
     @IBOutlet private weak var topTitleLabel: UILabel!
-    
+
     private let disposeBag = DisposeBag()
 
     private var viewModel: HomeCollectionViewModel!
     
     var didSelectGoods: ((Goods) -> Void)?
-    
+
     override func awakeFromNib() {
         setupTableView()
     }
-    
 
     override func layoutSubviews() {
         setupLayout()
@@ -45,12 +44,12 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         tableView.dataSource = self
         tableView.registerXib(of: HomeTableViewCell.self)
     }
-    
+
     private func setupTopTitleView() {
         topTitleImageView.image = viewModel.category.image
         topTitleLabel.text = viewModel.category.title
     }
-    
+
     private func setupBackgroundView() {
         let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: self.tableView.frame.height)
         tableView.backgroundView = viewModel.getBackgroundImage(frame: frame)
@@ -59,7 +58,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     func bind(viewmodel: HomeCollectionViewModel) {
         viewModel = viewmodel
     }
-    
+
     func reload() {
         setupBackgroundView()
         tableView.reloadData()
