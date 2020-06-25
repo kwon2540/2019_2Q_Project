@@ -45,12 +45,13 @@ final class AddGoodsViewModel: APIStateProtocol {
         isAddButtonEnabled = state.map { $0.isAddButtonEnabled }
         nameSaperatorColor = state.map { $0.nameSaperatorColor }
     }
-
-    func addGoods(categoryKey: String) {
+    
+    func addGoods(selectedButtonTag: Int) {
         apiStateRelay.accept(.loading)
-
-        let goods = Goods(name: nameText.value, category: categoryKey, id: UUID().uuidString)
-
+        
+        let category = GoodsCategory(rawValue: selectedButtonTag)?.key ?? GoodsCategory.life.key
+        let goods = Goods(name: nameText.value, category: category, id: UUID().uuidString)
+        
         FirebaseManager.shared.addGoods(goods: goods) { [weak self] state in
             guard let this = self else { return }
 

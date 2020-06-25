@@ -72,6 +72,9 @@
 		10B6CF4E2365B05B00314C98 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */; };
 		10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10CB467D23922F4200380E06 /* HomeCollectionViewCell.xib */; };
 		10CB468023922F8800380E06 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB467F23922F8800380E06 /* HomeCollectionViewCell.swift */; };
+		10DFFDC924A09208005611A8 /* EditGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10DFFDC824A09208005611A8 /* EditGoodsViewController.storyboard */; };
+		10DFFDCB24A09224005611A8 /* EditGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFFDCA24A09224005611A8 /* EditGoodsViewController.swift */; };
+		10DFFDCD24A09238005611A8 /* EditGoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFFDCC24A09238005611A8 /* EditGoodsViewModel.swift */; };
 		1273A3F231517C61780C5E9F /* Pods_Project_2Q_2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E7A66781B6AE5A7AF269C /* Pods_Project_2Q_2019.framework */; };
 		6477C81024A0894000BD2BD0 /* HistoryContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C80E24A0894000BD2BD0 /* HistoryContentViewCell.swift */; };
 		6477C81124A0894000BD2BD0 /* HistoryContentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6477C80F24A0894000BD2BD0 /* HistoryContentViewCell.xib */; };
@@ -179,6 +182,9 @@
 		10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		10CB467D23922F4200380E06 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		10CB467F23922F8800380E06 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		10DFFDC824A09208005611A8 /* EditGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditGoodsViewController.storyboard; sourceTree = "<group>"; };
+		10DFFDCA24A09224005611A8 /* EditGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoodsViewController.swift; sourceTree = "<group>"; };
+		10DFFDCC24A09238005611A8 /* EditGoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoodsViewModel.swift; sourceTree = "<group>"; };
 		1CD2A4C0F6B6D48B5FC49979 /* Pods-Project_2Q_2019UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019UITests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019UITests/Pods-Project_2Q_2019UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F464980BEC4F3155A426D2A /* Pods_Project_2Q_2019UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_2Q_2019UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6044ADC4EDFDADB003FD5279 /* Pods-Project_2Q_2019Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019Tests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -468,6 +474,7 @@
 				10A7E5962312B85700DF3D34 /* Home */,
 				10A8FE0C23A4B3CA00F64F96 /* Menu */,
 				1073EC3223DC0054003BB2C5 /* AddGoods */,
+				10DFFDC724A091E5005611A8 /* EditGoods */,
 				100CF47723ADFEC500B3557D /* Graph */,
 				100CF47E23AE00F500B3557D /* History */,
 			);
@@ -502,6 +509,16 @@
 				10A7C2F8237047F20050F6B8 /* FirebaseManager.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		10DFFDC724A091E5005611A8 /* EditGoods */ = {
+			isa = PBXGroup;
+			children = (
+				10DFFDC824A09208005611A8 /* EditGoodsViewController.storyboard */,
+				10DFFDCA24A09224005611A8 /* EditGoodsViewController.swift */,
+				10DFFDCC24A09238005611A8 /* EditGoodsViewModel.swift */,
+			);
+			path = EditGoods;
 			sourceTree = "<group>";
 		};
 		1E917019B7995D9B9985F0BC /* Pods */ = {
@@ -647,7 +664,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "JUNHYEOK KWON";
 				TargetAttributes = {
 					10A7E52222EDC14000DF3D34 = {
@@ -700,9 +717,9 @@
 				64C4B9FE24A1FA1E00B609A4 /* ProgressHUD.xib in Resources */,
 				10A7E53122EDC14100DF3D34 /* LaunchScreen.storyboard in Resources */,
 				104106E524309741004E6D48 /* HomeTableViewCell.xib in Resources */,
+				10DFFDC924A09208005611A8 /* EditGoodsViewController.storyboard in Resources */,
 				6477C81F24A09C2700BD2BD0 /* HistoryContentFooterView.xib in Resources */,
 				6477C81124A0894000BD2BD0 /* HistoryContentViewCell.xib in Resources */,
-				100CF47923ADFEFC00B3557D /* GraphViewController.storyboard in Resources */,
 				100CF47923ADFEFC00B3557D /* GraphViewController.storyboard in Resources */,
 				10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */,
 				1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */,
@@ -889,6 +906,7 @@
 				6477C81024A0894000BD2BD0 /* HistoryContentViewCell.swift in Sources */,
 				1073EC3C23EE6E35003BB2C5 /* Goods.swift in Sources */,
 				104106E72430975B004E6D48 /* HomeTableViewCell.swift in Sources */,
+				10DFFDCB24A09224005611A8 /* EditGoodsViewController.swift in Sources */,
 				1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */,
 				10A8FE1223A4B43800F64F96 /* MenuViewController.swift in Sources */,
 				1032FE662338E2410039E9C0 /* RegisterViewModel.swift in Sources */,
@@ -906,6 +924,7 @@
 				6477C81824A0928400BD2BD0 /* HistoryContentHeaderViewModel.swift in Sources */,
 				6477C81624A0927500BD2BD0 /* HistoryContentHeaderView.swift in Sources */,
 				10A00AA2237FBBCD00BA90EB /* SplashViewController.swift in Sources */,
+				10DFFDCD24A09238005611A8 /* EditGoodsViewModel.swift in Sources */,
 				6477C82124A09F0500BD2BD0 /* HistoryContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

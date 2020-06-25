@@ -51,15 +51,19 @@ final class LoginViewController: UIViewController, StoryboardInstantiable {
             .bind(to: loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
+        // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
 
             switch state {
+            // Show indicator when loading
             case .loading:
                 ActivityIndicator.shared.start(view: view)
+            // Stop indicator and transition to Home when success
             case .success:
                 ActivityIndicator.shared.stop(view: view)
                 AppDelegate.shared.rootViewController.showHomeScreen()
+            // Error handling when failed
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,

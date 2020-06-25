@@ -85,21 +85,43 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         // 스크롤이 빠르게 감속되도록 설정
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
+    
+    private func edit(goods: Goods) {
+        let vc = EditGoodsViewController.getStoryBoard()
+        vc.dismissed = { [weak self] isDataChanged in
+            guard let this = self else { return }
+            this.corverView.isHidden = true
+            
+            if isDataChanged {
+                this.viewModel.loadGoods()
+            }
+        }
+        vc.viewModel = EditGoodsViewModel(goods: goods)
+
+        corverView.isHidden = false
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let this = self else { return }
+            
+            this.present(vc, animated: true)
+        }
+    }
 
     private func bindViewModel() {
 
-        // Output
+        // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
 
             switch state {
+            // Show indicator when loading
             case .loading:
                 ActivityIndicator.shared.start(view: view)
-            // 성공시 콜렉션뷰 리로드
+            // Stop indicator and reload collectionview when success
             case .success:
                 this.collectionView.reloadData()
                 ActivityIndicator.shared.stop(view: view)
-            // 실패시 드롭다운 표시 및 에러 핸들링
+            // Error handling when failed
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,
@@ -122,7 +144,12 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: HomeCollectionViewCell.self, for: indexPath)
         let category = viewModel.category[indexPath.item]
-        cell.viewModel = HomeCollectionViewModel(category: category, goods: viewModel.getGoodsData(category: category))
+        cell.bind(viewmodel: HomeCollectionViewModel(category: category, goods: viewModel.getGoodsData(category: category)))
+        cell.didSelectGoods = { [weak self] goods in
+            guard let this = self else { return }
+            
+            this.edit(goods: goods)
+        }
 
         switch viewModel.reloadState {
         case .success:

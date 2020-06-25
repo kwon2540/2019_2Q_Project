@@ -1,5 +1,5 @@
 //
-//  GoodsListModel.swift
+//  Goods.swift
 //  Project_2Q_2019
 //
 //  Created by JUNHYEOK KWON on 2020/02/08.
@@ -15,11 +15,10 @@ struct Goods: Codable {
 }
 
 struct BoughtGoods: Codable {
-    var name: String
-    var category: String
     var id: String
     var boughtDate: String
-
-    var price: Int = 0
-    var amount: Int = 1
+    var category: String
+    var name: String
+    var amount: Int
+    var price: Int
 }
