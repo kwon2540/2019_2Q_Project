@@ -664,7 +664,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "JUNHYEOK KWON";
 				TargetAttributes = {
 					10A7E52222EDC14000DF3D34 = {
@@ -720,7 +720,6 @@
 				10DFFDC924A09208005611A8 /* EditGoodsViewController.storyboard in Resources */,
 				6477C81F24A09C2700BD2BD0 /* HistoryContentFooterView.xib in Resources */,
 				6477C81124A0894000BD2BD0 /* HistoryContentViewCell.xib in Resources */,
-				100CF47923ADFEFC00B3557D /* GraphViewController.storyboard in Resources */,
 				100CF47923ADFEFC00B3557D /* GraphViewController.storyboard in Resources */,
 				10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */,
 				1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */,
