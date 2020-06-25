@@ -109,18 +109,19 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     private func bindViewModel() {
 
-        // Output
+        // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
             
             switch state {
+            // Show indicator when loading
             case .loading:
                 ActivityIndicator.shared.start(view: view)
-            // 성공시 콜렉션뷰 리로드
+            // Stop indicator and reload collectionview when success
             case .success:
                 this.collectionView.reloadData()
                 ActivityIndicator.shared.stop(view: view)
-            // 실패시 드롭다운 표시 및 에러 핸들링
+            // Error handling when failed
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,

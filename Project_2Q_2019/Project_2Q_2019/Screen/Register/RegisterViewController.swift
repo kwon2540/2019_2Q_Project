@@ -70,16 +70,20 @@ final class RegisterViewController: UIViewController, StoryboardInstantiable {
             .bind(to: registerButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
+        // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = self?.view else { return }
-
+            
             switch state {
+            // Show indicator when loading
             case .loading:
                 ActivityIndicator.shared.start(view: view)
+            // Stop indicator and transition to Home when success
             case .success:
                 ActivityIndicator.shared.stop(view: view)
                 this.dismiss(animated: true)
                 AppDelegate.shared.rootViewController.showHomeScreen()
+            // Error handling when failed
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,

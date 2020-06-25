@@ -103,18 +103,19 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
             .bind(to: nameSaperator.rx.backgroundColor)
             .disposed(by: disposeBag)
 
+        // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
             
             switch state {
-            // 로딩 시 인디케이터 표시
+            // Show indicator when loading
             case .loading:
                 ActivityIndicator.shared.start(view: view)
-            // 성공시 인디케이터 중지 및 디스미스
+            // Stop indicator and dismiss when success
             case .success:
                 ActivityIndicator.shared.stop(view: view)
                 this.closeAddGoodsModal(isDataChanged: true)
-            // 실패시 드롭다운 표시 및 에러 핸들링 인디케이터 중지
+            // Error handling when failed
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,
