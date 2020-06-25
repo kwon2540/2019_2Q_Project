@@ -41,8 +41,8 @@ final class EditGoodsViewModel: APIStateProtocol {
     let apiStateRelay = PublishRelay<APIState>()
     let goodsRealy = BehaviorRelay(value: "")
     let nameText = BehaviorRelay(value: "")
-    let amountText = BehaviorRelay(value: "")
-    let priceText = BehaviorRelay(value: "")
+    let amountText = BehaviorRelay(value: "1")
+    let priceText = BehaviorRelay(value: "0")
     let isCompleteButtonEnabled: Observable<Bool>
     let nameSaperatorColor: Observable<UIColor>
     let amountSaperatorColor: Observable<UIColor>
@@ -64,5 +64,26 @@ final class EditGoodsViewModel: APIStateProtocol {
          return GoodsCategory.allCases.filter {
             $0.key == goods.category
         }.first?.rawValue
+    }
+    
+    func addBoughtGoods(selectedButtonTag: Int) {
+        apiStateRelay.accept(.loading)
+        
+        let category = GoodsCategory(rawValue: selectedButtonTag)?.key ?? GoodsCategory.life.key
+        let amount = Int(amountText.value) ?? 1
+        let price = Int(priceText.value) ?? 0
+        
+        let boughtGoods = BoughtGoods(id: goods.id,
+                                      boughtDate: Date().toString(format: .firebase_key_date),
+                                      category: category,
+                                      name: nameText.value,
+                                      amount: amount,
+                                      price: price)
+        
+        FirebaseManager.shared.addBoughtGoods(boughtGoods: boughtGoods) { [weak self] state in
+            guard let this = self else { return }
+            
+            this.apiStateRelay.accept(state)
+        }
     }
 }

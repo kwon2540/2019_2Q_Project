@@ -60,8 +60,10 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
     }
     
     @IBAction private func complete(_ sender: Any) {
-        
+        guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag else { return }
+        viewModel.addBoughtGoods(selectedButtonTag: tag)
     }
+    
     @IBAction private func categoryButtons(_ sender: UIButton) {
         guard !sender.isSelected else { return }
 
