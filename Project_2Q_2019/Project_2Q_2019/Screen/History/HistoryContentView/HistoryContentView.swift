@@ -144,10 +144,14 @@ extension HistoryContentView: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard viewModel.shouldDisplayHederAndFooterView(section: section) else { return .leastNonzeroMagnitude }
+
         return 48
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        guard viewModel.shouldDisplayHederAndFooterView(section: section) else { return .leastNonzeroMagnitude }
+
         return 32
     }
 
