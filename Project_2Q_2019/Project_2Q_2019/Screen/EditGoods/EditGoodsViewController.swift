@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class EditGoodsViewController: UIViewController, StoryboardInstantiable {
-    
+
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var removeButton: RoundButton!
     @IBOutlet private weak var completeButton: RoundButton!
@@ -25,22 +25,22 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var priceTextField: UITextField!
     @IBOutlet private weak var priceSaperator: UIView!
     @IBOutlet private weak var keyboardSpaceConstraint: NSLayoutConstraint!
-    
+
     private let disposeBag = DisposeBag()
 
     private lazy var categoryButtons: [UIButton] = [lifeButton, fashionButton, hobbiesButton, miscellaneousButton]
-    
+
     var viewModel: EditGoodsViewModel!
     var dismissed: ((Bool) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setup()
-        
+
         bindViewModel()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addKeyboardObservers()
@@ -50,20 +50,20 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
         super.viewWillDisappear(animated)
         removeKeyboardObservers()
     }
-    
+
     @IBAction private func dismiss(_ sender: Any) {
         closeEditGoodsModal(isDataChanged: false)
     }
-    
+
     @IBAction private func remove(_ sender: Any) {
         viewModel.deleteGoods()
     }
-    
+
     @IBAction private func complete(_ sender: Any) {
         guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag else { return }
         viewModel.addBoughtGoods(selectedButtonTag: tag)
     }
-    
+
     @IBAction private func categoryButtons(_ sender: UIButton) {
         guard !sender.isSelected else { return }
 
@@ -74,70 +74,70 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
             }
         }
     }
-    
+
     private func setup() {
         setupLayouts()
         setupCategoryButton()
     }
-    
+
     private func setupLayouts() {
         mainView.layer.cornerRadius = 20
         mainView.clipsToBounds = true
 
         completeButton.isEnabled = false
-        
+
         priceTextField.becomeFirstResponder()
-        
+
         nameTextField.text = viewModel.goods.name
     }
-    
+
     private func setupCategoryButton() {
         if let tag = viewModel.getSeletedCategoryButtonTag() {
             categoryButtons[tag].isSelected = true
         }
     }
-    
+
     private func closeEditGoodsModal(isDataChanged: Bool) {
         dismissed?(isDataChanged)
         dismiss(animated: true)
     }
-    
+
     private func bindViewModel() {
-        
+
         // Input
         nameTextField.rx.text.orEmpty
             .bind(to: viewModel.nameText)
             .disposed(by: disposeBag)
-        
+
         amountTextField.rx.text.orEmpty
             .bind(to: viewModel.amountText)
             .disposed(by: disposeBag)
-        
+
         priceTextField.rx.text.orEmpty
             .bind(to: viewModel.priceText)
             .disposed(by: disposeBag)
-        
+
         // Output
         viewModel.isCompleteButtonEnabled
             .bind(to: completeButton.rx.isEnabled)
             .disposed(by: disposeBag)
-        
+
         viewModel.nameSeparatorColor
             .bind(to: nameSaperator.rx.backgroundColor)
             .disposed(by: disposeBag)
-        
+
         viewModel.amountSeparatorColor
             .bind(to: amountSaperator.rx.backgroundColor)
             .disposed(by: disposeBag)
-        
+
         viewModel.priceSeparatorColor
             .bind(to: priceSaperator.rx.backgroundColor)
             .disposed(by: disposeBag)
-        
+
         // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
-            
+
             switch state {
             // Show indicator when loading
             case .loading:
