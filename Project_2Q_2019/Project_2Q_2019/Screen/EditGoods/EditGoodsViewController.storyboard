@@ -43,7 +43,7 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sb-3b-dgm" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
                                                                                 <rect key="frame" x="20" y="7" width="57" height="26"/>
-                                                                                <color key="backgroundColor" name="cFF536F"/>
+                                                                                <color key="backgroundColor" name="c859EFF"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="57" id="CeS-dz-Fc3"/>
                                                                                     <constraint firstAttribute="height" constant="26" id="xQG-p2-nr7"/>
@@ -373,7 +373,7 @@
                                                                                     <constraint firstAttribute="height" constant="10" id="buW-M4-ZKn"/>
                                                                                 </constraints>
                                                                             </view>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="数量を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="173-JA-ukM">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="数量を入力してください" textAlignment="natural" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="173-JA-ukM">
                                                                                 <rect key="frame" x="0.0" y="24" width="135" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="20" id="S7N-sS-jpE"/>
@@ -552,9 +552,6 @@
         </namedColor>
         <namedColor name="cD8D8D8">
             <color red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="cFF536F">
-            <color red="1" green="0.32549019607843138" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
