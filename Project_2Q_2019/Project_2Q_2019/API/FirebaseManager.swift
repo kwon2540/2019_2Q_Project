@@ -221,38 +221,29 @@ struct FirebaseManager: APIManager {
             return completion(nil, .failed(error: .authError))
         }
 
-        DispatchQueue.global().async {
-            Firestore.firestore()
-                .collection(Collections.goodslist.key)
-                .document(uid)
-                .collection(Collections.boughtgoods.key)
-                .getDocuments { (snapshot, error) in
+        Firestore.firestore()
+            .collection(Collections.goodslist.key)
+            .document(uid)
+            .collection(Collections.boughtgoods.key)
+            .getDocuments { (snapshot, error) in
 
-                    if error != nil {
-                        // Failed get collection data
-                        DispatchQueue.main.async {
-                            completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
-                        }
-                        return
-                    }
+                if error != nil {
+                    // Failed get collection data
+                    completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                    return
+                }
 
-                    guard let documentsData = snapshot?.documents else {
-                        // Failed get documents data
-                        DispatchQueue.main.async {
-                            completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
-                        }
-                        return
-                    }
+                guard let documentsData = snapshot?.documents else {
+                    // Failed get documents data
+                    completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                    return
+                }
 
-                    let goods = documentsData.compactMap {
-                        try? FirestoreDecoder().decode(BoughtGoods.self, from: $0.data())
-                    }
+                let goods = documentsData.compactMap {
+                    try? FirestoreDecoder().decode(BoughtGoods.self, from: $0.data())
+                }
 
-                    DispatchQueue.main.async {
-                        completion(goods, .success)
-                    }
-            }
+                completion(goods, .success)
         }
-
     }
 }
