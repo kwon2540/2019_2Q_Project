@@ -15,3 +15,5 @@ final class HistoryContentGraphView: UIView, XibInstantiable {
 
     }
 }
+
+@IBDesignable class HistoryGraphWrapper: NibWrapperView<HistoryContentGraphView> { }

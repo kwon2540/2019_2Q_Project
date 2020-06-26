@@ -10,27 +10,26 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="HistoryContentGraphView" customModule="Project_2Q_2019" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iC-3Z-WjE" userLabel="Content View">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTo-O4-6Wq">
-                            <rect key="frame" x="87.5" y="50" width="200" height="200"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URd-lD-9Ui">
+                            <rect key="frame" x="72.5" y="40" width="230" height="230"/>
+                            <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="200" id="ogc-Z0-pk8"/>
-                                <constraint firstAttribute="height" constant="200" id="wJi-zi-0ZW"/>
+                                <constraint firstAttribute="width" constant="230" id="FvI-hK-t1g"/>
+                                <constraint firstAttribute="height" constant="230" id="PC5-SC-Ha4"/>
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="bTo-O4-6Wq" firstAttribute="top" secondItem="1iC-3Z-WjE" secondAttribute="top" constant="50" id="Vn5-Yf-Xug"/>
-                        <constraint firstAttribute="height" constant="300" id="aFP-zE-220"/>
-                        <constraint firstItem="bTo-O4-6Wq" firstAttribute="centerX" secondItem="1iC-3Z-WjE" secondAttribute="centerX" id="c7M-Yz-ceN"/>
-                        <constraint firstAttribute="bottom" secondItem="bTo-O4-6Wq" secondAttribute="bottom" constant="50" id="yR0-kH-Igf"/>
+                        <constraint firstAttribute="bottom" secondItem="URd-lD-9Ui" secondAttribute="bottom" constant="40" id="4Jl-8p-5Bj"/>
+                        <constraint firstItem="URd-lD-9Ui" firstAttribute="centerX" secondItem="1iC-3Z-WjE" secondAttribute="centerX" id="5al-80-RD1"/>
+                        <constraint firstItem="URd-lD-9Ui" firstAttribute="top" secondItem="1iC-3Z-WjE" secondAttribute="top" constant="40" id="Io5-gG-j7f"/>
                     </constraints>
                 </view>
             </subviews>
