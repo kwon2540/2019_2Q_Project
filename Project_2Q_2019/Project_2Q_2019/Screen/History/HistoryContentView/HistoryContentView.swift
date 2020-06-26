@@ -20,6 +20,7 @@ final class HistoryContentView: UIView, XibInstantiable {
     private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "20200622")
     private let disposeBag: DisposeBag = DisposeBag()
     private let hud: ProgressHUD = ProgressHUD.loadXib()
+    private let graphView: HistoryContentGraphView = HistoryContentGraphView.loadXib()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,6 +50,14 @@ final class HistoryContentView: UIView, XibInstantiable {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerXib(of: HistoryContentViewCell.self)
+
+        print(graphView.frame)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        tableView.tableHeaderView = graphView
     }
 
     private func setupTotalGoodsAmountView() {
