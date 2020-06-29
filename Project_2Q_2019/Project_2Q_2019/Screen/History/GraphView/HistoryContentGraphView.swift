@@ -13,29 +13,30 @@ import RxCocoa
 
 @IBDesignable class HistoryGraphWrapper: NibWrapperView<HistoryContentGraphView> { }
 final class HistoryContentGraphView: UIView, XibInstantiable {
-    
+
     @IBOutlet weak var graphView: PieChartView!
-    
+
     private let disposeBag: DisposeBag = DisposeBag()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
     }
-    
+
     private func setup() {
         setupPieChartView()
     }
-    
+
     private func setupPieChartView() {
         graphView.chartDescription?.text = ""
-        graphView.legend.enabled = false
+        graphView.legend.enabled = true
         graphView.drawEntryLabelsEnabled = true
         graphView.highlightPerTapEnabled = false
         graphView.drawHoleEnabled = true
-        graphView.centerText = "Apple"
+        graphView.holeRadiusPercent = 0.85
+        graphView.drawEntryLabelsEnabled = false
     }
-    
+
     // MARK: Bind
     func bind(viewModel: HistoryContentGraphViewModel) {
         viewModel
@@ -43,50 +44,68 @@ final class HistoryContentGraphView: UIView, XibInstantiable {
             .asDriver(onErrorJustReturn: PieChartData())
             .drive(onNext: set(pieChartData:))
             .disposed(by: disposeBag)
+
+        viewModel
+            .totalAmount
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: set(centerText:))
+            .disposed(by: disposeBag)
     }
-    
+
     private func set(pieChartData: PieChartData) {
         graphView.data = pieChartData
+    }
+
+    private func set(centerText: String) {
+        let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.lineBreakMode = .byTruncatingTail
+        paragraphStyle.alignment = .center
+
+        let titleAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 14), .paragraphStyle: paragraphStyle]
+        let titleAttrString = NSMutableAttributedString(string: "合計", attributes: titleAttributes)
+
+        let subTitleAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: 20), .paragraphStyle: paragraphStyle]
+        let subTitleAttrString = NSMutableAttributedString(string: centerText, attributes: subTitleAttributes)
+
+        let newLine = NSAttributedString(string: "\n")
+        titleAttrString.append(newLine)
+        titleAttrString.append(subTitleAttrString)
+
+        graphView.centerAttributedText = titleAttrString
     }
 }
 
 struct HistoryContentGraphViewModel {
     private let boughtGoods: Observable<[BoughtGoods]>
-    private let pieChartColorSet: Observable<[NSUIColor]>
-    private let pieChartValueSet: Observable<[Double]>
-    
+
     let pieChartData: Observable<PieChartData>
-    
+    let totalAmount: Observable<String>
+
     init(boughtGoods: Observable<[BoughtGoods]>) {
-        func filterGoods(for category: GoodsCategory) -> Observable<Double> {
-            return boughtGoods.map { (goods) -> Double in
-               goods.filter { $0.category == category.key }
-                    .reduce(0) { $0 + Double($1.price * $1.amount) }
-            }
-        }
-        
         self.boughtGoods = boughtGoods
-        
-        let colorSet = [UIColor.cFEBA5B, UIColor.cFF7273, UIColor.c60A8E0, UIColor.cA8C953] as [NSUIColor]
-        self.pieChartColorSet = Observable.from(optional: colorSet)
-        
-        let lifeGoodsTotal = filterGoods(for: .life)
-        let fashionGoodsTotal = filterGoods(for: .fashion)
-        let hobbyGoodsTotal = filterGoods(for: .hobby)
-        let miscellaneousGoodsTotal = filterGoods(for: .miscellaneous)
-        
-        self.pieChartValueSet = Observable.combineLatest(lifeGoodsTotal, fashionGoodsTotal, hobbyGoodsTotal, miscellaneousGoodsTotal) { [$0, $1, $2, $3] }
-        
-        pieChartData = Observable.combineLatest(pieChartValueSet, pieChartColorSet) { (values, colors) -> PieChartData in
-            let dataEntries = values.map { PieChartDataEntry(value: $0) }
+
+        // Pie Chart Data Set
+        let pieChartColorSet = [UIColor.cFEBA5B, UIColor.cFF7273, UIColor.c60A8E0, UIColor.cA8C953] as [NSUIColor]
+
+        let pieChartValueSet = Observable.combineLatest(boughtGoods.map { ($0.life.totalAmount, GoodsCategory.life.title) },
+                                                        boughtGoods.map { ($0.fashion.totalAmount, GoodsCategory.fashion.title) },
+                                                        boughtGoods.map { ($0.hobby.totalAmount, GoodsCategory.hobby.title) },
+                                                        boughtGoods.map { ($0.miscellaneous.totalAmount, GoodsCategory.miscellaneous.title) }) { [$0, $1, $2, $3] }
+
+        pieChartData = pieChartValueSet.map { (values) -> PieChartData in
+            let dataEntries = values.map { PieChartDataEntry(value: $0, label: $1) }
+
             let dataSet = PieChartDataSet(entries: dataEntries)
-            dataSet.colors = colors
-            
+            dataSet.drawValuesEnabled = false
+            dataSet.label = nil
+
+            dataSet.colors = pieChartColorSet
+
             let data = PieChartData(dataSet: dataSet)
             return data
         }
 
+        // Total Amount
+        totalAmount = boughtGoods.map {"\(Int($0.totalAmount))¥" }
     }
 }
-
-

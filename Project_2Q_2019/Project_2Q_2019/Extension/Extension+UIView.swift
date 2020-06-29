@@ -25,7 +25,7 @@ extension XibInstantiable where Self: UIView {
 }
 
 extension UIView {
-    
+
     func addAndFill(_ parent: UIView) {
         parent.addSubview(self)
         translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +33,7 @@ extension UIView {
             topAnchor.constraint(equalTo: parent.topAnchor),
             bottomAnchor.constraint(equalTo: parent.bottomAnchor),
             leadingAnchor.constraint(equalTo: parent.leadingAnchor),
-            trailingAnchor.constraint(equalTo: parent.trailingAnchor),
+            trailingAnchor.constraint(equalTo: parent.trailingAnchor)
         ])
     }
 }
