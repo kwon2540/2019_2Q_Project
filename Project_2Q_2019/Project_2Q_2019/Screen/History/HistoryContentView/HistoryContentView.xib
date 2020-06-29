@@ -60,7 +60,7 @@
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nZt-i5-DO2">
                             <rect key="frame" x="0.0" y="47" width="375" height="620"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            <view key="tableHeaderView" contentMode="scaleToFill" id="MyR-wD-Kfk" customClass="HistoryGraphWrapper" customModule="Project_2Q_2019" customModuleProvider="target">
+                            <view key="tableHeaderView" contentMode="scaleToFill" id="MyR-wD-Kfk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -79,6 +79,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="dateLabel" destination="6kI-Pi-eGW" id="q6S-1q-g1f"/>
+                <outlet property="graphViewArea" destination="MyR-wD-Kfk" id="foT-eC-Cnc"/>
                 <outlet property="tableView" destination="nZt-i5-DO2" id="aLr-v7-J1Z"/>
                 <outlet property="totalGoodsAmountLabel" destination="rXh-Ca-fWy" id="3OB-Dp-ADN"/>
                 <outlet property="totalGoodsAmountLabelArea" destination="VtG-Dv-hcV" id="UWV-W8-cgm"/>

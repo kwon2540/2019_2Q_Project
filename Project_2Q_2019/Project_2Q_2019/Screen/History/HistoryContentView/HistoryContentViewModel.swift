@@ -50,6 +50,10 @@ struct HistoryContentViewModel: APIStateProtocol {
         return !boughtGoodsSection[section].boughtGoods.isEmpty
     }
 
+    func pieChartViewModel() -> HistoryContentGraphViewModel {
+        return HistoryContentGraphViewModel(boughtGoods: boughtGoods.asObservable())
+    }
+
     private func generateHistoryContentSections() -> [HistoryContentViewSection] {
         return GoodsCategory.allCases.map { (category) -> HistoryContentViewSection in
             let categorizedGoods = boughtGoods.value.filter { $0.category == category.key }

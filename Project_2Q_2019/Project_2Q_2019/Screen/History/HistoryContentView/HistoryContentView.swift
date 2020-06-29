@@ -15,11 +15,12 @@ final class HistoryContentView: UIView, XibInstantiable {
     @IBOutlet private weak var totalGoodsAmountLabelArea: UIView!
     @IBOutlet private weak var totalGoodsAmountLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var ovelayView: UIView!
-
+    @IBOutlet weak var graphViewArea: UIView!
+    
     private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "20200622")
     private let disposeBag: DisposeBag = DisposeBag()
     private let hud: ProgressHUD = ProgressHUD.loadXib()
+    private let graphView: HistoryContentGraphView = HistoryContentGraphView.loadXib()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +39,7 @@ final class HistoryContentView: UIView, XibInstantiable {
         setupTableView()
         setupTotalGoodsAmountView()
         setupHUD()
+        setupGraphView()
     }
 
     private func setupContentView() {
@@ -49,13 +51,8 @@ final class HistoryContentView: UIView, XibInstantiable {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerXib(of: HistoryContentViewCell.self)
-
     }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-
+    
     private func setupTotalGoodsAmountView() {
         totalGoodsAmountLabelArea.layer.cornerRadius = 2
     }
@@ -63,6 +60,13 @@ final class HistoryContentView: UIView, XibInstantiable {
     private func setupHUD() {
         addSubview(hud)
         hud.frame = bounds
+    }
+    
+    private func setupGraphView() {
+        graphView.addAndFill(graphViewArea)
+        
+        graphView.bind(viewModel: viewModel.pieChartViewModel())
+        graphView.layer.borderWidth = 1
     }
 
     // MARK: Bind
