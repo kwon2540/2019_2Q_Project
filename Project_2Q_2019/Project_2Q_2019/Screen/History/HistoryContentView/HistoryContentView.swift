@@ -49,6 +49,11 @@ final class HistoryContentView: UIView, XibInstantiable {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerXib(of: HistoryContentViewCell.self)
+
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
 
     private func setupTotalGoodsAmountView() {
@@ -144,10 +149,14 @@ extension HistoryContentView: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard viewModel.shouldDisplayHederAndFooterView(section: section) else { return .leastNonzeroMagnitude }
+
         return 48
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        guard viewModel.shouldDisplayHederAndFooterView(section: section) else { return .leastNonzeroMagnitude }
+
         return 32
     }
 

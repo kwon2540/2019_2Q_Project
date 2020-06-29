@@ -73,7 +73,7 @@ final class RegisterViewController: UIViewController, StoryboardInstantiable {
         // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = self?.view else { return }
-            
+
             switch state {
             // Show indicator when loading
             case .loading:

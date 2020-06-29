@@ -60,6 +60,11 @@
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nZt-i5-DO2">
                             <rect key="frame" x="0.0" y="47" width="375" height="620"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <view key="tableHeaderView" contentMode="scaleToFill" id="MyR-wD-Kfk" customClass="HistoryGraphWrapper" customModule="Project_2Q_2019" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </tableView>
                     </subviews>
                 </stackView>
