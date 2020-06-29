@@ -22,3 +22,20 @@ struct BoughtGoods: Codable {
     var amount: Int
     var price: Int
 }
+
+extension Array where Element == BoughtGoods {
+
+    var life: [Element] { return filter(for: .life) }
+
+    var fashion: [Element] { return filter(for: .fashion) }
+
+    var hobby: [Element] { return filter(for: .hobby) }
+
+    var miscellaneous: [Element] { return filter(for: .miscellaneous) }
+
+    var totalAmount: Double { return reduce(0) { $0 + Double($1.price * $1.amount) } }
+
+    private func filter(for category: GoodsCategory) -> [Element] {
+        return filter { $0.category == category.key }
+    }
+}
