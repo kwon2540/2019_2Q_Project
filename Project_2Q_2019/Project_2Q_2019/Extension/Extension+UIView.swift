@@ -24,6 +24,20 @@ extension XibInstantiable where Self: UIView {
     }
 }
 
+extension UIView {
+    
+    func addAndFill(_ parent: UIView) {
+        parent.addSubview(self)
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: parent.topAnchor),
+            bottomAnchor.constraint(equalTo: parent.bottomAnchor),
+            leadingAnchor.constraint(equalTo: parent.leadingAnchor),
+            trailingAnchor.constraint(equalTo: parent.trailingAnchor),
+        ])
+    }
+}
+
 class NibWrapperView<T: UIView & XibInstantiable>: UIView {
     /// The view loaded from the nib
     var contentView: T
