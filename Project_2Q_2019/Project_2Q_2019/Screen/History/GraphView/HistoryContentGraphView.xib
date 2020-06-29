@@ -16,7 +16,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iC-3Z-WjE" userLabel="Content View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URd-lD-9Ui">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URd-lD-9Ui" customClass="PieChartView" customModule="Charts">
                             <rect key="frame" x="72.5" y="40" width="230" height="230"/>
                             <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -41,6 +41,9 @@
                 <constraint firstItem="1iC-3Z-WjE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xqa-ve-Pse"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="graphView" destination="URd-lD-9Ui" id="eBr-zL-rOZ"/>
+            </connections>
             <point key="canvasLocation" x="93.478260869565219" y="-44.53125"/>
         </view>
     </objects>
