@@ -15,7 +15,7 @@ final class HistoryContentView: UIView, XibInstantiable {
     @IBOutlet private weak var totalGoodsAmountLabelArea: UIView!
     @IBOutlet private weak var totalGoodsAmountLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet weak var graphViewArea: UIView!
+    @IBOutlet private weak var graphViewArea: UIView!
 
     private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "20200622")
     private let disposeBag: DisposeBag = DisposeBag()

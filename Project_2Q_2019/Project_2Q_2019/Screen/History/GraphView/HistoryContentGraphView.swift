@@ -14,7 +14,7 @@ import RxCocoa
 @IBDesignable class HistoryGraphWrapper: NibWrapperView<HistoryContentGraphView> { }
 final class HistoryContentGraphView: UIView, XibInstantiable {
 
-    @IBOutlet weak var graphView: PieChartView!
+    @IBOutlet private weak var graphView: PieChartView!
 
     private let disposeBag: DisposeBag = DisposeBag()
 
