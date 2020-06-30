@@ -12,22 +12,22 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    enum Environment {
+        case debug
+        case release
+
+        var firebasePlistName: String {
+            switch self {
+            case .debug: return "GoogleService-Info-dev"
+            case .release: return "GoogleService-Info"
+            }
+        }
+    }
+
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
-        enum Environment {
-            case debug
-            case release
-
-            var firebasePlistName: String {
-                switch self {
-                case .debug: return "GoogleService-Info-dev"
-                case .release: return "GoogleService-Info"
-                }
-            }
-        }
 
         let environment: Environment = AppDelegate.isDebug ? .debug : .release
 
