@@ -79,6 +79,7 @@
 		6440D06624A49283000F461C /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 6440D06524A49283000F461C /* Charts */; };
 		6440D06924A49E96000F461C /* HistoryContentGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440D06824A49E96000F461C /* HistoryContentGraphView.swift */; };
 		6440D06B24A49ECD000F461C /* HistoryContentGraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6440D06A24A49ECD000F461C /* HistoryContentGraphView.xib */; };
+		6466B75224AAC5560005E998 /* HistoryContentGraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466B75124AAC5560005E998 /* HistoryContentGraphViewModel.swift */; };
 		6477C81024A0894000BD2BD0 /* HistoryContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C80E24A0894000BD2BD0 /* HistoryContentViewCell.swift */; };
 		6477C81124A0894000BD2BD0 /* HistoryContentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6477C80F24A0894000BD2BD0 /* HistoryContentViewCell.xib */; };
 		6477C81324A08CB100BD2BD0 /* HistoryContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C81224A08CB100BD2BD0 /* HistoryContentCellViewModel.swift */; };
@@ -194,6 +195,7 @@
 		63298C60E1C21A50B02057F2 /* Pods-Project_2Q_2019.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019/Pods-Project_2Q_2019.debug.xcconfig"; sourceTree = "<group>"; };
 		6440D06824A49E96000F461C /* HistoryContentGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentGraphView.swift; sourceTree = "<group>"; };
 		6440D06A24A49ECD000F461C /* HistoryContentGraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryContentGraphView.xib; sourceTree = "<group>"; };
+		6466B75124AAC5560005E998 /* HistoryContentGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentGraphViewModel.swift; sourceTree = "<group>"; };
 		6477C80E24A0894000BD2BD0 /* HistoryContentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentViewCell.swift; sourceTree = "<group>"; };
 		6477C80F24A0894000BD2BD0 /* HistoryContentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryContentViewCell.xib; sourceTree = "<group>"; };
 		6477C81224A08CB100BD2BD0 /* HistoryContentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentCellViewModel.swift; sourceTree = "<group>"; };
@@ -554,8 +556,9 @@
 		6440D06724A49E4B000F461C /* GraphView */ = {
 			isa = PBXGroup;
 			children = (
-				6440D06824A49E96000F461C /* HistoryContentGraphView.swift */,
 				6440D06A24A49ECD000F461C /* HistoryContentGraphView.xib */,
+				6440D06824A49E96000F461C /* HistoryContentGraphView.swift */,
+				6466B75124AAC5560005E998 /* HistoryContentGraphViewModel.swift */,
 			);
 			path = GraphView;
 			sourceTree = "<group>";
@@ -927,6 +930,7 @@
 				107A3866237FE5B400D276E9 /* DropDownManager.swift in Sources */,
 				10A7C2F9237047F20050F6B8 /* FirebaseManager.swift in Sources */,
 				108FFD86237FFFDA005B21CC /* Extension+UIColor.swift in Sources */,
+				6466B75224AAC5560005E998 /* HistoryContentGraphViewModel.swift in Sources */,
 				6477C81024A0894000BD2BD0 /* HistoryContentViewCell.swift in Sources */,
 				1073EC3C23EE6E35003BB2C5 /* Goods.swift in Sources */,
 				104106E72430975B004E6D48 /* HomeTableViewCell.swift in Sources */,
