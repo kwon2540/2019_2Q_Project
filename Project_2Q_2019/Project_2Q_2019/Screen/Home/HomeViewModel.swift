@@ -19,7 +19,22 @@ final class HomeViewModel: APIStateProtocol {
     var fashionGoods: [Goods] = []
     var hobbyGoods: [Goods] = []
     var miscellaneousGoods: [Goods] = []
-
+    var dateCounts: [DateCount] = []
+    
+    func getGoodsData(category: GoodsCategory) -> [Goods] {
+        switch category {
+        case .life: return lifeGoods
+        case .fashion: return fashionGoods
+        case .hobby: return hobbyGoods
+        case .miscellaneous: return miscellaneousGoods
+        }
+    }
+    
+    func getDateCount() -> DateCount {
+        let today = Date().toString(format: .firebase_key_date)
+        return dateCounts.filter( { $0.date == today } ).first ?? DateCount(date: today, count: 0)
+    }
+    
     func loadGoods() {
         apiStateRelay.accept(.loading)
         FirebaseManager.shared.loadGoods { [weak self] (response, state) in
@@ -49,12 +64,13 @@ final class HomeViewModel: APIStateProtocol {
         }
     }
 
-    func getGoodsData(category: GoodsCategory) -> [Goods] {
-        switch category {
-        case .life: return lifeGoods
-        case .fashion: return fashionGoods
-        case .hobby: return hobbyGoods
-        case .miscellaneous: return miscellaneousGoods
+    func loadDateCounts() {
+        FirebaseManager.shared.loadDateCounts { [weak self] response in
+            guard let this = self else { return }
+            
+            if let dateCounts = response {
+                this.dateCounts = dateCounts
+            }
         }
     }
 }

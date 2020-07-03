@@ -29,7 +29,7 @@ extension EditGoodsStateProtocol {
     }
 }
 
-final class EditGoodsViewModel: APIStateProtocol {
+struct EditGoodsViewModel: APIStateProtocol {
     
     struct UIState: EditGoodsStateProtocol {
 
@@ -47,10 +47,12 @@ final class EditGoodsViewModel: APIStateProtocol {
     let amountSeparatorColor: Observable<UIColor>
     let priceSeparatorColor: Observable<UIColor>
     let goods: Goods
+    let dateCount: DateCount
     
     
-    init(goods: Goods) {
+    init(goods: Goods, dateCount: DateCount) {
         self.goods = goods
+        self.dateCount = dateCount
         
         let state = Observable.combineLatest(nameText, amountText, priceText) { UIState(nameText: $0, amountText: $1, priceText: $2) }
         isCompleteButtonEnabled = state.map { $0.isCompleteButtonEnabled }
@@ -79,20 +81,34 @@ final class EditGoodsViewModel: APIStateProtocol {
                                       amount: amount,
                                       price: price)
         
-        FirebaseManager.shared.addBoughtGoods(boughtGoods: boughtGoods) { [weak self] state in
-            guard let this = self else { return }
+        FirebaseManager.shared.addBoughtGoods(boughtGoods: boughtGoods) { state in
             
-            this.apiStateRelay.accept(state)
+            guard case .failed(let error) = state else {
+                self.deleteGoods()
+                return
+            }
+            self.apiStateRelay.accept(.failed(error: error))
         }
     }
     
     func deleteGoods() {
-        apiStateRelay.accept(.loading)
-        
-        FirebaseManager.shared.deleteGoods(id: goods.id) { [weak self] state in
-            guard let this = self else { return }
+        FirebaseManager.shared.deleteGoods(id: goods.id) { state in
             
-            this.apiStateRelay.accept(state)
+            guard case .failed(let error) = state else {
+                self.updateDateCount()
+                return
+            }
+            self.apiStateRelay.accept(.failed(error: error))
+        }
+    }
+    
+    func updateDateCount() {
+        var dateCount = self.dateCount
+        dateCount.count += 1
+        
+        FirebaseManager.shared.updateDateCount(dateCount: dateCount) { state in
+
+            self.apiStateRelay.accept(state)
         }
     }
 }
