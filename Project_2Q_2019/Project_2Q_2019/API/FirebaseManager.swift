@@ -58,7 +58,6 @@ struct FirebaseManager: APIManager {
         case firebaseError(debugDescription: String)
         case authError
         case encodeError
-        case decodeError
         
         var description: String {
             switch self {
@@ -68,8 +67,6 @@ struct FirebaseManager: APIManager {
                 return "Auth Error"
             case .encodeError:
                 return "Encode Error"
-            case .decodeError:
-                return "Decode Error"
             }
         }
     }
