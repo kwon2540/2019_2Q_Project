@@ -21,6 +21,8 @@ protocol APIManager {
     func loadGoods(completion: @escaping ([Goods]?, APIState) -> Void)
     func addBoughtGoods(boughtGoods: BoughtGoods, completion: @escaping (APIState) -> Void)
     func deleteGoods(id: String, completion: @escaping (APIState) -> Void)
+    func loadDateCounts(completion: @escaping ([DateCount]?) -> Void)
+    func updateDateCount(dateCount: DateCount, completion: @escaping (APIState) -> Void)
 }
 
 // MARK: APIStateProtocol
@@ -45,6 +47,7 @@ struct FirebaseManager: APIManager {
         case goodslist
         case goods
         case boughtgoods
+        case datecount
 
         var key: String {
             return self.rawValue
@@ -55,7 +58,8 @@ struct FirebaseManager: APIManager {
         case firebaseError(debugDescription: String)
         case authError
         case encodeError
-
+        case decodeError
+        
         var description: String {
             switch self {
             case .firebaseError(let debugDescription):
@@ -64,11 +68,15 @@ struct FirebaseManager: APIManager {
                 return "Auth Error"
             case .encodeError:
                 return "Encode Error"
+            case .decodeError:
+                return "Decode Error"
             }
         }
     }
 
     static var shared = FirebaseManager()
+    
+    private let firestore = Firestore.firestore()
 
     private init() {}
 
@@ -82,7 +90,7 @@ struct FirebaseManager: APIManager {
                 // Failed create
                 return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
             }
-
+            
             guard let uid = Auth.auth().currentUser?.uid else {
                 // Failed get UID
                 return completion(.failed(error: .authError))
@@ -94,13 +102,15 @@ struct FirebaseManager: APIManager {
                 // Failed encode
                 return completion(.failed(error: .encodeError))
             }
-
-            Firestore.firestore().collection(Collections.users.key).document(uid).setData(data) { (error) in
-                if error != nil {
-                    // Failed add collection data
-                    return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
-                }
-                completion(.success)
+            
+            self.firestore.collection(Collections.users.key)
+                .document(uid)
+                .setData(data) { (error) in
+                    if error != nil {
+                        // Failed add collection data
+                        return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                    }
+                    completion(.success)
             }
         }
     }
@@ -131,12 +141,14 @@ struct FirebaseManager: APIManager {
             return completion(.failed(error: .encodeError))
         }
         
-        Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection(Collections.goods.key).document(goods.id).setData(data) { (error) in
-            if error != nil {
-                // Failed add collection data
-                return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
-            }
-            completion(.success)
+        firestore.collection(Collections.goodslist.key)
+            .document(uid).collection(Collections.goods.key)
+            .document(goods.id).setData(data) { (error) in
+                if error != nil {
+                    // Failed add collection data
+                    return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                }
+                completion(.success)
         }
     }
 
@@ -147,22 +159,25 @@ struct FirebaseManager: APIManager {
             return completion(nil, .failed(error: .authError))
         }
         
-        Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection(Collections.goods.key).getDocuments { (snapshot, error) in
-            if error != nil {
-                // Failed get collection data
-                return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
-            }
-
-            guard let documentsData = snapshot?.documents else {
-                // Failed get documents data
-                return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
-            }
-
-            let goods = documentsData.compactMap {
-                try? FirestoreDecoder().decode(Goods.self, from: $0.data())
-            }
-
-            completion(goods, .success)
+        firestore.collection(Collections.goodslist.key)
+            .document(uid)
+            .collection(Collections.goods.key)
+            .getDocuments { (snapshot, error) in
+                if error != nil {
+                    // Failed get collection data
+                    return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                }
+                
+                guard let documentsData = snapshot?.documents else {
+                    // Failed get documents data
+                    return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                }
+                
+                let goods = documentsData.compactMap {
+                    try? FirestoreDecoder().decode(Goods.self, from: $0.data())
+                }
+                
+                completion(goods, .success)
         }
     }
     
@@ -178,22 +193,16 @@ struct FirebaseManager: APIManager {
             return completion(.failed(error: .encodeError))
         }
         
-        Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection(Collections.boughtgoods.key).document(boughtGoods.id).setData(data) { (error) in
-            if error != nil {
-                // Failed add collection data
-                return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
-            }
-            
-            self.deleteGoods(id: boughtGoods.id) { state in
-                switch state {
-                case .success:
-                    completion(.success)
-                case .failed(let error):
-                    completion(.failed(error: error))
-                default:
-                    break
+        firestore.collection(Collections.goodslist.key)
+            .document(uid)
+            .collection(Collections.boughtgoods.key)
+            .document(boughtGoods.id).setData(data) { (error) in
+                if error != nil {
+                    // Failed add collection data
+                    return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
                 }
-            }
+                
+                completion(.success)
         }
     }
     
@@ -204,27 +213,69 @@ struct FirebaseManager: APIManager {
             return completion(.failed(error: .authError))
         }
 
-        Firestore.firestore().collection(Collections.goodslist.key).document(uid).collection(Collections.goods.key).document(id).delete { (error) in
-            if error != nil {
-                // Failed remove collection data
-                return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
-            }
-            completion(.success)
+        firestore.collection(Collections.goodslist.key)
+            .document(uid).collection(Collections.goods.key)
+            .document(id).delete { (error) in
+                if error != nil {
+                    // Failed remove collection data
+                    return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                }
+                
+                completion(.success)
+        }
+    }
+    
+    func loadDateCounts(completion: @escaping ([DateCount]?) -> Void) {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            // Failed get UID
+            return completion(nil)
+        }
+        
+        firestore.collection(Collections.goodslist.key)
+            .document(uid)
+            .collection(Collections.datecount.key)
+            .getDocuments { (snapshot, error) in
+                if error != nil {
+                    // Failed get collection data
+                    return completion(nil)
+                }
+                
+                guard let documentsData = snapshot?.documents else {
+                    // Failed get documents data
+                    return completion(nil)
+                }
+                
+                let dateCount = documentsData.compactMap {
+                    try? FirestoreDecoder().decode(DateCount.self, from: $0.data())
+                }
+                
+                completion(dateCount)
+        }
+    }
+
+    func updateDateCount(dateCount: DateCount, completion: @escaping (APIState) -> Void) {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            // Failed get UID
+            return completion(.failed(error: .authError))
+        }
+        
+        guard let data = try? FirestoreEncoder().encode(dateCount) else {
+            // Failed encode
+            return completion(.failed(error: .encodeError))
+        }
+        
+        firestore.collection(Collections.goodslist.key)
+            .document(uid)
+            .collection(Collections.datecount.key)
+            .document(dateCount.date)
+            .setData(data) { (error) in
+                if error != nil {
+                    // Failed update collection data
+                    return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                }
+                completion(.success)
         }
     }
 }
-
-//    func updateDateList(dateList: [String], completion: @escaping (APIState) -> Void) {
-//        guard let uid = Auth.auth().currentUser?.uid else {
-//            // Failed get UID
-//            return completion(.failed(error: .authError))
-//        }
-//
-//        Firestore.firestore().collection(Collections.goodslist.key).document(uid).updateData(["dateList": dateList]) { (error) in
-//            if error != nil {
-//                // Failed update collection data
-//                return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
-//            }
-//            completion(.success)
-//        }
-//    }
