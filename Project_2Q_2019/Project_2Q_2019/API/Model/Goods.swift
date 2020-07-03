@@ -22,3 +22,8 @@ struct BoughtGoods: Codable {
     var amount: Int
     var price: Int
 }
+
+struct DateCount: Codable {
+    var date: String
+    var count: Int
+}
