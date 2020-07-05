@@ -9,11 +9,17 @@
 import Foundation
 
 enum DateType {
+    /// yyyy年MM月dd日
     case jp_date
+    /// "yyyy年"
     case jp_year
+    /// "MM月"
     case jp_month
+    /// "dd日"
     case jp_day
+    /// "yyyyMMdd"
     case firebase_key_date
+    /// "yyyyMMddHHmmss"
     case firebase_key_fulldate
 
     var format: String {

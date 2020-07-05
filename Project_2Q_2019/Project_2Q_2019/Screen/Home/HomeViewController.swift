@@ -24,6 +24,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         bindViewModel()
 
         viewModel.loadGoods()
+        viewModel.loadGoodsCountForDate()
     }
 
     override func viewDidLayoutSubviews() {
@@ -36,11 +37,11 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         FirebaseManager.shared.signOut()
         AppDelegate.shared.rootViewController.showLoginScreen()
     }
-
+    
     @IBAction private func menu(_ sender: Any) {
         present(MenuViewController.getStoryBoard(), animated: true)
     }
-
+    
     @IBAction private func graph(_ sender: Any) {
         present(GraphViewController.getStoryBoard(), animated: true)
     }
@@ -94,9 +95,10 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 
             if isDataChanged {
                 this.viewModel.loadGoods()
+                this.viewModel.loadGoodsCountForDate()
             }
         }
-        vc.viewModel = EditGoodsViewModel(goods: goods)
+        vc.viewModel = EditGoodsViewModel(goods: goods, dateCount: viewModel.getDateCount())
 
         corverView.isHidden = false
 

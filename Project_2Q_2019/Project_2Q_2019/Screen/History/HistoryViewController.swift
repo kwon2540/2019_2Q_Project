@@ -14,7 +14,7 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
     override func viewDidLayoutSubviews() {

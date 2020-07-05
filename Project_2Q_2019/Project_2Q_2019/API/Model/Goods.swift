@@ -23,6 +23,11 @@ struct BoughtGoods: Codable {
     var price: Int
 }
 
+struct DateCount: Codable {
+    var date: String
+    var count: Int
+}
+
 extension Array where Element == BoughtGoods {
 
     var life: [Element] { filter(for: .life) }
