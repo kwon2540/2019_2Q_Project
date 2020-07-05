@@ -15,11 +15,12 @@ final class HistoryContentView: UIView, XibInstantiable {
     @IBOutlet private weak var totalGoodsAmountLabelArea: UIView!
     @IBOutlet private weak var totalGoodsAmountLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var ovelayView: UIView!
+    @IBOutlet private weak var graphViewArea: UIView!
 
     private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "20200622")
     private let disposeBag: DisposeBag = DisposeBag()
     private let hud: ProgressHUD = ProgressHUD.loadXib()
+    private let graphView: HistoryContentGraphView = HistoryContentGraphView.loadXib()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +39,7 @@ final class HistoryContentView: UIView, XibInstantiable {
         setupTableView()
         setupTotalGoodsAmountView()
         setupHUD()
+        setupGraphView()
     }
 
     private func setupContentView() {
@@ -58,6 +60,12 @@ final class HistoryContentView: UIView, XibInstantiable {
     private func setupHUD() {
         addSubview(hud)
         hud.frame = bounds
+    }
+
+    private func setupGraphView() {
+        graphView.addAndFill(graphViewArea)
+
+        graphView.bind(viewModel: viewModel.pieChartViewModel())
     }
 
     // MARK: Bind
@@ -144,10 +152,14 @@ extension HistoryContentView: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard viewModel.shouldDisplayHederAndFooterView(section: section) else { return .leastNonzeroMagnitude }
+
         return 48
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        guard viewModel.shouldDisplayHederAndFooterView(section: section) else { return .leastNonzeroMagnitude }
+
         return 32
     }
 

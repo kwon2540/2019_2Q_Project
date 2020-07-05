@@ -23,7 +23,7 @@ extension EditGoodsStateProtocol {
     var isCompleteButtonEnabled: Bool {
         return !nameText.isEmpty
     }
-    
+
     func saperatorColor(text: String) -> UIColor {
         return text.isEmpty ? UIColor.cD8D8D8 : UIColor.c859EFF
     }
@@ -37,7 +37,7 @@ struct EditGoodsViewModel: APIStateProtocol {
         let amountText: String
         let priceText: String
     }
-    
+
     let apiStateRelay = PublishRelay<APIState>()
     let nameText = BehaviorRelay(value: "")
     let amountText = BehaviorRelay(value: "1")
@@ -60,20 +60,20 @@ struct EditGoodsViewModel: APIStateProtocol {
         amountSeparatorColor = state.map { $0.saperatorColor(text: $0.amountText) }
         priceSeparatorColor = state.map { $0.saperatorColor(text: $0.priceText) }
     }
-    
+
     func getSeletedCategoryButtonTag() -> Int? {
-         return GoodsCategory.allCases.filter {
+        return GoodsCategory.allCases.filter {
             $0.key == goods.category
         }.first?.rawValue
     }
-    
+
     func addBoughtGoods(selectedButtonTag: Int) {
         apiStateRelay.accept(.loading)
-        
+
         let category = GoodsCategory(rawValue: selectedButtonTag)?.key ?? GoodsCategory.life.key
         let amount = Int(amountText.value) ?? 1
         let price = Int(priceText.value) ?? 0
-        
+
         let boughtGoods = BoughtGoods(id: goods.id,
                                       boughtDate: Date().toString(format: .firebase_key_date),
                                       category: category,
@@ -90,7 +90,7 @@ struct EditGoodsViewModel: APIStateProtocol {
             self.apiStateRelay.accept(.failed(error: error))
         }
     }
-    
+
     func deleteGoods() {
         FirebaseManager.shared.deleteGoods(id: goods.id) { state in
             

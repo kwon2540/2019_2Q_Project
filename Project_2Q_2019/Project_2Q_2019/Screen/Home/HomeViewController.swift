@@ -86,13 +86,13 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         // 스크롤이 빠르게 감속되도록 설정
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
-    
+
     private func edit(goods: Goods) {
         let vc = EditGoodsViewController.getStoryBoard()
         vc.dismissed = { [weak self] isDataChanged in
             guard let this = self else { return }
             this.corverView.isHidden = true
-            
+
             if isDataChanged {
                 this.viewModel.loadGoods()
                 this.viewModel.loadGoodsCountForDate()
@@ -101,10 +101,10 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         vc.viewModel = EditGoodsViewModel(goods: goods, dateCount: viewModel.getDateCount())
 
         corverView.isHidden = false
-        
+
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
-            
+
             this.present(vc, animated: true)
         }
     }
@@ -149,7 +149,7 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.bind(viewmodel: HomeCollectionViewModel(category: category, goods: viewModel.getGoodsData(category: category)))
         cell.didSelectGoods = { [weak self] goods in
             guard let this = self else { return }
-            
+
             this.edit(goods: goods)
         }
 

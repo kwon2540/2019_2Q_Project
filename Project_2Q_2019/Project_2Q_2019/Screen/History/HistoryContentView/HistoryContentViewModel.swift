@@ -47,7 +47,11 @@ struct HistoryContentViewModel: APIStateProtocol {
     }
 
     func shouldDisplayHederAndFooterView(section: Int) -> Bool {
-        return !boughtGoodsSection[section].boughtGoods.isEmpty
+        !boughtGoodsSection[section].boughtGoods.isEmpty
+    }
+
+    func pieChartViewModel() -> HistoryContentGraphViewModel {
+        HistoryContentGraphViewModel(boughtGoods: boughtGoods.asObservable())
     }
 
     private func generateHistoryContentSections() -> [HistoryContentViewSection] {
@@ -60,17 +64,17 @@ struct HistoryContentViewModel: APIStateProtocol {
 
 // MARK: Api Fetching
 extension HistoryContentViewModel {
-    //TODO: Make Api Call Here
+
     func fetchAllBoughtGoods() {
 
         apiStateRelay.accept(.loading)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            let mockData: [BoughtGoods] = [
-                
-            ]
+        FirebaseManager.shared.fetchBoughtGoods { (response, state) in
 
-            self.boughtGoods.accept(mockData)
-            self.apiStateRelay.accept(.success)
+            if let goods = response {
+                self.boughtGoods.accept(goods)
+            }
+
+            self.apiStateRelay.accept(state)
         }
     }
 }

@@ -26,14 +26,13 @@
                                             <constraint firstAttribute="width" constant="22" id="F48-tr-JPc"/>
                                             <constraint firstAttribute="height" constant="22" id="evy-51-mmS"/>
                                         </constraints>
-                                        <state key="normal" image="close_gry"/>
+                                        <state key="normal" image="Close_gry"/>
                                         <connections>
                                             <action selector="dismiss:" destination="5nd-UK-PmX" eventType="touchUpInside" id="5zG-B9-Cfc"/>
                                         </connections>
                                     </button>
-                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yl7-Rl-Zuv">
-                                        <rect key="frame" x="0.0" y="85" width="414" height="618"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yl7-Rl-Zuv">
+                                        <rect key="frame" x="0.0" y="85" width="414" height="698"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MAu-IK-zet">
                                             <size key="itemSize" width="50" height="50"/>
@@ -52,10 +51,13 @@
                                 </subviews>
                                 <color key="backgroundColor" name="cFAFAFA"/>
                                 <constraints>
+                                    <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="top" secondItem="t9Y-uG-Ggo" secondAttribute="bottom" constant="44.5" id="2at-1M-bJ8"/>
                                     <constraint firstItem="StU-8o-yrD" firstAttribute="top" secondItem="KcX-sL-DFa" secondAttribute="top" constant="15" id="O1s-IN-PnH"/>
                                     <constraint firstItem="t9Y-uG-Ggo" firstAttribute="centerY" secondItem="StU-8o-yrD" secondAttribute="centerY" id="Tl4-mE-d0G"/>
+                                    <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="leading" secondItem="KcX-sL-DFa" secondAttribute="leading" id="jfw-oZ-DF8"/>
                                     <constraint firstItem="t9Y-uG-Ggo" firstAttribute="leading" secondItem="KcX-sL-DFa" secondAttribute="leading" constant="20" id="sb3-DN-iXW"/>
                                     <constraint firstAttribute="trailing" secondItem="StU-8o-yrD" secondAttribute="trailing" constant="15" id="t2C-uc-xEm"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yl7-Rl-Zuv" secondAttribute="trailing" id="wNu-5a-WDY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -63,6 +65,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="KcX-sL-DFa" secondAttribute="bottom" id="Rse-O3-GRL"/>
                             <constraint firstItem="KcX-sL-DFa" firstAttribute="leading" secondItem="fBV-gw-u2H" secondAttribute="leading" id="ckp-uw-0xM"/>
+                            <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="bottom" secondItem="fBV-gw-u2H" secondAttribute="bottom" constant="-20" id="e2T-o2-zYc"/>
                             <constraint firstItem="fBV-gw-u2H" firstAttribute="trailing" secondItem="KcX-sL-DFa" secondAttribute="trailing" id="laq-fl-04q"/>
                             <constraint firstItem="KcX-sL-DFa" firstAttribute="top" secondItem="fBV-gw-u2H" secondAttribute="top" constant="15" id="qgp-VU-1Oh"/>
                         </constraints>
@@ -78,7 +81,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close_gry" width="26" height="26"/>
+        <image name="Close_gry" width="26" height="26"/>
         <namedColor name="cFAFAFA">
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

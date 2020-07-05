@@ -27,3 +27,20 @@ struct DateCount: Codable {
     var date: String
     var count: Int
 }
+
+extension Array where Element == BoughtGoods {
+
+    var life: [Element] { filter(for: .life) }
+
+    var fashion: [Element] { filter(for: .fashion) }
+
+    var hobby: [Element] { filter(for: .hobby) }
+
+    var miscellaneous: [Element] { filter(for: .miscellaneous) }
+
+    var totalAmount: Double { reduce(0) { $0 + Double($1.price * $1.amount) } }
+
+    private func filter(for category: GoodsCategory) -> [Element] {
+        filter { $0.category == category.key }
+    }
+}
