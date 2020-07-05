@@ -64,8 +64,8 @@ final class HomeViewModel: APIStateProtocol {
         }
     }
 
-    func loadDateCounts() {
-        FirebaseManager.shared.loadDateCounts { [weak self] response in
+    func loadGoodsCountForDate() {
+        FirebaseManager.shared.loadGoodsCountForDate { [weak self] response in
             guard let this = self else { return }
             
             if let dateCounts = response {

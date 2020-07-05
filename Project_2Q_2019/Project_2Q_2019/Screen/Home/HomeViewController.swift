@@ -24,7 +24,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         bindViewModel()
 
         viewModel.loadGoods()
-        viewModel.loadDateCounts()
+        viewModel.loadGoodsCountForDate()
     }
 
     override func viewDidLayoutSubviews() {
@@ -95,7 +95,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
             
             if isDataChanged {
                 this.viewModel.loadGoods()
-                this.viewModel.loadDateCounts()
+                this.viewModel.loadGoodsCountForDate()
             }
         }
         vc.viewModel = EditGoodsViewModel(goods: goods, dateCount: viewModel.getDateCount())

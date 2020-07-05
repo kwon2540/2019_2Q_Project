@@ -21,8 +21,8 @@ protocol APIManager {
     func loadGoods(completion: @escaping ([Goods]?, APIState) -> Void)
     func addBoughtGoods(boughtGoods: BoughtGoods, completion: @escaping (APIState) -> Void)
     func deleteGoods(id: String, completion: @escaping (APIState) -> Void)
-    func loadDateCounts(completion: @escaping ([DateCount]?) -> Void)
-    func updateDateCount(dateCount: DateCount, completion: @escaping (APIState) -> Void)
+    func loadGoodsCountForDate(completion: @escaping ([DateCount]?) -> Void)
+    func updateGoodsCountForDate(dateCount: DateCount, completion: @escaping (APIState) -> Void)
 }
 
 // MARK: APIStateProtocol
@@ -222,7 +222,7 @@ struct FirebaseManager: APIManager {
         }
     }
     
-    func loadDateCounts(completion: @escaping ([DateCount]?) -> Void) {
+    func loadGoodsCountForDate(completion: @escaping ([DateCount]?) -> Void) {
         
         guard let uid = Auth.auth().currentUser?.uid else {
             // Failed get UID
@@ -251,7 +251,7 @@ struct FirebaseManager: APIManager {
         }
     }
 
-    func updateDateCount(dateCount: DateCount, completion: @escaping (APIState) -> Void) {
+    func updateGoodsCountForDate(dateCount: DateCount, completion: @escaping (APIState) -> Void) {
         
         guard let uid = Auth.auth().currentUser?.uid else {
             // Failed get UID

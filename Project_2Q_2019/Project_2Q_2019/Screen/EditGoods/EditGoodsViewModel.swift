@@ -106,7 +106,7 @@ struct EditGoodsViewModel: APIStateProtocol {
         var dateCount = self.dateCount
         dateCount.count += 1
         
-        FirebaseManager.shared.updateDateCount(dateCount: dateCount) { state in
+        FirebaseManager.shared.updateGoodsCountForDate(dateCount: dateCount) { state in
 
             self.apiStateRelay.accept(state)
         }
