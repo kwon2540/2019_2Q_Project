@@ -22,7 +22,7 @@ struct HomeCollectionViewModel {
     func getBackgroundImage(frame: CGRect) -> UIImageView? {
         guard goods.isEmpty else { return nil }
         let imageView = UIImageView(frame: frame)
-        imageView.image = UIImage(named: "NoGoodsImage")
+        imageView.image = UIImage(named: "no_goods_image")
         imageView.contentMode = .center
         return imageView
     }

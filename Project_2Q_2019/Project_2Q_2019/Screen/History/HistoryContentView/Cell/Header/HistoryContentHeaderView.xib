@@ -18,7 +18,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TzY-vA-iB6" userLabel="ContentView">
                     <rect key="frame" x="16" y="0.0" width="382" height="61"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Life" translatesAutoresizingMaskIntoConstraints="NO" id="uZf-f4-lFr">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="life" translatesAutoresizingMaskIntoConstraints="NO" id="uZf-f4-lFr">
                             <rect key="frame" x="14" y="0.0" width="30" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="RUC-Wg-xMo"/>
@@ -83,7 +83,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Life" width="30" height="44"/>
+        <image name="life" width="30" height="44"/>
         <namedColor name="cF3F3F3">
             <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

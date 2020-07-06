@@ -16,10 +16,10 @@ enum GoodsCategory: Int, CaseIterable {
 
     var image: UIImage? {
         switch self {
-        case .life: return UIImage(named: "Life")
-        case .fashion: return UIImage(named: "Fashion")
-        case .hobby: return UIImage(named: "Hobbies")
-        case .miscellaneous: return UIImage(named: "Etc")
+        case .life: return UIImage(named: "life")
+        case .fashion: return UIImage(named: "fashion")
+        case .hobby: return UIImage(named: "hobbies")
+        case .miscellaneous: return UIImage(named: "miscellaneous")
         }
     }
 
