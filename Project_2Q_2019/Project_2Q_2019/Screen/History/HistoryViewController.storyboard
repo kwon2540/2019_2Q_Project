@@ -26,7 +26,7 @@
                                             <constraint firstAttribute="width" constant="22" id="F48-tr-JPc"/>
                                             <constraint firstAttribute="height" constant="22" id="evy-51-mmS"/>
                                         </constraints>
-                                        <state key="normal" image="Close_gry"/>
+                                        <state key="normal" image="close"/>
                                         <connections>
                                             <action selector="dismiss:" destination="5nd-UK-PmX" eventType="touchUpInside" id="5zG-B9-Cfc"/>
                                         </connections>
@@ -81,7 +81,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Close_gry" width="26" height="26"/>
+        <image name="close" width="18" height="18"/>
         <namedColor name="cFAFAFA">
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Short_Bg" translatesAutoresizingMaskIntoConstraints="NO" id="bnj-S0-ixZ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="short_bg" translatesAutoresizingMaskIntoConstraints="NO" id="bnj-S0-ixZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="Z0c-zd-vza"/>
@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="height" constant="30" id="f78-tP-8q4"/>
                                     <constraint firstAttribute="width" constant="30" id="vvU-zf-fiL"/>
                                 </constraints>
-                                <state key="normal" image="Menu"/>
+                                <state key="normal" image="menu"/>
                                 <connections>
                                     <action selector="menu:" destination="a9z-tl-Blt" eventType="touchUpInside" id="eGB-Hd-kmQ"/>
                                 </connections>
@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="height" constant="26" id="1zI-Kf-v29"/>
                                     <constraint firstAttribute="width" constant="26" id="6CY-hN-LaJ"/>
                                 </constraints>
-                                <state key="normal" image="Logout">
+                                <state key="normal" image="logout">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -82,7 +82,7 @@
                                             <constraint firstAttribute="width" constant="48" id="T8n-Mo-Vwe"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" image="Graph">
+                                        <state key="normal" image="graph">
                                             <color key="titleColor" name="c3F3E3E"/>
                                         </state>
                                         <connections>
@@ -95,7 +95,7 @@
                                             <constraint firstAttribute="height" constant="48" id="OiQ-Dt-XPg"/>
                                             <constraint firstAttribute="width" constant="48" id="vYY-l1-kzF"/>
                                         </constraints>
-                                        <state key="normal" image="History">
+                                        <state key="normal" image="history">
                                             <color key="titleColor" name="c3F3E3E"/>
                                         </state>
                                         <connections>
@@ -118,7 +118,7 @@
                                     <constraint firstAttribute="height" constant="74" id="LsI-ih-tyU"/>
                                     <constraint firstAttribute="width" constant="74" id="z3Y-8o-4LN"/>
                                 </constraints>
-                                <state key="normal" image="AddGoods"/>
+                                <state key="normal" image="addgoods"/>
                                 <connections>
                                     <action selector="add:" destination="a9z-tl-Blt" eventType="touchUpInside" id="zO4-FW-PCO"/>
                                 </connections>
@@ -179,12 +179,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AddGoods" width="74" height="74"/>
-        <image name="Graph" width="48" height="48"/>
-        <image name="History" width="48" height="48"/>
-        <image name="Logout" width="26" height="26"/>
-        <image name="Menu" width="30" height="30"/>
-        <image name="Short_Bg" width="375" height="200"/>
+        <image name="addgoods" width="74" height="74"/>
+        <image name="graph" width="48" height="48"/>
+        <image name="history" width="48" height="48"/>
+        <image name="logout" width="26" height="26"/>
+        <image name="menu" width="26" height="26"/>
+        <image name="short_bg" width="375" height="200"/>
         <namedColor name="c000000@20">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.20000000298023224" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

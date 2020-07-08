@@ -190,9 +190,9 @@
                                                                                             <constraint firstAttribute="width" constant="60" id="KAc-pa-qKj"/>
                                                                                             <constraint firstAttribute="height" constant="45" id="zeA-XR-fCm"/>
                                                                                         </constraints>
-                                                                                        <state key="normal" image="Life_off"/>
-                                                                                        <state key="selected" image="Life_on"/>
-                                                                                        <state key="highlighted" image="Life_on"/>
+                                                                                        <state key="normal" image="life_off"/>
+                                                                                        <state key="selected" image="life_on"/>
+                                                                                        <state key="highlighted" image="life_on"/>
                                                                                         <connections>
                                                                                             <action selector="categoryButtons:" destination="ihe-ME-cck" eventType="touchUpInside" id="xdb-Lc-6Cu"/>
                                                                                         </connections>
@@ -203,9 +203,9 @@
                                                                                             <constraint firstAttribute="width" constant="60" id="CjB-gW-6fE"/>
                                                                                             <constraint firstAttribute="height" constant="45" id="qqM-Tj-JqW"/>
                                                                                         </constraints>
-                                                                                        <state key="normal" image="Fashion_off"/>
-                                                                                        <state key="selected" image="Fashion_on"/>
-                                                                                        <state key="highlighted" image="Fashion_on"/>
+                                                                                        <state key="normal" image="fashion_off"/>
+                                                                                        <state key="selected" image="fashion_on"/>
+                                                                                        <state key="highlighted" image="fashion_on"/>
                                                                                         <connections>
                                                                                             <action selector="categoryButtons:" destination="ihe-ME-cck" eventType="touchUpInside" id="AbB-B9-Yvh"/>
                                                                                         </connections>
@@ -216,9 +216,9 @@
                                                                                             <constraint firstAttribute="width" constant="60" id="mGf-Un-rnj"/>
                                                                                             <constraint firstAttribute="height" constant="45" id="pYs-Pl-8ei"/>
                                                                                         </constraints>
-                                                                                        <state key="normal" image="Hobbies_off"/>
-                                                                                        <state key="selected" image="Hobbies_on"/>
-                                                                                        <state key="highlighted" image="Hobbies_on"/>
+                                                                                        <state key="normal" image="hobbies_off"/>
+                                                                                        <state key="selected" image="hobbies_on"/>
+                                                                                        <state key="highlighted" image="hobbies_on"/>
                                                                                         <connections>
                                                                                             <action selector="categoryButtons:" destination="ihe-ME-cck" eventType="touchUpInside" id="y3p-e6-c39"/>
                                                                                         </connections>
@@ -229,9 +229,9 @@
                                                                                             <constraint firstAttribute="width" constant="60" id="EHb-Pe-XrK"/>
                                                                                             <constraint firstAttribute="height" constant="45" id="cMi-rF-FVn"/>
                                                                                         </constraints>
-                                                                                        <state key="normal" image="Etc_off"/>
-                                                                                        <state key="selected" image="Etc_on"/>
-                                                                                        <state key="highlighted" image="Etc_on"/>
+                                                                                        <state key="normal" image="miscellaneous_off"/>
+                                                                                        <state key="selected" image="miscellaneous_on"/>
+                                                                                        <state key="highlighted" image="miscellaneous_on"/>
                                                                                         <connections>
                                                                                             <action selector="categoryButtons:" destination="ihe-ME-cck" eventType="touchUpInside" id="VFS-Sk-9gD"/>
                                                                                         </connections>
@@ -533,14 +533,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Etc_off" width="60" height="45"/>
-        <image name="Etc_on" width="60" height="45"/>
-        <image name="Fashion_off" width="60" height="45"/>
-        <image name="Fashion_on" width="60" height="45"/>
-        <image name="Hobbies_off" width="60" height="45"/>
-        <image name="Hobbies_on" width="60" height="45"/>
-        <image name="Life_off" width="60" height="45"/>
-        <image name="Life_on" width="60" height="45"/>
+        <image name="fashion_off" width="60" height="45"/>
+        <image name="fashion_on" width="60" height="45"/>
+        <image name="hobbies_off" width="60" height="45"/>
+        <image name="hobbies_on" width="60" height="45"/>
+        <image name="life_off" width="60" height="45"/>
+        <image name="life_on" width="60" height="45"/>
+        <image name="miscellaneous_off" width="60" height="45"/>
+        <image name="miscellaneous_on" width="60" height="45"/>
         <namedColor name="c3B3B3B">
             <color red="0.23137254901960785" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
