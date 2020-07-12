@@ -310,4 +310,34 @@ struct FirebaseManager: APIManager {
                 completion(goods, .success)
         }
     }
+
+    func fetchBoughtGoods(for date: String, completion: @escaping ([BoughtGoods]?, APIState) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return completion(nil, .failed(error: .authError))
+        }
+
+        Firestore.firestore()
+            .collection(Collections.goodslist.key)
+            .document(uid)
+            .collection(Collections.boughtgoods.key)
+            .whereField(Collections.boughtDate.key, isEqualTo: date)
+            .getDocuments { (snapshot, error) in
+
+                if error != nil {
+                    completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                    return
+                }
+
+                guard let documentsData = snapshot?.documents else {
+                    completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                    return
+                }
+
+                let goods = documentsData.compactMap {
+                    try? FirestoreDecoder().decode(BoughtGoods.self, from: $0.data())
+                }
+
+                completion(goods, .success)
+        }
+    }
 }
