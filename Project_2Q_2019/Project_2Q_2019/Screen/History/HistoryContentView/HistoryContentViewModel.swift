@@ -68,7 +68,7 @@ extension HistoryContentViewModel {
     func fetchAllBoughtGoods() {
 
         apiStateRelay.accept(.loading)
-        FirebaseManager.shared.fetchBoughtGoods { (response, state) in
+        FirebaseManager.shared.fetchBoughtGoods(for: dateRelay.value) { (response, state) in
 
             if let goods = response {
                 self.boughtGoods.accept(goods)
