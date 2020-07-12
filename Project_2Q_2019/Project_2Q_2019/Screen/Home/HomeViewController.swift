@@ -37,17 +37,20 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         FirebaseManager.shared.signOut()
         AppDelegate.shared.rootViewController.showLoginScreen()
     }
-    
+
     @IBAction private func menu(_ sender: Any) {
         present(MenuViewController.getStoryBoard(), animated: true)
     }
-    
+
     @IBAction private func graph(_ sender: Any) {
         present(GraphViewController.getStoryBoard(), animated: true)
     }
 
     @IBAction private func history(_ sender: Any) {
-        present(HistoryViewController.getStoryBoard(), animated: true)
+        let historyViewModel = HistoryViewModel(dates: viewModel.dateCounts)
+        let historyViewController = HistoryViewController.getStoryBoard()
+        historyViewController.viewModel = historyViewModel
+        present(historyViewController, animated: true)
     }
 
     @IBAction private func add(_ sender: Any) {

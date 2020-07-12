@@ -11,10 +11,11 @@ import UIKit
 final class HistoryViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    var viewModel: HistoryViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
 
     override func viewDidLayoutSubviews() {
@@ -60,13 +61,14 @@ extension HistoryViewController: UICollectionViewDelegate {
 extension HistoryViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.numberOfItems
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: HistoryCollectionViewCell.self, for: indexPath)
-        cell.viewModel = HistoryCollectionViewModel(date: "20200405")
-        //        cell.bindViewModel()
+        let dateCount = viewModel.dateCount(for: indexPath)
+
+        cell.viewModel = HistoryCollectionViewModel(date: dateCount.date)
 
         return cell
     }
