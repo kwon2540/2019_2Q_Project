@@ -13,7 +13,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var nameTextField: UITextField!
-    @IBOutlet private weak var addButton: RoundButton!
+    @IBOutlet private weak var addButton: UIButton!
     @IBOutlet private weak var lifeButton: UIButton!
     @IBOutlet private weak var fashionButton: UIButton!
     @IBOutlet private weak var hobbiesButton: UIButton!
