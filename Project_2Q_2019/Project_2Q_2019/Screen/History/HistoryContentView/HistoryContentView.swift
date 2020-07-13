@@ -17,16 +17,20 @@ final class HistoryContentView: UIView, XibInstantiable {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var graphViewArea: UIView!
 
-    private let viewModel: HistoryContentViewModel = HistoryContentViewModel(date: "20200622")
     private let disposeBag: DisposeBag = DisposeBag()
     private let hud: ProgressHUD = ProgressHUD.loadXib()
     private let graphView: HistoryContentGraphView = HistoryContentGraphView.loadXib()
 
+    var viewModel: HistoryContentViewModel! {
+        didSet {
+            setup()
+            bind()
+            startFetchingBoughtGoods()
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        setup()
-        bind()
-        startFetchingBoughtGoods()
     }
 
     func startFetchingBoughtGoods() {

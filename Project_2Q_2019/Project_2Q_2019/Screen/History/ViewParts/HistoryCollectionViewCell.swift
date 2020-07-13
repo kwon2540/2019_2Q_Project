@@ -19,12 +19,15 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
 
     private let disposeBag = DisposeBag()
 
-    var viewModel: HistoryCollectionViewModel!
+    var viewModel: HistoryCollectionViewModel! {
+        didSet {
+            setupHistoryContentView()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        setupHistoryContentView()
         setupLayout()
     }
 
@@ -37,8 +40,10 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
         clipsToBounds = false
     }
 
-    private func setupHistoryContentView() {
+    func setupHistoryContentView() {
+        let contentViewModel = HistoryContentViewModel(date: viewModel.date)
         let contentView = HistoryContentView.loadXib()
+        contentView.viewModel = contentViewModel
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
         NSLayoutConstraint.activate([

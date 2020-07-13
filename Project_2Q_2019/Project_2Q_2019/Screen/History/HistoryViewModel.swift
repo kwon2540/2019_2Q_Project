@@ -7,3 +7,18 @@
 //
 
 import Foundation
+import RxSwift
+
+struct HistoryViewModel {
+    let dates: [DateCount]
+    
+    var numberOfItems: Int { dates.count }
+
+    init(dates: [DateCount]) {
+        self.dates = dates
+    }
+
+    func dateCount(for indexPath: IndexPath) -> DateCount {
+        dates[indexPath.row]
+    }
+}

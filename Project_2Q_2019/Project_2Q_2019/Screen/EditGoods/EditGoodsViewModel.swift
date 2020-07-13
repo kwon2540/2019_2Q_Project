@@ -30,7 +30,7 @@ extension EditGoodsStateProtocol {
 }
 
 struct EditGoodsViewModel: APIStateProtocol {
-    
+
     struct UIState: EditGoodsStateProtocol {
 
         let nameText: String
@@ -48,12 +48,11 @@ struct EditGoodsViewModel: APIStateProtocol {
     let priceSeparatorColor: Observable<UIColor>
     let goods: Goods
     let dateCount: DateCount
-    
-    
+
     init(goods: Goods, dateCount: DateCount) {
         self.goods = goods
         self.dateCount = dateCount
-        
+
         let state = Observable.combineLatest(nameText, amountText, priceText) { UIState(nameText: $0, amountText: $1, priceText: $2) }
         isCompleteButtonEnabled = state.map { $0.isCompleteButtonEnabled }
         nameSeparatorColor = state.map { $0.saperatorColor(text: $0.nameText) }
@@ -80,9 +79,9 @@ struct EditGoodsViewModel: APIStateProtocol {
                                       name: nameText.value,
                                       amount: amount,
                                       price: price)
-        
+
         FirebaseManager.shared.addBoughtGoods(boughtGoods: boughtGoods) { state in
-            
+
             guard case .failed(let error) = state else {
                 self.deleteGoods()
                 return
@@ -93,7 +92,7 @@ struct EditGoodsViewModel: APIStateProtocol {
 
     func deleteGoods() {
         FirebaseManager.shared.deleteGoods(id: goods.id) { state in
-            
+
             guard case .failed(let error) = state else {
                 self.updateDateCount()
                 return
@@ -101,11 +100,11 @@ struct EditGoodsViewModel: APIStateProtocol {
             self.apiStateRelay.accept(.failed(error: error))
         }
     }
-    
+
     func updateDateCount() {
         var dateCount = self.dateCount
         dateCount.count += 1
-        
+
         FirebaseManager.shared.updateGoodsCountForDate(dateCount: dateCount) { state in
 
             self.apiStateRelay.accept(state)
