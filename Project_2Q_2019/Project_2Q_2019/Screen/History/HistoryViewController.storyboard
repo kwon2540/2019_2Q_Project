@@ -81,7 +81,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close" width="18" height="18"/>
+        <image name="close" width="26" height="26"/>
         <namedColor name="cFAFAFA">
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

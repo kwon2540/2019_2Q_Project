@@ -41,19 +41,30 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFo-4f-WV2" userLabel="Add Button View">
                                                                         <rect key="frame" x="0.0" y="0.0" width="106.5" height="40"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sb-3b-dgm" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                                <rect key="frame" x="20" y="7" width="57" height="26"/>
-                                                                                <color key="backgroundColor" name="c859EFF"/>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sb-3b-dgm">
+                                                                                <rect key="frame" x="20" y="7" width="26" height="26"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="57" id="CeS-dz-Fc3"/>
+                                                                                    <constraint firstAttribute="width" constant="26" id="CeS-dz-Fc3"/>
                                                                                     <constraint firstAttribute="height" constant="26" id="xQG-p2-nr7"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                                <state key="normal" title="削除">
+                                                                                <state key="normal" image="delete">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
                                                                                 <connections>
                                                                                     <action selector="remove:" destination="ihe-ME-cck" eventType="touchUpInside" id="0Gz-7q-gni"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfm-8J-ukE">
+                                                                                <rect key="frame" x="66" y="7" width="26" height="26"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="26" id="TLV-df-RqY"/>
+                                                                                    <constraint firstAttribute="width" constant="26" id="ke6-PT-kQS"/>
+                                                                                </constraints>
+                                                                                <state key="normal" image="revert">
+                                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <action selector="revert:" destination="ihe-ME-cck" eventType="touchUpInside" id="6Ub-ez-3Wq"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -61,7 +72,11 @@
                                                                         <constraints>
                                                                             <constraint firstItem="5Sb-3b-dgm" firstAttribute="leading" secondItem="IFo-4f-WV2" secondAttribute="leading" constant="20" id="6bh-jN-T09"/>
                                                                             <constraint firstItem="5Sb-3b-dgm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IFo-4f-WV2" secondAttribute="top" id="DCN-LK-ByR"/>
+                                                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tfm-8J-ukE" secondAttribute="bottom" id="NOZ-qi-ehq"/>
+                                                                            <constraint firstItem="tfm-8J-ukE" firstAttribute="leading" secondItem="5Sb-3b-dgm" secondAttribute="trailing" constant="20" id="Ptp-b7-ZQI"/>
+                                                                            <constraint firstItem="tfm-8J-ukE" firstAttribute="centerY" secondItem="IFo-4f-WV2" secondAttribute="centerY" id="hZF-Qj-Nct"/>
                                                                             <constraint firstItem="5Sb-3b-dgm" firstAttribute="centerY" secondItem="IFo-4f-WV2" secondAttribute="centerY" id="tla-tg-Hks"/>
+                                                                            <constraint firstItem="tfm-8J-ukE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IFo-4f-WV2" secondAttribute="top" id="uhy-Un-ZnN"/>
                                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5Sb-3b-dgm" secondAttribute="bottom" id="vcw-Yj-PYy"/>
                                                                         </constraints>
                                                                     </view>
@@ -86,17 +101,16 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hG6-Y6-tNu" userLabel="Add Button View">
                                                                         <rect key="frame" x="213.5" y="0.0" width="106.5" height="40"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJl-Nq-tXr" customClass="RoundButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                                <rect key="frame" x="29.5" y="7" width="57" height="26"/>
-                                                                                <color key="backgroundColor" name="c859EFF"/>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJl-Nq-tXr">
+                                                                                <rect key="frame" x="60.5" y="7" width="26" height="26"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="26" id="k5s-a5-arq"/>
-                                                                                    <constraint firstAttribute="width" constant="57" id="lpU-Wx-DXS"/>
+                                                                                    <constraint firstAttribute="width" constant="26" id="lpU-Wx-DXS"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                                <state key="normal" title="完了">
+                                                                                <state key="normal" image="check_on">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
+                                                                                <state key="disabled" image="check_off"/>
                                                                                 <connections>
                                                                                     <action selector="complete:" destination="ihe-ME-cck" eventType="touchUpInside" id="cU3-bO-1vO"/>
                                                                                 </connections>
@@ -525,6 +539,7 @@
                         <outlet property="priceSaperator" destination="ueT-Ge-yGO" id="ijh-OP-kF1"/>
                         <outlet property="priceTextField" destination="g2o-pV-lmC" id="6FS-bw-1Rm"/>
                         <outlet property="removeButton" destination="5Sb-3b-dgm" id="nfY-FP-ZrL"/>
+                        <outlet property="revertButton" destination="tfm-8J-ukE" id="HoM-dv-aea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrq-J8-Hyd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -533,6 +548,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="check_off" width="26" height="26"/>
+        <image name="check_on" width="26" height="26"/>
+        <image name="delete" width="26" height="26"/>
         <image name="fashion_off" width="60" height="45"/>
         <image name="fashion_on" width="60" height="45"/>
         <image name="hobbies_off" width="60" height="45"/>
@@ -541,14 +559,12 @@
         <image name="life_on" width="60" height="45"/>
         <image name="miscellaneous_off" width="60" height="45"/>
         <image name="miscellaneous_on" width="60" height="45"/>
+        <image name="revert" width="26" height="26"/>
         <namedColor name="c3B3B3B">
             <color red="0.23137254901960785" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="c545454">
             <color red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="c859EFF">
-            <color red="0.52156862745098043" green="0.61960784313725492" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="cD8D8D8">
             <color red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

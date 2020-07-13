@@ -12,8 +12,9 @@ import RxSwift
 class EditGoodsViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var mainView: UIView!
-    @IBOutlet private weak var removeButton: RoundButton!
-    @IBOutlet private weak var completeButton: RoundButton!
+    @IBOutlet private weak var removeButton: UIButton!
+    @IBOutlet private weak var revertButton: UIButton!
+    @IBOutlet private weak var completeButton: UIButton!
     @IBOutlet private weak var lifeButton: UIButton!
     @IBOutlet private weak var fashionButton: UIButton!
     @IBOutlet private weak var hobbiesButton: UIButton!
@@ -58,7 +59,11 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
     @IBAction private func remove(_ sender: Any) {
         viewModel.deleteGoods()
     }
-
+    
+    @IBAction private func revert(_ sender: Any) {
+        // TODO
+    }
+    
     @IBAction private func complete(_ sender: Any) {
         guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag else { return }
         viewModel.addBoughtGoods(selectedButtonTag: tag)

@@ -77,10 +77,10 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAH-Q5-yYo">
-                                        <rect key="frame" x="283" y="12" width="20" height="20"/>
+                                        <rect key="frame" x="277" y="12" width="26" height="26"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="7c2-ac-4WC"/>
-                                            <constraint firstAttribute="width" constant="20" id="n5e-MO-bnI"/>
+                                            <constraint firstAttribute="height" constant="26" id="7c2-ac-4WC"/>
+                                            <constraint firstAttribute="width" constant="26" id="n5e-MO-bnI"/>
                                         </constraints>
                                         <state key="normal" image="close"/>
                                         <connections>
