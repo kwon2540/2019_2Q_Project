@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "AddGoods.png",
+      "filename" : "check_on.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "AddGoods@2x.png",
+      "filename" : "check_on@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "AddGoods@3x.png",
+      "filename" : "check_on@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

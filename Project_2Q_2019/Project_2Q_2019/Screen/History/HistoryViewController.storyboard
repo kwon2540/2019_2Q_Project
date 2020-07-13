@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="59" width="414" height="837"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="StU-8o-yrD">
-                                        <rect key="frame" x="377" y="15" width="22" height="22"/>
+                                        <rect key="frame" x="373" y="15" width="26" height="26"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="22" id="F48-tr-JPc"/>
-                                            <constraint firstAttribute="height" constant="22" id="evy-51-mmS"/>
+                                            <constraint firstAttribute="width" constant="26" id="F48-tr-JPc"/>
+                                            <constraint firstAttribute="height" constant="26" id="evy-51-mmS"/>
                                         </constraints>
                                         <state key="normal" image="close"/>
                                         <connections>
@@ -32,7 +32,7 @@
                                         </connections>
                                     </button>
                                     <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yl7-Rl-Zuv">
-                                        <rect key="frame" x="0.0" y="85" width="414" height="698"/>
+                                        <rect key="frame" x="0.0" y="87" width="414" height="696"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MAu-IK-zet">
                                             <size key="itemSize" width="50" height="50"/>
@@ -43,7 +43,7 @@
                                         <cells/>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="履歴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9Y-uG-Ggo">
-                                        <rect key="frame" x="20" y="11.5" width="49" height="29"/>
+                                        <rect key="frame" x="20" y="13.5" width="49" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

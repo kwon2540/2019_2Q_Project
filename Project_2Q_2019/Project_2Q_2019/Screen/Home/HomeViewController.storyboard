@@ -113,10 +113,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgz-qh-JVh">
-                                <rect key="frame" x="123" y="486" width="74" height="74"/>
+                                <rect key="frame" x="115" y="478" width="90" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="74" id="LsI-ih-tyU"/>
-                                    <constraint firstAttribute="width" constant="74" id="z3Y-8o-4LN"/>
+                                    <constraint firstAttribute="height" constant="90" id="LsI-ih-tyU"/>
+                                    <constraint firstAttribute="width" constant="90" id="z3Y-8o-4LN"/>
                                 </constraints>
                                 <state key="normal" image="addgoods"/>
                                 <connections>
@@ -153,7 +153,7 @@
                             <constraint firstItem="gnI-BP-LDL" firstAttribute="leading" secondItem="Bu1-yd-RcO" secondAttribute="leading" id="YnC-sz-3uh"/>
                             <constraint firstItem="M59-Jb-JGH" firstAttribute="trailing" secondItem="bnj-S0-ixZ" secondAttribute="trailing" id="dN0-fg-ClA"/>
                             <constraint firstItem="rwZ-wb-cH4" firstAttribute="bottom" secondItem="M59-Jb-JGH" secondAttribute="bottom" id="dbq-KB-aMw"/>
-                            <constraint firstItem="yEw-HF-wWm" firstAttribute="top" secondItem="mgz-qh-JVh" secondAttribute="bottom" constant="8" id="diB-DC-pJU"/>
+                            <constraint firstItem="yEw-HF-wWm" firstAttribute="top" secondItem="mgz-qh-JVh" secondAttribute="bottom" id="diB-DC-pJU"/>
                             <constraint firstItem="jgc-y4-xMj" firstAttribute="top" secondItem="M59-Jb-JGH" secondAttribute="top" constant="14" id="iY3-xU-FVq"/>
                             <constraint firstItem="vbF-12-fvH" firstAttribute="top" secondItem="orN-EW-vmk" secondAttribute="bottom" id="jkJ-9i-AST"/>
                             <constraint firstAttribute="bottom" secondItem="yEw-HF-wWm" secondAttribute="bottom" id="kFr-8Y-Vih"/>
@@ -179,7 +179,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addgoods" width="74" height="74"/>
+        <image name="addgoods" width="90" height="90"/>
         <image name="graph" width="48" height="48"/>
         <image name="history" width="48" height="48"/>
         <image name="logout" width="26" height="26"/>
