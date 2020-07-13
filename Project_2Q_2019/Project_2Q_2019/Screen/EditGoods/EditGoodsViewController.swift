@@ -13,7 +13,7 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var removeButton: UIButton!
-    @IBOutlet private weak var reverseButton: UIButton!
+    @IBOutlet private weak var revertButton: UIButton!
     @IBOutlet private weak var completeButton: UIButton!
     @IBOutlet private weak var lifeButton: UIButton!
     @IBOutlet private weak var fashionButton: UIButton!
@@ -60,7 +60,7 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
         viewModel.deleteGoods()
     }
     
-    @IBAction private func reverse(_ sender: Any) {
+    @IBAction private func revert(_ sender: Any) {
         // TODO
     }
     

@@ -60,12 +60,11 @@
                                                                                     <constraint firstAttribute="height" constant="26" id="TLV-df-RqY"/>
                                                                                     <constraint firstAttribute="width" constant="26" id="ke6-PT-kQS"/>
                                                                                 </constraints>
-                                                                                <state key="normal" image="reverse">
+                                                                                <state key="normal" image="revert">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
                                                                                 <connections>
-                                                                                    <action selector="remove:" destination="ihe-ME-cck" eventType="touchUpInside" id="Ye0-Dv-Ocq"/>
-                                                                                    <action selector="reverse:" destination="ihe-ME-cck" eventType="touchUpInside" id="xIv-sK-okL"/>
+                                                                                    <action selector="revert:" destination="ihe-ME-cck" eventType="touchUpInside" id="6Ub-ez-3Wq"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -540,7 +539,7 @@
                         <outlet property="priceSaperator" destination="ueT-Ge-yGO" id="ijh-OP-kF1"/>
                         <outlet property="priceTextField" destination="g2o-pV-lmC" id="6FS-bw-1Rm"/>
                         <outlet property="removeButton" destination="5Sb-3b-dgm" id="nfY-FP-ZrL"/>
-                        <outlet property="reverseButton" destination="tfm-8J-ukE" id="k0F-1q-zBV"/>
+                        <outlet property="revertButton" destination="tfm-8J-ukE" id="HoM-dv-aea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrq-J8-Hyd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -560,7 +559,7 @@
         <image name="life_on" width="60" height="45"/>
         <image name="miscellaneous_off" width="60" height="45"/>
         <image name="miscellaneous_on" width="60" height="45"/>
-        <image name="reverse" width="26" height="26"/>
+        <image name="revert" width="26" height="26"/>
         <namedColor name="c3B3B3B">
             <color red="0.23137254901960785" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
