@@ -75,6 +75,8 @@ struct EditGoodsViewModel: APIStateProtocol {
 
         let boughtGoods = BoughtGoods(id: goods.id,
                                       boughtDate: Date().toString(format: .firebase_key_date),
+                                      year: Date().toString(format: .year),
+                                      yearMonth: Date().toString(format: .yearMonth),
                                       category: category,
                                       name: nameText.value,
                                       amount: amount,

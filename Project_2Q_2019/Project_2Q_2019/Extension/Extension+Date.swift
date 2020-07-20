@@ -17,6 +17,10 @@ enum DateType {
     case jp_month
     /// "dd日"
     case jp_day
+    /// yyyy
+    case year
+    /// yyyyMM
+    case yearMonth
     /// "yyyyMMdd"
     case firebase_key_date
     /// "yyyyMMddHHmmss"
@@ -32,6 +36,10 @@ enum DateType {
             return "MM月"
         case .jp_day:
             return "dd日"
+        case .year:
+            return "yyyy"
+        case .yearMonth:
+            return "yyyyMM"
         case .firebase_key_date:
             return "yyyyMMdd"
         case .firebase_key_fulldate:
