@@ -75,6 +75,8 @@
 		10DFFDC924A09208005611A8 /* EditGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10DFFDC824A09208005611A8 /* EditGoodsViewController.storyboard */; };
 		10DFFDCB24A09224005611A8 /* EditGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFFDCA24A09224005611A8 /* EditGoodsViewController.swift */; };
 		10DFFDCD24A09238005611A8 /* EditGoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFFDCC24A09238005611A8 /* EditGoodsViewModel.swift */; };
+		10E472D724C1891100BE71CC /* GraphMonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E472D624C1891100BE71CC /* GraphMonthButton.swift */; };
+		10E472D924C18ADF00BE71CC /* GraphYearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E472D824C18ADF00BE71CC /* GraphYearButton.swift */; };
 		1273A3F231517C61780C5E9F /* Pods_Project_2Q_2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E7A66781B6AE5A7AF269C /* Pods_Project_2Q_2019.framework */; };
 		6440D06624A49283000F461C /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 6440D06524A49283000F461C /* Charts */; };
 		6440D06924A49E96000F461C /* HistoryContentGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440D06824A49E96000F461C /* HistoryContentGraphView.swift */; };
@@ -189,6 +191,8 @@
 		10DFFDC824A09208005611A8 /* EditGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditGoodsViewController.storyboard; sourceTree = "<group>"; };
 		10DFFDCA24A09224005611A8 /* EditGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoodsViewController.swift; sourceTree = "<group>"; };
 		10DFFDCC24A09238005611A8 /* EditGoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoodsViewModel.swift; sourceTree = "<group>"; };
+		10E472D624C1891100BE71CC /* GraphMonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMonthButton.swift; sourceTree = "<group>"; };
+		10E472D824C18ADF00BE71CC /* GraphYearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphYearButton.swift; sourceTree = "<group>"; };
 		1CD2A4C0F6B6D48B5FC49979 /* Pods-Project_2Q_2019UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019UITests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019UITests/Pods-Project_2Q_2019UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F464980BEC4F3155A426D2A /* Pods_Project_2Q_2019UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_2Q_2019UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6044ADC4EDFDADB003FD5279 /* Pods-Project_2Q_2019Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019Tests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -330,6 +334,8 @@
 				10188E1123C996EC00F94681 /* AlertView */,
 				107901C924710B8600D28D4B /* AlertView.swift */,
 				1073EC3923DC18A7003BB2C5 /* ShadowView.swift */,
+				10E472D824C18ADF00BE71CC /* GraphYearButton.swift */,
+				10E472D624C1891100BE71CC /* GraphMonthButton.swift */,
 			);
 			path = ViewParts;
 			sourceTree = "<group>";
@@ -923,6 +929,8 @@
 				10A8FE1423A4B44100F64F96 /* MenuViewModel.swift in Sources */,
 				1073EC3823DC00D6003BB2C5 /* AddGoodsViewModel.swift in Sources */,
 				10519E5D249C96E800A41E60 /* GoodsCategory.swift in Sources */,
+				10E472D924C18ADF00BE71CC /* GraphYearButton.swift in Sources */,
+				10E472D724C1891100BE71CC /* GraphMonthButton.swift in Sources */,
 				100CF48423AE012800B3557D /* HistoryViewModel.swift in Sources */,
 				10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */,
 				10128AAE2403B55B00C6F5B9 /* Extension+UITableView.swift in Sources */,
