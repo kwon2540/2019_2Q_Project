@@ -80,36 +80,19 @@
                                                 <rect key="frame" x="0.0" y="89" width="414" height="38"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dLR-3T-qnE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="112" height="38"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="5" height="38"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbc-Oc-aYw" userLabel="Space View 5">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcS-Im-C9i" userLabel="Spacing View 5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="5" height="38"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="5" id="IhV-tM-w8K"/>
-                                                                    <constraint firstAttribute="height" constant="38" id="Nth-uA-dET"/>
-                                                                </constraints>
-                                                            </view>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKG-za-lKI" customClass="GraphYearButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="20" y="0.0" width="72" height="38"/>
-                                                                <color key="backgroundColor" name="c6889FF"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="72" id="mNS-ro-g22"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                <state key="normal" title="2020年">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycg-fc-E3C" userLabel="Space View 5">
-                                                                <rect key="frame" x="107" y="0.0" width="5" height="38"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="38" id="ScH-kJ-2De"/>
-                                                                    <constraint firstAttribute="width" constant="5" id="rbD-NO-czO"/>
+                                                                    <constraint firstAttribute="width" constant="5" id="49h-lg-Kxl"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="38" id="oYk-eH-10a"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -326,6 +309,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="iwe-iv-I19" id="M5A-sO-Ye0"/>
+                        <outlet property="yearStackView" destination="dLR-3T-qnE" id="lPi-MK-jF6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRi-vb-S3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -343,9 +327,6 @@
         </namedColor>
         <namedColor name="c545454">
             <color red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="c6889FF">
-            <color red="0.40784313725490196" green="0.53725490196078429" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

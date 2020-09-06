@@ -12,6 +12,7 @@ import RxSwift
 final class GraphViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var yearStackView: UIStackView!
     
     private let hud: ProgressHUD = ProgressHUD.loadXib()
     private let disposeBag: DisposeBag = DisposeBag()
