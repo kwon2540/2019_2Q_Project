@@ -23,9 +23,10 @@ class VerticalGraphCell: UICollectionViewCell {
     @IBOutlet private weak var verticalGraphTop: NSLayoutConstraint!
     @IBOutlet private weak var verticalGraphBottom: NSLayoutConstraint!
     
+    var maxGraphViewHeight: CGFloat = 0
+    
     private func setEmptyGraphView() {
         let dashedLineBorder = CAShapeLayer()
-        let maxGraphViewHeight = self.frame.height - (expenditureLabel.frame.height + dateNumberLabel.frame.height + dateCharacterLabel.frame.height + verticalGraphTop.constant + verticalGraphBottom.constant)
         let graphView = verticalGraphView.bounds
         let graphViewFrame = CGRect(x: graphView.minX, y: graphView.minY, width: graphView.width, height: maxGraphViewHeight)
         dashedLineBorder.strokeColor = UIColor.lightGray.cgColor
@@ -38,17 +39,23 @@ class VerticalGraphCell: UICollectionViewCell {
         verticalGraphView.layer.addSublayer(dashedLineBorder)
     }
     
-    private func setGraphView(graphType: GraphType, graphHeight: CGFloat) {
-        verticalGraphHeight.constant = graphHeight
+    private func setGraphView(graphType: GraphType, heightRatio: CGFloat) {
+        let height = heightRatio * maxGraphViewHeight
+        verticalGraphHeight.constant = height
         verticalGraphView.backgroundColor = graphType == .month ? .c6889FF : .c44CB97
-        let cornerRadius = graphHeight < verticalGraphView.frame.width ? graphHeight / 2 : verticalGraphView.frame.width / 2
+        let cornerRadius = height < verticalGraphView.frame.width ? height / 2 : verticalGraphView.frame.width / 2
         verticalGraphView.layer.cornerRadius = cornerRadius
     }
     
-    func set(graphType: GraphType, expenditure: String, dateNumber: String, DateCharacter: String, graphHeight: CGFloat) {
+    func calculateMaxHeightIfNeeded() {
+        guard maxGraphViewHeight == .zero else { return }
+        maxGraphViewHeight = self.frame.height - (expenditureLabel.frame.height + dateNumberLabel.frame.height + dateCharacterLabel.frame.height + verticalGraphTop.constant + verticalGraphBottom.constant)
+    }
+    
+    func set(graphType: GraphType, expenditure: String, dateNumber: String, DateCharacter: String, heightRatio: CGFloat) {
         expenditureLabel.text = expenditure
         dateNumberLabel.text = dateNumber
         dateCharacterLabel.text = DateCharacter
-        graphHeight == .zero ? setEmptyGraphView() : setGraphView(graphType: graphType, graphHeight: graphHeight)
+        heightRatio == .zero ? setEmptyGraphView() : setGraphView(graphType: graphType, heightRatio: heightRatio)
     }
 }
