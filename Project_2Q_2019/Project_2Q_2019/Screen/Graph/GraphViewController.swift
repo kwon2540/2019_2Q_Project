@@ -47,7 +47,7 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
     
     private func bindApiState() {
         viewModel.apiState.emit(onNext: { [weak self] (state) in
-            guard let this = self else { return }
+            guard let this = self, let view = this.view else { return }
 
             switch state {
             case .loading:
@@ -56,7 +56,7 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
                 this.hud.stopAnimation()
                 this.collectionView.reloadData()
             case .failed(let error):
-                DropDownManager.shared.showDropDownNotification(view: this.view,
+                DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,
                                                                 height: nil,
                                                                 type: .error,
