@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,12 +31,288 @@
                                             <action selector="dismiss:" destination="bWU-Xg-A9D" eventType="touchUpInside" id="RLq-QL-Jb5"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="276-ig-xep">
+                                        <rect key="frame" x="20" y="11.5" width="49" height="29"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sza-gb-gO8">
+                                        <rect key="frame" x="0.0" y="85" width="414" height="698"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Os-zf-NCB">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kLf-mv-kWk">
+                                                        <rect key="frame" x="20" y="0.0" width="374" height="54"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支出合計" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHY-qS-3d8">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="17"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                                <color key="textColor" name="c545454"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="345,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvE-az-6LK">
+                                                                <rect key="frame" x="0.0" y="25" width="374" height="29"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                                                <color key="textColor" name="c3B3B3B"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="kLf-mv-kWk" firstAttribute="leading" secondItem="1Os-zf-NCB" secondAttribute="leading" constant="20" id="DtN-mG-sxZ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kLf-mv-kWk" secondAttribute="trailing" constant="20" id="LI8-jx-H6P"/>
+                                                    <constraint firstItem="kLf-mv-kWk" firstAttribute="top" secondItem="1Os-zf-NCB" secondAttribute="top" id="oDE-24-bUV"/>
+                                                    <constraint firstAttribute="bottom" secondItem="kLf-mv-kWk" secondAttribute="bottom" id="vyo-4x-3jo"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0H-ZG-k0E" userLabel="Spacing View 35">
+                                                <rect key="frame" x="0.0" y="54" width="414" height="35"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="mlu-5e-5gW"/>
+                                                </constraints>
+                                            </view>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snL-4K-f0q">
+                                                <rect key="frame" x="0.0" y="89" width="414" height="38"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dLR-3T-qnE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="112" height="38"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbc-Oc-aYw" userLabel="Space View 5">
+                                                                <rect key="frame" x="0.0" y="0.0" width="5" height="38"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="5" id="IhV-tM-w8K"/>
+                                                                    <constraint firstAttribute="height" constant="38" id="Nth-uA-dET"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKG-za-lKI" customClass="GraphYearButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="20" y="0.0" width="72" height="38"/>
+                                                                <color key="backgroundColor" name="c6889FF"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="72" id="mNS-ro-g22"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                <state key="normal" title="2020年">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycg-fc-E3C" userLabel="Space View 5">
+                                                                <rect key="frame" x="107" y="0.0" width="5" height="38"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="38" id="ScH-kJ-2De"/>
+                                                                    <constraint firstAttribute="width" constant="5" id="rbD-NO-czO"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="dLR-3T-qnE" secondAttribute="trailing" id="4tM-rQ-e1F"/>
+                                                    <constraint firstAttribute="height" constant="38" id="ijP-B1-5BY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dLR-3T-qnE" secondAttribute="bottom" id="kWQ-cM-KtV"/>
+                                                    <constraint firstItem="dLR-3T-qnE" firstAttribute="leading" secondItem="snL-4K-f0q" secondAttribute="leading" id="mFN-Sr-lI1"/>
+                                                    <constraint firstItem="dLR-3T-qnE" firstAttribute="top" secondItem="snL-4K-f0q" secondAttribute="top" id="xyi-qD-Tbj"/>
+                                                </constraints>
+                                            </scrollView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xky-CO-qfX" userLabel="Spacing View 20">
+                                                <rect key="frame" x="0.0" y="127" width="414" height="20"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="dzF-gu-bMm"/>
+                                                </constraints>
+                                            </view>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8N-64-giq">
+                                                <rect key="frame" x="0.0" y="147" width="414" height="38"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2HC-Wi-W65">
+                                                        <rect key="frame" x="0.0" y="0.0" width="733" height="38"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaA-o3-3ut" userLabel="Space View 5">
+                                                                <rect key="frame" x="0.0" y="0.0" width="5" height="38"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="5" id="QCH-8j-VwT"/>
+                                                                    <constraint firstAttribute="height" constant="38" id="RWe-xt-mDl"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ras-yl-i8u" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="20" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="xmj-de-1rS"/>
+                                                                </constraints>
+                                                                <state key="normal" title="1月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajV-Jl-hCP" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="79" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="9ms-Xs-w2q"/>
+                                                                </constraints>
+                                                                <state key="normal" title=" 2月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGD-Dq-itI" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="138" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="Dp6-3S-omI"/>
+                                                                </constraints>
+                                                                <state key="normal" title="3月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8b-eY-b6c" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="197" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="3Lm-sb-xgJ"/>
+                                                                </constraints>
+                                                                <state key="normal" title="4月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4j-Sv-Wb2" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="256" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="DHn-Fb-nl5"/>
+                                                                </constraints>
+                                                                <state key="normal" title="5月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oN1-H8-oB6" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="315" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="dmB-MR-MDP"/>
+                                                                </constraints>
+                                                                <state key="normal" title="6月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7Y-TE-4uu" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="374" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="nVw-ms-NzR"/>
+                                                                </constraints>
+                                                                <state key="normal" title="7月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y99-JN-C5G" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="433" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="znx-NI-pVN"/>
+                                                                </constraints>
+                                                                <state key="normal" title="8月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLh-oS-RwE" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="492" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="xLC-c2-ffz"/>
+                                                                </constraints>
+                                                                <state key="normal" title="9月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaQ-s2-V9Y" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="551" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="Twr-ZU-TOY"/>
+                                                                </constraints>
+                                                                <state key="normal" title="10月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fM0-X2-HA3" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="610" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="tFa-o1-mcI"/>
+                                                                </constraints>
+                                                                <state key="normal" title="11月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1C-lJ-8b3" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
+                                                                <rect key="frame" x="669" y="0.0" width="44" height="38"/>
+                                                                <color key="backgroundColor" name="c44CB97@25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="d9R-yC-AaA"/>
+                                                                </constraints>
+                                                                <state key="normal" title="12月">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7M-mH-61l" userLabel="Space View 5">
+                                                                <rect key="frame" x="728" y="0.0" width="5" height="38"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="38" id="ApY-tD-tRS"/>
+                                                                    <constraint firstAttribute="width" constant="5" id="EFq-iW-3Nu"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="38" id="Ahr-Uc-KEh"/>
+                                                    <constraint firstItem="2HC-Wi-W65" firstAttribute="leading" secondItem="w8N-64-giq" secondAttribute="leading" id="Mlh-Pe-Coj"/>
+                                                    <constraint firstItem="2HC-Wi-W65" firstAttribute="top" secondItem="w8N-64-giq" secondAttribute="top" id="cqU-df-Vmj"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2HC-Wi-W65" secondAttribute="trailing" id="kyb-Vd-sUE"/>
+                                                    <constraint firstAttribute="bottom" secondItem="2HC-Wi-W65" secondAttribute="bottom" id="ldb-AM-jdg"/>
+                                                </constraints>
+                                            </scrollView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wcr-q0-y0X" userLabel="Spacing View 30">
+                                                <rect key="frame" x="0.0" y="185" width="414" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="bWS-zY-7EP"/>
+                                                </constraints>
+                                            </view>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" indicatorStyle="white" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-iv-I19">
+                                                <rect key="frame" x="0.0" y="215" width="414" height="483"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="13Q-Dp-NYp">
+                                                    <size key="itemSize" width="128" height="128"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells/>
+                                            </collectionView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="Rhy-84-HM4" firstAttribute="bottom" secondItem="Sza-gb-gO8" secondAttribute="bottom" constant="20" id="7Cj-DP-IHV"/>
                                     <constraint firstAttribute="trailing" secondItem="sT4-u7-Rdg" secondAttribute="trailing" constant="15" id="AZj-7M-XTg"/>
+                                    <constraint firstItem="276-ig-xep" firstAttribute="leading" secondItem="Fod-Uk-Zuy" secondAttribute="leading" constant="20" id="FXf-lN-yB2"/>
+                                    <constraint firstItem="Sza-gb-gO8" firstAttribute="top" secondItem="276-ig-xep" secondAttribute="bottom" constant="44.5" id="Hs8-3q-xIs"/>
+                                    <constraint firstItem="Sza-gb-gO8" firstAttribute="leading" secondItem="Fod-Uk-Zuy" secondAttribute="leading" id="PMh-Q1-mk8"/>
                                     <constraint firstItem="sT4-u7-Rdg" firstAttribute="top" secondItem="Fod-Uk-Zuy" secondAttribute="top" constant="15" id="hPh-YN-JNn"/>
+                                    <constraint firstItem="276-ig-xep" firstAttribute="centerY" secondItem="sT4-u7-Rdg" secondAttribute="centerY" id="t0M-nm-9ad"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sza-gb-gO8" secondAttribute="trailing" id="vSB-9a-gG9"/>
                                 </constraints>
+                                <viewLayoutGuide key="safeArea" id="Rhy-84-HM4"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,6 +324,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JFP-4L-Ia3"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="iwe-iv-I19" id="M5A-sO-Ye0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRi-vb-S3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,5 +335,17 @@
     </scenes>
     <resources>
         <image name="close" width="26" height="26"/>
+        <namedColor name="c3B3B3B">
+            <color red="0.23137254901960785" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="c44CB97@25">
+            <color red="0.26666666666666666" green="0.79607843137254897" blue="0.59215686274509804" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="c545454">
+            <color red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="c6889FF">
+            <color red="0.40784313725490196" green="0.53725490196078429" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
