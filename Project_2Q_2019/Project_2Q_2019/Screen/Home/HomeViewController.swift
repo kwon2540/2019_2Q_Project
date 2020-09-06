@@ -43,7 +43,9 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func graph(_ sender: Any) {
-        present(GraphViewController.getStoryBoard(), animated: true)
+        let vc = GraphViewController.getStoryBoard()
+        vc.viewModel = GraphViewModel()
+        present(vc, animated: true)
     }
 
     @IBAction private func history(_ sender: Any) {
