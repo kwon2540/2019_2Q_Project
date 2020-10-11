@@ -13,11 +13,15 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var yearStackView: UIStackView!
+    @IBOutlet private weak var monthStackView: UIStackView!
     
     private let hud: ProgressHUD = ProgressHUD.loadXib()
     private let disposeBag: DisposeBag = DisposeBag()
     
     var viewModel: GraphViewModel!
+    
+    var yearsButtons: [YearButton] = []
+    var monthsButtons: [MonthButton] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,7 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
     
     private func bind() {
         bindApiState()
+        bindUI()
     }
     
     private func fetch() {
@@ -54,6 +59,8 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
                 this.hud.startAnimation()
             case .success:
                 this.hud.stopAnimation()
+                this.setupYearButtons()
+                this.viewModel.selectedYear.accept(this.viewModel.yearKeys().last ?? "")
                 this.collectionView.reloadData()
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
@@ -66,12 +73,91 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
             }
         }).disposed(by: disposeBag)
     }
+    
+    private func bindUI() {
+        
+        viewModel.selectedYear.asSignal().emit(onNext: { [weak self] (year) in
+            guard let this = self else { return }
+            
+            this.setupMonthButtons(for: year)
+        }).disposed(by: disposeBag)
+        
+        viewModel.selectedMonth.asSignal().emit(onNext: { [weak self] (year) in
+            guard let this = self else { return }
+            
+            
+        }).disposed(by: disposeBag)
+    }
 
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
     }
 }
 
+// MARK: Year Button
+extension GraphViewController {
+    
+    private func setupYearButtons() {
+        yearStackView.subviews.forEach { $0.removeFromSuperview() }
+        
+        viewModel.yearKeys().forEach {
+            let year = YearButton(year: $0)
+            year.buttonState = viewModel.isLastYear(year: $0) ? .selected : .unselected
+            year.addTarget(self, action: #selector(onTapYearButton), for: .touchUpInside)
+            yearStackView.addArrangedSubview(year)
+            yearsButtons.append(year)
+        }
+        
+        let spacer = UIView()
+        spacer.widthAnchor.constraint(equalToConstant: 5).isActive = true
+        yearStackView.addArrangedSubview(spacer)
+    }
+    
+    @objc
+    func onTapYearButton(_ sender: YearButton) {
+        yearsButtons.forEach {
+            $0.buttonState = sender == $0 ? .selected : .unselected
+        }
+        
+        viewModel.selectedYear.accept(sender.year)
+    }
+}
+
+// MARK: Month Button
+extension GraphViewController {
+    
+    private func setupMonthButtons(for year: String) {
+        monthStackView.subviews.forEach { $0.removeFromSuperview() }
+        
+        viewModel.yearMonthKeys(for: year).forEach {
+            let month = MonthButton(yearMonth: $0)
+            month.buttonState = viewModel.isLastMonth(month: $0) ? .selected : .unselected
+            month.addTarget(self, action: #selector(onTapMonthButton), for: .touchUpInside)
+            monthStackView.addArrangedSubview(month)
+            monthsButtons.append(month)
+        }
+        
+        let spacer = UIView()
+        spacer.widthAnchor.constraint(equalToConstant: 5).isActive = true
+        monthStackView.addArrangedSubview(spacer)
+    }
+    
+    @objc
+    func onTapMonthButton(_ sender: MonthButton) {
+        monthsButtons.forEach {
+            $0.buttonState = sender == $0 ? .selected : .unselected
+        }
+        
+        viewModel.selectedMonth.accept(sender.yearMonth)
+    }
+}
+
+// MARK: Date Graph
+extension GraphViewController {
+    
+}
+
+// MARK: Collection View
 extension GraphViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -88,7 +174,7 @@ extension GraphViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: VerticalGraphCell.self, for: indexPath)
         cell.calculateMaxHeightIfNeeded()
-        cell.set(graphType: .date, expenditure: "40,000", dateNumber: "3", DateCharacter: "Mar", heightRatio:  0)
+        cell.set(graphType: .date, expenditure: "40,000", dateNumber: "3", DateCharacter: "Mar", heightRatio:  0.5)
         
         return cell
     }

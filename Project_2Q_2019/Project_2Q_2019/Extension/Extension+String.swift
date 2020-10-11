@@ -9,6 +9,13 @@
 import Foundation
 
 extension String {
+    
+    var toNonZeroBase: String {
+        String(Int(self) ?? 0) + "月"
+    }
+}
+
+extension String {
 
     func getYearText() -> String {
         guard self.count == 8 else { return "" }

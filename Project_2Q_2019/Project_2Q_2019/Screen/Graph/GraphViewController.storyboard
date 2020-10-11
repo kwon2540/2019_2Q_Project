@@ -80,13 +80,13 @@
                                                 <rect key="frame" x="0.0" y="89" width="414" height="38"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dLR-3T-qnE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="5" height="38"/>
+                                                        <rect key="frame" x="20" y="0.0" width="0.0" height="38"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcS-Im-C9i" userLabel="Spacing View 5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="5" height="38"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQR-ki-sKB" userLabel="Empty View">
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="38"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="5" id="49h-lg-Kxl"/>
+                                                                    <constraint firstAttribute="width" id="TVh-ZQ-EUj"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -99,7 +99,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="dLR-3T-qnE" secondAttribute="trailing" id="4tM-rQ-e1F"/>
                                                     <constraint firstAttribute="height" constant="38" id="ijP-B1-5BY"/>
                                                     <constraint firstAttribute="bottom" secondItem="dLR-3T-qnE" secondAttribute="bottom" id="kWQ-cM-KtV"/>
-                                                    <constraint firstItem="dLR-3T-qnE" firstAttribute="leading" secondItem="snL-4K-f0q" secondAttribute="leading" id="mFN-Sr-lI1"/>
+                                                    <constraint firstItem="dLR-3T-qnE" firstAttribute="leading" secondItem="snL-4K-f0q" secondAttribute="leading" constant="20" id="mFN-Sr-lI1"/>
                                                     <constraint firstItem="dLR-3T-qnE" firstAttribute="top" secondItem="snL-4K-f0q" secondAttribute="top" id="xyi-qD-Tbj"/>
                                                 </constraints>
                                             </scrollView>
@@ -114,150 +114,24 @@
                                                 <rect key="frame" x="0.0" y="147" width="414" height="38"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2HC-Wi-W65">
-                                                        <rect key="frame" x="0.0" y="0.0" width="733" height="38"/>
+                                                        <rect key="frame" x="20" y="0.0" width="0.0" height="38"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaA-o3-3ut" userLabel="Space View 5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="5" height="38"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Hy-9g-31h" userLabel="Empty View">
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="38"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="5" id="QCH-8j-VwT"/>
-                                                                    <constraint firstAttribute="height" constant="38" id="RWe-xt-mDl"/>
-                                                                </constraints>
-                                                            </view>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ras-yl-i8u" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="20" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="xmj-de-1rS"/>
-                                                                </constraints>
-                                                                <state key="normal" title="1月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajV-Jl-hCP" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="79" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="9ms-Xs-w2q"/>
-                                                                </constraints>
-                                                                <state key="normal" title=" 2月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGD-Dq-itI" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="138" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="Dp6-3S-omI"/>
-                                                                </constraints>
-                                                                <state key="normal" title="3月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8b-eY-b6c" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="197" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="3Lm-sb-xgJ"/>
-                                                                </constraints>
-                                                                <state key="normal" title="4月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4j-Sv-Wb2" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="256" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="DHn-Fb-nl5"/>
-                                                                </constraints>
-                                                                <state key="normal" title="5月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oN1-H8-oB6" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="315" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="dmB-MR-MDP"/>
-                                                                </constraints>
-                                                                <state key="normal" title="6月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7Y-TE-4uu" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="374" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="nVw-ms-NzR"/>
-                                                                </constraints>
-                                                                <state key="normal" title="7月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y99-JN-C5G" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="433" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="znx-NI-pVN"/>
-                                                                </constraints>
-                                                                <state key="normal" title="8月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLh-oS-RwE" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="492" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="xLC-c2-ffz"/>
-                                                                </constraints>
-                                                                <state key="normal" title="9月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaQ-s2-V9Y" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="551" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="Twr-ZU-TOY"/>
-                                                                </constraints>
-                                                                <state key="normal" title="10月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fM0-X2-HA3" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="610" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="tFa-o1-mcI"/>
-                                                                </constraints>
-                                                                <state key="normal" title="11月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1C-lJ-8b3" customClass="GraphMonthButton" customModule="Project_2Q_2019" customModuleProvider="target">
-                                                                <rect key="frame" x="669" y="0.0" width="44" height="38"/>
-                                                                <color key="backgroundColor" name="c44CB97@25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="d9R-yC-AaA"/>
-                                                                </constraints>
-                                                                <state key="normal" title="12月">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7M-mH-61l" userLabel="Space View 5">
-                                                                <rect key="frame" x="728" y="0.0" width="5" height="38"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="38" id="ApY-tD-tRS"/>
-                                                                    <constraint firstAttribute="width" constant="5" id="EFq-iW-3Nu"/>
+                                                                    <constraint firstAttribute="width" id="Zvu-tK-HR2"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="38" id="uxR-QY-4nE"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="Ahr-Uc-KEh"/>
-                                                    <constraint firstItem="2HC-Wi-W65" firstAttribute="leading" secondItem="w8N-64-giq" secondAttribute="leading" id="Mlh-Pe-Coj"/>
+                                                    <constraint firstItem="2HC-Wi-W65" firstAttribute="leading" secondItem="w8N-64-giq" secondAttribute="leading" constant="20" id="Mlh-Pe-Coj"/>
                                                     <constraint firstItem="2HC-Wi-W65" firstAttribute="top" secondItem="w8N-64-giq" secondAttribute="top" id="cqU-df-Vmj"/>
                                                     <constraint firstAttribute="trailing" secondItem="2HC-Wi-W65" secondAttribute="trailing" id="kyb-Vd-sUE"/>
                                                     <constraint firstAttribute="bottom" secondItem="2HC-Wi-W65" secondAttribute="bottom" id="ldb-AM-jdg"/>
@@ -309,6 +183,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="iwe-iv-I19" id="M5A-sO-Ye0"/>
+                        <outlet property="monthStackView" destination="2HC-Wi-W65" id="Pam-7E-kdr"/>
                         <outlet property="yearStackView" destination="dLR-3T-qnE" id="lPi-MK-jF6"/>
                     </connections>
                 </viewController>
@@ -321,9 +196,6 @@
         <image name="close" width="26" height="26"/>
         <namedColor name="c3B3B3B">
             <color red="0.23137254901960785" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="c44CB97@25">
-            <color red="0.26666666666666666" green="0.79607843137254897" blue="0.59215686274509804" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="c545454">
             <color red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

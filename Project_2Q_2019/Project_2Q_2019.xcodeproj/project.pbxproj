@@ -79,6 +79,7 @@
 		10E472D124C03A4200BE71CC /* VerticalGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E472D024C03A4200BE71CC /* VerticalGraphCell.xib */; };
 		10E472D324C03A5000BE71CC /* VerticalGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E472D224C03A5000BE71CC /* VerticalGraphCell.swift */; };
 		10E472D724C1891100BE71CC /* GraphMonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E472D624C1891100BE71CC /* GraphMonthButton.swift */; };
+		10FE445C2532B7B9001D90BB /* MonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FE445B2532B7B9001D90BB /* MonthButton.swift */; };
 		1273A3F231517C61780C5E9F /* Pods_Project_2Q_2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E7A66781B6AE5A7AF269C /* Pods_Project_2Q_2019.framework */; };
 		6440D06624A49283000F461C /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 6440D06524A49283000F461C /* Charts */; };
 		6440D06924A49E96000F461C /* HistoryContentGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440D06824A49E96000F461C /* HistoryContentGraphView.swift */; };
@@ -197,6 +198,7 @@
 		10E472D024C03A4200BE71CC /* VerticalGraphCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerticalGraphCell.xib; sourceTree = "<group>"; };
 		10E472D224C03A5000BE71CC /* VerticalGraphCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalGraphCell.swift; sourceTree = "<group>"; };
 		10E472D624C1891100BE71CC /* GraphMonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMonthButton.swift; sourceTree = "<group>"; };
+		10FE445B2532B7B9001D90BB /* MonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthButton.swift; sourceTree = "<group>"; };
 		1CD2A4C0F6B6D48B5FC49979 /* Pods-Project_2Q_2019UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019UITests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019UITests/Pods-Project_2Q_2019UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F464980BEC4F3155A426D2A /* Pods_Project_2Q_2019UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_2Q_2019UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6044ADC4EDFDADB003FD5279 /* Pods-Project_2Q_2019Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019Tests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 				10E472D024C03A4200BE71CC /* VerticalGraphCell.xib */,
 				10E472D224C03A5000BE71CC /* VerticalGraphCell.swift */,
 				1031046F2504BB2E00FCC42C /* YearButton.swift */,
+				10FE445B2532B7B9001D90BB /* MonthButton.swift */,
 			);
 			path = ViewParts;
 			sourceTree = "<group>";
@@ -921,6 +924,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1073EC3A23DC18A7003BB2C5 /* ShadowView.swift in Sources */,
+				10FE445C2532B7B9001D90BB /* MonthButton.swift in Sources */,
 				1032FE5A2338C2A70039E9C0 /* LoginViewController.swift in Sources */,
 				10128AB02403B59000C6F5B9 /* Extension+NSObject.swift in Sources */,
 				1032FE6B2338E4440039E9C0 /* RoundView.swift in Sources */,

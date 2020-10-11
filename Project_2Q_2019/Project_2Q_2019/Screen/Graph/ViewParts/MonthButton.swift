@@ -1,14 +1,14 @@
 //
-//  YearButton.swift
+//  MonthButton.swift
 //  Project_2Q_2019
 //
-//  Created by Kwon junhyeok on 2020/09/06.
+//  Created by Kwon junhyeok on 2020/10/11.
 //  Copyright © 2020 JUNHYEOK KWON. All rights reserved.
 //
 
 import UIKit
 
-final class YearButton: UIButton {
+final class MonthButton: UIButton {
     
     enum ButtonState {
         case selected
@@ -17,14 +17,18 @@ final class YearButton: UIButton {
         var backgroundColor: UIColor {
             switch self {
             case .selected:
-                return .c6889FF
+                return .c44CB97
             case .unselected:
-                return .c6889FF_25
+                return .c44CB97_25
             }
         }
     }
     
-    var year: String = ""
+    var yearMonth: String = ""
+    
+    private var month: String {
+        String(yearMonth.suffix(2))
+    }
     
     var buttonState: ButtonState = .unselected {
         didSet {
@@ -32,9 +36,9 @@ final class YearButton: UIButton {
         }
     }
     
-    init(year: String) {
+    init(yearMonth: String) {
         super.init(frame: .zero)
-        self.year = year
+        self.yearMonth = yearMonth
         setup()
     }
     
@@ -45,11 +49,12 @@ final class YearButton: UIButton {
     private func setup() {
         backgroundColor = buttonState.backgroundColor
         setTitleColor(.white, for: .normal)
-        setTitle("\(year)年", for: .normal)
+        setTitle(month.toNonZeroBase, for: .normal)
         titleLabel?.font = .boldSystemFont(ofSize: 16)
         layer.cornerRadius = 12
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: 72)
+            widthAnchor.constraint(equalToConstant: 40)
         ])
     }
 }
+
