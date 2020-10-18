@@ -10,6 +10,30 @@ import UIKit
 
 class VerticalGraphCell: UICollectionViewCell {
     
+    struct GraphData {
+        let graphType: GraphType
+        let expenditure: String
+        let dateNumber: String
+        let DateCharacter: String
+        let heightRatio: CGFloat
+        
+        static func graphData(from boughtGoods: [BoughtGoods], graphType: GraphType, maxTotalPrice: Double) -> GraphData {
+
+            let boughtGood = boughtGoods.first
+            let dateNumber = graphType == .date ? boughtGood?.boughtDate.getDateText().toNonZeroBase :
+                boughtGood?.yearMonth.getMonthText().toNonZeroBase
+            
+            let date = boughtGood?.boughtDate.yyyyMMddToDate()
+            let dateCharacter = graphType == .date ? date?.weekday : boughtGood?.yearMonth.getMonthText().monthCharacter
+
+            return GraphData(graphType: graphType,
+                             expenditure: String(boughtGoods.totalPrice),
+                             dateNumber: dateNumber ?? "",
+                             DateCharacter: dateCharacter ?? "",
+                             heightRatio: CGFloat(boughtGoods.totalPrice / maxTotalPrice))
+        }
+    }
+    
     enum GraphType {
         case month
         case date
@@ -52,10 +76,10 @@ class VerticalGraphCell: UICollectionViewCell {
         maxGraphViewHeight = self.frame.height - (expenditureLabel.frame.height + dateNumberLabel.frame.height + dateCharacterLabel.frame.height + verticalGraphTop.constant + verticalGraphBottom.constant)
     }
     
-    func set(graphType: GraphType, expenditure: String, dateNumber: String, DateCharacter: String, heightRatio: CGFloat) {
-        expenditureLabel.text = expenditure
-        dateNumberLabel.text = dateNumber
-        dateCharacterLabel.text = DateCharacter
-        heightRatio == .zero ? setEmptyGraphView() : setGraphView(graphType: graphType, heightRatio: heightRatio)
+    func set(graphData: GraphData) {
+        expenditureLabel.text = graphData.expenditure
+        dateNumberLabel.text = graphData.dateNumber
+        dateCharacterLabel.text = graphData.DateCharacter
+        graphData.heightRatio == .zero ? setEmptyGraphView() : setGraphView(graphType: graphData.graphType, heightRatio: graphData.heightRatio)
     }
 }
