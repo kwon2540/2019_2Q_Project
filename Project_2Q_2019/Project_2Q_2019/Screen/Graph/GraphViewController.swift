@@ -76,16 +76,29 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
     
     private func bindUI() {
         
-        viewModel.selectedYear.asSignal().emit(onNext: { [weak self] (year) in
-            guard let this = self else { return }
+        viewModel.selectedYear.asDriver().drive(onNext: { [weak self] (year) in
+            guard let this = self, let year = year else { return }
             
             this.setupMonthButtons(for: year)
+            let monthList = this.viewModel.boughtGoodsMonthList(year: year)
+            this.viewModel.selectedBoughtGoods.accept(monthList)
         }).disposed(by: disposeBag)
         
-        viewModel.selectedMonth.asSignal().emit(onNext: { [weak self] (year) in
+        viewModel.selectedMonth.asDriver().drive(onNext: { [weak self] (month) in
+            guard let this = self else { return }
+            if let month = month {
+                let dateList = this.viewModel.boughtGoodsDateList(month: month)
+                this.viewModel.selectedBoughtGoods.accept(dateList)
+            } else {
+                let monthList = this.viewModel.boughtGoodsMonthList(year: this.viewModel.selectedYear.value ?? "")
+                this.viewModel.selectedBoughtGoods.accept(monthList)
+            }
+        }).disposed(by: disposeBag)
+        
+        viewModel.selectedBoughtGoods.asDriver().drive(onNext: { [weak self] (month) in
             guard let this = self else { return }
             
-            
+            this.collectionView.reloadData()
         }).disposed(by: disposeBag)
     }
 
@@ -131,7 +144,6 @@ extension GraphViewController {
         
         viewModel.yearMonthKeys(for: year).forEach {
             let month = MonthButton(yearMonth: $0)
-            month.buttonState = viewModel.isLastMonth(month: $0) ? .selected : .unselected
             month.addTarget(self, action: #selector(onTapMonthButton), for: .touchUpInside)
             monthStackView.addArrangedSubview(month)
             monthsButtons.append(month)
@@ -148,7 +160,8 @@ extension GraphViewController {
             $0.buttonState = sender == $0 ? .selected : .unselected
         }
         
-        viewModel.selectedMonth.accept(sender.yearMonth)
+        sender.buttonState = viewModel.isSelectedMonth(sender.yearMonth) ? .unselected : .selected
+        viewModel.onTapMonth(sender.yearMonth)
     }
 }
 
@@ -168,14 +181,17 @@ extension GraphViewController: UICollectionViewDelegate {
 extension GraphViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.selectedBoughtGoods.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: VerticalGraphCell.self, for: indexPath)
         cell.calculateMaxHeightIfNeeded()
-        cell.set(graphType: .date, expenditure: "40,000", dateNumber: "3", DateCharacter: "Mar", heightRatio:  0.5)
-        
+        cell.set(graphData: VerticalGraphCell.GraphData(graphType: .date,
+                                             expenditure: "40,000",
+                                             dateNumber: "3",
+                                             DateCharacter: "Mar",
+                                             heightRatio: 0.5))
         return cell
     }
 }

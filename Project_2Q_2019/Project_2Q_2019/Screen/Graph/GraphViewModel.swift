@@ -11,11 +11,17 @@ import RxCocoa
 
 struct GraphViewModel: APIStateProtocol {
     
-    private let boughtGoods: BehaviorRelay<[BoughtGoods]> = BehaviorRelay(value: [])
+    private let boughtGoods = BehaviorRelay<[BoughtGoods]>(value: [])
     
-    let selectedYear = PublishRelay<String>()
-    let selectedMonth = PublishRelay<String>()
+    let selectedYear = BehaviorRelay<String?>(value: nil)
+    let selectedMonth = BehaviorRelay<String?>(value: nil)
     
+    let selectedBoughtGoods = BehaviorRelay<[[BoughtGoods]]>(value: [[]])
+    
+    var maxTotalPrice: Double {
+        selectedBoughtGoods.value.map { $0.totalPrice }.max() ?? 0
+    }
+
     private var groupByYear: [String: [BoughtGoods]] {
         Dictionary(grouping: boughtGoods.value, by: \.year)
     }
@@ -31,16 +37,16 @@ struct GraphViewModel: APIStateProtocol {
     
     let apiStateRelay = PublishRelay<APIState>()
     
-    func boughtGoodsYearList(year: String) -> [BoughtGoods] {
-        groupByYear[year] ?? []
+    func boughtGoodsMonthList(year: String) -> [[BoughtGoods]] {
+        guard let monthList = groupByYear[year] else { return [[]] }
+        return Dictionary(grouping: monthList, by: \.yearMonth)
+            .sorted { $0.0 < $1.0 }.map { $0.value }
     }
     
-    func boughtGoodsYearMonthList(yearMonth: String) -> [BoughtGoods] {
-        groupByYearMonth[yearMonth] ?? []
-    }
-    
-    func boughtGoodsYearMonthDateList(yearMonthDate: String) -> [BoughtGoods] {
-        groupByYearMonthDate[yearMonthDate] ?? []
+    func boughtGoodsDateList(month: String) -> [[BoughtGoods]] {
+        guard let dateList = groupByYearMonth[month] else { return [[]] }
+        return Dictionary(grouping: dateList, by: \.boughtDate)
+            .sorted { $0.0 < $1.0 }.map { $0.value }
     }
     
     func yearKeys() -> [String] {
@@ -57,9 +63,16 @@ struct GraphViewModel: APIStateProtocol {
         yearKeys().last == year
     }
     
-    func isLastMonth(month: String) -> Bool {
-        yearMonthKeys(for: String(month.prefix(4))).last == month
+    func isSelectedMonth(_ month: String?) -> Bool {
+        selectedMonth.value == month
     }
+    
+    func onTapMonth(_ month: String?) {
+        let newMonth = isSelectedMonth(month) ? nil : month
+        selectedMonth.accept(newMonth)
+    }
+    
+    
 }
 
 // MARK: Api Fetching
