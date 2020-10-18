@@ -49,7 +49,7 @@ final class MonthButton: UIButton {
     private func setup() {
         backgroundColor = buttonState.backgroundColor
         setTitleColor(.white, for: .normal)
-        setTitle(month.toNonZeroBase, for: .normal)
+        setTitle(month.toNonZeroBaseWithMonthUnit, for: .normal)
         titleLabel?.font = .boldSystemFont(ofSize: 16)
         layer.cornerRadius = 12
         NSLayoutConstraint.activate([

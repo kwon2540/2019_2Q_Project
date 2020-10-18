@@ -11,7 +11,12 @@ import Foundation
 extension String {
     
     var toNonZeroBase: String {
-        String(Int(self) ?? 0) + "月"
+        String(Int(self) ?? 0)
+    }
+    
+    var toNonZeroBaseWithMonthUnit: String {
+        toNonZeroBase.appending("月")
+    }
     }
 }
 
