@@ -27,10 +27,10 @@ class VerticalGraphCell: UICollectionViewCell {
             let dateCharacter = graphType == .date ? date?.weekday : boughtGood?.yearMonth.getMonthText().monthCharacter
 
             return GraphData(graphType: graphType,
-                             expenditure: String(boughtGoods.totalPrice),
+                             expenditure: boughtGoods.totalPrice.toPrice,
                              dateNumber: dateNumber ?? "",
                              DateCharacter: dateCharacter ?? "",
-                             heightRatio: CGFloat(boughtGoods.totalPrice / maxTotalPrice))
+                             heightRatio: maxTotalPrice == .zero ? .zero : CGFloat(boughtGoods.totalPrice / maxTotalPrice))
         }
     }
     
@@ -49,20 +49,6 @@ class VerticalGraphCell: UICollectionViewCell {
     
     var maxGraphViewHeight: CGFloat = 0
     
-    private func setEmptyGraphView() {
-        let dashedLineBorder = CAShapeLayer()
-        let graphView = verticalGraphView.bounds
-        let graphViewFrame = CGRect(x: graphView.minX, y: graphView.minY, width: graphView.width, height: maxGraphViewHeight)
-        dashedLineBorder.strokeColor = UIColor.lightGray.cgColor
-        dashedLineBorder.lineWidth = 0.3
-        dashedLineBorder.lineDashPattern = [1.5, 1.5]
-        dashedLineBorder.frame = graphViewFrame
-        dashedLineBorder.fillColor = nil
-        dashedLineBorder.path = UIBezierPath(roundedRect: graphViewFrame, cornerRadius: graphView.width / 2).cgPath
-        verticalGraphHeight.constant = maxGraphViewHeight
-        verticalGraphView.layer.addSublayer(dashedLineBorder)
-    }
-    
     private func setGraphView(graphType: GraphType, heightRatio: CGFloat) {
         let height = heightRatio * maxGraphViewHeight
         verticalGraphHeight.constant = height
@@ -80,6 +66,23 @@ class VerticalGraphCell: UICollectionViewCell {
         expenditureLabel.text = graphData.expenditure
         dateNumberLabel.text = graphData.dateNumber
         dateCharacterLabel.text = graphData.DateCharacter
-        graphData.heightRatio == .zero ? setEmptyGraphView() : setGraphView(graphType: graphData.graphType, heightRatio: graphData.heightRatio)
+        setGraphView(graphType: graphData.graphType, heightRatio: graphData.heightRatio)
     }
 }
+
+/*
+ Drop Empty Graph Cell
+    private func setEmptyGraphView() {
+        let dashedLineBorder = CAShapeLayer()
+        let graphView = verticalGraphView.bounds
+        let graphViewFrame = CGRect(x: graphView.minX, y: graphView.minY, width: graphView.width, height: maxGraphViewHeight)
+        dashedLineBorder.strokeColor = UIColor.lightGray.cgColor
+        dashedLineBorder.lineWidth = 0.3
+        dashedLineBorder.lineDashPattern = [1.5, 1.5]
+        dashedLineBorder.frame = graphViewFrame
+        dashedLineBorder.fillColor = nil
+        dashedLineBorder.path = UIBezierPath(roundedRect: graphViewFrame, cornerRadius: graphView.width / 2).cgPath
+        verticalGraphHeight.constant = maxGraphViewHeight
+        verticalGraphView.layer.addSublayer(dashedLineBorder)
+    }
+ */

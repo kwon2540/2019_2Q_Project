@@ -49,8 +49,8 @@ extension String {
     }
 
     func getMonthText() -> String {
-        guard self.count == 8 else { return "" }
-
+        guard self.count == 8 || self.count == 6 else { return "" }
+        
         let startIndex = self.index(self.startIndex, offsetBy: 4)
         let lastIndex = self.index(self.startIndex, offsetBy: 5)
 

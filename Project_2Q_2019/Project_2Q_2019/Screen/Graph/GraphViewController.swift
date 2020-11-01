@@ -11,9 +11,11 @@ import RxSwift
 
 final class GraphViewController: UIViewController, StoryboardInstantiable {
 
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var totalPriceTitleLabel: UILabel!
+    @IBOutlet private weak var totalPriceLabel: UILabel!
     @IBOutlet private weak var yearStackView: UIStackView!
     @IBOutlet private weak var monthStackView: UIStackView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     private let hud: ProgressHUD = ProgressHUD.loadXib()
     private let disposeBag: DisposeBag = DisposeBag()
@@ -83,7 +85,7 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
             let monthList = this.viewModel.boughtGoodsMonthList(year: year)
             this.viewModel.selectedBoughtGoods.accept(monthList)
         }).disposed(by: disposeBag)
-        
+                
         viewModel.selectedMonth.asDriver().drive(onNext: { [weak self] (month) in
             guard let this = self else { return }
             if let month = month {
@@ -93,15 +95,23 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
                 let monthList = this.viewModel.boughtGoodsMonthList(year: this.viewModel.selectedYear.value ?? "")
                 this.viewModel.selectedBoughtGoods.accept(monthList)
             }
+            
         }).disposed(by: disposeBag)
         
-        viewModel.selectedBoughtGoods.asDriver().drive(onNext: { [weak self] (month) in
+        viewModel.selectedBoughtGoods.asDriver().drive(onNext: { [weak self] (boughtGoods) in
             guard let this = self else { return }
+            
+            let totalPrice = boughtGoods.reduce(0.0) {$0 + $1.totalPrice }.toPrice
+            this.totalPriceLabel.text = totalPrice
             
             this.collectionView.reloadData()
         }).disposed(by: disposeBag)
+        
+        viewModel.totalPriceTitle
+            .bind(to: totalPriceTitleLabel.rx.text)
+            .disposed(by: disposeBag)
     }
-
+    
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
     }
@@ -131,7 +141,7 @@ extension GraphViewController {
         yearsButtons.forEach {
             $0.buttonState = sender == $0 ? .selected : .unselected
         }
-        
+        viewModel.selectedMonth.accept(nil)
         viewModel.selectedYear.accept(sender.year)
     }
 }
@@ -187,11 +197,9 @@ extension GraphViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: VerticalGraphCell.self, for: indexPath)
         cell.calculateMaxHeightIfNeeded()
-        cell.set(graphData: VerticalGraphCell.GraphData(graphType: .date,
-                                             expenditure: "40,000",
-                                             dateNumber: "3",
-                                             DateCharacter: "Mar",
-                                             heightRatio: 0.5))
+        cell.set(graphData: .graphData(from: viewModel.selectedBoughtGoods.value[indexPath.row],
+                                       graphType: viewModel.graphType,
+                                       maxTotalPrice: viewModel.maxTotalPrice))
         return cell
     }
 }

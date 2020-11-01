@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 import RxCocoa
 
 struct GraphViewModel: APIStateProtocol {
@@ -15,11 +16,20 @@ struct GraphViewModel: APIStateProtocol {
     
     let selectedYear = BehaviorRelay<String?>(value: nil)
     let selectedMonth = BehaviorRelay<String?>(value: nil)
+    var totalPriceTitle: Observable<String> {
+        selectedMonth.map {
+            "\($0?.getMonthText().toNonZeroBaseWithMonthUnit ?? "")支出合計"
+        }
+    }
     
     let selectedBoughtGoods = BehaviorRelay<[[BoughtGoods]]>(value: [[]])
     
     var maxTotalPrice: Double {
         selectedBoughtGoods.value.map { $0.totalPrice }.max() ?? 0
+    }
+    
+    var graphType: VerticalGraphCell.GraphType {
+        selectedMonth.value == nil ? .month : .date
     }
 
     private var groupByYear: [String: [BoughtGoods]] {
@@ -36,7 +46,7 @@ struct GraphViewModel: APIStateProtocol {
     private var yearMonthDateKeys: [String] { groupByYearMonthDate.map { $0.key }.sorted() }
     
     let apiStateRelay = PublishRelay<APIState>()
-    
+        
     func boughtGoodsMonthList(year: String) -> [[BoughtGoods]] {
         guard let monthList = groupByYear[year] else { return [[]] }
         return Dictionary(grouping: monthList, by: \.yearMonth)
@@ -71,8 +81,6 @@ struct GraphViewModel: APIStateProtocol {
         let newMonth = isSelectedMonth(month) ? nil : month
         selectedMonth.accept(newMonth)
     }
-    
-    
 }
 
 // MARK: Api Fetching

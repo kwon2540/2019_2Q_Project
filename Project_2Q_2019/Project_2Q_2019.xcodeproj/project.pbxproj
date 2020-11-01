@@ -71,6 +71,7 @@
 		10B00E052376846E00864551 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B00E042376846E00864551 /* User.swift */; };
 		10B00E0723769DBD00864551 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B00E0623769DBD00864551 /* LogManager.swift */; };
 		10B6CF4E2365B05B00314C98 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */; };
+		10C11911254E52E5002EB70D /* Extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C11910254E52E5002EB70D /* Extension+Double.swift */; };
 		10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10CB467D23922F4200380E06 /* HomeCollectionViewCell.xib */; };
 		10CB468023922F8800380E06 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB467F23922F8800380E06 /* HomeCollectionViewCell.swift */; };
 		10DFFDC924A09208005611A8 /* EditGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10DFFDC824A09208005611A8 /* EditGoodsViewController.storyboard */; };
@@ -190,6 +191,7 @@
 		10B00E042376846E00864551 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		10B00E0623769DBD00864551 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		10C11910254E52E5002EB70D /* Extension+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Double.swift"; sourceTree = "<group>"; };
 		10CB467D23922F4200380E06 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		10CB467F23922F8800380E06 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		10DFFDC824A09208005611A8 /* EditGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditGoodsViewController.storyboard; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */,
 				10128AB5240B78A400C6F5B9 /* Extension+UIView.swift */,
 				104106D4242744A1004E6D48 /* Extension+String.swift */,
+				10C11910254E52E5002EB70D /* Extension+Double.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -947,6 +950,7 @@
 				6440D06924A49E96000F461C /* HistoryContentGraphView.swift in Sources */,
 				10A8FE1423A4B44100F64F96 /* MenuViewModel.swift in Sources */,
 				10E472D324C03A5000BE71CC /* VerticalGraphCell.swift in Sources */,
+				10C11911254E52E5002EB70D /* Extension+Double.swift in Sources */,
 				1073EC3823DC00D6003BB2C5 /* AddGoodsViewModel.swift in Sources */,
 				10519E5D249C96E800A41E60 /* GoodsCategory.swift in Sources */,
 				103104702504BB2E00FCC42C /* YearButton.swift in Sources */,
