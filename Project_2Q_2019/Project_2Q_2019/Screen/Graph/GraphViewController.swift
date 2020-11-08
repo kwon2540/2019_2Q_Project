@@ -150,7 +150,7 @@ extension GraphViewController {
 extension GraphViewController {
     
     private func setupMonthButtons(for year: String) {
-        monthStackView.subviews.forEach { $0.removeFromSuperview() }
+        removeMonthButtons()
         
         viewModel.yearMonthKeys(for: year).forEach {
             let month = MonthButton(yearMonth: $0)
@@ -164,6 +164,11 @@ extension GraphViewController {
         monthStackView.addArrangedSubview(spacer)
     }
     
+    private func removeMonthButtons() {
+        monthStackView.subviews.forEach { $0.removeFromSuperview() }
+        monthsButtons.removeAll()
+    }
+    
     @objc
     func onTapMonthButton(_ sender: MonthButton) {
         monthsButtons.forEach {
@@ -175,16 +180,17 @@ extension GraphViewController {
     }
 }
 
-// MARK: Date Graph
-extension GraphViewController {
-    
-}
-
 // MARK: Collection View
 extension GraphViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("didSelectItemAt")
+        switch viewModel.graphType {
+        case .month:
+            let selectedYearButton = monthsButtons[indexPath.row]
+            onTapMonthButton(selectedYearButton)
+        case .date:
+            break
+        }
     }
 }
 
