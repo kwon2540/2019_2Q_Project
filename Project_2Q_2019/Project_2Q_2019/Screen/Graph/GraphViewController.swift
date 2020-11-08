@@ -189,7 +189,9 @@ extension GraphViewController: UICollectionViewDelegate {
             let selectedYearButton = monthsButtons[indexPath.row]
             onTapMonthButton(selectedYearButton)
         case .date:
-            break
+            let selectedDate = viewModel.selectedBoughtGoods.value[indexPath.row].first?.boughtDate
+            let vc = ClosableHistoryViewController.makeInstance(selectedDate: selectedDate ?? "")
+            present(vc, animated: true)
         }
     }
 }
