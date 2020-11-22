@@ -80,6 +80,8 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
                 this.setupYearButtons()
                 this.viewModel.selectedYear.accept(this.viewModel.yearKeys().last ?? "")
                 this.collectionView.reloadData()
+                this.graphStackView.isHidden = !this.viewModel.hasBoughtGoods
+                this.noDataView.isHidden = this.viewModel.hasBoughtGoods
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,
@@ -88,6 +90,7 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
                 this.hud.stopAnimation()
+                this.noDataView.isHidden = false
             }
         }).disposed(by: disposeBag)
     }
@@ -125,10 +128,6 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
 
         viewModel.totalPriceTitle
             .bind(to: totalPriceTitleLabel.rx.text)
-            .disposed(by: disposeBag)
-
-        viewModel.showNoDataView
-            .bind(to: noDataView.rx.isHidden)
             .disposed(by: disposeBag)
     }
 
