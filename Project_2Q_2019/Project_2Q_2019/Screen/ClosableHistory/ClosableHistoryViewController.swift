@@ -11,25 +11,25 @@ import UIKit
 class ClosableHistoryViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var contentView: UIView!
-    
+
     private var selectedDate = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupHistoryContentView()
     }
-    
+
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
     }
-    
+
     static func makeInstance(selectedDate: String) -> ClosableHistoryViewController {
         let vc = ClosableHistoryViewController.getStoryBoard()
         vc.selectedDate = selectedDate
         return vc
     }
-    
+
     private func setupHistoryContentView() {
         let contentViewModel = HistoryContentViewModel(date: selectedDate)
         let historyContentView = HistoryContentView.loadXib()
