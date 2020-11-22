@@ -19,6 +19,7 @@
 		1016000523922B5C00A92C4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1016000423922B5C00A92C4D /* GoogleService-Info.plist */; };
 		10188E1423C9970900F94681 /* AlertViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10188E1323C9970900F94681 /* AlertViewController.storyboard */; };
 		10188E1623C997B900F94681 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10188E1523C997B900F94681 /* AlertViewController.swift */; };
+		103104702504BB2E00FCC42C /* YearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031046F2504BB2E00FCC42C /* YearButton.swift */; };
 		1032FE572338C1050039E9C0 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */; };
 		1032FE5A2338C2A70039E9C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE592338C2A70039E9C0 /* LoginViewController.swift */; };
 		1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */; };
@@ -70,11 +71,18 @@
 		10B00E052376846E00864551 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B00E042376846E00864551 /* User.swift */; };
 		10B00E0723769DBD00864551 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B00E0623769DBD00864551 /* LogManager.swift */; };
 		10B6CF4E2365B05B00314C98 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */; };
+		10BAC0362557AEAB001B9A85 /* ClosableHistoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10BAC0352557AEAB001B9A85 /* ClosableHistoryViewController.storyboard */; };
+		10BAC0382557AECB001B9A85 /* ClosableHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAC0372557AECB001B9A85 /* ClosableHistoryViewController.swift */; };
+		10C11911254E52E5002EB70D /* Extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C11910254E52E5002EB70D /* Extension+Double.swift */; };
 		10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10CB467D23922F4200380E06 /* HomeCollectionViewCell.xib */; };
 		10CB468023922F8800380E06 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB467F23922F8800380E06 /* HomeCollectionViewCell.swift */; };
 		10DFFDC924A09208005611A8 /* EditGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10DFFDC824A09208005611A8 /* EditGoodsViewController.storyboard */; };
 		10DFFDCB24A09224005611A8 /* EditGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFFDCA24A09224005611A8 /* EditGoodsViewController.swift */; };
 		10DFFDCD24A09238005611A8 /* EditGoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFFDCC24A09238005611A8 /* EditGoodsViewModel.swift */; };
+		10E472D124C03A4200BE71CC /* VerticalGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E472D024C03A4200BE71CC /* VerticalGraphCell.xib */; };
+		10E472D324C03A5000BE71CC /* VerticalGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E472D224C03A5000BE71CC /* VerticalGraphCell.swift */; };
+		10E472D724C1891100BE71CC /* GraphMonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E472D624C1891100BE71CC /* GraphMonthButton.swift */; };
+		10FE445C2532B7B9001D90BB /* MonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FE445B2532B7B9001D90BB /* MonthButton.swift */; };
 		1273A3F231517C61780C5E9F /* Pods_Project_2Q_2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E7A66781B6AE5A7AF269C /* Pods_Project_2Q_2019.framework */; };
 		6440D06624A49283000F461C /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 6440D06524A49283000F461C /* Charts */; };
 		6440D06924A49E96000F461C /* HistoryContentGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440D06824A49E96000F461C /* HistoryContentGraphView.swift */; };
@@ -127,6 +135,7 @@
 		1016000423922B5C00A92C4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10188E1323C9970900F94681 /* AlertViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertViewController.storyboard; sourceTree = "<group>"; };
 		10188E1523C997B900F94681 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		1031046F2504BB2E00FCC42C /* YearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearButton.swift; sourceTree = "<group>"; };
 		1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		1032FE592338C2A70039E9C0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
@@ -184,11 +193,18 @@
 		10B00E042376846E00864551 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		10B00E0623769DBD00864551 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		10B6CF4D2365B05B00314C98 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		10BAC0352557AEAB001B9A85 /* ClosableHistoryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosableHistoryViewController.storyboard; sourceTree = "<group>"; };
+		10BAC0372557AECB001B9A85 /* ClosableHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosableHistoryViewController.swift; sourceTree = "<group>"; };
+		10C11910254E52E5002EB70D /* Extension+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Double.swift"; sourceTree = "<group>"; };
 		10CB467D23922F4200380E06 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		10CB467F23922F8800380E06 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		10DFFDC824A09208005611A8 /* EditGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditGoodsViewController.storyboard; sourceTree = "<group>"; };
 		10DFFDCA24A09224005611A8 /* EditGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoodsViewController.swift; sourceTree = "<group>"; };
 		10DFFDCC24A09238005611A8 /* EditGoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoodsViewModel.swift; sourceTree = "<group>"; };
+		10E472D024C03A4200BE71CC /* VerticalGraphCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerticalGraphCell.xib; sourceTree = "<group>"; };
+		10E472D224C03A5000BE71CC /* VerticalGraphCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalGraphCell.swift; sourceTree = "<group>"; };
+		10E472D624C1891100BE71CC /* GraphMonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMonthButton.swift; sourceTree = "<group>"; };
+		10FE445B2532B7B9001D90BB /* MonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthButton.swift; sourceTree = "<group>"; };
 		1CD2A4C0F6B6D48B5FC49979 /* Pods-Project_2Q_2019UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019UITests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019UITests/Pods-Project_2Q_2019UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F464980BEC4F3155A426D2A /* Pods_Project_2Q_2019UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_2Q_2019UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6044ADC4EDFDADB003FD5279 /* Pods-Project_2Q_2019Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019Tests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +264,7 @@
 		100CF47723ADFEC500B3557D /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				10E472CF24C03A0A00BE71CC /* ViewParts */,
 				100CF47823ADFEFC00B3557D /* GraphViewController.storyboard */,
 				100CF47A23ADFF0800B3557D /* GraphViewController.swift */,
 				100CF47C23ADFF1400B3557D /* GraphViewModel.swift */,
@@ -330,6 +347,7 @@
 				10188E1123C996EC00F94681 /* AlertView */,
 				107901C924710B8600D28D4B /* AlertView.swift */,
 				1073EC3923DC18A7003BB2C5 /* ShadowView.swift */,
+				10E472D624C1891100BE71CC /* GraphMonthButton.swift */,
 			);
 			path = ViewParts;
 			sourceTree = "<group>";
@@ -399,6 +417,7 @@
 				10128AAF2403B59000C6F5B9 /* Extension+NSObject.swift */,
 				10128AB5240B78A400C6F5B9 /* Extension+UIView.swift */,
 				104106D4242744A1004E6D48 /* Extension+String.swift */,
+				10C11910254E52E5002EB70D /* Extension+Double.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -486,6 +505,7 @@
 				10DFFDC724A091E5005611A8 /* EditGoods */,
 				100CF47723ADFEC500B3557D /* Graph */,
 				100CF47E23AE00F500B3557D /* History */,
+				10BAC0342557ADC5001B9A85 /* ClosableHistory */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -520,6 +540,15 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		10BAC0342557ADC5001B9A85 /* ClosableHistory */ = {
+			isa = PBXGroup;
+			children = (
+				10BAC0352557AEAB001B9A85 /* ClosableHistoryViewController.storyboard */,
+				10BAC0372557AECB001B9A85 /* ClosableHistoryViewController.swift */,
+			);
+			path = ClosableHistory;
+			sourceTree = "<group>";
+		};
 		10DFFDC724A091E5005611A8 /* EditGoods */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +557,17 @@
 				10DFFDCC24A09238005611A8 /* EditGoodsViewModel.swift */,
 			);
 			path = EditGoods;
+			sourceTree = "<group>";
+		};
+		10E472CF24C03A0A00BE71CC /* ViewParts */ = {
+			isa = PBXGroup;
+			children = (
+				10E472D024C03A4200BE71CC /* VerticalGraphCell.xib */,
+				10E472D224C03A5000BE71CC /* VerticalGraphCell.swift */,
+				1031046F2504BB2E00FCC42C /* YearButton.swift */,
+				10FE445B2532B7B9001D90BB /* MonthButton.swift */,
+			);
+			path = ViewParts;
 			sourceTree = "<group>";
 		};
 		1E917019B7995D9B9985F0BC /* Pods */ = {
@@ -734,6 +774,7 @@
 				6440D06B24A49ECD000F461C /* HistoryContentGraphView.xib in Resources */,
 				100CF48023AE011400B3557D /* HistoryViewController.storyboard in Resources */,
 				6477C81A24A0928F00BD2BD0 /* HistoryContentHeaderView.xib in Resources */,
+				10BAC0362557AEAB001B9A85 /* ClosableHistoryViewController.storyboard in Resources */,
 				1032FE6E2338ECC90039E9C0 /* Assets.colors.xcassets in Resources */,
 				10A7E5982312B86800DF3D34 /* HomeViewController.storyboard in Resources */,
 				108D9F822439AD320058EF41 /* HistoryCollectionViewCell.xib in Resources */,
@@ -750,6 +791,7 @@
 				10CB467E23922F4200380E06 /* HomeCollectionViewCell.xib in Resources */,
 				1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */,
 				10519E5A249B55C700A41E60 /* GoogleService-Info-dev.plist in Resources */,
+				10E472D124C03A4200BE71CC /* VerticalGraphCell.xib in Resources */,
 				6477C82324A09F2000BD2BD0 /* HistoryContentView.xib in Resources */,
 				10188E1423C9970900F94681 /* AlertViewController.storyboard in Resources */,
 				10A7E52E22EDC14100DF3D34 /* Assets.xcassets in Resources */,
@@ -900,6 +942,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1073EC3A23DC18A7003BB2C5 /* ShadowView.swift in Sources */,
+				10FE445C2532B7B9001D90BB /* MonthButton.swift in Sources */,
 				1032FE5A2338C2A70039E9C0 /* LoginViewController.swift in Sources */,
 				10128AB02403B59000C6F5B9 /* Extension+NSObject.swift in Sources */,
 				1032FE6B2338E4440039E9C0 /* RoundView.swift in Sources */,
@@ -921,8 +964,12 @@
 				1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */,
 				6440D06924A49E96000F461C /* HistoryContentGraphView.swift in Sources */,
 				10A8FE1423A4B44100F64F96 /* MenuViewModel.swift in Sources */,
+				10E472D324C03A5000BE71CC /* VerticalGraphCell.swift in Sources */,
+				10C11911254E52E5002EB70D /* Extension+Double.swift in Sources */,
 				1073EC3823DC00D6003BB2C5 /* AddGoodsViewModel.swift in Sources */,
 				10519E5D249C96E800A41E60 /* GoodsCategory.swift in Sources */,
+				103104702504BB2E00FCC42C /* YearButton.swift in Sources */,
+				10E472D724C1891100BE71CC /* GraphMonthButton.swift in Sources */,
 				100CF48423AE012800B3557D /* HistoryViewModel.swift in Sources */,
 				10A7E59A2312B87400DF3D34 /* HomeViewController.swift in Sources */,
 				10128AAE2403B55B00C6F5B9 /* Extension+UITableView.swift in Sources */,
@@ -931,6 +978,7 @@
 				10A7C2F9237047F20050F6B8 /* FirebaseManager.swift in Sources */,
 				108FFD86237FFFDA005B21CC /* Extension+UIColor.swift in Sources */,
 				6466B75224AAC5560005E998 /* HistoryContentGraphViewModel.swift in Sources */,
+				10BAC0382557AECB001B9A85 /* ClosableHistoryViewController.swift in Sources */,
 				6477C81024A0894000BD2BD0 /* HistoryContentViewCell.swift in Sources */,
 				1073EC3C23EE6E35003BB2C5 /* Goods.swift in Sources */,
 				104106E72430975B004E6D48 /* HomeTableViewCell.swift in Sources */,

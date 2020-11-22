@@ -73,7 +73,7 @@
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Lxn-fK-ONy" secondAttribute="trailing" id="5zt-C6-2BC"/>
                 <constraint firstItem="Lxn-fK-ONy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="AyK-7K-dEd"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Lxn-fK-ONy" secondAttribute="bottom" id="FOh-KA-4Vf"/>
+                <constraint firstAttribute="bottom" secondItem="Lxn-fK-ONy" secondAttribute="bottom" id="FOh-KA-4Vf"/>
                 <constraint firstItem="Lxn-fK-ONy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cog-c6-ZQ0"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

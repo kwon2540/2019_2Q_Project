@@ -9,6 +9,35 @@
 import Foundation
 
 extension String {
+    
+    var toNonZeroBase: String {
+        String(Int(self) ?? 0)
+    }
+    
+    var toNonZeroBaseWithMonthUnit: String {
+        toNonZeroBase.appending("月")
+    }
+    
+    var monthCharacter: String {
+        switch self.toNonZeroBase {
+        case "1": return "Jan"
+        case "2": return "Feb"
+        case "3": return "Mar"
+        case "4": return "Apr"
+        case "5": return "May"
+        case "6": return "Jun"
+        case "7": return "Jul"
+        case "8": return "Aug"
+        case "9": return "Sep"
+        case "10": return "Oct"
+        case "11": return "Nov"
+        case "12": return "Dec"
+        default: return ""
+        }
+    }
+}
+
+extension String {
 
     func getYearText() -> String {
         guard self.count == 8 else { return "" }
@@ -20,8 +49,8 @@ extension String {
     }
 
     func getMonthText() -> String {
-        guard self.count == 8 else { return "" }
-
+        guard self.count == 8 || self.count == 6 else { return "" }
+        
         let startIndex = self.index(self.startIndex, offsetBy: 4)
         let lastIndex = self.index(self.startIndex, offsetBy: 5)
 

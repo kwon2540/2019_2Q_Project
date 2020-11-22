@@ -17,6 +17,8 @@ struct Goods: Codable {
 struct BoughtGoods: Codable {
     var id: String
     var boughtDate: String
+    var year: String
+    var yearMonth: String
     var category: String
     var name: String
     var amount: Int
@@ -38,7 +40,7 @@ extension Array where Element == BoughtGoods {
 
     var miscellaneous: [Element] { filter(for: .miscellaneous) }
 
-    var totalAmount: Double { reduce(0) { $0 + Double($1.price * $1.amount) } }
+    var totalPrice: Double { reduce(0) { $0 + Double($1.price * $1.amount) } }
 
     private func filter(for category: GoodsCategory) -> [Element] {
         filter { $0.category == category.key }

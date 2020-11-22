@@ -22,10 +22,10 @@ struct HistoryContentGraphViewModel {
         // Pie Chart Data Set
         let pieChartColorSet = [UIColor.cFEBA5B, UIColor.cFF7273, UIColor.c60A8E0, UIColor.cA8C953] as [NSUIColor]
 
-        let pieChartValueSet = Observable.combineLatest(boughtGoods.map { ($0.life.totalAmount, GoodsCategory.life.title) },
-                                                        boughtGoods.map { ($0.fashion.totalAmount, GoodsCategory.fashion.title) },
-                                                        boughtGoods.map { ($0.hobby.totalAmount, GoodsCategory.hobby.title) },
-                                                        boughtGoods.map { ($0.miscellaneous.totalAmount, GoodsCategory.miscellaneous.title) }) { [$0, $1, $2, $3] }
+        let pieChartValueSet = Observable.combineLatest(boughtGoods.map { ($0.life.totalPrice, GoodsCategory.life.title) },
+                                                        boughtGoods.map { ($0.fashion.totalPrice, GoodsCategory.fashion.title) },
+                                                        boughtGoods.map { ($0.hobby.totalPrice, GoodsCategory.hobby.title) },
+                                                        boughtGoods.map { ($0.miscellaneous.totalPrice, GoodsCategory.miscellaneous.title) }) { [$0, $1, $2, $3] }
 
         pieChartData = pieChartValueSet.map { (values) -> PieChartData in
             let dataEntries = values.map { PieChartDataEntry(value: $0, label: $1) }
@@ -41,6 +41,6 @@ struct HistoryContentGraphViewModel {
         }
 
         // Total Amount
-        totalAmount = boughtGoods.map {"\(Int($0.totalAmount))¥" }
+        totalAmount = boughtGoods.map {"\(Int($0.totalPrice))¥" }
     }
 }
