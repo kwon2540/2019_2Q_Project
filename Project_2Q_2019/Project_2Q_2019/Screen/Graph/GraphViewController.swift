@@ -17,6 +17,8 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var monthStackView: UIStackView!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var noDataView: UIView!
+    @IBOutlet private weak var shadowView: ShadowView!
+    @IBOutlet private weak var graphStackView: UIStackView!
 
     private let hud: ProgressHUD = ProgressHUD.loadXib()
     private let disposeBag: DisposeBag = DisposeBag()
@@ -32,6 +34,12 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
         setup()
         bind()
         fetch()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        setupHUD()
     }
 
     private func setup() {
@@ -53,6 +61,13 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
         collectionView.registerXib(of: VerticalGraphCell.self)
     }
 
+    private func setupHUD() {
+        shadowView.addSubview(hud)
+        hud.frame = shadowView.bounds
+        hud.layer.cornerRadius = 20
+        hud.clipsToBounds = true
+    }
+
     private func bindApiState() {
         viewModel.apiState.emit(onNext: { [weak self] (state) in
             guard let this = self, let view = this.view else { return }
@@ -65,6 +80,8 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
                 this.setupYearButtons()
                 this.viewModel.selectedYear.accept(this.viewModel.yearKeys().last ?? "")
                 this.collectionView.reloadData()
+                this.graphStackView.isHidden = !this.viewModel.hasBoughtGoods
+                this.noDataView.isHidden = this.viewModel.hasBoughtGoods
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,
@@ -73,6 +90,7 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
                 this.hud.stopAnimation()
+                this.noDataView.isHidden = false
             }
         }).disposed(by: disposeBag)
     }
@@ -110,10 +128,6 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
 
         viewModel.totalPriceTitle
             .bind(to: totalPriceTitleLabel.rx.text)
-            .disposed(by: disposeBag)
-
-        viewModel.showNoDataView
-            .bind(to: noDataView.rx.isHidden)
             .disposed(by: disposeBag)
     }
 
