@@ -47,6 +47,8 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
 
         // 스크롤이 빠르게 감속되도록 설정
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+
+        collectionView.scrollToItem(at: viewModel.lastIndex, at: .centeredHorizontally, animated: false)
     }
 }
 

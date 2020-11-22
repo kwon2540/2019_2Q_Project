@@ -14,6 +14,8 @@ struct HistoryViewModel {
 
     var numberOfItems: Int { dates.count }
 
+    var lastIndex: IndexPath { IndexPath(item: numberOfItems - 1, section: 0)}
+
     init(dates: [DateCount]) {
         self.dates = dates
     }
