@@ -11,23 +11,28 @@ import RxSwift
 import RxCocoa
 
 struct GraphViewModel: APIStateProtocol {
-    
+
     private let boughtGoods = BehaviorRelay<[BoughtGoods]>(value: [])
-    
+
     let selectedYear = BehaviorRelay<String?>(value: nil)
     let selectedMonth = BehaviorRelay<String?>(value: nil)
     var totalPriceTitle: Observable<String> {
-        selectedMonth.map {
-            "\($0?.getMonthText().toNonZeroBaseWithMonthUnit ?? "")支出合計"
+        Observable.combineLatest(selectedYear.asObservable(), selectedMonth.asObservable()) { (year, month) -> String in
+            switch self.graphType {
+            case .month:
+                return "\(year?.toYearUnit ?? "")の支出合計"
+            case .date:
+                return "\(month?.getMonthText().toNonZeroBaseWithMonthUnit ?? "")の支出合計"
+            }
         }
     }
-    
+
     let selectedBoughtGoods = BehaviorRelay<[[BoughtGoods]]>(value: [[]])
-    
+
     var maxTotalPrice: Double {
         selectedBoughtGoods.value.map { $0.totalPrice }.max() ?? 0
     }
-    
+
     var graphType: VerticalGraphCell.GraphType {
         selectedMonth.value == nil ? .month : .date
     }
