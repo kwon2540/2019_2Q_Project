@@ -16,6 +16,7 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var yearStackView: UIStackView!
     @IBOutlet private weak var monthStackView: UIStackView!
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var noDataView: UIView!
 
     private let hud: ProgressHUD = ProgressHUD.loadXib()
     private let disposeBag: DisposeBag = DisposeBag()

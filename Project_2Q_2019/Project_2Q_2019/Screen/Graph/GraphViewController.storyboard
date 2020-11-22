@@ -157,17 +157,35 @@
                                             </collectionView>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glS-dK-iXb" userLabel="No Data View">
+                                        <rect key="frame" x="0.0" y="85" width="414" height="698"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="表示するデータがありません。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbt-i6-pGL">
+                                                <rect key="frame" x="78.5" y="306" width="257" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="glS-dK-iXb" firstAttribute="bottom" secondItem="Sza-gb-gO8" secondAttribute="bottom" id="0pm-wZ-Fg8"/>
                                     <constraint firstItem="Rhy-84-HM4" firstAttribute="bottom" secondItem="Sza-gb-gO8" secondAttribute="bottom" constant="20" id="7Cj-DP-IHV"/>
                                     <constraint firstAttribute="trailing" secondItem="sT4-u7-Rdg" secondAttribute="trailing" constant="15" id="AZj-7M-XTg"/>
+                                    <constraint firstItem="glS-dK-iXb" firstAttribute="top" secondItem="Sza-gb-gO8" secondAttribute="top" id="Cz6-4t-v03"/>
                                     <constraint firstItem="276-ig-xep" firstAttribute="leading" secondItem="Fod-Uk-Zuy" secondAttribute="leading" constant="20" id="FXf-lN-yB2"/>
+                                    <constraint firstItem="Zbt-i6-pGL" firstAttribute="centerX" secondItem="Rhy-84-HM4" secondAttribute="centerX" id="GJ6-1W-wrR"/>
                                     <constraint firstItem="Sza-gb-gO8" firstAttribute="top" secondItem="276-ig-xep" secondAttribute="bottom" constant="44.5" id="Hs8-3q-xIs"/>
                                     <constraint firstItem="Sza-gb-gO8" firstAttribute="leading" secondItem="Fod-Uk-Zuy" secondAttribute="leading" id="PMh-Q1-mk8"/>
                                     <constraint firstItem="sT4-u7-Rdg" firstAttribute="top" secondItem="Fod-Uk-Zuy" secondAttribute="top" constant="15" id="hPh-YN-JNn"/>
+                                    <constraint firstItem="Zbt-i6-pGL" firstAttribute="centerY" secondItem="Rhy-84-HM4" secondAttribute="centerY" id="iLk-CM-IEY"/>
+                                    <constraint firstItem="glS-dK-iXb" firstAttribute="trailing" secondItem="Sza-gb-gO8" secondAttribute="trailing" id="iy8-GX-m5V"/>
                                     <constraint firstItem="276-ig-xep" firstAttribute="centerY" secondItem="sT4-u7-Rdg" secondAttribute="centerY" id="t0M-nm-9ad"/>
                                     <constraint firstAttribute="trailing" secondItem="Sza-gb-gO8" secondAttribute="trailing" id="vSB-9a-gG9"/>
+                                    <constraint firstItem="glS-dK-iXb" firstAttribute="leading" secondItem="Sza-gb-gO8" secondAttribute="leading" id="wPl-ew-1Ho"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="Rhy-84-HM4"/>
                             </view>
@@ -184,6 +202,7 @@
                     <connections>
                         <outlet property="collectionView" destination="iwe-iv-I19" id="M5A-sO-Ye0"/>
                         <outlet property="monthStackView" destination="2HC-Wi-W65" id="Pam-7E-kdr"/>
+                        <outlet property="noDataView" destination="glS-dK-iXb" id="gMJ-4Z-JSd"/>
                         <outlet property="totalPriceLabel" destination="mvE-az-6LK" id="ptp-Ib-502"/>
                         <outlet property="totalPriceTitleLabel" destination="QHY-qS-3d8" id="DlU-Ci-svj"/>
                         <outlet property="yearStackView" destination="dLR-3T-qnE" id="lPi-MK-jF6"/>
