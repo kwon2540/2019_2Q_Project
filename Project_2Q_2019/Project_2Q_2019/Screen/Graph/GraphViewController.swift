@@ -36,6 +36,12 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
         fetch()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        setupHUD()
+    }
+
     private func setup() {
         setupCollectionView()
     }
@@ -53,6 +59,13 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerXib(of: VerticalGraphCell.self)
+    }
+
+    private func setupHUD() {
+        shadowView.addSubview(hud)
+        hud.frame = shadowView.bounds
+        hud.layer.cornerRadius = 20
+        hud.clipsToBounds = true
     }
 
     private func bindApiState() {
