@@ -37,6 +37,10 @@ struct GraphViewModel: APIStateProtocol {
         selectedMonth.value == nil ? .month : .date
     }
 
+    var showNoDataView: Observable<Bool> {
+        boughtGoods.map { !$0.isEmpty }
+    }
+
     private var groupByYear: [String: [BoughtGoods]] {
         Dictionary(grouping: boughtGoods.value, by: \.year)
     }

@@ -111,6 +111,10 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
         viewModel.totalPriceTitle
             .bind(to: totalPriceTitleLabel.rx.text)
             .disposed(by: disposeBag)
+
+        viewModel.showNoDataView
+            .bind(to: noDataView.rx.isHidden)
+            .disposed(by: disposeBag)
     }
 
     @IBAction private func dismiss(_ sender: Any) {
