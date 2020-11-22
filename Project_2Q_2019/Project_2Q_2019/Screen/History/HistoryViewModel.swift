@@ -11,7 +11,7 @@ import RxSwift
 
 struct HistoryViewModel {
     let dates: [DateCount]
-    
+
     var numberOfItems: Int { dates.count }
 
     init(dates: [DateCount]) {

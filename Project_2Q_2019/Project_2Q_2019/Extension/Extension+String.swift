@@ -9,15 +9,19 @@
 import Foundation
 
 extension String {
-    
+
     var toNonZeroBase: String {
         String(Int(self) ?? 0)
     }
-    
+
     var toNonZeroBaseWithMonthUnit: String {
         toNonZeroBase.appending("月")
     }
-    
+
+    var toYearUnit: String {
+        self.appending("年")
+    }
+
     var monthCharacter: String {
         switch self.toNonZeroBase {
         case "1": return "Jan"
@@ -50,7 +54,7 @@ extension String {
 
     func getMonthText() -> String {
         guard self.count == 8 || self.count == 6 else { return "" }
-        
+
         let startIndex = self.index(self.startIndex, offsetBy: 4)
         let lastIndex = self.index(self.startIndex, offsetBy: 5)
 

@@ -9,11 +9,11 @@
 import UIKit
 
 final class YearButton: UIButton {
-    
+
     enum ButtonState {
         case selected
         case unselected
-        
+
         var backgroundColor: UIColor {
             switch self {
             case .selected:
@@ -23,25 +23,25 @@ final class YearButton: UIButton {
             }
         }
     }
-    
+
     var year: String = ""
-    
+
     var buttonState: ButtonState = .unselected {
         didSet {
             self.backgroundColor = buttonState.backgroundColor
         }
     }
-    
+
     init(year: String) {
         super.init(frame: .zero)
         self.year = year
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     private func setup() {
         backgroundColor = buttonState.backgroundColor
         setTitleColor(.white, for: .normal)

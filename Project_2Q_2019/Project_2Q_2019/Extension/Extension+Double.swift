@@ -13,7 +13,7 @@ extension Double {
     var toPrice: String {
         self.commaGroupedString() + "円"
     }
-    
+
     func commaGroupedString() -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
