@@ -201,8 +201,10 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="iwe-iv-I19" id="M5A-sO-Ye0"/>
+                        <outlet property="graphStackView" destination="Sza-gb-gO8" id="caD-E4-BBL"/>
                         <outlet property="monthStackView" destination="2HC-Wi-W65" id="Pam-7E-kdr"/>
                         <outlet property="noDataView" destination="glS-dK-iXb" id="gMJ-4Z-JSd"/>
+                        <outlet property="shadowView" destination="Fod-Uk-Zuy" id="dxp-oJ-YyX"/>
                         <outlet property="totalPriceLabel" destination="mvE-az-6LK" id="ptp-Ib-502"/>
                         <outlet property="totalPriceTitleLabel" destination="QHY-qS-3d8" id="DlU-Ci-svj"/>
                         <outlet property="yearStackView" destination="dLR-3T-qnE" id="lPi-MK-jF6"/>
