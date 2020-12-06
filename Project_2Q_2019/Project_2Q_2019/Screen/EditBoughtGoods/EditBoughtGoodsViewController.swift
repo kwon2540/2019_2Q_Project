@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import RxSwift
 
 final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantiable {
-    
+
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var removeButton: UIButton!
     @IBOutlet private weak var completeButton: UIButton!
@@ -24,13 +25,20 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
     @IBOutlet private weak var amountSaperator: UIView!
     @IBOutlet private weak var priceTextField: UITextField!
     @IBOutlet private weak var priceSaperator: UIView!
-    @IBOutlet private weak var keyboardSpaceConstraint:NSLayoutConstraint!
-    
-    
     @IBOutlet private weak var keyboardSpaceConstraint: NSLayoutConstraint!
+
+    private let disposeBag = DisposeBag()
+
+    private lazy var categoryButtons: [UIButton] = [lifeButton, fashionButton, hobbiesButton, miscellaneousButton]
+
+    var viewModel: EditBoughtGoodsViewModel!
+    var dismissed: ((Bool) -> Void)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addKeyboardObservers()
@@ -40,6 +48,7 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
         super.viewWillDisappear(animated)
         removeKeyboardObservers()
     }
+
     @IBAction private func dismiss(_ sender: Any) {
         closeEditGoodsModal(isDataChanged: false)
     }
@@ -62,6 +71,35 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
             }
         }
     }
+
+    private func setup() {
+        setupLayouts()
+        setupCategoryButton()
+    }
+
+    private func setupLayouts() {
+        mainView.layer.cornerRadius = 20
+        mainView.clipsToBounds = true
+
+        completeButton.isEnabled = false
+
+        priceTextField.becomeFirstResponder()
+
+        nameTextField.text = viewModel.boughtGoods.name
+    }
+
+    private func setupCategoryButton() {
+        if let tag = viewModel.getSeletedCategoryButtonTag() {
+            categoryButtons[tag].isSelected = true
+        }
+    }
+
+    private func closeEditGoodsModal(isDataChanged: Bool) {
+        dismissed?(isDataChanged)
+        dismiss(animated: true)
+    }
+}
+
 // MARK: Keyboard Notifications
 extension EditBoughtGoodsViewController {
 
@@ -95,5 +133,10 @@ extension EditBoughtGoodsViewController {
     }
 
     private func moveContentForDismissKeyboard() {
+        keyboardSpaceConstraint.constant = 0
+    }
+
+    private func moveContent(forKeyboardFrame keyboardFrame: CGRect) {
+        keyboardSpaceConstraint.constant = keyboardFrame.height
     }
 }
