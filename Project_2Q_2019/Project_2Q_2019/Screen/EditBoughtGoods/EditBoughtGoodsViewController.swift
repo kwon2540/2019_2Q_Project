@@ -40,6 +40,28 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
         super.viewWillDisappear(animated)
         removeKeyboardObservers()
     }
+    @IBAction private func dismiss(_ sender: Any) {
+        closeEditGoodsModal(isDataChanged: false)
+    }
+
+    @IBAction private func remove(_ sender: Any) {
+        viewModel.deleteBoughtGoods()
+    }
+
+    @IBAction private func revert(_ sender: Any) {
+        // TODO
+    }
+
+    @IBAction private func categoryButtons(_ sender: UIButton) {
+        guard !sender.isSelected else { return }
+
+        categoryButtons[sender.tag].isSelected = true
+        categoryButtons.enumerated().forEach { index, button in
+            if index != sender.tag {
+                button.isSelected = false
+            }
+        }
+    }
 // MARK: Keyboard Notifications
 extension EditBoughtGoodsViewController {
 

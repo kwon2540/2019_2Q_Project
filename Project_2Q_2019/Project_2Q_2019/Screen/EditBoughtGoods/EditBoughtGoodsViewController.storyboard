@@ -22,6 +22,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYF-7Y-u7d">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="396"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="CLs-L6-akt" eventType="touchUpInside" id="BRv-2N-DZL"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R95-jV-JKA" userLabel="Main View">
                                         <rect key="frame" x="0.0" y="396" width="375" height="271"/>
@@ -47,6 +50,9 @@
                                                                                 <state key="normal" image="delete">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="remove:" destination="CLs-L6-akt" eventType="touchUpInside" id="yqd-gX-v9H"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0g-iV-Ui2">
                                                                                 <rect key="frame" x="66" y="7" width="26" height="26"/>
@@ -57,6 +63,9 @@
                                                                                 <state key="normal" image="revert">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="revert:" destination="CLs-L6-akt" eventType="touchUpInside" id="HyP-Bp-SLM"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -195,6 +204,9 @@
                                                                                         <state key="normal" image="life_off"/>
                                                                                         <state key="selected" image="life_on"/>
                                                                                         <state key="highlighted" image="life_on"/>
+                                                                                        <connections>
+                                                                                            <action selector="categoryButtons:" destination="CLs-L6-akt" eventType="touchUpInside" id="fln-SV-8WY"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oht-ZV-fo9">
                                                                                         <rect key="frame" x="91.5" y="0.0" width="60" height="45"/>
@@ -205,6 +217,9 @@
                                                                                         <state key="normal" image="fashion_off"/>
                                                                                         <state key="selected" image="fashion_on"/>
                                                                                         <state key="highlighted" image="fashion_on"/>
+                                                                                        <connections>
+                                                                                            <action selector="categoryButtons:" destination="CLs-L6-akt" eventType="touchUpInside" id="iCE-R8-9Hx"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cat-VC-cxm">
                                                                                         <rect key="frame" x="183.5" y="0.0" width="60" height="45"/>
@@ -215,6 +230,9 @@
                                                                                         <state key="normal" image="hobbies_off"/>
                                                                                         <state key="selected" image="hobbies_on"/>
                                                                                         <state key="highlighted" image="hobbies_on"/>
+                                                                                        <connections>
+                                                                                            <action selector="categoryButtons:" destination="CLs-L6-akt" eventType="touchUpInside" id="ako-xN-dLw"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiR-IK-hjp">
                                                                                         <rect key="frame" x="275" y="0.0" width="60" height="45"/>
@@ -225,6 +243,9 @@
                                                                                         <state key="normal" image="miscellaneous_off"/>
                                                                                         <state key="selected" image="miscellaneous_on"/>
                                                                                         <state key="highlighted" image="miscellaneous_on"/>
+                                                                                        <connections>
+                                                                                            <action selector="categoryButtons:" destination="CLs-L6-akt" eventType="touchUpInside" id="dQi-pt-leK"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
