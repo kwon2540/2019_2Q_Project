@@ -13,7 +13,6 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var removeButton: UIButton!
-    @IBOutlet private weak var revertButton: UIButton!
     @IBOutlet private weak var completeButton: UIButton!
     @IBOutlet private weak var lifeButton: UIButton!
     @IBOutlet private weak var fashionButton: UIButton!
