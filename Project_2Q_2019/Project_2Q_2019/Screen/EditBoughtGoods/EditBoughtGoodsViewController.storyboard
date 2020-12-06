@@ -12,7 +12,7 @@
         <!--Edit Bought Goods View Controller-->
         <scene sceneID="Dji-r4-eDT">
             <objects>
-                <viewController id="CLs-L6-akt" customClass="EditBoughtGoodsViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditBoughtGoodsViewController" id="CLs-L6-akt" customClass="EditBoughtGoodsViewController" customModule="Project_2Q_2019" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0DS-UV-vBe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,6 +111,9 @@
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
                                                                                 <state key="disabled" image="check_off"/>
+                                                                                <connections>
+                                                                                    <action selector="complete:" destination="CLs-L6-akt" eventType="touchUpInside" id="nXU-rV-cVI"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

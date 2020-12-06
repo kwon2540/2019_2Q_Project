@@ -75,6 +75,11 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
         }
     }
 
+    @IBAction private func complete(_ sender: Any) {
+        guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag else { return }
+        viewModel.udpateBoughtGoods(selectedButtonTag: tag)
+    }
+
     private func setup() {
         setupLayouts()
         setupCategoryButton()
@@ -89,6 +94,8 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
         priceTextField.becomeFirstResponder()
 
         nameTextField.text = viewModel.boughtGoods.name
+        amountTextField.text = String(viewModel.boughtGoods.amount)
+        priceTextField.text = String(viewModel.boughtGoods.price)
     }
 
     private func setupCategoryButton() {

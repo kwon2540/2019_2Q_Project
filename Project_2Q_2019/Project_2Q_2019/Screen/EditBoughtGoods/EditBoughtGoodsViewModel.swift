@@ -47,7 +47,7 @@ struct EditBoughtGoodsViewModel: APIStateProtocol {
         }.first?.rawValue
     }
 
-    func addBoughtGoods(selectedButtonTag: Int) {
+    func udpateBoughtGoods(selectedButtonTag: Int) {
         apiStateRelay.accept(.loading)
 
         let category = GoodsCategory(rawValue: selectedButtonTag)?.key ?? GoodsCategory.life.key
@@ -70,6 +70,8 @@ struct EditBoughtGoodsViewModel: APIStateProtocol {
     }
 
     func deleteBoughtGoods() {
+        apiStateRelay.accept(.loading)
+
         FirebaseManager.shared.deleteBoughtGoods(id: boughtGoods.id) { state in
 
             guard case .failed(let error) = state else {
@@ -81,6 +83,8 @@ struct EditBoughtGoodsViewModel: APIStateProtocol {
     }
 
     func revertBoughtGoods() {
+        apiStateRelay.accept(.loading)
+
         FirebaseManager.shared.revertBoughtGoods(boughtGoods: self.boughtGoods) { (state) in
 
             guard case .failed(let error) = state else {

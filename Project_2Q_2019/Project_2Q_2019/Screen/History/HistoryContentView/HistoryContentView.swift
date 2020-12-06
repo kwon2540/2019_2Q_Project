@@ -21,6 +21,8 @@ final class HistoryContentView: UIView, XibInstantiable {
     private let hud: ProgressHUD = ProgressHUD.loadXib()
     private let graphView: HistoryContentGraphView = HistoryContentGraphView.loadXib()
 
+    var presentEditBoughtGoods: ((EditBoughtGoodsViewController) -> Void)?
+
     var viewModel: HistoryContentViewModel! {
         didSet {
             setup()
@@ -133,6 +135,13 @@ extension HistoryContentView: UITableViewDataSource {
         cell.bind(viewModel: cellViewModel)
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let boughtGoods = viewModel.boughtGoodsForRow(at: indexPath)
+        let viewController = EditBoughtGoodsViewController.getStoryBoard()
+        viewController.viewModel = EditBoughtGoodsViewModel(boughtGoods: boughtGoods, dateCount: viewModel.dateCount)
+        presentEditBoughtGoods?(viewController)
     }
 
 }

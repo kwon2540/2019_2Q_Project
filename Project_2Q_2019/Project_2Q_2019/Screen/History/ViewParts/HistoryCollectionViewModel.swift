@@ -13,9 +13,13 @@ final class HistoryCollectionViewModel: APIStateProtocol {
 
     let apiStateRelay = PublishRelay<APIState>()
 
-    var date: String
+    var dateCount: DateCount
 
-    init(date: String) {
-        self.date = date
+    var date: String {
+        dateCount.date
+    }
+
+    init(dateCount: DateCount) {
+        self.dateCount = dateCount
     }
 }

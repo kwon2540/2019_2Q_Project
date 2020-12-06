@@ -70,9 +70,16 @@ extension HistoryViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueCell(of: HistoryCollectionViewCell.self, for: indexPath)
         let dateCount = viewModel.dateCount(for: indexPath)
 
-        cell.viewModel = HistoryCollectionViewModel(date: dateCount.date)
+        cell.viewModel = HistoryCollectionViewModel(dateCount: dateCount)
+        cell.presentEditBoughtGoods = { [weak self]  vc in
+            self?.presentEditBoughtGoodsViewController(vc: vc)
+        }
 
         return cell
+    }
+
+    private func presentEditBoughtGoodsViewController (vc: EditBoughtGoodsViewController) {
+        present(vc, animated: true)
     }
 }
 

@@ -17,7 +17,7 @@ struct HistoryViewModel {
     var lastIndex: IndexPath { IndexPath(item: numberOfItems - 1, section: 0)}
 
     init(dates: [DateCount]) {
-        self.dates = dates
+        self.dates = dates.filter { $0.count > 0 }
     }
 
     func dateCount(for indexPath: IndexPath) -> DateCount {

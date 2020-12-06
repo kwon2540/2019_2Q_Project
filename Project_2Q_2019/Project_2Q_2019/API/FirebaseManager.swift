@@ -394,7 +394,7 @@ struct FirebaseManager: APIManager {
 
     func revertBoughtGoods(boughtGoods: BoughtGoods, completion: @escaping (APIState) -> Void) {
 
-        deleteGoods(id: boughtGoods.id) { (apiState) in
+        deleteBoughtGoods(id: boughtGoods.id) { (apiState) in
 
             switch apiState {
             case .loading:

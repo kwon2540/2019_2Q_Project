@@ -664,9 +664,9 @@
 		64F2119C2573694800B9669B /* EditBoughtGoods */ = {
 			isa = PBXGroup;
 			children = (
+				64F211A12573699A00B9669B /* EditBoughtGoodsViewController.storyboard */,
 				64F2119D2573697100B9669B /* EditBoughtGoodsViewController.swift */,
 				64F2119F2573698800B9669B /* EditBoughtGoodsViewModel.swift */,
-				64F211A12573699A00B9669B /* EditBoughtGoodsViewController.storyboard */,
 			);
 			path = EditBoughtGoods;
 			sourceTree = "<group>";
