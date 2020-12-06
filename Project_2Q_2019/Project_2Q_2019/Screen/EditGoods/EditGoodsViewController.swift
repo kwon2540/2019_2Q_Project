@@ -59,10 +59,6 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
         viewModel.deleteGoods()
     }
 
-    @IBAction private func revert(_ sender: Any) {
-        // TODO
-    }
-
     @IBAction private func complete(_ sender: Any) {
         guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag else { return }
         viewModel.addBoughtGoods(selectedButtonTag: tag)
