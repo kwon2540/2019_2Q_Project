@@ -37,6 +37,9 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setup()
+
+        bindViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +61,7 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
     }
 
     @IBAction private func revert(_ sender: Any) {
-        // TODO
+        viewModel.revertBoughtGoods()
     }
 
     @IBAction private func categoryButtons(_ sender: UIButton) {
@@ -97,6 +100,64 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
     private func closeEditGoodsModal(isDataChanged: Bool) {
         dismissed?(isDataChanged)
         dismiss(animated: true)
+    }
+
+    private func bindViewModel() {
+
+        // Input
+        nameTextField.rx.text.orEmpty
+            .bind(to: viewModel.nameText)
+            .disposed(by: disposeBag)
+
+        amountTextField.rx.text.orEmpty
+            .bind(to: viewModel.amountText)
+            .disposed(by: disposeBag)
+
+        priceTextField.rx.text.orEmpty
+            .bind(to: viewModel.priceText)
+            .disposed(by: disposeBag)
+
+        // Output
+        viewModel.isCompleteButtonEnabled
+            .bind(to: completeButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
+        viewModel.nameSeparatorColor
+            .bind(to: nameSaperator.rx.backgroundColor)
+            .disposed(by: disposeBag)
+
+        viewModel.amountSeparatorColor
+            .bind(to: amountSaperator.rx.backgroundColor)
+            .disposed(by: disposeBag)
+
+        viewModel.priceSeparatorColor
+            .bind(to: priceSaperator.rx.backgroundColor)
+            .disposed(by: disposeBag)
+
+        // API
+        viewModel.apiState.emit(onNext: { [weak self] (state) in
+            guard let this = self, let view = this.view else { return }
+
+            switch state {
+            // Show indicator when loading
+            case .loading:
+                ActivityIndicator.shared.start(view: view)
+            // Stop indicator and dismiss when success
+            case .success:
+                ActivityIndicator.shared.stop(view: view)
+                this.closeEditGoodsModal(isDataChanged: true)
+            // Error handling when failed
+            case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: view,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
+                apiErrorLog(logMessage: error.description)
+                ActivityIndicator.shared.stop(view: view)
+                this.closeEditGoodsModal(isDataChanged: false)
+            }
+        }).disposed(by: disposeBag)
     }
 }
 
