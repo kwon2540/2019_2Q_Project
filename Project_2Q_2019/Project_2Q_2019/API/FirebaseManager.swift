@@ -406,4 +406,5 @@ struct FirebaseManager: APIManager {
             }
         }
     }
+
 }
