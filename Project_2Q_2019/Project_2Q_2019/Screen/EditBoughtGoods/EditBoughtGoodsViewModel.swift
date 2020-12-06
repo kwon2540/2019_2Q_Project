@@ -30,8 +30,8 @@ struct EditBoughtGoodsViewModel: APIStateProtocol {
     let boughtGoods: BoughtGoods
     let dateCount: DateCount
 
-    init(goods: BoughtGoods, dateCount: DateCount) {
-        self.boughtGoods = goods
+    init(boughtGoods: BoughtGoods, dateCount: DateCount) {
+        self.boughtGoods = boughtGoods
         self.dateCount = dateCount
 
         let state = Observable.combineLatest(nameText, amountText, priceText) { UIState(nameText: $0, amountText: $1, priceText: $2) }
@@ -47,47 +47,53 @@ struct EditBoughtGoodsViewModel: APIStateProtocol {
         }.first?.rawValue
     }
 
-    // Update
     func addBoughtGoods(selectedButtonTag: Int) {
-        //        apiStateRelay.accept(.loading)
-        //
-        //        let category = GoodsCategory(rawValue: selectedButtonTag)?.key ?? GoodsCategory.life.key
-        //        let amount = Int(amountText.value) ?? 1
-        //        let price = Int(priceText.value) ?? 0
-        //
-        //        let boughtGoods = BoughtGoods(id: boughtGoods.id,
-        //                                      boughtDate: Date().toString(format: .firebase_key_date),
-        //                                      year: Date().toString(format: .year),
-        //                                      yearMonth: Date().toString(format: .yearMonth),
-        //                                      category: category,
-        //                                      name: nameText.value,
-        //                                      amount: amount,
-        //                                      price: price)
-        //
-        //        FirebaseManager.shared.addBoughtGoods(boughtGoods: boughtGoods) { state in
-        //
-        //            guard case .failed(let error) = state else {
-        //                self.deleteGoods()
-        //                return
-        //            }
-        //            self.apiStateRelay.accept(.failed(error: error))
-        //        }
+        apiStateRelay.accept(.loading)
+
+        let category = GoodsCategory(rawValue: selectedButtonTag)?.key ?? GoodsCategory.life.key
+        let amount = Int(amountText.value) ?? 1
+        let price = Int(priceText.value) ?? 0
+
+        let updatedBoughtGoods = BoughtGoods(id: boughtGoods.id,
+                                             boughtDate: boughtGoods.boughtDate,
+                                             year: boughtGoods.year,
+                                             yearMonth: boughtGoods.yearMonth,
+                                             category: category,
+                                             name: nameText.value,
+                                             amount: amount,
+                                             price: price)
+
+        FirebaseManager.shared.updateBoughtGoods(updatedBoughtGoods: updatedBoughtGoods) { state in
+
+            self.apiStateRelay.accept(state)
+        }
     }
 
     func deleteBoughtGoods() {
-        //        FirebaseManager.shared.deleteGoods(id: boughtGoods.id) { state in
-        //
-        //            guard case .failed(let error) = state else {
-        //                self.updateDateCount()
-        //                return
-        //            }
-        //            self.apiStateRelay.accept(.failed(error: error))
-        //        }
+        FirebaseManager.shared.deleteBoughtGoods(id: boughtGoods.id) { state in
+
+            guard case .failed(let error) = state else {
+                self.updateDateCount()
+                return
+            }
+            self.apiStateRelay.accept(.failed(error: error))
+        }
+    }
+
+    func revertBoughtGoods() {
+        FirebaseManager.shared.revertBoughtGoods(boughtGoods: self.boughtGoods) { (state) in
+
+            guard case .failed(let error) = state else {
+                self.updateDateCount()
+                return
+            }
+            self.apiStateRelay.accept(.failed(error: error))
+        }
     }
 
     func updateDateCount() {
         var dateCount = self.dateCount
-        dateCount.count += 1
+        dateCount.count -= 1
 
         FirebaseManager.shared.updateGoodsCountForDate(dateCount: dateCount) { state in
 
