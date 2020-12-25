@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import RxSwift
 
 class ClosableHistoryViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var contentView: UIView!
 
     private var selectedDate = ""
-    private var dateCount: DateCount = DateCount(date: "", count: 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +25,14 @@ class ClosableHistoryViewController: UIViewController, StoryboardInstantiable {
         dismiss(animated: true)
     }
 
-    static func makeInstance(selectedDate: String, dateCount: DateCount) -> ClosableHistoryViewController {
+    static func makeInstance(selectedDate: String) -> ClosableHistoryViewController {
         let vc = ClosableHistoryViewController.getStoryBoard()
         vc.selectedDate = selectedDate
         return vc
     }
 
     private func setupHistoryContentView() {
-        let contentViewModel = HistoryContentViewModel(dateCount: dateCount)
+        let contentViewModel = HistoryContentViewModel(dateCount: nil, dataDidChangedSubject: PublishSubject<Void>(), date: selectedDate)
         let historyContentView = HistoryContentView.loadXib()
         historyContentView.viewModel = contentViewModel
         historyContentView.translatesAutoresizingMaskIntoConstraints = false

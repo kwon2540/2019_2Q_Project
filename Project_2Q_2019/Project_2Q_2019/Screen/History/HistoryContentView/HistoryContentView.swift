@@ -138,9 +138,13 @@ extension HistoryContentView: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        guard let dateCount = viewModel.dateCount else { return }
+
         let boughtGoods = viewModel.boughtGoodsForRow(at: indexPath)
         let viewController = EditBoughtGoodsViewController.getStoryBoard()
-        viewController.viewModel = EditBoughtGoodsViewModel(boughtGoods: boughtGoods, dateCount: viewModel.dateCount, dataDidChangedSubject: viewModel.dataDidChangedSubject)
+
+        viewController.viewModel = EditBoughtGoodsViewModel(boughtGoods: boughtGoods, dateCount: dateCount, dataDidChangedSubject: viewModel.dataDidChangedSubject)
         presentEditBoughtGoods?(viewController)
     }
 

@@ -43,7 +43,9 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
     }
 
     func setupHistoryContentView() {
-        let contentViewModel = HistoryContentViewModel(dateCount: viewModel.dateCount, dataDidChangedSubject: viewModel.dataDidChangedSubject)
+        let contentViewModel = HistoryContentViewModel(dateCount: viewModel.dateCount,
+                                                       dataDidChangedSubject: viewModel.dataDidChangedSubject,
+                                                       date: viewModel.dateCount.date)
         let contentView = HistoryContentView.loadXib()
         contentView.presentEditBoughtGoods = { [weak self] vc in
             self?.presentEditBoughtGoods?(vc)

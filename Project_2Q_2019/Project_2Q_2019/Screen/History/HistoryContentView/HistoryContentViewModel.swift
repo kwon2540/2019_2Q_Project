@@ -20,7 +20,7 @@ struct HistoryContentViewModel: APIStateProtocol {
     private let dateRelay: BehaviorRelay<String>
     private let boughtGoods: BehaviorRelay<[BoughtGoods]> = BehaviorRelay(value: [])
     private var boughtGoodsSection: [HistoryContentViewSection] { generateHistoryContentSections() }
-    var dateCount: DateCount
+    var dateCount: DateCount?
 
     let apiStateRelay = PublishRelay<APIState>()
     let dataDidChangedSubject: PublishSubject<Void>
@@ -28,9 +28,9 @@ struct HistoryContentViewModel: APIStateProtocol {
     var sectionCount: Int { return boughtGoodsSection.count }
     var totalGoodsAmount: Observable<String> { return boughtGoods.map { String($0.count) } }
 
-    init(dateCount: DateCount, dataDidChangedSubject: PublishSubject<Void>) {
+    init(dateCount: DateCount?, dataDidChangedSubject: PublishSubject<Void>, date: String) {
         self.dateCount = dateCount
-        self.dateRelay = BehaviorRelay(value: dateCount.date)
+        self.dateRelay = BehaviorRelay(value: date)
         self.dataDidChangedSubject = dataDidChangedSubject
     }
 
