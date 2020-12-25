@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import RxSwift
 
 final class HistoryViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     var viewModel: HistoryViewModel!
 
+    private let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        bindViewModel()
+        viewModel.loadGoodsCountForDate()
     }
 
     override func viewDidLayoutSubviews() {
@@ -49,6 +54,33 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
 
         collectionView.scrollToItem(at: viewModel.lastIndex, at: .centeredHorizontally, animated: false)
+    }
+
+    private func bindViewModel() {
+
+        // API
+        viewModel.apiState.emit(onNext: { [weak self] (state) in
+            guard let this = self, let view = this.view else { return }
+
+            switch state {
+            // Show indicator when loading
+            case .loading:
+                ActivityIndicator.shared.start(view: view)
+            // Stop indicator and reload collectionview when success
+            case .success:
+                this.collectionView.reloadData()
+                ActivityIndicator.shared.stop(view: view)
+            // Error handling when failed
+            case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: view,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
+                apiErrorLog(logMessage: error.description)
+                ActivityIndicator.shared.start(view: view)
+            }
+        }).disposed(by: disposeBag)
     }
 }
 
