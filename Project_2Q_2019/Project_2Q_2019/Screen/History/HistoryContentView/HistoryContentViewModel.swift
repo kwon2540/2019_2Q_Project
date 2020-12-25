@@ -23,13 +23,15 @@ struct HistoryContentViewModel: APIStateProtocol {
     var dateCount: DateCount
 
     let apiStateRelay = PublishRelay<APIState>()
+    let dataDidChangedSubject: PublishSubject<Void>
     var date: Observable<String> { return dateRelay.map { $0.toDisplayDate() } }
     var sectionCount: Int { return boughtGoodsSection.count }
     var totalGoodsAmount: Observable<String> { return boughtGoods.map { String($0.count) } }
 
-    init(dateCount: DateCount) {
+    init(dateCount: DateCount, dataDidChangedSubject: PublishSubject<Void>) {
         self.dateCount = dateCount
         self.dateRelay = BehaviorRelay(value: dateCount.date)
+        self.dataDidChangedSubject = dataDidChangedSubject
     }
 
     func numberOfRows(in section: Int) -> Int {

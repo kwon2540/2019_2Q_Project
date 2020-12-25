@@ -8,10 +8,12 @@
 
 import Foundation
 import RxCocoa
+import RxSwift
 
 final class HistoryViewModel: APIStateProtocol {
 
     let apiStateRelay = PublishRelay<APIState>()
+    let dataDidChangedSubject = PublishSubject<Void>()
 
     var dates: [DateCount] = []
     var numberOfItems: Int { dates.count }

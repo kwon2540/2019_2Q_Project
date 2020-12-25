@@ -23,16 +23,20 @@ struct EditBoughtGoodsViewModel: APIStateProtocol {
     let nameText = BehaviorRelay(value: "")
     let amountText = BehaviorRelay(value: "1")
     let priceText = BehaviorRelay(value: "0")
+
     let isCompleteButtonEnabled: Observable<Bool>
     let nameSeparatorColor: Observable<UIColor>
     let amountSeparatorColor: Observable<UIColor>
     let priceSeparatorColor: Observable<UIColor>
     let boughtGoods: BoughtGoods
     let dateCount: DateCount
+    let dataDidChangedSubject: PublishSubject<Void>
+    var dataDidChanged: Bool = false
 
-    init(boughtGoods: BoughtGoods, dateCount: DateCount) {
+    init(boughtGoods: BoughtGoods, dateCount: DateCount, dataDidChangedSubject: PublishSubject<Void>) {
         self.boughtGoods = boughtGoods
         self.dateCount = dateCount
+        self.dataDidChangedSubject = dataDidChangedSubject
 
         let state = Observable.combineLatest(nameText, amountText, priceText) { UIState(nameText: $0, amountText: $1, priceText: $2) }
         isCompleteButtonEnabled = state.map { $0.isCompleteButtonEnabled }

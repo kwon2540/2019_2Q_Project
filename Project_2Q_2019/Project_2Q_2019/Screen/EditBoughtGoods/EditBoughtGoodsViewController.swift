@@ -42,6 +42,12 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
         bindViewModel()
     }
 
+    deinit {
+        if viewModel.dataDidChanged {
+            viewModel.dataDidChangedSubject.onNext(())
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addKeyboardObservers()
@@ -58,10 +64,12 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
 
     @IBAction private func remove(_ sender: Any) {
         viewModel.deleteBoughtGoods()
+        viewModel.dataDidChanged = true
     }
 
     @IBAction private func revert(_ sender: Any) {
         viewModel.revertBoughtGoods()
+        viewModel.dataDidChanged = true
     }
 
     @IBAction private func categoryButtons(_ sender: UIButton) {
@@ -78,6 +86,7 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
     @IBAction private func complete(_ sender: Any) {
         guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag else { return }
         viewModel.udpateBoughtGoods(selectedButtonTag: tag)
+        viewModel.dataDidChanged = true
     }
 
     private func setup() {

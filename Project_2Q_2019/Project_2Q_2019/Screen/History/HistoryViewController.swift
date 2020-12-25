@@ -81,6 +81,12 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
                 ActivityIndicator.shared.start(view: view)
             }
         }).disposed(by: disposeBag)
+
+        viewModel.dataDidChangedSubject.asObservable().bind { [weak self] (_) in
+            guard let this = self else { return }
+
+            this.viewModel.loadGoodsCountForDate()
+        }.disposed(by: disposeBag)
     }
 }
 
@@ -102,7 +108,7 @@ extension HistoryViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueCell(of: HistoryCollectionViewCell.self, for: indexPath)
         let dateCount = viewModel.dateCount(for: indexPath)
 
-        cell.viewModel = HistoryCollectionViewModel(dateCount: dateCount)
+        cell.viewModel = HistoryCollectionViewModel(dateCount: dateCount, dataDidChangedSubject: viewModel.dataDidChangedSubject)
         cell.presentEditBoughtGoods = { [weak self]  vc in
             self?.presentEditBoughtGoodsViewController(vc: vc)
         }
