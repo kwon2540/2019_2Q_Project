@@ -21,7 +21,7 @@ protocol APIManager {
     func loadGoods(completion: @escaping ([Goods]?, APIState) -> Void)
     func addBoughtGoods(boughtGoods: BoughtGoods, completion: @escaping (APIState) -> Void)
     func deleteGoods(id: String, completion: @escaping (APIState) -> Void)
-    func loadGoodsCountForDate(completion: @escaping ([DateCount]?) -> Void)
+    func loadGoodsCountForDate(completion: @escaping ([DateCount]?, APIState) -> Void)
     func updateGoodsCountForDate(dateCount: DateCount, completion: @escaping (APIState) -> Void)
     func fetchBoughtGoods(completion: @escaping ([BoughtGoods]?, APIState) -> Void)
     func updateBoughtGoods(updatedBoughtGoods: BoughtGoods, completion: @escaping (APIState) -> Void)
@@ -231,11 +231,11 @@ struct FirebaseManager: APIManager {
         }
     }
 
-    func loadGoodsCountForDate(completion: @escaping ([DateCount]?) -> Void) {
+    func loadGoodsCountForDate(completion: @escaping ([DateCount]?, APIState) -> Void) {
 
         guard let uid = Auth.auth().currentUser?.uid else {
             // Failed get UID
-            return completion(nil)
+            return completion(nil, .failed(error: .authError))
         }
 
         firestore.collection(Collections.goodslist.key)
@@ -244,19 +244,19 @@ struct FirebaseManager: APIManager {
             .getDocuments { (snapshot, error) in
                 if error != nil {
                     // Failed get collection data
-                    return completion(nil)
+                    return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
                 }
 
                 guard let documentsData = snapshot?.documents else {
                     // Failed get documents data
-                    return completion(nil)
+                    return completion(nil, .failed(error: .firebaseError(debugDescription: error.debugDescription)))
                 }
 
                 let dateCount = documentsData.compactMap {
                     try? FirestoreDecoder().decode(DateCount.self, from: $0.data())
                 }
 
-                completion(dateCount)
+                completion(dateCount, .success)
         }
     }
 
