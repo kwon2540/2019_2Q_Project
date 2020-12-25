@@ -7,20 +7,35 @@
 //
 
 import Foundation
-import RxSwift
+import RxCocoa
 
-struct HistoryViewModel {
-    let dates: [DateCount]
+final class HistoryViewModel: APIStateProtocol {
 
+    let apiStateRelay = PublishRelay<APIState>()
+
+    var dates: [DateCount] = []
     var numberOfItems: Int { dates.count }
-
     var lastIndex: IndexPath { IndexPath(item: numberOfItems - 1, section: 0)}
-
-    init(dates: [DateCount]) {
-        self.dates = dates.filter { $0.count > 0 }
-    }
 
     func dateCount(for indexPath: IndexPath) -> DateCount {
         dates[indexPath.row]
     }
+
+    func loadGoodsCountForDate() {
+        apiStateRelay.accept(.loading)
+
+        FirebaseManager.shared.loadGoodsCountForDate { [weak self] response, apiState in
+            guard let this = self else { return }
+            if let dateCounts = response {
+                this.dates = dateCounts.filter { $0.count > 0 }
+            }
+
+            this.apiStateRelay.accept(apiState)
+        }
+    }
+
+    // Api for the fetching date count
+    // load date count here
+    // Fix ClosableHistory
+    // if edited reload home view
 }

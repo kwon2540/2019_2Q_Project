@@ -49,7 +49,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func history(_ sender: Any) {
-        let historyViewModel = HistoryViewModel(dates: viewModel.dateCounts)
+        let historyViewModel = HistoryViewModel()
         let historyViewController = HistoryViewController.getStoryBoard()
         historyViewController.viewModel = historyViewModel
         present(historyViewController, animated: true)
