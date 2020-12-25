@@ -84,10 +84,12 @@ struct EditGoodsViewModel: APIStateProtocol {
 
         FirebaseManager.shared.addBoughtGoods(boughtGoods: boughtGoods) { state in
 
+            //  成功した時
             guard case .failed(let error) = state else {
                 self.deleteGoods()
                 return
             }
+            //  失敗した時
             self.apiStateRelay.accept(.failed(error: error))
         }
     }
@@ -95,10 +97,12 @@ struct EditGoodsViewModel: APIStateProtocol {
     func deleteGoods() {
         FirebaseManager.shared.deleteGoods(id: goods.id) { state in
 
+            //  成功した時
             guard case .failed(let error) = state else {
                 self.updateDateCount()
                 return
             }
+            //  失敗した時
             self.apiStateRelay.accept(.failed(error: error))
         }
     }
