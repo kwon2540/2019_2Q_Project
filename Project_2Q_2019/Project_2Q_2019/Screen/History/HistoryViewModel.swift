@@ -35,9 +35,4 @@ final class HistoryViewModel: APIStateProtocol {
             this.apiStateRelay.accept(apiState)
         }
     }
-
-    // Api for the fetching date count
-    // load date count here
-    // Fix ClosableHistory
-    // if edited reload home view
 }
