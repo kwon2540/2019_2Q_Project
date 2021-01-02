@@ -15,7 +15,10 @@ class LoginViewController: UIViewController, StoryboardInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+    }
+    
+    private func setupUI() {
         loginButton.layer.cornerRadius = 4
-        
     }
 }
