@@ -12,6 +12,7 @@ import RxSwift
 
 final class HistoryViewModel: APIStateProtocol {
 
+    private(set) var currentIndex: IndexPath = IndexPath(item: 0, section: 0)
     let apiStateRelay = PublishRelay<APIState>()
     let dataDidChangedSubject = PublishSubject<Void>()
 
