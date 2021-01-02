@@ -52,8 +52,6 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
 
         // 스크롤이 빠르게 감속되도록 설정
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
-
-        collectionView.scrollToItem(at: viewModel.lastIndex, at: .centeredHorizontally, animated: false)
     }
 
     private func bindViewModel() {
@@ -69,6 +67,7 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
             // Stop indicator and reload collectionview when success
             case .success:
                 this.collectionView.reloadData()
+                this.collectionView.scrollToItem(at: this.viewModel.currentIndex, at: .centeredHorizontally, animated: false)
                 ActivityIndicator.shared.stop(view: view)
             // Error handling when failed
             case .failed(let error):
@@ -85,7 +84,7 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
         viewModel.dataDidChangedSubject.asObservable().bind { [weak self] (_) in
             guard let this = self else { return }
 
-            this.viewModel.loadGoodsCountForDate()
+            this.viewModel.loadGoodsCountForDate(isFirstLoad: false)
         }.disposed(by: disposeBag)
     }
 }
@@ -94,7 +93,6 @@ extension HistoryViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-
     }
 }
 
@@ -147,5 +145,17 @@ extension HistoryViewController: UICollectionViewDelegateFlowLayout {
         // 위 코드를 통해 페이징 될 좌표값을 targetContentOffset에 대입하면 된다.
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
         targetContentOffset.pointee = offset
+    }
+}
+
+extension HistoryViewController: UIScrollViewDelegate {
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let contentOffSetX = scrollView.contentOffset.x
+        let scrollViewWidth = scrollView.bounds.width
+        let cellWidth = scrollViewWidth - 80
+
+        let currentIndex = Int(ceil(round(contentOffSetX / cellWidth)))
+        viewModel.setCurrentIndex(to: currentIndex)
     }
 }
