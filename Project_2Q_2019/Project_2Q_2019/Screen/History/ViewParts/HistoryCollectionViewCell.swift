@@ -19,6 +19,8 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
 
     private let disposeBag = DisposeBag()
 
+    var presentEditBoughtGoods: ((EditBoughtGoodsViewController) -> Void)?
+
     var viewModel: HistoryCollectionViewModel! {
         didSet {
             setupHistoryContentView()
@@ -41,8 +43,13 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
     }
 
     func setupHistoryContentView() {
-        let contentViewModel = HistoryContentViewModel(date: viewModel.date)
+        let contentViewModel = HistoryContentViewModel(dateCount: viewModel.dateCount,
+                                                       dataDidChangedSubject: viewModel.dataDidChangedSubject,
+                                                       date: viewModel.dateCount.date)
         let contentView = HistoryContentView.loadXib()
+        contentView.presentEditBoughtGoods = { [weak self] vc in
+            self?.presentEditBoughtGoods?(vc)
+        }
         contentView.viewModel = contentViewModel
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)

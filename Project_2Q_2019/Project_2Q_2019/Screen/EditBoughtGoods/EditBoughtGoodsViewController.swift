@@ -1,19 +1,20 @@
 //
-//  EditGoodsViewController.swift
+//  EditBoughtGoodsViewController.swift
 //  Project_2Q_2019
 //
-//  Created by Kwon junhyeok on 2020/06/22.
+//  Created by Maharjan Binish on 2020/11/29.
 //  Copyright © 2020 JUNHYEOK KWON. All rights reserved.
 //
 
 import UIKit
 import RxSwift
 
-class EditGoodsViewController: UIViewController, StoryboardInstantiable {
+final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var removeButton: UIButton!
     @IBOutlet private weak var completeButton: UIButton!
+    @IBOutlet private weak var revertButton: UIButton!
     @IBOutlet private weak var lifeButton: UIButton!
     @IBOutlet private weak var fashionButton: UIButton!
     @IBOutlet private weak var hobbiesButton: UIButton!
@@ -30,7 +31,7 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
 
     private lazy var categoryButtons: [UIButton] = [lifeButton, fashionButton, hobbiesButton, miscellaneousButton]
 
-    var viewModel: EditGoodsViewModel!
+    var viewModel: EditBoughtGoodsViewModel!
     var dismissed: ((Bool) -> Void)?
 
     override func viewDidLoad() {
@@ -39,6 +40,12 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
         setup()
 
         bindViewModel()
+    }
+
+    deinit {
+        if viewModel.dataDidChanged {
+            viewModel.dataDidChangedSubject.onNext(())
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -56,12 +63,13 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func remove(_ sender: Any) {
-        viewModel.deleteGoods()
+        viewModel.deleteBoughtGoods()
+        viewModel.dataDidChanged = true
     }
 
-    @IBAction private func complete(_ sender: Any) {
-        guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag else { return }
-        viewModel.addBoughtGoods(selectedButtonTag: tag)
+    @IBAction private func revert(_ sender: Any) {
+        viewModel.revertBoughtGoods()
+        viewModel.dataDidChanged = true
     }
 
     @IBAction private func categoryButtons(_ sender: UIButton) {
@@ -73,6 +81,12 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
                 button.isSelected = false
             }
         }
+    }
+
+    @IBAction private func complete(_ sender: Any) {
+        guard let tag = categoryButtons.filter({ $0.isSelected }).first?.tag else { return }
+        viewModel.udpateBoughtGoods(selectedButtonTag: tag)
+        viewModel.dataDidChanged = true
     }
 
     private func setup() {
@@ -88,7 +102,9 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
 
         priceTextField.becomeFirstResponder()
 
-        nameTextField.text = viewModel.goods.name
+        nameTextField.text = viewModel.boughtGoods.name
+        amountTextField.text = String(viewModel.boughtGoods.amount)
+        priceTextField.text = String(viewModel.boughtGoods.price)
     }
 
     private func setupCategoryButton() {
@@ -162,7 +178,7 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
 }
 
 // MARK: Keyboard Notifications
-extension EditGoodsViewController {
+extension EditBoughtGoodsViewController {
 
     private func addKeyboardObservers() {
         let notificationCenter = NotificationCenter.default

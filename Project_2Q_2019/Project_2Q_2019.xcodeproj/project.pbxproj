@@ -101,6 +101,9 @@
 		6477C82524A09F6800BD2BD0 /* HistoryContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6477C82424A09F6800BD2BD0 /* HistoryContentViewModel.swift */; };
 		64C4B9FC24A1FA0000B609A4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4B9FB24A1FA0000B609A4 /* ProgressHUD.swift */; };
 		64C4B9FE24A1FA1E00B609A4 /* ProgressHUD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C4B9FD24A1FA1E00B609A4 /* ProgressHUD.xib */; };
+		64F2119E2573697100B9669B /* EditBoughtGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F2119D2573697100B9669B /* EditBoughtGoodsViewController.swift */; };
+		64F211A02573698800B9669B /* EditBoughtGoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F2119F2573698800B9669B /* EditBoughtGoodsViewModel.swift */; };
+		64F211A22573699A00B9669B /* EditBoughtGoodsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F211A12573699A00B9669B /* EditBoughtGoodsViewController.storyboard */; };
 		E1799685027F0730AF491B88 /* Pods_Project_2Q_2019UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F464980BEC4F3155A426D2A /* Pods_Project_2Q_2019UITests.framework */; };
 		EAE39FA429389A4E5C7D7140 /* Pods_Project_2Q_2019Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9561781C47D200A1C5A49BA /* Pods_Project_2Q_2019Tests.framework */; };
 /* End PBXBuildFile section */
@@ -225,6 +228,9 @@
 		6477C82424A09F6800BD2BD0 /* HistoryContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentViewModel.swift; sourceTree = "<group>"; };
 		64C4B9FB24A1FA0000B609A4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		64C4B9FD24A1FA1E00B609A4 /* ProgressHUD.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressHUD.xib; sourceTree = "<group>"; };
+		64F2119D2573697100B9669B /* EditBoughtGoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBoughtGoodsViewController.swift; sourceTree = "<group>"; };
+		64F2119F2573698800B9669B /* EditBoughtGoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBoughtGoodsViewModel.swift; sourceTree = "<group>"; };
+		64F211A12573699A00B9669B /* EditBoughtGoodsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditBoughtGoodsViewController.storyboard; sourceTree = "<group>"; };
 		C992C0A258A303CDF11D7171 /* Pods-Project_2Q_2019.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019/Pods-Project_2Q_2019.release.xcconfig"; sourceTree = "<group>"; };
 		CECB5D85303E0522B8E01512 /* Pods-Project_2Q_2019Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019Tests.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019Tests/Pods-Project_2Q_2019Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E1BF6ABDCD5D650FDE1DC48F /* Pods-Project_2Q_2019UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019UITests.release.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019UITests/Pods-Project_2Q_2019UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -503,6 +509,7 @@
 				10A8FE0C23A4B3CA00F64F96 /* Menu */,
 				1073EC3223DC0054003BB2C5 /* AddGoods */,
 				10DFFDC724A091E5005611A8 /* EditGoods */,
+				64F2119C2573694800B9669B /* EditBoughtGoods */,
 				100CF47723ADFEC500B3557D /* Graph */,
 				100CF47E23AE00F500B3557D /* History */,
 				10BAC0342557ADC5001B9A85 /* ClosableHistory */,
@@ -654,6 +661,16 @@
 			path = HUD;
 			sourceTree = "<group>";
 		};
+		64F2119C2573694800B9669B /* EditBoughtGoods */ = {
+			isa = PBXGroup;
+			children = (
+				64F211A12573699A00B9669B /* EditBoughtGoodsViewController.storyboard */,
+				64F2119D2573697100B9669B /* EditBoughtGoodsViewController.swift */,
+				64F2119F2573698800B9669B /* EditBoughtGoodsViewModel.swift */,
+			);
+			path = EditBoughtGoods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -771,6 +788,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1073EC3423DC00BC003BB2C5 /* AddGoodsViewController.storyboard in Resources */,
+				64F211A22573699A00B9669B /* EditBoughtGoodsViewController.storyboard in Resources */,
 				6440D06B24A49ECD000F461C /* HistoryContentGraphView.xib in Resources */,
 				100CF48023AE011400B3557D /* HistoryViewController.storyboard in Resources */,
 				6477C81A24A0928F00BD2BD0 /* HistoryContentHeaderView.xib in Resources */,
@@ -947,6 +965,7 @@
 				10128AB02403B59000C6F5B9 /* Extension+NSObject.swift in Sources */,
 				1032FE6B2338E4440039E9C0 /* RoundView.swift in Sources */,
 				10A7E5952312B83F00DF3D34 /* AppRootViewController.swift in Sources */,
+				64F2119E2573697100B9669B /* EditBoughtGoodsViewController.swift in Sources */,
 				100CF48223AE012000B3557D /* HistoryViewController.swift in Sources */,
 				1032FE682338E24A0039E9C0 /* HomeViewModel.swift in Sources */,
 				6477C82524A09F6800BD2BD0 /* HistoryContentViewModel.swift in Sources */,
@@ -990,6 +1009,7 @@
 				10CB468023922F8800380E06 /* HomeCollectionViewCell.swift in Sources */,
 				104106D724306C6D004E6D48 /* Extension+UICollectionView.swift in Sources */,
 				10B00E052376846E00864551 /* User.swift in Sources */,
+				64F211A02573698800B9669B /* EditBoughtGoodsViewModel.swift in Sources */,
 				104106D5242744A1004E6D48 /* Extension+String.swift in Sources */,
 				108D9F862439AE030058EF41 /* HistoryCollectionViewModel.swift in Sources */,
 				108D9F842439AD6A0058EF41 /* HistoryCollectionViewCell.swift in Sources */,

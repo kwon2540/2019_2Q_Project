@@ -20,14 +20,18 @@ struct HistoryContentViewModel: APIStateProtocol {
     private let dateRelay: BehaviorRelay<String>
     private let boughtGoods: BehaviorRelay<[BoughtGoods]> = BehaviorRelay(value: [])
     private var boughtGoodsSection: [HistoryContentViewSection] { generateHistoryContentSections() }
+    var dateCount: DateCount?
 
     let apiStateRelay = PublishRelay<APIState>()
+    let dataDidChangedSubject: PublishSubject<Void>
     var date: Observable<String> { return dateRelay.map { $0.toDisplayDate() } }
     var sectionCount: Int { return boughtGoodsSection.count }
     var totalGoodsAmount: Observable<String> { return boughtGoods.map { String($0.count) } }
 
-    init(date: String) {
+    init(dateCount: DateCount?, dataDidChangedSubject: PublishSubject<Void>, date: String) {
+        self.dateCount = dateCount
         self.dateRelay = BehaviorRelay(value: date)
+        self.dataDidChangedSubject = dataDidChangedSubject
     }
 
     func numberOfRows(in section: Int) -> Int {
@@ -41,9 +45,13 @@ struct HistoryContentViewModel: APIStateProtocol {
         return HistoryContentHeaderViewModel(boughtGoods: boughtGoods, category: category)
     }
 
-    func viewModelForRow(at indexpath: IndexPath) -> HistoryContentCellViewModel {
-        let boughtGood = boughtGoodsSection[indexpath.section].boughtGoods[indexpath.row]
+    func viewModelForRow(at indexPath: IndexPath) -> HistoryContentCellViewModel {
+        let boughtGood = boughtGoodsForRow(at: indexPath)
         return HistoryContentCellViewModel(boughtGood: boughtGood)
+    }
+
+    func boughtGoodsForRow(at indexPath: IndexPath) -> BoughtGoods {
+        boughtGoodsSection[indexPath.section].boughtGoods[indexPath.row]
     }
 
     func shouldDisplayHederAndFooterView(section: Int) -> Bool {

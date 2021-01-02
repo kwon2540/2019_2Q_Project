@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import RxSwift
 
 final class HistoryViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     var viewModel: HistoryViewModel!
 
+    private let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        bindViewModel()
+        viewModel.loadGoodsCountForDate()
     }
 
     override func viewDidLayoutSubviews() {
@@ -47,8 +52,40 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
 
         // 스크롤이 빠르게 감속되도록 설정
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+    }
 
-        collectionView.scrollToItem(at: viewModel.lastIndex, at: .centeredHorizontally, animated: false)
+    private func bindViewModel() {
+
+        // API
+        viewModel.apiState.emit(onNext: { [weak self] (state) in
+            guard let this = self, let view = this.view else { return }
+
+            switch state {
+            // Show indicator when loading
+            case .loading:
+                ActivityIndicator.shared.start(view: view)
+            // Stop indicator and reload collectionview when success
+            case .success:
+                this.collectionView.reloadData()
+                this.collectionView.scrollToItem(at: this.viewModel.currentIndex, at: .centeredHorizontally, animated: false)
+                ActivityIndicator.shared.stop(view: view)
+            // Error handling when failed
+            case .failed(let error):
+                DropDownManager.shared.showDropDownNotification(view: view,
+                                                                width: nil,
+                                                                height: nil,
+                                                                type: .error,
+                                                                message: error.description)
+                apiErrorLog(logMessage: error.description)
+                ActivityIndicator.shared.start(view: view)
+            }
+        }).disposed(by: disposeBag)
+
+        viewModel.dataDidChangedSubject.asObservable().bind { [weak self] (_) in
+            guard let this = self else { return }
+
+            this.viewModel.loadGoodsCountForDate(isFirstLoad: false)
+        }.disposed(by: disposeBag)
     }
 }
 
@@ -56,7 +93,6 @@ extension HistoryViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-
     }
 }
 
@@ -70,9 +106,16 @@ extension HistoryViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueCell(of: HistoryCollectionViewCell.self, for: indexPath)
         let dateCount = viewModel.dateCount(for: indexPath)
 
-        cell.viewModel = HistoryCollectionViewModel(date: dateCount.date)
+        cell.viewModel = HistoryCollectionViewModel(dateCount: dateCount, dataDidChangedSubject: viewModel.dataDidChangedSubject)
+        cell.presentEditBoughtGoods = { [weak self]  vc in
+            self?.presentEditBoughtGoodsViewController(vc: vc)
+        }
 
         return cell
+    }
+
+    private func presentEditBoughtGoodsViewController (vc: EditBoughtGoodsViewController) {
+        present(vc, animated: true)
     }
 }
 
@@ -102,5 +145,17 @@ extension HistoryViewController: UICollectionViewDelegateFlowLayout {
         // 위 코드를 통해 페이징 될 좌표값을 targetContentOffset에 대입하면 된다.
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
         targetContentOffset.pointee = offset
+    }
+}
+
+extension HistoryViewController: UIScrollViewDelegate {
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let contentOffSetX = scrollView.contentOffset.x
+        let scrollViewWidth = scrollView.bounds.width
+        let cellWidth = scrollViewWidth - 80
+
+        let currentIndex = Int(ceil(round(contentOffSetX / cellWidth)))
+        viewModel.setCurrentIndex(to: currentIndex)
     }
 }

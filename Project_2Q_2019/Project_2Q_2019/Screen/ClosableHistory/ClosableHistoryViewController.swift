@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class ClosableHistoryViewController: UIViewController, StoryboardInstantiable {
 
@@ -31,7 +32,7 @@ class ClosableHistoryViewController: UIViewController, StoryboardInstantiable {
     }
 
     private func setupHistoryContentView() {
-        let contentViewModel = HistoryContentViewModel(date: selectedDate)
+        let contentViewModel = HistoryContentViewModel(dateCount: nil, dataDidChangedSubject: PublishSubject<Void>(), date: selectedDate)
         let historyContentView = HistoryContentView.loadXib()
         historyContentView.viewModel = contentViewModel
         historyContentView.translatesAutoresizingMaskIntoConstraints = false

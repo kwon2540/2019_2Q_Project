@@ -1,35 +1,16 @@
 //
-//  EditGoodsViewModel.swift
+//  EditBoughtGoodsViewModel.swift
 //  Project_2Q_2019
 //
-//  Created by Kwon junhyeok on 2020/06/22.
+//  Created by Maharjan Binish on 2020/11/29.
 //  Copyright © 2020 JUNHYEOK KWON. All rights reserved.
 //
 
 import Foundation
-import RxCocoa
 import RxSwift
+import RxCocoa
 
-// MARK: EditGoodsStateProtocol
-protocol EditGoodsStateProtocol {
-
-    var nameText: String { get }
-    var amountText: String { get }
-    var priceText: String { get }
-}
-
-extension EditGoodsStateProtocol {
-
-    var isCompleteButtonEnabled: Bool {
-        return !nameText.isEmpty
-    }
-
-    func saperatorColor(text: String) -> UIColor {
-        return text.isEmpty ? UIColor.cD8D8D8 : UIColor.c859EFF
-    }
-}
-
-struct EditGoodsViewModel: APIStateProtocol {
+struct EditBoughtGoodsViewModel: APIStateProtocol {
 
     struct UIState: EditGoodsStateProtocol {
 
@@ -42,16 +23,20 @@ struct EditGoodsViewModel: APIStateProtocol {
     let nameText = BehaviorRelay(value: "")
     let amountText = BehaviorRelay(value: "1")
     let priceText = BehaviorRelay(value: "0")
+
     let isCompleteButtonEnabled: Observable<Bool>
     let nameSeparatorColor: Observable<UIColor>
     let amountSeparatorColor: Observable<UIColor>
     let priceSeparatorColor: Observable<UIColor>
-    let goods: Goods
+    let boughtGoods: BoughtGoods
     let dateCount: DateCount
+    let dataDidChangedSubject: PublishSubject<Void>
+    var dataDidChanged: Bool = false
 
-    init(goods: Goods, dateCount: DateCount) {
-        self.goods = goods
+    init(boughtGoods: BoughtGoods, dateCount: DateCount, dataDidChangedSubject: PublishSubject<Void>) {
+        self.boughtGoods = boughtGoods
         self.dateCount = dateCount
+        self.dataDidChangedSubject = dataDidChangedSubject
 
         let state = Observable.combineLatest(nameText, amountText, priceText) { UIState(nameText: $0, amountText: $1, priceText: $2) }
         isCompleteButtonEnabled = state.map { $0.isCompleteButtonEnabled }
@@ -62,54 +47,61 @@ struct EditGoodsViewModel: APIStateProtocol {
 
     func getSeletedCategoryButtonTag() -> Int? {
         return GoodsCategory.allCases.filter {
-            $0.key == goods.category
+            $0.key == boughtGoods.category
         }.first?.rawValue
     }
 
-    func addBoughtGoods(selectedButtonTag: Int) {
+    func udpateBoughtGoods(selectedButtonTag: Int) {
         apiStateRelay.accept(.loading)
 
         let category = GoodsCategory(rawValue: selectedButtonTag)?.key ?? GoodsCategory.life.key
         let amount = Int(amountText.value) ?? 1
         let price = Int(priceText.value) ?? 0
 
-        let boughtGoods = BoughtGoods(id: goods.id,
-                                      boughtDate: Date().toString(format: .firebase_key_date),
-                                      year: Date().toString(format: .year),
-                                      yearMonth: Date().toString(format: .yearMonth),
-                                      category: category,
-                                      name: nameText.value,
-                                      amount: amount,
-                                      price: price)
+        let updatedBoughtGoods = BoughtGoods(id: boughtGoods.id,
+                                             boughtDate: boughtGoods.boughtDate,
+                                             year: boughtGoods.year,
+                                             yearMonth: boughtGoods.yearMonth,
+                                             category: category,
+                                             name: nameText.value,
+                                             amount: amount,
+                                             price: price)
 
-        FirebaseManager.shared.addBoughtGoods(boughtGoods: boughtGoods) { state in
+        FirebaseManager.shared.updateBoughtGoods(updatedBoughtGoods: updatedBoughtGoods) { state in
 
-            //  成功した時
-            guard case .failed(let error) = state else {
-                self.deleteGoods()
-                return
-            }
-            //  失敗した時
-            self.apiStateRelay.accept(.failed(error: error))
+            self.apiStateRelay.accept(state)
         }
     }
 
-    func deleteGoods() {
-        FirebaseManager.shared.deleteGoods(id: goods.id) { state in
+    func deleteBoughtGoods() {
+        apiStateRelay.accept(.loading)
 
-            //  成功した時
+        FirebaseManager.shared.deleteBoughtGoods(id: boughtGoods.id) { state in
+
             guard case .failed(let error) = state else {
                 self.updateDateCount()
                 return
             }
-            //  失敗した時
+            self.apiStateRelay.accept(.failed(error: error))
+        }
+    }
+
+    func revertBoughtGoods() {
+        apiStateRelay.accept(.loading)
+
+        FirebaseManager.shared.revertBoughtGoods(boughtGoods: self.boughtGoods) { (state) in
+
+            guard case .failed(let error) = state else {
+                self.updateDateCount()
+                return
+            }
             self.apiStateRelay.accept(.failed(error: error))
         }
     }
 
     func updateDateCount() {
         var dateCount = self.dateCount
-        dateCount.count += 1
+        dateCount.count -= 1
 
         FirebaseManager.shared.updateGoodsCountForDate(dateCount: dateCount) { state in
 

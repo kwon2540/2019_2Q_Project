@@ -46,3 +46,10 @@ extension Array where Element == BoughtGoods {
         filter { $0.category == category.key }
     }
 }
+
+extension Goods {
+
+    static func from(_ boughtGoods: BoughtGoods) -> Self {
+        .init(name: boughtGoods.name, category: boughtGoods.category, id: boughtGoods.id)
+    }
+}
