@@ -13,4 +13,10 @@ struct LoginViewModel: APIStateProtocol {
     
     let apiStateRelay = PublishRelay<APIState>()
 
+    func registUserInfo(name: String, uid: String) {
+        apiStateRelay.accept(.loading)
+        FirebaseManager.shared.registUserInfo(name: name, uid: uid) { (state) in
+            self.apiStateRelay.accept(state)
+        }
+    }
 }

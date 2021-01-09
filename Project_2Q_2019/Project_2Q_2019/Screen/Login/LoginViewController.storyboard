@@ -78,6 +78,9 @@
                                                 <state key="normal" title=" Sign in with Apple">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapLoginButton:" destination="qDe-gE-Kai" eventType="touchUpInside" id="ho4-ee-bWg"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cvK-sP-BXB" userLabel="Spacing View">
                                                 <rect key="frame" x="337.66666666666669" y="0.0" width="37.333333333333314" height="44"/>
