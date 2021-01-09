@@ -168,6 +168,7 @@
 		107901C924710B8600D28D4B /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		107A3863237FDC5600D276E9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		107A3865237FE5B400D276E9 /* DropDownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownManager.swift; sourceTree = "<group>"; };
+		108794EE25A97A7600C8301F /* Project_2Q_2019Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Project_2Q_2019Debug.entitlements; sourceTree = "<group>"; };
 		108D9F812439AD320058EF41 /* HistoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		108D9F832439AD6A0058EF41 /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		108D9F852439AE030058EF41 /* HistoryCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -469,6 +470,7 @@
 		10A7E52522EDC14000DF3D34 /* Project_2Q_2019 */ = {
 			isa = PBXGroup;
 			children = (
+				108794EE25A97A7600C8301F /* Project_2Q_2019Debug.entitlements */,
 				108FFD83237FFCFF005B21CC /* Extension */,
 				10B00E012376818B00864551 /* API */,
 				10A7E5932312B81D00DF3D34 /* Screen */,
@@ -1199,15 +1201,19 @@
 			baseConfigurationReference = 63298C60E1C21A50B02057F2 /* Pods-Project_2Q_2019.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Project_2Q_2019/Project_2Q_2019Debug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D65C9K34GM;
+				DEVELOPMENT_TEAM = 9WKN3P3PYL;
 				INFOPLIST_FILE = Project_2Q_2019/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "j.kwon.Project-2Q-2019-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1218,15 +1224,18 @@
 			baseConfigurationReference = C992C0A258A303CDF11D7171 /* Pods-Project_2Q_2019.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D65C9K34GM;
+				DEVELOPMENT_TEAM = 9WKN3P3PYL;
 				INFOPLIST_FILE = Project_2Q_2019/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "j.kwon.Project-2Q-2019";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
