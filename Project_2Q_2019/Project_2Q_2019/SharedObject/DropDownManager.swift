@@ -37,8 +37,14 @@ final class DropDownNotification: UIView {
     }
 
     private let bottomThreshold: CGFloat = 50.0
-    private let aboveThreshold: CGFloat = (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0) + 10
+    private let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
     private let dropDownLabel = UILabel()
+    private lazy var aboveThreshold: CGFloat = (keyWindow?.safeAreaInsets.top ?? 0) + 10
 
     var dropDownWidth: CGFloat = UIScreen.main.bounds.size.width - 20.0
     var dropDownHeight: CGFloat = 50.0

@@ -14,9 +14,8 @@ import RxCocoa
 // MARK: APIManager
 protocol APIManager {
     func checkLogin() -> Bool
-    func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void)
-    func signIn(email: String, password: String, completion: @escaping (APIState) -> Void)
     func signOut()
+    func registUserInfo(name: String, uid: String, completion: @escaping (APIState) -> Void)
     func addGoods(goods: Goods, completion: @escaping (APIState) -> Void)
     func loadGoods(completion: @escaping ([Goods]?, APIState) -> Void)
     func addBoughtGoods(boughtGoods: BoughtGoods, completion: @escaping (APIState) -> Void)
@@ -27,6 +26,8 @@ protocol APIManager {
     func updateBoughtGoods(updatedBoughtGoods: BoughtGoods, completion: @escaping (APIState) -> Void)
     func deleteBoughtGoods(id: String, completion: @escaping (APIState) -> Void)
     func revertBoughtGoods(boughtGoods: BoughtGoods, completion: @escaping (APIState) -> Void)
+    //    func signIn(email: String, password: String, completion: @escaping (APIState) -> Void)
+    //    func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void)
 }
 
 // MARK: APIStateProtocol
@@ -85,6 +86,27 @@ struct FirebaseManager: APIManager {
     func checkLogin() -> Bool {
         return Auth.auth().currentUser?.uid != nil
     }
+    
+    func registUserInfo(name: String, uid: String, completion: @escaping (APIState) -> Void) {
+        
+            let user = User(name: name, uid: uid, startDate: Date())
+
+            guard let data = try? FirestoreEncoder().encode(user) else {
+                // Failed encode
+                return completion(.failed(error: .encodeError))
+            }
+
+            self.firestore.collection(Collections.users.key)
+                .document(uid)
+                .setData(data) { (error) in
+                    if error != nil {
+                        // Failed add collection data
+                        return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                    }
+                    completion(.success)
+            }
+        
+    }
 
     func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (_, error) in
@@ -98,7 +120,7 @@ struct FirebaseManager: APIManager {
                 return completion(.failed(error: .authError))
             }
 
-            let user = User(email: email, name: name, uid: uid, startDate: Date())
+            let user = User(name: name, uid: uid, startDate: Date())
 
             guard let data = try? FirestoreEncoder().encode(user) else {
                 // Failed encode

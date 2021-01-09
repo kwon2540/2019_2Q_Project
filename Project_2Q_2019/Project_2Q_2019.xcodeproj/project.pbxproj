@@ -21,11 +21,11 @@
 		10188E1623C997B900F94681 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10188E1523C997B900F94681 /* AlertViewController.swift */; };
 		103104702504BB2E00FCC42C /* YearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031046F2504BB2E00FCC42C /* YearButton.swift */; };
 		1032FE572338C1050039E9C0 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */; };
-		1032FE5A2338C2A70039E9C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE592338C2A70039E9C0 /* LoginViewController.swift */; };
+		1032FE5A2338C2A70039E9C0 /* OldLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE592338C2A70039E9C0 /* OldLoginViewController.swift */; };
 		1032FE5C2338C2AE0039E9C0 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */; };
 		1032FE602338DE530039E9C0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE5F2338DE530039E9C0 /* RegisterViewController.swift */; };
 		1032FE622338DE5F0039E9C0 /* RegisterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1032FE612338DE5F0039E9C0 /* RegisterViewController.storyboard */; };
-		1032FE642338E2340039E9C0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE632338E2340039E9C0 /* LoginViewModel.swift */; };
+		1032FE642338E2340039E9C0 /* OldLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE632338E2340039E9C0 /* OldLoginViewModel.swift */; };
 		1032FE662338E2410039E9C0 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE652338E2410039E9C0 /* RegisterViewModel.swift */; };
 		1032FE682338E24A0039E9C0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE672338E24A0039E9C0 /* HomeViewModel.swift */; };
 		1032FE6B2338E4440039E9C0 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1032FE6A2338E4440039E9C0 /* RoundView.swift */; };
@@ -82,6 +82,8 @@
 		10E472D124C03A4200BE71CC /* VerticalGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E472D024C03A4200BE71CC /* VerticalGraphCell.xib */; };
 		10E472D324C03A5000BE71CC /* VerticalGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E472D224C03A5000BE71CC /* VerticalGraphCell.swift */; };
 		10E472D724C1891100BE71CC /* GraphMonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E472D624C1891100BE71CC /* GraphMonthButton.swift */; };
+		10EF3E6925A03DEC0031948F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF3E6825A03DEC0031948F /* LoginViewController.swift */; };
+		10EF3E6B25A03E050031948F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF3E6A25A03E050031948F /* LoginViewModel.swift */; };
 		10FE445C2532B7B9001D90BB /* MonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FE445B2532B7B9001D90BB /* MonthButton.swift */; };
 		1273A3F231517C61780C5E9F /* Pods_Project_2Q_2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E7A66781B6AE5A7AF269C /* Pods_Project_2Q_2019.framework */; };
 		6440D06624A49283000F461C /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 6440D06524A49283000F461C /* Charts */; };
@@ -140,11 +142,11 @@
 		10188E1523C997B900F94681 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		1031046F2504BB2E00FCC42C /* YearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearButton.swift; sourceTree = "<group>"; };
 		1032FE562338C1050039E9C0 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
-		1032FE592338C2A70039E9C0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1032FE592338C2A70039E9C0 /* OldLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldLoginViewController.swift; sourceTree = "<group>"; };
 		1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		1032FE5F2338DE530039E9C0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1032FE612338DE5F0039E9C0 /* RegisterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterViewController.storyboard; sourceTree = "<group>"; };
-		1032FE632338E2340039E9C0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		1032FE632338E2340039E9C0 /* OldLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldLoginViewModel.swift; sourceTree = "<group>"; };
 		1032FE652338E2410039E9C0 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		1032FE672338E24A0039E9C0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1032FE6A2338E4440039E9C0 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		107901C924710B8600D28D4B /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		107A3863237FDC5600D276E9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		107A3865237FE5B400D276E9 /* DropDownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownManager.swift; sourceTree = "<group>"; };
+		108794EE25A97A7600C8301F /* Project_2Q_2019Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Project_2Q_2019Debug.entitlements; sourceTree = "<group>"; };
 		108D9F812439AD320058EF41 /* HistoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		108D9F832439AD6A0058EF41 /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		108D9F852439AE030058EF41 /* HistoryCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 		10E472D024C03A4200BE71CC /* VerticalGraphCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerticalGraphCell.xib; sourceTree = "<group>"; };
 		10E472D224C03A5000BE71CC /* VerticalGraphCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalGraphCell.swift; sourceTree = "<group>"; };
 		10E472D624C1891100BE71CC /* GraphMonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMonthButton.swift; sourceTree = "<group>"; };
+		10EF3E6825A03DEC0031948F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		10EF3E6A25A03E050031948F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		10FE445B2532B7B9001D90BB /* MonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthButton.swift; sourceTree = "<group>"; };
 		1CD2A4C0F6B6D48B5FC49979 /* Pods-Project_2Q_2019UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_2Q_2019UITests.debug.xcconfig"; path = "Target Support Files/Pods-Project_2Q_2019UITests/Pods-Project_2Q_2019UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F464980BEC4F3155A426D2A /* Pods_Project_2Q_2019UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_2Q_2019UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -328,8 +333,10 @@
 			isa = PBXGroup;
 			children = (
 				1032FE5B2338C2AE0039E9C0 /* LoginViewController.storyboard */,
-				1032FE592338C2A70039E9C0 /* LoginViewController.swift */,
-				1032FE632338E2340039E9C0 /* LoginViewModel.swift */,
+				10EF3E6825A03DEC0031948F /* LoginViewController.swift */,
+				10EF3E6A25A03E050031948F /* LoginViewModel.swift */,
+				1032FE592338C2A70039E9C0 /* OldLoginViewController.swift */,
+				1032FE632338E2340039E9C0 /* OldLoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -463,6 +470,7 @@
 		10A7E52522EDC14000DF3D34 /* Project_2Q_2019 */ = {
 			isa = PBXGroup;
 			children = (
+				108794EE25A97A7600C8301F /* Project_2Q_2019Debug.entitlements */,
 				108FFD83237FFCFF005B21CC /* Extension */,
 				10B00E012376818B00864551 /* API */,
 				10A7E5932312B81D00DF3D34 /* Screen */,
@@ -961,19 +969,20 @@
 			files = (
 				1073EC3A23DC18A7003BB2C5 /* ShadowView.swift in Sources */,
 				10FE445C2532B7B9001D90BB /* MonthButton.swift in Sources */,
-				1032FE5A2338C2A70039E9C0 /* LoginViewController.swift in Sources */,
+				1032FE5A2338C2A70039E9C0 /* OldLoginViewController.swift in Sources */,
 				10128AB02403B59000C6F5B9 /* Extension+NSObject.swift in Sources */,
 				1032FE6B2338E4440039E9C0 /* RoundView.swift in Sources */,
 				10A7E5952312B83F00DF3D34 /* AppRootViewController.swift in Sources */,
 				64F2119E2573697100B9669B /* EditBoughtGoodsViewController.swift in Sources */,
 				100CF48223AE012000B3557D /* HistoryViewController.swift in Sources */,
+				10EF3E6B25A03E050031948F /* LoginViewModel.swift in Sources */,
 				1032FE682338E24A0039E9C0 /* HomeViewModel.swift in Sources */,
 				6477C82524A09F6800BD2BD0 /* HistoryContentViewModel.swift in Sources */,
 				1032FE722338ED910039E9C0 /* RoundButton.swift in Sources */,
 				10A7E52722EDC14000DF3D34 /* AppDelegate.swift in Sources */,
 				10188E1623C997B900F94681 /* AlertViewController.swift in Sources */,
 				10B00E0723769DBD00864551 /* LogManager.swift in Sources */,
-				1032FE642338E2340039E9C0 /* LoginViewModel.swift in Sources */,
+				1032FE642338E2340039E9C0 /* OldLoginViewModel.swift in Sources */,
 				10128AB6240B78A400C6F5B9 /* Extension+UIView.swift in Sources */,
 				1032FE572338C1050039E9C0 /* StoryboardInstantiable.swift in Sources */,
 				64C4B9FC24A1FA0000B609A4 /* ProgressHUD.swift in Sources */,
@@ -1003,6 +1012,7 @@
 				104106E72430975B004E6D48 /* HomeTableViewCell.swift in Sources */,
 				10DFFDCB24A09224005611A8 /* EditGoodsViewController.swift in Sources */,
 				1063530F23B740F7004A4BB4 /* RoundBorderButton.swift in Sources */,
+				10EF3E6925A03DEC0031948F /* LoginViewController.swift in Sources */,
 				10A8FE1223A4B43800F64F96 /* MenuViewController.swift in Sources */,
 				1032FE662338E2410039E9C0 /* RegisterViewModel.swift in Sources */,
 				100CF47B23ADFF0800B3557D /* GraphViewController.swift in Sources */,
@@ -1191,15 +1201,19 @@
 			baseConfigurationReference = 63298C60E1C21A50B02057F2 /* Pods-Project_2Q_2019.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Project_2Q_2019/Project_2Q_2019Debug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D65C9K34GM;
+				DEVELOPMENT_TEAM = 9WKN3P3PYL;
 				INFOPLIST_FILE = Project_2Q_2019/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "j.kwon.Project-2Q-2019-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1210,15 +1224,18 @@
 			baseConfigurationReference = C992C0A258A303CDF11D7171 /* Pods-Project_2Q_2019.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D65C9K34GM;
+				DEVELOPMENT_TEAM = 9WKN3P3PYL;
 				INFOPLIST_FILE = Project_2Q_2019/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "j.kwon.Project-2Q-2019";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
