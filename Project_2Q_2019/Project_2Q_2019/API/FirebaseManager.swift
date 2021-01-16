@@ -68,11 +68,12 @@ struct FirebaseManager: APIManager {
         var description: String {
             switch self {
             case .firebaseError(let debugDescription):
-                return debugDescription
+                apiErrorLog(logMessage: debugDescription)
+                return "エラー：ネットワーク接続エラー"
             case .authError:
-                return "Auth Error"
+                return "エラー：ユーザー認証エラー"
             case .encodeError:
-                return "Encode Error"
+                return "エラー：想定外エラー"
             }
         }
     }
@@ -86,26 +87,26 @@ struct FirebaseManager: APIManager {
     func checkLogin() -> Bool {
         return Auth.auth().currentUser?.uid != nil
     }
-    
+
     func registUserInfo(name: String, uid: String, completion: @escaping (APIState) -> Void) {
-        
-            let user = User(name: name, uid: uid, startDate: Date())
 
-            guard let data = try? FirestoreEncoder().encode(user) else {
-                // Failed encode
-                return completion(.failed(error: .encodeError))
-            }
+        let user = User(name: name, uid: uid, startDate: Date())
 
-            self.firestore.collection(Collections.users.key)
-                .document(uid)
-                .setData(data) { (error) in
-                    if error != nil {
-                        // Failed add collection data
-                        return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
-                    }
-                    completion(.success)
-            }
-        
+        guard let data = try? FirestoreEncoder().encode(user) else {
+            // Failed encode
+            return completion(.failed(error: .encodeError))
+        }
+
+        self.firestore.collection(Collections.users.key)
+            .document(uid)
+            .setData(data) { (error) in
+                if error != nil {
+                    // Failed add collection data
+                    return completion(.failed(error: .firebaseError(debugDescription: error.debugDescription)))
+                }
+                completion(.success)
+        }
+
     }
 
     func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void) {
