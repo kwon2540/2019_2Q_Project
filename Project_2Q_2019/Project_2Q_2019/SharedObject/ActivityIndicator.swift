@@ -17,7 +17,8 @@ struct ActivityIndicator {
 
     init() {
         overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        activityIndicatorView.style = UIActivityIndicatorView.Style.large
+        activityIndicatorView.style = .large
+        activityIndicatorView.color = .white
         activityIndicatorView.layer.cornerRadius = 10
         activityIndicatorView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
     }
