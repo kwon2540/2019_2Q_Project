@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5nd-UK-PmX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5nd-UK-PmX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -48,24 +47,42 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBp-XI-k9J" userLabel="No Data View">
+                                        <rect key="frame" x="0.0" y="85" width="414" height="698"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="表示するデータがありません。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H97-Wq-DqB">
+                                                <rect key="frame" x="78.5" y="298.5" width="257" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" name="cFAFAFA"/>
                                 <constraints>
                                     <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="top" secondItem="t9Y-uG-Ggo" secondAttribute="bottom" constant="44.5" id="2at-1M-bJ8"/>
                                     <constraint firstItem="StU-8o-yrD" firstAttribute="top" secondItem="KcX-sL-DFa" secondAttribute="top" constant="15" id="O1s-IN-PnH"/>
                                     <constraint firstItem="t9Y-uG-Ggo" firstAttribute="centerY" secondItem="StU-8o-yrD" secondAttribute="centerY" id="Tl4-mE-d0G"/>
+                                    <constraint firstItem="aBp-XI-k9J" firstAttribute="height" secondItem="Yl7-Rl-Zuv" secondAttribute="height" id="eeR-uC-uGR"/>
+                                    <constraint firstItem="aBp-XI-k9J" firstAttribute="centerY" secondItem="Yl7-Rl-Zuv" secondAttribute="centerY" id="iGI-Vm-zs6"/>
                                     <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="leading" secondItem="KcX-sL-DFa" secondAttribute="leading" id="jfw-oZ-DF8"/>
+                                    <constraint firstItem="aBp-XI-k9J" firstAttribute="width" secondItem="Yl7-Rl-Zuv" secondAttribute="width" id="rtE-Pg-hi0"/>
                                     <constraint firstItem="t9Y-uG-Ggo" firstAttribute="leading" secondItem="KcX-sL-DFa" secondAttribute="leading" constant="20" id="sb3-DN-iXW"/>
                                     <constraint firstAttribute="trailing" secondItem="StU-8o-yrD" secondAttribute="trailing" constant="15" id="t2C-uc-xEm"/>
                                     <constraint firstAttribute="trailing" secondItem="Yl7-Rl-Zuv" secondAttribute="trailing" id="wNu-5a-WDY"/>
+                                    <constraint firstItem="aBp-XI-k9J" firstAttribute="centerX" secondItem="Yl7-Rl-Zuv" secondAttribute="centerX" id="wha-El-WDC"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="H97-Wq-DqB" firstAttribute="centerX" secondItem="fBV-gw-u2H" secondAttribute="centerX" id="Jhv-SJ-gWW"/>
                             <constraint firstAttribute="bottom" secondItem="KcX-sL-DFa" secondAttribute="bottom" id="Rse-O3-GRL"/>
                             <constraint firstItem="KcX-sL-DFa" firstAttribute="leading" secondItem="fBV-gw-u2H" secondAttribute="leading" id="ckp-uw-0xM"/>
                             <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="bottom" secondItem="fBV-gw-u2H" secondAttribute="bottom" constant="-20" id="e2T-o2-zYc"/>
+                            <constraint firstItem="H97-Wq-DqB" firstAttribute="centerY" secondItem="fBV-gw-u2H" secondAttribute="centerY" id="eM2-xN-WZ6"/>
                             <constraint firstItem="fBV-gw-u2H" firstAttribute="trailing" secondItem="KcX-sL-DFa" secondAttribute="trailing" id="laq-fl-04q"/>
                             <constraint firstItem="KcX-sL-DFa" firstAttribute="top" secondItem="fBV-gw-u2H" secondAttribute="top" constant="15" id="qgp-VU-1Oh"/>
                         </constraints>
@@ -73,6 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Yl7-Rl-Zuv" id="fzq-g3-wZ2"/>
+                        <outlet property="noDataView" destination="aBp-XI-k9J" id="8Ah-Bj-1B4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6O9-jl-fgN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
