@@ -20,6 +20,9 @@ final class HistoryViewModel: APIStateProtocol {
 
     var dates: [DateCount] = []
     var numberOfItems: Int { dates.count }
+    var hasBoughtGoods: Bool {
+        !dates.isEmpty
+    }
 
     func dateCount(for indexPath: IndexPath) -> DateCount {
         dates[indexPath.row]

@@ -12,6 +12,9 @@ import RxSwift
 final class HistoryViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var noDataView: UIView!
+    
+    
     var viewModel: HistoryViewModel!
 
     private let disposeBag = DisposeBag()
@@ -68,6 +71,7 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
             case .success:
                 this.collectionView.reloadData()
                 this.collectionView.scrollToItem(at: this.viewModel.currentIndex, at: .centeredHorizontally, animated: false)
+                this.noDataView.isHidden = this.viewModel.hasBoughtGoods
                 ActivityIndicator.shared.stop(view: view)
             // Error handling when failed
             case .failed(let error):
