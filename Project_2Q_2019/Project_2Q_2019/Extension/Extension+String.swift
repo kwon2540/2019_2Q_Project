@@ -85,6 +85,6 @@ extension String {
             let day = Int(self.getDateText()),
             let date = DateComponents(calendar: Calendar.current, year: year, month: month, day: day).date else { return "" }
 
-        return "\(year)/\(month)/\(day) \(date.weekday)"
+        return "\(self.getYearText())/\(self.getMonthText())/\(self.getDateText()) (\(date.weekday))"
     }
 }

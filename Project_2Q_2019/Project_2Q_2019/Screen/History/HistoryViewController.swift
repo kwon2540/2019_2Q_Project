@@ -14,10 +14,9 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var noDataView: UIView!
     
+    private let disposeBag = DisposeBag()
     
     var viewModel: HistoryViewModel!
-
-    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
