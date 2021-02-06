@@ -34,8 +34,16 @@ final class HomeViewModel: APIStateProtocol {
         let today = Date().toString(format: .firebase_key_date)
         return dateCounts.filter({ $0.date == today }).first ?? DateCount(date: today, count: 0)
     }
+    
+    func observeGoodsData() {
+        FirebaseManager.shared.observeGoodsData { [weak self] in
+            guard let this = self else { return }
+            this.loadGoods()
+            this.loadGoodsCountForDate()
+        }
+    }
 
-    func loadGoods() {
+    private func loadGoods() {
         apiStateRelay.accept(.loading)
         FirebaseManager.shared.loadGoods { [weak self] (response, state) in
             guard let this = self else { return }
@@ -64,7 +72,7 @@ final class HomeViewModel: APIStateProtocol {
         }
     }
 
-    func loadGoodsCountForDate() {
+    private func loadGoodsCountForDate() {
         FirebaseManager.shared.loadGoodsCountForDate { [weak self] response, _ in
             guard let this = self else { return }
 

@@ -32,7 +32,7 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
     private lazy var categoryButtons: [UIButton] = [lifeButton, fashionButton, hobbiesButton, miscellaneousButton]
 
     var viewModel: EditBoughtGoodsViewModel!
-    var dismissed: ((Bool) -> Void)?
+    var dismissed: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +59,8 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
     }
 
     @IBAction private func dismiss(_ sender: Any) {
-        closeEditGoodsModal(isDataChanged: false)
+        dismiss(animated: true)
+        dismissed?()
     }
 
     @IBAction private func remove(_ sender: Any) {
@@ -113,11 +114,6 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
         }
     }
 
-    private func closeEditGoodsModal(isDataChanged: Bool) {
-        dismissed?(isDataChanged)
-        dismiss(animated: true)
-    }
-
     private func bindViewModel() {
 
         // Input
@@ -161,7 +157,8 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
             // Stop indicator and dismiss when success
             case .success:
                 ActivityIndicator.shared.stop(view: view)
-                this.closeEditGoodsModal(isDataChanged: true)
+                this.dismiss(animated: true)
+                this.dismissed?()
             // Error handling when failed
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
@@ -171,7 +168,8 @@ final class EditBoughtGoodsViewController: UIViewController, StoryboardInstantia
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
                 ActivityIndicator.shared.stop(view: view)
-                this.closeEditGoodsModal(isDataChanged: false)
+                this.dismiss(animated: true)
+                this.dismissed?()
             }
         }).disposed(by: disposeBag)
     }
