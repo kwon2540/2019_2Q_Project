@@ -76,12 +76,12 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
             case .loading:
                 this.hud.startAnimation()
             case .success:
-                this.hud.stopAnimation()
                 this.setupYearButtons()
                 this.viewModel.selectedYear.accept(this.viewModel.yearKeys().last ?? "")
                 this.collectionView.reloadData()
                 this.graphStackView.isHidden = !this.viewModel.hasBoughtGoods
                 this.noDataView.isHidden = this.viewModel.hasBoughtGoods
+                this.hud.stopAnimation()
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
                                                                 width: nil,

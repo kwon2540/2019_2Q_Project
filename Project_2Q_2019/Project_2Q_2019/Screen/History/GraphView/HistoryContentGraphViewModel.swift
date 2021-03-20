@@ -41,6 +41,6 @@ struct HistoryContentGraphViewModel {
         }
 
         // Total Amount
-        totalAmount = boughtGoods.map {"\(Int($0.totalPrice))¥" }
+        totalAmount = boughtGoods.map {"¥\(Int($0.totalPrice))" }
     }
 }

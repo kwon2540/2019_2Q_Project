@@ -28,8 +28,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         bindViewModel()
         setupGestures()
 
-        viewModel.loadGoods()
-        viewModel.loadGoodsCountForDate()
+        viewModel.observeGoodsData()
     }
 
     override func viewDidLayoutSubviews() {
@@ -65,13 +64,10 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBAction private func add(_ sender: Any) {
         let vc = AddGoodsViewController.getStoryBoard()
-        vc.dismissed = { [weak self] isDataChanged in
+        vc.dismissed = { [weak self] in
             guard let this = self else { return }
-            this.coverView.isHidden = true
 
-            if isDataChanged {
-                this.viewModel.loadGoods()
-            }
+            this.coverView.isHidden = true
         }
         vc.viewModel = AddGoodsViewModel()
 
@@ -110,14 +106,11 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     private func edit(goods: Goods) {
         let vc = EditGoodsViewController.getStoryBoard()
-        vc.dismissed = { [weak self] isDataChanged in
+        vc.dismissed = { [weak self] in
             guard let this = self else { return }
+
             this.coverView.isHidden = true
 
-            if isDataChanged {
-                this.viewModel.loadGoods()
-                this.viewModel.loadGoodsCountForDate()
-            }
         }
         vc.viewModel = EditGoodsViewModel(goods: goods, dateCount: viewModel.getDateCount())
 

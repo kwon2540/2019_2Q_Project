@@ -26,7 +26,7 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     private lazy var categoryButtons: [UIButton] = [lifeButton, fashionButton, hobbiesButton, miscellaneousButton]
 
     var viewModel: AddGoodsViewModel!
-    var dismissed: ((Bool) -> Void)?
+    var dismissed: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,8 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func dismiss(_ sender: Any) {
-        closeAddGoodsModal(isDataChanged: false)
+        dismiss(animated: true)
+        dismissed?()
     }
 
     @IBAction private func addGoods(_ sender: Any) {
@@ -77,11 +78,6 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
         nameTextField.becomeFirstResponder()
     }
 
-    private func closeAddGoodsModal(isDataChanged: Bool) {
-        dismissed?(isDataChanged)
-        dismiss(animated: true)
-    }
-
     private func bindViewModel() {
 
         // Input
@@ -109,7 +105,8 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
             // Stop indicator and dismiss when success
             case .success:
                 ActivityIndicator.shared.stop(view: view)
-                this.closeAddGoodsModal(isDataChanged: true)
+                this.dismiss(animated: true)
+                this.dismissed?()
             // Error handling when failed
             case .failed(let error):
                 DropDownManager.shared.showDropDownNotification(view: view,
@@ -119,7 +116,8 @@ final class AddGoodsViewController: UIViewController, StoryboardInstantiable {
                                                                 message: error.description)
                 apiErrorLog(logMessage: error.description)
                 ActivityIndicator.shared.stop(view: view)
-                this.closeAddGoodsModal(isDataChanged: false)
+                this.dismiss(animated: true)
+                this.dismissed?()
             }
         }).disposed(by: disposeBag)
     }

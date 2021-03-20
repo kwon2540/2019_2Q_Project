@@ -26,6 +26,7 @@ protocol APIManager {
     func updateBoughtGoods(updatedBoughtGoods: BoughtGoods, completion: @escaping (APIState) -> Void)
     func deleteBoughtGoods(id: String, completion: @escaping (APIState) -> Void)
     func revertBoughtGoods(boughtGoods: BoughtGoods, completion: @escaping (APIState) -> Void)
+    func observeGoodsData(completion: @escaping () -> Void)
     //    func signIn(email: String, password: String, completion: @escaping (APIState) -> Void)
     //    func createUserAccount(email: String, password: String, name: String, completion: @escaping (APIState) -> Void)
 }
@@ -430,4 +431,19 @@ struct FirebaseManager: APIManager {
         }
     }
 
+    func observeGoodsData(completion: @escaping () -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+
+        firestore.collection(Collections.goodslist.key)
+            .document(uid)
+            .collection(Collections.goods.key)
+            .addSnapshotListener { _, error in
+                guard error == nil else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+
+                completion()
+        }
+    }
 }

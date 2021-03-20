@@ -21,7 +21,7 @@ struct HistoryContentCellViewModel {
     }
 
     var price: String {
-        return "\(boughtGood.price)¥"
+        return "¥\(boughtGood.price)"
     }
 
     init(boughtGood: BoughtGoods) {

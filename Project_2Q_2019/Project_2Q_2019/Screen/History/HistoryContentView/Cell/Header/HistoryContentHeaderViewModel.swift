@@ -15,7 +15,7 @@ struct HistoryContentHeaderViewModel {
 
     var totalAmount: String {
         let amount: Int = boughtGoods.reduce(0) { $0 + ($1.price * $1.amount) }
-        return "\(amount)¥"
+        return "¥\(amount)"
     }
 
     var categoryIcon: UIImage? {
