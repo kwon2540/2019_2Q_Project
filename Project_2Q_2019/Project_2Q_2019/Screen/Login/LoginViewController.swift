@@ -13,26 +13,26 @@ import FirebaseAuth
 import RxSwift
 
 class LoginViewController: UIViewController, StoryboardInstantiable {
-    
+
     @IBOutlet private weak var loginButton: UIButton!
-    
+
     private let viewModel = LoginViewModel()
     private var disposeBag = DisposeBag()
 
     fileprivate var currentNonce: String?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupUI()
-        
+
         bindViewModel()
     }
-    
+
     private func setupUI() {
         loginButton.layer.cornerRadius = 4
     }
-    
+
     private func bindViewModel() {
         // API
         viewModel.apiState.emit(onNext: { [weak self] (state) in
@@ -58,22 +58,22 @@ class LoginViewController: UIViewController, StoryboardInstantiable {
             }
         }).disposed(by: disposeBag)
     }
-    
+
     private func trasitionToHomeScreen() {
         AppDelegate.shared.rootViewController.showHomeScreen()
     }
-    
+
     @IBAction private func didTapLoginButton(_ sender: Any) {
         startSignInWithAppleFlow()
     }
-    
+
     private func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
         let charset: Array<Character> =
             Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
         var result = ""
         var remainingLength = length
-        
+
         while remainingLength > 0 {
             let randoms: [UInt8] = (0 ..< 16).map { _ in
                 var random: UInt8 = 0
@@ -83,22 +83,22 @@ class LoginViewController: UIViewController, StoryboardInstantiable {
                 }
                 return random
             }
-            
+
             randoms.forEach { random in
                 if remainingLength == 0 {
                     return
                 }
-                
+
                 if random < charset.count {
                     result.append(charset[Int(random)])
                     remainingLength -= 1
                 }
             }
         }
-        
+
         return result
     }
-    
+
     func startSignInWithAppleFlow() {
         let nonce = randomNonceString()
         currentNonce = nonce
@@ -106,26 +106,26 @@ class LoginViewController: UIViewController, StoryboardInstantiable {
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName]
         request.nonce = sha256(nonce)
-        
+
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
-    
+
     private func sha256(_ input: String) -> String {
         let inputData = Data(input.utf8)
         let hashedData = SHA256.hash(data: inputData)
         let hashString = hashedData.compactMap {
             return String(format: "%02x", $0)
         }.joined()
-        
+
         return hashString
     }
 }
 
 extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
-    
+
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         guard let window = UIApplication.shared.delegate?.window else {
             fatalError()
@@ -135,7 +135,7 @@ extension LoginViewController: ASAuthorizationControllerPresentationContextProvi
 }
 
 extension LoginViewController: ASAuthorizationControllerDelegate {
-    
+
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             guard let nonce = currentNonce else {
@@ -155,19 +155,19 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                 idToken: idTokenString,
                 rawNonce: nonce
             )
-            
+
             // Sign in with Firebase.
             Auth.auth().signIn(with: credential) { (authResult, error) in
                 if (error != nil) {
                     print(error ?? "")
                     return
                 }
-                
+
                 let uid = authResult?.user.uid ?? ""
                 let givenName = appleIDCredential.fullName?.givenName ?? ""
                 let familyName = appleIDCredential.fullName?.familyName ?? ""
                 let fullName = "\(givenName) \(familyName)"
-                
+
                 //　isNewUserがTrueの場合のみ、UserInfoをDBに登録する
                 if authResult?.additionalUserInfo?.isNewUser ?? false {
                     self.viewModel.registUserInfo(name: fullName, uid: uid)
@@ -177,7 +177,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             }
         }
     }
-    
+
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // Handle error.
         print("Sign in with Apple errored: \(error)")

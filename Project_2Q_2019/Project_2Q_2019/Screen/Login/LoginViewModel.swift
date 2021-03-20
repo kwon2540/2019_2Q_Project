@@ -10,7 +10,7 @@ import Foundation
 import RxCocoa
 
 struct LoginViewModel: APIStateProtocol {
-    
+
     let apiStateRelay = PublishRelay<APIState>()
 
     func registUserInfo(name: String, uid: String) {

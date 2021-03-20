@@ -430,20 +430,20 @@ struct FirebaseManager: APIManager {
             }
         }
     }
-    
+
     func observeGoodsData(completion: @escaping () -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        
+
         firestore.collection(Collections.goodslist.key)
-        .document(uid)
-        .collection(Collections.goods.key)
-        .addSnapshotListener { documentSnapshot, error in
-          guard error == nil else {
-            print("Error fetching document: \(error!)")
-            return
-          }
-            
-        completion()
+            .document(uid)
+            .collection(Collections.goods.key)
+            .addSnapshotListener { _, error in
+                guard error == nil else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+
+                completion()
         }
     }
 }

@@ -12,7 +12,11 @@ import RxSwift
 final class HomeViewController: UIViewController, StoryboardInstantiable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var corverView: UIView!
+    @IBOutlet private weak var coverView: UIView!
+    @IBOutlet private weak var sideMenuView: UIView!
+    @IBOutlet private weak var sideMenuViewTrailingConstraints: NSLayoutConstraint!
+    @IBOutlet private weak var usernameLabel: UILabel!
+    @IBOutlet private weak var logoutMenuView: UIView!
 
     private let disposeBag = DisposeBag()
 
@@ -22,6 +26,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         super.viewDidLoad()
 
         bindViewModel()
+        setupGestures()
 
         viewModel.observeGoodsData()
     }
@@ -32,13 +37,16 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         setupCollectionView()
     }
 
-    @IBAction private func signOut(_ sender: Any) {
-        FirebaseManager.shared.signOut()
-        AppDelegate.shared.rootViewController.showLoginScreen()
-    }
-
     @IBAction private func menu(_ sender: Any) {
-        present(MenuViewController.getStoryBoard(), animated: true)
+        let sideMenuWidth = sideMenuView.frame.width
+        coverView.isHidden = false
+        coverView.alpha = 0
+        sideMenuViewTrailingConstraints.constant = sideMenuWidth
+
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+            self?.coverView.alpha = 1
+        })
     }
 
     @IBAction private func graph(_ sender: Any) {
@@ -58,11 +66,12 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         let vc = AddGoodsViewController.getStoryBoard()
         vc.dismissed = { [weak self] in
             guard let this = self else { return }
-            this.corverView.isHidden = true
+
+            this.coverView.isHidden = true
         }
         vc.viewModel = AddGoodsViewModel()
 
-        corverView.isHidden = false
+        coverView.isHidden = false
         present(vc, animated: true)
     }
 
@@ -87,15 +96,25 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
 
+    private func setupGestures() {
+        let coverViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(coverViewTapped))
+        coverView.addGestureRecognizer(coverViewTapGesture)
+
+        let logoutMenuTapGesture = UITapGestureRecognizer(target: self, action: #selector(logoutMenuTapped))
+        logoutMenuView.addGestureRecognizer(logoutMenuTapGesture)
+    }
+
     private func edit(goods: Goods) {
         let vc = EditGoodsViewController.getStoryBoard()
         vc.dismissed = { [weak self] in
             guard let this = self else { return }
-            this.corverView.isHidden = true
+
+            this.coverView.isHidden = true
+
         }
         vc.viewModel = EditGoodsViewModel(goods: goods, dateCount: viewModel.getDateCount())
 
-        corverView.isHidden = false
+        coverView.isHidden = false
 
         DispatchQueue.main.async { [weak self] in
             guard let this = self else { return }
@@ -129,6 +148,43 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
                 ActivityIndicator.shared.start(view: view)
             }
         }).disposed(by: disposeBag)
+    }
+
+    @objc private func coverViewTapped() {
+        if sideMenuViewTrailingConstraints.constant != 0 {
+
+            sideMenuViewTrailingConstraints.constant = 0
+
+            let animations = { [weak self] in
+                guard let this = self else { return }
+
+                this.view.layoutIfNeeded()
+                this.coverView.alpha = 0
+            }
+
+            let completion: (Bool) -> Void = { [weak self] _ in
+                guard let this = self else { return }
+
+                this.coverView.isHidden = true
+                this.coverView.alpha = 1
+            }
+
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: animations, completion: completion)
+        }
+    }
+
+    @objc private func logoutMenuTapped() {
+        let confirmationAlert = UIAlertController(title: "ログアウトしますか？", message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            FirebaseManager.shared.signOut()
+            AppDelegate.shared.rootViewController.showLoginScreen()
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        confirmationAlert.addAction(okAction)
+        confirmationAlert.addAction(cancelAction)
+
+        present(confirmationAlert, animated: true)
     }
 }
 

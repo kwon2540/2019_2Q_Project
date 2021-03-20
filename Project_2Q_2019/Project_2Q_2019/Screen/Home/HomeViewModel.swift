@@ -34,7 +34,7 @@ final class HomeViewModel: APIStateProtocol {
         let today = Date().toString(format: .firebase_key_date)
         return dateCounts.filter({ $0.date == today }).first ?? DateCount(date: today, count: 0)
     }
-    
+
     func observeGoodsData() {
         FirebaseManager.shared.observeGoodsData { [weak self] in
             guard let this = self else { return }
