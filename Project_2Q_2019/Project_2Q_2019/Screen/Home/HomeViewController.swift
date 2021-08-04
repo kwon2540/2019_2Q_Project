@@ -192,13 +192,12 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
 extension HomeViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.category.count
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(of: HomeCollectionViewCell.self, for: indexPath)
-        let category = viewModel.category[indexPath.item]
-        cell.bind(viewmodel: HomeCollectionViewModel(category: category, goods: viewModel.getGoodsData(category: category)))
+        cell.bind(viewmodel: HomeCollectionViewModel(goods: viewModel.goods))
         cell.didSelectGoods = { [weak self] goods in
             guard let this = self else { return }
 
