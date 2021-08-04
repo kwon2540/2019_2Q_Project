@@ -63,4 +63,28 @@ struct HomeCollectionViewModel {
         case .miscellaneous: return miscellaneousGoods
         }
     }
+    
+    func getSectionCount() -> Int {
+        let count = [!lifeGoods.isEmpty,
+                 !fashionGoods.isEmpty,
+                 !hobbyGoods.isEmpty,
+                 !miscellaneousGoods.isEmpty]
+        .filter { $0 }
+        .count
+        
+        return count
+    }
+    
+    func getSeparatorIsShow(category: GoodsCategory, indexPath: Int) -> Bool {
+        switch category {
+        case .life:
+            return lifeGoods.count != indexPath + 1
+        case .fashion:
+            return fashionGoods.count != indexPath + 1
+        case .hobby:
+            return hobbyGoods.count != indexPath + 1
+        case .miscellaneous:
+            return miscellaneousGoods.count != indexPath + 1
+        }
+    }
 }

@@ -94,12 +94,7 @@ extension HomeCollectionViewCell: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return [!viewModel.lifeGoods.isEmpty,
-                     !viewModel.fashionGoods.isEmpty,
-                     !viewModel.hobbyGoods.isEmpty,
-                     !viewModel.miscellaneousGoods.isEmpty]
-            .filter { $0 }
-            .count
+        return viewModel.getSectionCount()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,18 +128,15 @@ extension HomeCollectionViewCell: UITableViewDataSource {
         switch category {
         case .life:
             cell.set(name: viewModel.lifeGoods[indexPath.row].name)
-            cell.setSeparator(isShow: viewModel.lifeGoods.count != indexPath.row + 1)
         case .fashion:
             cell.set(name: viewModel.fashionGoods[indexPath.row].name)
-            cell.setSeparator(isShow: viewModel.fashionGoods.count != indexPath.row + 1)
         case .hobby:
             cell.set(name: viewModel.hobbyGoods[indexPath.row].name)
-            cell.setSeparator(isShow: viewModel.hobbyGoods.count != indexPath.row + 1)
         case .miscellaneous:
             cell.set(name: viewModel.miscellaneousGoods[indexPath.row].name)
-            cell.setSeparator(isShow: viewModel.miscellaneousGoods.count != indexPath.row + 1)
         }
-        
+        cell.setSeparator(isShow: viewModel.getSeparatorIsShow(category: category, indexPath: indexPath.row))
+
         return cell
     }
 }
