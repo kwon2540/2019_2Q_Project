@@ -13,8 +13,6 @@ final class HomeCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var mainView: UIView!
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var topTitleImageView: UIImageView!
-    @IBOutlet private weak var topTitleLabel: UILabel!
 
     private let disposeBag = DisposeBag()
 
@@ -28,7 +26,6 @@ final class HomeCollectionViewCell: UICollectionViewCell {
 
     override func layoutSubviews() {
         setupLayout()
-        setupTopTitleView()
     }
 
     private func setupLayout() {
@@ -43,11 +40,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerXib(of: HomeTableViewCell.self)
-    }
-
-    private func setupTopTitleView() {
-        topTitleImageView.image = viewModel.category.image
-        topTitleLabel.text = viewModel.category.title
+        tableView.separatorColor = UIColor.clear
     }
 
     private func setupBackgroundView() {
@@ -68,36 +61,81 @@ final class HomeCollectionViewCell: UICollectionViewCell {
 extension HomeCollectionViewCell: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.leastNonzeroMagnitude
+        return viewModel.goods.isEmpty ? CGFloat.leastNonzeroMagnitude : 50
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return CGFloat.leastNonzeroMagnitude
+        return 8
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 48
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 48
     }
 }
 
 extension HomeCollectionViewCell: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didSelectGoods?(viewModel.goods[indexPath.row])
+        let category = viewModel.categorys[indexPath.section]
+        switch category {
+        case .life:
+            didSelectGoods?(viewModel.lifeGoods[indexPath.row])
+        case .fashion:
+            didSelectGoods?(viewModel.fashionGoods[indexPath.row])
+        case .hobby:
+            didSelectGoods?(viewModel.hobbyGoods[indexPath.row])
+        case .miscellaneous:
+            didSelectGoods?(viewModel.miscellaneousGoods[indexPath.row])
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.getSectionCount()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.goods.count
+        let category = viewModel.categorys[section]
+        switch category {
+        case .life:
+            return viewModel.lifeGoods.count
+        case .fashion:
+            return viewModel.fashionGoods.count
+        case .hobby:
+            return viewModel.hobbyGoods.count
+        case .miscellaneous:
+            return viewModel.miscellaneousGoods.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = HomeTableViewHeader.loadXib()
+        headerView.backgroundColor = UIColor.clear
+        let category = viewModel.categorys[section]
+        headerView.set(image: category.image, title: category.title)
+        
+        return headerView
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(of: HomeTableViewCell.self, for: indexPath)
         cell.selectionStyle = .none
-        cell.set(name: viewModel.goods[indexPath.row].name)
+        
+        let category = viewModel.categorys[indexPath.section]
+        switch category {
+        case .life:
+            cell.set(name: viewModel.lifeGoods[indexPath.row].name)
+        case .fashion:
+            cell.set(name: viewModel.fashionGoods[indexPath.row].name)
+        case .hobby:
+            cell.set(name: viewModel.hobbyGoods[indexPath.row].name)
+        case .miscellaneous:
+            cell.set(name: viewModel.miscellaneousGoods[indexPath.row].name)
+        }
+        cell.setSeparator(isShow: viewModel.getSeparatorIsShow(category: category, indexPath: indexPath.row))
 
         return cell
     }

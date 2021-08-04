@@ -11,8 +11,13 @@ import UIKit
 class HomeTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var nameLabel: UILabel!
-
+    @IBOutlet private weak var separator: UIView!
+    
     func set(name: String) {
         nameLabel.text = name
+    }
+    
+    func setSeparator(isShow: Bool) {
+        separator.isHidden = !isShow
     }
 }
