@@ -82,6 +82,8 @@
 		10E472D124C03A4200BE71CC /* VerticalGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E472D024C03A4200BE71CC /* VerticalGraphCell.xib */; };
 		10E472D324C03A5000BE71CC /* VerticalGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E472D224C03A5000BE71CC /* VerticalGraphCell.swift */; };
 		10E472D724C1891100BE71CC /* GraphMonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E472D624C1891100BE71CC /* GraphMonthButton.swift */; };
+		10E64B6B26BA5DE9005FF149 /* HomeTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E64B6A26BA5DE9005FF149 /* HomeTableViewHeader.xib */; };
+		10E64B6D26BA5E03005FF149 /* HomeTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E64B6C26BA5E03005FF149 /* HomeTableViewHeader.swift */; };
 		10EF3E6925A03DEC0031948F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF3E6825A03DEC0031948F /* LoginViewController.swift */; };
 		10EF3E6B25A03E050031948F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF3E6A25A03E050031948F /* LoginViewModel.swift */; };
 		10FE445C2532B7B9001D90BB /* MonthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FE445B2532B7B9001D90BB /* MonthButton.swift */; };
@@ -210,6 +212,8 @@
 		10E472D024C03A4200BE71CC /* VerticalGraphCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerticalGraphCell.xib; sourceTree = "<group>"; };
 		10E472D224C03A5000BE71CC /* VerticalGraphCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalGraphCell.swift; sourceTree = "<group>"; };
 		10E472D624C1891100BE71CC /* GraphMonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMonthButton.swift; sourceTree = "<group>"; };
+		10E64B6A26BA5DE9005FF149 /* HomeTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewHeader.xib; sourceTree = "<group>"; };
+		10E64B6C26BA5E03005FF149 /* HomeTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewHeader.swift; sourceTree = "<group>"; };
 		10EF3E6825A03DEC0031948F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		10EF3E6A25A03E050031948F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		10FE445B2532B7B9001D90BB /* MonthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthButton.swift; sourceTree = "<group>"; };
@@ -379,6 +383,8 @@
 			children = (
 				104106E424309741004E6D48 /* HomeTableViewCell.xib */,
 				104106E62430975B004E6D48 /* HomeTableViewCell.swift */,
+				10E64B6A26BA5DE9005FF149 /* HomeTableViewHeader.xib */,
+				10E64B6C26BA5E03005FF149 /* HomeTableViewHeader.swift */,
 			);
 			path = "View Parts";
 			sourceTree = "<group>";
@@ -806,6 +812,7 @@
 				108D9F822439AD320058EF41 /* HistoryCollectionViewCell.xib in Resources */,
 				10A8FE1023A4B42A00F64F96 /* MenuViewController.storyboard in Resources */,
 				1016000523922B5C00A92C4D /* GoogleService-Info.plist in Resources */,
+				10E64B6B26BA5DE9005FF149 /* HomeTableViewHeader.xib in Resources */,
 				10A7E55622EDC1F500DF3D34 /* .swiftlint.yml in Resources */,
 				64C4B9FE24A1FA1E00B609A4 /* ProgressHUD.xib in Resources */,
 				10A7E53122EDC14100DF3D34 /* LaunchScreen.storyboard in Resources */,
@@ -1032,6 +1039,7 @@
 				10A00AA2237FBBCD00BA90EB /* SplashViewController.swift in Sources */,
 				10DFFDCD24A09238005611A8 /* EditGoodsViewModel.swift in Sources */,
 				6477C82124A09F0500BD2BD0 /* HistoryContentView.swift in Sources */,
+				10E64B6D26BA5E03005FF149 /* HomeTableViewHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
