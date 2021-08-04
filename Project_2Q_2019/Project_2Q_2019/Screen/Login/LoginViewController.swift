@@ -167,6 +167,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                 let givenName = appleIDCredential.fullName?.givenName ?? ""
                 let familyName = appleIDCredential.fullName?.familyName ?? ""
                 let fullName = "\(givenName) \(familyName)"
+                UserDefaults.standard.set(fullName, forKey: "USER_NAME")
 
                 //　isNewUserがTrueの場合のみ、UserInfoをDBに登録する
                 if authResult?.additionalUserInfo?.isNewUser ?? false {
