@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,31 +9,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="t0E-2f-y79" customClass="HomeTableViewCell" customModule="Project_2Q_2019" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="58" id="t0E-2f-y79" customClass="HomeTableViewCell" customModule="Project_2Q_2019" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t0E-2f-y79" id="neU-df-dW1">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t0E-2f-y79" id="neU-df-dW1">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKt-mS-E6f">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68v-mj-UGu" userLabel="Spacing View 40">
-                                <rect key="frame" x="0.0" y="0.0" width="30" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="gqY-x2-Uhe"/>
+                                    <constraint firstAttribute="width" constant="40" id="gqY-x2-Uhe"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY4-ib-eri">
-                                <rect key="frame" x="30" y="0.0" width="354" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="40" y="0.0" width="344" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" name="c3F3E3E"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfZ-vN-lZF" userLabel="Spacing View 40">
-                                <rect key="frame" x="384" y="0.0" width="30" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfZ-vN-lZF" userLabel="Spacing View 30">
+                                <rect key="frame" x="384" y="0.0" width="30" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="roW-dX-2wM"/>
@@ -42,23 +41,34 @@
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="Xux-bi-U3J"/>
+                            <constraint firstAttribute="height" constant="48" id="Xux-bi-U3J"/>
                         </constraints>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ix-Fx-Rtp" userLabel="Separator">
+                        <rect key="frame" x="30" y="48" width="384" height="0.5"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="ebT-ds-wg6"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="8Ix-Fx-Rtp" firstAttribute="top" secondItem="jKt-mS-E6f" secondAttribute="bottom" id="3D5-JF-PJm"/>
                     <constraint firstAttribute="trailing" secondItem="jKt-mS-E6f" secondAttribute="trailing" id="A9U-UZ-4D8"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jKt-mS-E6f" secondAttribute="bottom" id="OAx-IP-ylp"/>
+                    <constraint firstItem="8Ix-Fx-Rtp" firstAttribute="leading" secondItem="neU-df-dW1" secondAttribute="leading" constant="30" id="JNt-kd-Wo9"/>
                     <constraint firstItem="jKt-mS-E6f" firstAttribute="leading" secondItem="neU-df-dW1" secondAttribute="leading" id="TkZ-LO-5rb"/>
+                    <constraint firstAttribute="trailing" secondItem="8Ix-Fx-Rtp" secondAttribute="trailing" id="qNi-kU-nu0"/>
                     <constraint firstItem="jKt-mS-E6f" firstAttribute="top" secondItem="neU-df-dW1" secondAttribute="top" id="ynM-wH-X42"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Ix-Fx-Rtp" secondAttribute="bottom" id="zrq-sI-KyP"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="nameLabel" destination="KY4-ib-eri" id="6qU-06-IXo"/>
+                <outlet property="separator" destination="8Ix-Fx-Rtp" id="TZR-f7-GQz"/>
             </connections>
-            <point key="canvasLocation" x="-240.57971014492756" y="-36.160714285714285"/>
+            <point key="canvasLocation" x="-240.57971014492756" y="-36.830357142857139"/>
         </tableViewCell>
     </objects>
     <resources>
