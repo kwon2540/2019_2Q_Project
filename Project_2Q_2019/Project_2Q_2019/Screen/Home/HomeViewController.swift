@@ -38,6 +38,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func menu(_ sender: Any) {
+        usernameLabel.text = UserDefaults.standard.object(forKey: "USER_NAME") as? String
         let sideMenuWidth = sideMenuView.frame.width
         coverView.isHidden = false
         coverView.alpha = 0
