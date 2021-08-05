@@ -57,7 +57,7 @@ class EditGoodsViewController: UIViewController, StoryboardInstantiable {
     }
 
     @IBAction private func remove(_ sender: Any) {
-        viewModel.deleteGoods()
+        viewModel.deleteGoods(isNeedStartLoading: true)
     }
 
     @IBAction private func complete(_ sender: Any) {
