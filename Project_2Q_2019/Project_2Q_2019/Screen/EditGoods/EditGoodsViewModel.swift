@@ -86,7 +86,7 @@ struct EditGoodsViewModel: APIStateProtocol {
 
             //  成功した時
             guard case .failed(let error) = state else {
-                self.deleteGoods()
+                self.deleteGoods(isNeedStartLoading: false)
                 return
             }
             //  失敗した時
@@ -94,7 +94,11 @@ struct EditGoodsViewModel: APIStateProtocol {
         }
     }
 
-    func deleteGoods() {
+    func deleteGoods(isNeedStartLoading: Bool) {
+        if isNeedStartLoading {
+            apiStateRelay.accept(.loading)
+        }
+        
         FirebaseManager.shared.deleteGoods(id: goods.id) { state in
 
             //  成功した時
