@@ -49,8 +49,8 @@ final class AddGoodsViewModel: APIStateProtocol {
     func addGoods(selectedButtonTag: Int) {
         apiStateRelay.accept(.loading)
 
-        let category = GoodsCategory(rawValue: selectedButtonTag)?.key ?? GoodsCategory.life.key
-        let goods = Goods(name: nameText.value, category: category, id: UUID().uuidString)
+        let category = GoodsCategory(rawValue: selectedButtonTag)?.key ?? GoodsCategory.food.key
+        let goods = Goods(name: nameText.value, category: category, id: UUID().uuidString, time: Date())
 
         FirebaseManager.shared.addGoods(goods: goods) { [weak self] state in
             guard let this = self else { return }

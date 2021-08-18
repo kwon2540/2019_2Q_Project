@@ -9,43 +9,43 @@
 import UIKit
 
 enum GoodsCategory: Int, CaseIterable {
-    case life
-    case fashion
-    case hobby
+    case food
+    case household
+    case clothes
     case miscellaneous
 
     var image: UIImage? {
         switch self {
-        case .life: return UIImage(named: "life")
-        case .fashion: return UIImage(named: "fashion")
-        case .hobby: return UIImage(named: "hobbies")
+        case .food: return UIImage(named: "food")
+        case .household: return UIImage(named: "household")
+        case .clothes: return UIImage(named: "clothes")
         case .miscellaneous: return UIImage(named: "miscellaneous")
         }
     }
 
     var title: String {
         switch self {
-        case .life: return "生活"
-        case .fashion: return "ファッション"
-        case .hobby: return "趣味"
+        case .food: return "食品"
+        case .household: return "生活用品"
+        case .clothes: return "衣類"
         case .miscellaneous: return "その他"
         }
     }
 
     var key: String {
         switch self {
-        case .life: return "life"
-        case .fashion: return "fashion"
-        case .hobby: return "hobby"
+        case .food: return "food"
+        case .household: return "household"
+        case .clothes: return "clothes"
         case .miscellaneous: return "miscellaneous"
         }
     }
 
     var color: UIColor {
         switch self {
-        case .life: return .cFEBA5B
-        case .fashion: return .cFF7273
-        case .hobby: return .c60A8E0
+        case .food: return .cFEBA5B
+        case .household: return .cFF7273
+        case .clothes: return .c60A8E0
         case .miscellaneous: return .cA8C953
         }
     }
