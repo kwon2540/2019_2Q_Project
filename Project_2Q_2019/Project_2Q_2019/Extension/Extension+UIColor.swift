@@ -31,12 +31,12 @@ extension UIColor {
     static let c888888 = UIColor(named: "c888888")!
     static let c44CB97 = UIColor(named: "c44CB97")!
     static let c44CB97_25 = UIColor(named: "c44CB97@25")!
-    /// Life
+    /// 食品
     static let cFEBA5B = UIColor(named: "cFEBA5B")!
-    /// Fashion
-    static let cFF7273 = UIColor(named: "cFF7273")!
-    /// Hobbies
-    static let c60A8E0 = UIColor(named: "c60A8E0")!
-    /// Miscellaneous
+    /// 生活用品
+    static let c72BEFF = UIColor(named: "c72BEFF")!
+    /// 衣類
+    static let cFF4949 = UIColor(named: "cFF4949")!
+    /// その他
     static let cA8C953 = UIColor(named: "cA8C953")!
 }

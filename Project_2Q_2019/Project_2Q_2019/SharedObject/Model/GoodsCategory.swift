@@ -44,8 +44,8 @@ enum GoodsCategory: Int, CaseIterable {
     var color: UIColor {
         switch self {
         case .food: return .cFEBA5B
-        case .household: return .cFF7273
-        case .clothes: return .c60A8E0
+        case .household: return .c72BEFF
+        case .clothes: return .cFF4949
         case .miscellaneous: return .cA8C953
         }
     }

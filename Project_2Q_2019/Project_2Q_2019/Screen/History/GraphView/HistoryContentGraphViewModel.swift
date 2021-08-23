@@ -20,7 +20,7 @@ struct HistoryContentGraphViewModel {
         self.boughtGoods = boughtGoods
 
         // Pie Chart Data Set
-        let pieChartColorSet = [UIColor.cFEBA5B, UIColor.cFF7273, UIColor.c60A8E0, UIColor.cA8C953] as [NSUIColor]
+        let pieChartColorSet = [UIColor.cFEBA5B, UIColor.c72BEFF, UIColor.cFF4949, UIColor.cA8C953] as [NSUIColor]
 
         let pieChartValueSet = Observable.combineLatest(boughtGoods.map { ($0.food.totalPrice, GoodsCategory.food.title) },
                                                         boughtGoods.map { ($0.household.totalPrice, GoodsCategory.household.title) },
