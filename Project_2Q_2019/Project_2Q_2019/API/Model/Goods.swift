@@ -12,7 +12,7 @@ struct Goods: Codable {
     var name: String
     var category: String
     var id: String
-    var time: Date
+    var time: String
 }
 
 struct BoughtGoods: Codable {
@@ -24,7 +24,7 @@ struct BoughtGoods: Codable {
     var name: String
     var amount: Int
     var price: Int
-    var time: Date
+    var time: String
 }
 
 struct DateCount: Codable {
@@ -52,6 +52,6 @@ extension Array where Element == BoughtGoods {
 extension Goods {
 
     static func from(_ boughtGoods: BoughtGoods) -> Self {
-        .init(name: boughtGoods.name, category: boughtGoods.category, id: boughtGoods.id, time: Date())
+        .init(name: boughtGoods.name, category: boughtGoods.category, id: boughtGoods.id, time: Date().toString(format: DateType.firebase_key_fulldate))
     }
 }

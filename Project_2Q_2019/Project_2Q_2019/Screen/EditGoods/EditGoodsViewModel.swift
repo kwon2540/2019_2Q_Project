@@ -81,7 +81,7 @@ struct EditGoodsViewModel: APIStateProtocol {
                                       name: nameText.value,
                                       amount: amount,
                                       price: price,
-                                      time: Date())
+                                      time: Date().toString(format: DateType.firebase_key_fulldate))
 
         FirebaseManager.shared.addBoughtGoods(boughtGoods: boughtGoods) { state in
 
