@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c0h-x5-qMa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c0h-x5-qMa">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,8 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAu-LE-VlE" customClass="ShadowView" customModule="Project_2Q_2019" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="89" width="414" height="807"/>
+                                <rect key="frame" x="0.0" y="59" width="414" height="837"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15M-MB-MRK">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                                        <color key="backgroundColor" name="cF3F3F3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="Pa3-Sq-aDa"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqi-JR-gLT">
                                         <rect key="frame" x="377" y="15" width="22" height="22"/>
                                         <constraints>
@@ -30,14 +37,14 @@
                                             <action selector="dismiss:" destination="c0h-x5-qMa" eventType="touchUpInside" id="eBd-Dx-bwO"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入履歴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swf-yT-I7h">
-                                        <rect key="frame" x="20" y="11.5" width="97.5" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="履歴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swf-yT-I7h">
+                                        <rect key="frame" x="20" y="11.5" width="49" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ino-c7-ddJ">
-                                        <rect key="frame" x="0.0" y="50.5" width="414" height="756.5"/>
+                                        <rect key="frame" x="0.0" y="50.5" width="414" height="786.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                 </subviews>
@@ -49,30 +56,39 @@
                                     <constraint firstItem="ino-c7-ddJ" firstAttribute="leading" secondItem="cAu-LE-VlE" secondAttribute="leading" id="Odd-zS-OEd"/>
                                     <constraint firstAttribute="trailing" secondItem="ino-c7-ddJ" secondAttribute="trailing" id="cZS-PY-XOb"/>
                                     <constraint firstItem="Kqi-JR-gLT" firstAttribute="top" secondItem="cAu-LE-VlE" secondAttribute="top" constant="15" id="hvI-2l-nNp"/>
+                                    <constraint firstItem="15M-MB-MRK" firstAttribute="top" secondItem="vXs-5e-Iyn" secondAttribute="top" id="pdP-8Y-OVW"/>
+                                    <constraint firstItem="15M-MB-MRK" firstAttribute="trailing" secondItem="vXs-5e-Iyn" secondAttribute="trailing" id="po4-Oy-OmD"/>
                                     <constraint firstAttribute="trailing" secondItem="Kqi-JR-gLT" secondAttribute="trailing" constant="15" id="unv-Mu-Bqc"/>
                                     <constraint firstItem="Swf-yT-I7h" firstAttribute="leading" secondItem="cAu-LE-VlE" secondAttribute="leading" constant="20" id="yxM-on-pF3"/>
+                                    <constraint firstItem="15M-MB-MRK" firstAttribute="leading" secondItem="vXs-5e-Iyn" secondAttribute="leading" id="zRz-cd-TIZ"/>
                                 </constraints>
+                                <viewLayoutGuide key="safeArea" id="vXs-5e-Iyn"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="cAu-LE-VlE" secondAttribute="bottom" id="3fA-HY-im9"/>
                             <constraint firstItem="cAu-LE-VlE" firstAttribute="leading" secondItem="TUE-v5-4Vr" secondAttribute="leading" id="REg-CC-JJC"/>
-                            <constraint firstItem="cAu-LE-VlE" firstAttribute="top" secondItem="TUE-v5-4Vr" secondAttribute="top" constant="45" id="Tct-6z-9i4"/>
+                            <constraint firstItem="cAu-LE-VlE" firstAttribute="top" secondItem="TUE-v5-4Vr" secondAttribute="top" constant="15" id="Tct-6z-9i4"/>
                             <constraint firstAttribute="trailing" secondItem="cAu-LE-VlE" secondAttribute="trailing" id="vMt-MF-hTs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TUE-v5-4Vr"/>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="15M-MB-MRK" id="bcT-Jm-mXf"/>
                         <outlet property="contentView" destination="ino-c7-ddJ" id="jXr-Hd-ULx"/>
+                        <outlet property="shadowView" destination="cAu-LE-VlE" id="F78-Ws-gC2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lu-JQ-teN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="172.46376811594203" y="160.71428571428569"/>
+            <point key="canvasLocation" x="169.56521739130437" y="160.71428571428569"/>
         </scene>
     </scenes>
     <resources>
         <image name="close" width="26" height="26"/>
+        <namedColor name="cF3F3F3">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

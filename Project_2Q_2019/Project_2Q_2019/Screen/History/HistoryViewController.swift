@@ -11,9 +11,11 @@ import RxSwift
 
 final class HistoryViewController: UIViewController, StoryboardInstantiable {
 
+    @IBOutlet private weak var shadowView: ShadowView!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var noDataView: UIView!
-
+    @IBOutlet private weak var bannerView: UIView!
+    
     private let disposeBag = DisposeBag()
 
     var viewModel: HistoryViewModel!
@@ -21,6 +23,7 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupUI()
         bindViewModel()
         viewModel.loadGoodsCountForDate()
     }
@@ -33,6 +36,11 @@ final class HistoryViewController: UIViewController, StoryboardInstantiable {
 
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
+    }
+    
+    private func setupUI() {
+        shadowView.clipsToBounds = true
+        bannerView.roundCorners(corners: [.topLeft, .topRight], radius: 20)
     }
 
     private func setupCollectionView() {

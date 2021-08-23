@@ -16,9 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fod-Uk-Zuy" customClass="ShadowView" customModule="Project_2Q_2019" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fod-Uk-Zuy" customClass="ShadowView" customModule="Project_2Q_2019" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="414" height="837"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZt-IW-iXS">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                                        <color key="backgroundColor" name="cF3F3F3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="N9E-uQ-SY1"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sT4-u7-Rdg">
                                         <rect key="frame" x="377" y="15" width="22" height="22"/>
                                         <constraints>
@@ -177,10 +184,13 @@
                                     <constraint firstItem="Rhy-84-HM4" firstAttribute="bottom" secondItem="Sza-gb-gO8" secondAttribute="bottom" constant="20" id="7Cj-DP-IHV"/>
                                     <constraint firstAttribute="trailing" secondItem="sT4-u7-Rdg" secondAttribute="trailing" constant="15" id="AZj-7M-XTg"/>
                                     <constraint firstItem="glS-dK-iXb" firstAttribute="top" secondItem="Sza-gb-gO8" secondAttribute="top" id="Cz6-4t-v03"/>
+                                    <constraint firstItem="KZt-IW-iXS" firstAttribute="leading" secondItem="Rhy-84-HM4" secondAttribute="leading" id="E7h-fm-CQR"/>
                                     <constraint firstItem="276-ig-xep" firstAttribute="leading" secondItem="Fod-Uk-Zuy" secondAttribute="leading" constant="20" id="FXf-lN-yB2"/>
                                     <constraint firstItem="Zbt-i6-pGL" firstAttribute="centerX" secondItem="Rhy-84-HM4" secondAttribute="centerX" id="GJ6-1W-wrR"/>
                                     <constraint firstItem="Sza-gb-gO8" firstAttribute="top" secondItem="276-ig-xep" secondAttribute="bottom" constant="44.5" id="Hs8-3q-xIs"/>
+                                    <constraint firstItem="KZt-IW-iXS" firstAttribute="trailing" secondItem="Rhy-84-HM4" secondAttribute="trailing" id="NxP-Se-7EM"/>
                                     <constraint firstItem="Sza-gb-gO8" firstAttribute="leading" secondItem="Fod-Uk-Zuy" secondAttribute="leading" id="PMh-Q1-mk8"/>
+                                    <constraint firstItem="KZt-IW-iXS" firstAttribute="top" secondItem="Rhy-84-HM4" secondAttribute="top" id="d9S-oF-ofx"/>
                                     <constraint firstItem="sT4-u7-Rdg" firstAttribute="top" secondItem="Fod-Uk-Zuy" secondAttribute="top" constant="15" id="hPh-YN-JNn"/>
                                     <constraint firstItem="Zbt-i6-pGL" firstAttribute="centerY" secondItem="Rhy-84-HM4" secondAttribute="centerY" id="iLk-CM-IEY"/>
                                     <constraint firstItem="glS-dK-iXb" firstAttribute="trailing" secondItem="Sza-gb-gO8" secondAttribute="trailing" id="iy8-GX-m5V"/>
@@ -201,6 +211,7 @@
                         <viewLayoutGuide key="safeArea" id="JFP-4L-Ia3"/>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="KZt-IW-iXS" id="07e-NO-x07"/>
                         <outlet property="collectionView" destination="iwe-iv-I19" id="M5A-sO-Ye0"/>
                         <outlet property="graphStackView" destination="Sza-gb-gO8" id="caD-E4-BBL"/>
                         <outlet property="monthStackView" destination="2HC-Wi-W65" id="Pam-7E-kdr"/>
@@ -223,6 +234,9 @@
         </namedColor>
         <namedColor name="c545454">
             <color red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="cF3F3F3">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="cFAFAFA">
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

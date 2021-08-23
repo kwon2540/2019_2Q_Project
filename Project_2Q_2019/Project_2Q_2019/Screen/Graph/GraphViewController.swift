@@ -19,7 +19,8 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var noDataView: UIView!
     @IBOutlet private weak var shadowView: ShadowView!
     @IBOutlet private weak var graphStackView: UIStackView!
-
+    @IBOutlet private weak var bannerView: UIView!
+    
     private let hud: ProgressHUD = ProgressHUD.loadXib()
     private let disposeBag: DisposeBag = DisposeBag()
 
@@ -40,6 +41,7 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
         super.viewDidLayoutSubviews()
 
         setupHUD()
+        setupUI()
     }
 
     private func setup() {
@@ -66,6 +68,10 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
         hud.frame = shadowView.bounds
         hud.layer.cornerRadius = 20
         hud.clipsToBounds = true
+    }
+    
+    private func setupUI() {
+        bannerView.roundCorners(corners: [.topLeft, .topRight], radius: 20)
     }
 
     private func bindApiState() {

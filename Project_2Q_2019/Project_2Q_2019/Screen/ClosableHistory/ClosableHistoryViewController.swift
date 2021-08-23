@@ -11,18 +11,26 @@ import RxSwift
 
 class ClosableHistoryViewController: UIViewController, StoryboardInstantiable {
 
+    @IBOutlet private weak var shadowView: ShadowView!
     @IBOutlet private weak var contentView: UIView!
-
+    @IBOutlet private weak var bannerView: UIView!
+    
     private var selectedDate = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupUI()
         setupHistoryContentView()
     }
 
     @IBAction private func dismiss(_ sender: Any) {
         dismiss(animated: true)
+    }
+    
+    private func setupUI() {
+        shadowView.clipsToBounds = true
+        bannerView.roundCorners(corners: [.topLeft, .topRight], radius: 20)
     }
 
     static func makeInstance(selectedDate: String) -> ClosableHistoryViewController {

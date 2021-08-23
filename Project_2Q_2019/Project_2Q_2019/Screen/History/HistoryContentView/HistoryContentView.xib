@@ -56,8 +56,25 @@
                                 <constraint firstItem="6kI-Pi-eGW" firstAttribute="leading" secondItem="5kA-Dj-WJS" secondAttribute="leading" constant="20" id="xl1-6S-Z0q"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5u-U3-paI" userLabel="Separator">
+                            <rect key="frame" x="0.0" y="47" width="375" height="1"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0B-QY-VzA">
+                                    <rect key="frame" x="16" y="0.0" width="343" height="1"/>
+                                    <color key="backgroundColor" name="cF3F3F3"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="GaB-ju-hlc"/>
+                                <constraint firstItem="O0B-QY-VzA" firstAttribute="top" secondItem="a5u-U3-paI" secondAttribute="top" id="Izz-2w-oXB"/>
+                                <constraint firstItem="O0B-QY-VzA" firstAttribute="leading" secondItem="a5u-U3-paI" secondAttribute="leading" constant="16" id="cUg-wZ-ZiK"/>
+                                <constraint firstAttribute="bottom" secondItem="O0B-QY-VzA" secondAttribute="bottom" id="rxb-3A-Qsw"/>
+                                <constraint firstAttribute="trailing" secondItem="O0B-QY-VzA" secondAttribute="trailing" constant="16" id="sE5-QS-9Mk"/>
+                            </constraints>
+                        </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nZt-i5-DO2">
-                            <rect key="frame" x="0.0" y="47" width="375" height="620"/>
+                            <rect key="frame" x="0.0" y="48" width="375" height="619"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <view key="tableHeaderView" contentMode="scaleToFill" id="MyR-wD-Kfk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
@@ -87,6 +104,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="cF3F3F3">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="cF98A6C">
             <color red="0.97647058823529409" green="0.54117647058823526" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

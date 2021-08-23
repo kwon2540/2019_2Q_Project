@@ -19,6 +19,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcX-sL-DFa" customClass="ShadowView" customModule="Project_2Q_2019" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="414" height="837"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTf-c0-vaW">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                                        <color key="backgroundColor" name="cF3F3F3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="Xzb-xn-s49"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="StU-8o-yrD">
                                         <rect key="frame" x="377" y="15" width="22" height="22"/>
                                         <constraints>
@@ -65,7 +72,10 @@
                                     <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="top" secondItem="t9Y-uG-Ggo" secondAttribute="bottom" constant="44.5" id="2at-1M-bJ8"/>
                                     <constraint firstItem="StU-8o-yrD" firstAttribute="top" secondItem="KcX-sL-DFa" secondAttribute="top" constant="15" id="O1s-IN-PnH"/>
                                     <constraint firstItem="t9Y-uG-Ggo" firstAttribute="centerY" secondItem="StU-8o-yrD" secondAttribute="centerY" id="Tl4-mE-d0G"/>
+                                    <constraint firstItem="fTf-c0-vaW" firstAttribute="leading" secondItem="XOl-hw-8ke" secondAttribute="leading" id="boa-ri-v0x"/>
+                                    <constraint firstItem="fTf-c0-vaW" firstAttribute="trailing" secondItem="XOl-hw-8ke" secondAttribute="trailing" id="clx-x5-KcS"/>
                                     <constraint firstItem="aBp-XI-k9J" firstAttribute="height" secondItem="Yl7-Rl-Zuv" secondAttribute="height" id="eeR-uC-uGR"/>
+                                    <constraint firstItem="fTf-c0-vaW" firstAttribute="top" secondItem="XOl-hw-8ke" secondAttribute="top" id="ftv-j8-njK"/>
                                     <constraint firstItem="aBp-XI-k9J" firstAttribute="centerY" secondItem="Yl7-Rl-Zuv" secondAttribute="centerY" id="iGI-Vm-zs6"/>
                                     <constraint firstItem="Yl7-Rl-Zuv" firstAttribute="leading" secondItem="KcX-sL-DFa" secondAttribute="leading" id="jfw-oZ-DF8"/>
                                     <constraint firstItem="aBp-XI-k9J" firstAttribute="width" secondItem="Yl7-Rl-Zuv" secondAttribute="width" id="rtE-Pg-hi0"/>
@@ -74,6 +84,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Yl7-Rl-Zuv" secondAttribute="trailing" id="wNu-5a-WDY"/>
                                     <constraint firstItem="aBp-XI-k9J" firstAttribute="centerX" secondItem="Yl7-Rl-Zuv" secondAttribute="centerX" id="wha-El-WDC"/>
                                 </constraints>
+                                <viewLayoutGuide key="safeArea" id="XOl-hw-8ke"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,8 +100,10 @@
                         <viewLayoutGuide key="safeArea" id="fBV-gw-u2H"/>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="fTf-c0-vaW" id="Beo-g2-XTM"/>
                         <outlet property="collectionView" destination="Yl7-Rl-Zuv" id="fzq-g3-wZ2"/>
                         <outlet property="noDataView" destination="aBp-XI-k9J" id="8Ah-Bj-1B4"/>
+                        <outlet property="shadowView" destination="KcX-sL-DFa" id="nAm-yi-W5j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6O9-jl-fgN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -100,6 +113,9 @@
     </scenes>
     <resources>
         <image name="close" width="26" height="26"/>
+        <namedColor name="cF3F3F3">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="cFAFAFA">
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
