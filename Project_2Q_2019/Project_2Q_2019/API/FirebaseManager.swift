@@ -202,7 +202,7 @@ struct FirebaseManager: APIManager {
 
                 let goods = documentsData.compactMap {
                     try? FirestoreDecoder().decode(Goods.self, from: $0.data())
-                }
+                }.sorted(by: { $0.time < $1.time })
 
                 completion(goods, .success)
         }
@@ -336,7 +336,7 @@ struct FirebaseManager: APIManager {
 
                 let goods = documentsData.compactMap {
                     try? FirestoreDecoder().decode(BoughtGoods.self, from: $0.data())
-                }
+                }.sorted(by: { $0.time < $1.time })
 
                 completion(goods, .success)
         }
@@ -366,7 +366,7 @@ struct FirebaseManager: APIManager {
 
                 let goods = documentsData.compactMap {
                     try? FirestoreDecoder().decode(BoughtGoods.self, from: $0.data())
-                }
+                }.sorted(by: { $0.time < $1.time })
 
                 completion(goods, .success)
         }

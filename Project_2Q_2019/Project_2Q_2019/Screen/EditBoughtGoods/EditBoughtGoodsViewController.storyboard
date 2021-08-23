@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CLs-L6-akt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CLs-L6-akt">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -204,9 +203,9 @@
                                                                                             <constraint firstAttribute="height" constant="45" id="G6d-0m-uJv"/>
                                                                                             <constraint firstAttribute="width" constant="60" id="vV4-7u-mLX"/>
                                                                                         </constraints>
-                                                                                        <state key="normal" image="life_off"/>
-                                                                                        <state key="selected" image="life_on"/>
-                                                                                        <state key="highlighted" image="life_on"/>
+                                                                                        <state key="normal" image="food_off"/>
+                                                                                        <state key="selected" image="food_on"/>
+                                                                                        <state key="highlighted" image="food_on"/>
                                                                                         <connections>
                                                                                             <action selector="categoryButtons:" destination="CLs-L6-akt" eventType="touchUpInside" id="fln-SV-8WY"/>
                                                                                         </connections>
@@ -217,9 +216,9 @@
                                                                                             <constraint firstAttribute="width" constant="60" id="Ugp-3T-Iku"/>
                                                                                             <constraint firstAttribute="height" constant="45" id="WmV-Ih-Hpw"/>
                                                                                         </constraints>
-                                                                                        <state key="normal" image="fashion_off"/>
-                                                                                        <state key="selected" image="fashion_on"/>
-                                                                                        <state key="highlighted" image="fashion_on"/>
+                                                                                        <state key="normal" image="household_off"/>
+                                                                                        <state key="selected" image="household_on"/>
+                                                                                        <state key="highlighted" image="household_on"/>
                                                                                         <connections>
                                                                                             <action selector="categoryButtons:" destination="CLs-L6-akt" eventType="touchUpInside" id="iCE-R8-9Hx"/>
                                                                                         </connections>
@@ -230,9 +229,9 @@
                                                                                             <constraint firstAttribute="height" constant="45" id="8sT-M7-CTL"/>
                                                                                             <constraint firstAttribute="width" constant="60" id="mfG-rC-1X5"/>
                                                                                         </constraints>
-                                                                                        <state key="normal" image="hobbies_off"/>
-                                                                                        <state key="selected" image="hobbies_on"/>
-                                                                                        <state key="highlighted" image="hobbies_on"/>
+                                                                                        <state key="normal" image="clothes_off"/>
+                                                                                        <state key="selected" image="clothes_on"/>
+                                                                                        <state key="highlighted" image="clothes_on"/>
                                                                                         <connections>
                                                                                             <action selector="categoryButtons:" destination="CLs-L6-akt" eventType="touchUpInside" id="ako-xN-dLw"/>
                                                                                         </connections>
@@ -550,13 +549,13 @@
     <resources>
         <image name="check_off" width="26" height="26"/>
         <image name="check_on" width="26" height="26"/>
+        <image name="clothes_off" width="60" height="45"/>
+        <image name="clothes_on" width="60" height="45"/>
         <image name="delete" width="26" height="26"/>
-        <image name="fashion_off" width="60" height="45"/>
-        <image name="fashion_on" width="60" height="45"/>
-        <image name="hobbies_off" width="60" height="45"/>
-        <image name="hobbies_on" width="60" height="45"/>
-        <image name="life_off" width="60" height="45"/>
-        <image name="life_on" width="60" height="45"/>
+        <image name="food_off" width="60" height="45"/>
+        <image name="food_on" width="60" height="45"/>
+        <image name="household_off" width="60" height="45"/>
+        <image name="household_on" width="60" height="45"/>
         <image name="miscellaneous_off" width="60" height="45"/>
         <image name="miscellaneous_on" width="60" height="45"/>
         <image name="revert" width="26" height="26"/>

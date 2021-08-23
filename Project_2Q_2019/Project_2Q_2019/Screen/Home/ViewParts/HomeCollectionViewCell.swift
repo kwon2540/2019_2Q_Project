@@ -82,11 +82,11 @@ extension HomeCollectionViewCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let category = viewModel.categorys[indexPath.section]
         switch category {
-        case .life:
+        case .food:
             didSelectGoods?(viewModel.lifeGoods[indexPath.row])
-        case .fashion:
+        case .household:
             didSelectGoods?(viewModel.fashionGoods[indexPath.row])
-        case .hobby:
+        case .clothes:
             didSelectGoods?(viewModel.hobbyGoods[indexPath.row])
         case .miscellaneous:
             didSelectGoods?(viewModel.miscellaneousGoods[indexPath.row])
@@ -100,11 +100,11 @@ extension HomeCollectionViewCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let category = viewModel.categorys[section]
         switch category {
-        case .life:
+        case .food:
             return viewModel.lifeGoods.count
-        case .fashion:
+        case .household:
             return viewModel.fashionGoods.count
-        case .hobby:
+        case .clothes:
             return viewModel.hobbyGoods.count
         case .miscellaneous:
             return viewModel.miscellaneousGoods.count
@@ -126,11 +126,11 @@ extension HomeCollectionViewCell: UITableViewDataSource {
         
         let category = viewModel.categorys[indexPath.section]
         switch category {
-        case .life:
+        case .food:
             cell.set(name: viewModel.lifeGoods[indexPath.row].name)
-        case .fashion:
+        case .household:
             cell.set(name: viewModel.fashionGoods[indexPath.row].name)
-        case .hobby:
+        case .clothes:
             cell.set(name: viewModel.hobbyGoods[indexPath.row].name)
         case .miscellaneous:
             cell.set(name: viewModel.miscellaneousGoods[indexPath.row].name)

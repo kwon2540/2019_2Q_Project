@@ -69,7 +69,7 @@ struct EditGoodsViewModel: APIStateProtocol {
     func addBoughtGoods(selectedButtonTag: Int) {
         apiStateRelay.accept(.loading)
 
-        let category = GoodsCategory(rawValue: selectedButtonTag)?.key ?? GoodsCategory.life.key
+        let category = GoodsCategory(rawValue: selectedButtonTag)?.key ?? GoodsCategory.food.key
         let amount = Int(amountText.value) ?? 1
         let price = Int(priceText.value) ?? 0
 
@@ -80,7 +80,8 @@ struct EditGoodsViewModel: APIStateProtocol {
                                       category: category,
                                       name: nameText.value,
                                       amount: amount,
-                                      price: price)
+                                      price: price,
+                                      time: Date().toString(format: DateType.firebase_key_fulldate))
 
         FirebaseManager.shared.addBoughtGoods(boughtGoods: boughtGoods) { state in
 

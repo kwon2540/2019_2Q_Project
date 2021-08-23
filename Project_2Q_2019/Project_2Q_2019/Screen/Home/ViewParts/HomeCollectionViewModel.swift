@@ -22,25 +22,25 @@ struct HomeCollectionViewModel {
     init(goods: [Goods]) {
         self.goods = goods
         self.lifeGoods = goods.filter {
-            $0.category == GoodsCategory.life.key
+            $0.category == GoodsCategory.food.key
         }
         self.fashionGoods = goods.filter {
-            $0.category == GoodsCategory.fashion.key
+            $0.category == GoodsCategory.household.key
         }
         self.hobbyGoods = goods.filter {
-            $0.category == GoodsCategory.hobby.key
+            $0.category == GoodsCategory.clothes.key
         }
         self.miscellaneousGoods = goods.filter {
             $0.category == GoodsCategory.miscellaneous.key
         }
         if !self.lifeGoods.isEmpty {
-            categorys.append(GoodsCategory.life)
+            categorys.append(GoodsCategory.food)
         }
         if !self.fashionGoods.isEmpty {
-            categorys.append(GoodsCategory.fashion)
+            categorys.append(GoodsCategory.household)
         }
         if !self.hobbyGoods.isEmpty {
-            categorys.append(GoodsCategory.hobby)
+            categorys.append(GoodsCategory.clothes)
         }
         if !self.miscellaneousGoods.isEmpty {
             categorys.append(GoodsCategory.miscellaneous)
@@ -57,9 +57,9 @@ struct HomeCollectionViewModel {
     
     func getGoodsData(category: GoodsCategory) -> [Goods] {
         switch category {
-        case .life: return lifeGoods
-        case .fashion: return fashionGoods
-        case .hobby: return hobbyGoods
+        case .food: return lifeGoods
+        case .household: return fashionGoods
+        case .clothes: return hobbyGoods
         case .miscellaneous: return miscellaneousGoods
         }
     }
@@ -77,11 +77,11 @@ struct HomeCollectionViewModel {
     
     func getSeparatorIsShow(category: GoodsCategory, indexPath: Int) -> Bool {
         switch category {
-        case .life:
+        case .food:
             return lifeGoods.count != indexPath + 1
-        case .fashion:
+        case .household:
             return fashionGoods.count != indexPath + 1
-        case .hobby:
+        case .clothes:
             return hobbyGoods.count != indexPath + 1
         case .miscellaneous:
             return miscellaneousGoods.count != indexPath + 1
