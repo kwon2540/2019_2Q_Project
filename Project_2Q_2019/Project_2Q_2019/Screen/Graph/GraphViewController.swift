@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import GoogleMobileAds
 
 final class GraphViewController: UIViewController, StoryboardInstantiable {
 
@@ -20,6 +21,7 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet private weak var shadowView: ShadowView!
     @IBOutlet private weak var graphStackView: UIStackView!
     @IBOutlet private weak var bannerView: UIView!
+    @IBOutlet private weak var adsView: GADBannerView!
     
     private let hud: ProgressHUD = ProgressHUD.loadXib()
     private let disposeBag: DisposeBag = DisposeBag()
@@ -46,6 +48,7 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
 
     private func setup() {
         setupCollectionView()
+        setupAds()
     }
 
     private func bind() {
@@ -62,7 +65,13 @@ final class GraphViewController: UIViewController, StoryboardInstantiable {
         collectionView.dataSource = self
         collectionView.registerXib(of: VerticalGraphCell.self)
     }
-
+    
+    private func setupAds() {
+        adsView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        adsView.rootViewController = self
+        adsView.load(GADRequest())
+    }
+    
     private func setupHUD() {
         shadowView.addSubview(hud)
         hud.frame = shadowView.bounds

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let firbaseOptions = FirebaseOptions(contentsOfFile: path) {
             FirebaseApp.configure(options: firbaseOptions)
         }
+        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
 
         window = UIWindow()
         window?.makeKeyAndVisible()
